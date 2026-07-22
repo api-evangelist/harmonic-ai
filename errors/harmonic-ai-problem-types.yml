@@ -1,0 +1,75 @@
+generated: '2026-07-22'
+method: derived
+format: fastapi-json
+source: >-
+  Derived from the 4xx/5xx responses declared in
+  openapi/harmonic-ai-openapi.json (OpenAPI 3.1.0, 86 operations). The API is
+  FastAPI-generated: it does NOT use RFC 9457 application/problem+json. Every
+  error is returned as application/json with a FastAPI-style body. The only
+  error statuses declared in the spec are 422 (request/validation and
+  domain-eligibility errors) and 429 (enrichment quota exhausted).
+rfc9457: false
+envelope:
+  media_type: application/json
+  default_shape: '{ "detail": [ { "loc": [string|integer, ...], "msg": string, "type": string, "input": any, "ctx": object } ] }'
+  note: >-
+    The standard FastAPI validation envelope wraps a `detail` array of
+    ValidationError objects. Two operations return a typed alternative 422 body
+    (NoEligiblePeopleErrorDetail / QuotaInsufficientErrorDetail) that use a flat
+    `error` discriminator string instead of the `detail` array.
+validation_error_shape:
+  schema: HTTPValidationError
+  item_schema: ValidationError
+  fields:
+    - {name: loc, type: array<string|integer>, required: true, description: 'JSON pointer path to the offending field (e.g. body/identifiers/0).'}
+    - {name: msg, type: string, required: true, description: Human-readable validation message.}
+    - {name: type, type: string, required: true, description: Machine error type (e.g. value_error.missing).}
+    - {name: input, type: any, required: false, description: The rejected input value.}
+    - {name: ctx, type: object, required: false, description: Additional context for the error type.}
+problems:
+  - status: 422
+    title: Unprocessable Entity (Validation Error)
+    media_type: application/json
+    schema: HTTPValidationError
+    meaning: >-
+      Request failed validation — a required parameter/body field is missing,
+      malformed, or of the wrong type. This is the default error response on
+      81 of 86 operations.
+    remediation: >-
+      Inspect detail[].loc to find the offending field and detail[].msg for the
+      reason; correct the request and retry.
+    declared_on: nearly all operations (81/86)
+  - status: 422
+    title: No Eligible People
+    media_type: application/json
+    schema: NoEligiblePeopleErrorDetail
+    error_discriminator: NO_ELIGIBLE_PEOPLE
+    meaning: >-
+      None of the submitted people are eligible for enrichment. The `dropped`
+      array (DroppedPerson) explains why each person was excluded; `submitted`
+      is the count received.
+    remediation: >-
+      Review dropped[] reasons; resubmit only eligible people.
+    declared_on: submit_job_email_enrichment_jobs_post
+  - status: 429
+    title: Monthly Quota Insufficient
+    media_type: application/json
+    schema: QuotaInsufficientErrorDetail
+    error_discriminator: MONTHLY_QUOTA_INSUFFICIENT
+    meaning: >-
+      The request requires more enrichment credits than remain in the
+      customer's monthly quota. Fields: `needed`, `available`, `submitted`.
+    remediation: >-
+      Retry with a smaller batch that fits `available`, or wait for the quota to
+      reset / upgrade the plan.
+    declared_on: submit_job_email_enrichment_jobs_post
+notes:
+  - >-
+    The spec declares only 422 and 429 explicitly; auth (401/403) and rate-limit
+    behavior are enforced at the gateway and not modeled in the OpenAPI
+    responses. Treat any non-2xx not listed here as transport/gateway level.
+  - >-
+    Because the envelope is FastAPI `{detail: [...]}` (not
+    application/problem+json), clients must NOT parse these as RFC 9457 problem
+    documents. The two typed 422/429 bodies are discriminated by a flat `error`
+    enum string rather than a `type` URI.

@@ -1,0 +1,157 @@
+generated: '2026-07-22'
+method: derived
+source: >-
+  Derived by aligning the published MCP tool list (llms.txt / mcp/harmonic-ai-mcp.yml) with the
+  live REST OpenAPI (openapi/harmonic-ai-openapi.json, 86 operations). Confidence per row.
+purpose: >-
+  Make the MCP tool the first-class discovery unit and bind it to its backing REST operation, the
+  way apis.io binds an OpenAPI operation. Demonstrates that Harmonic's REST, GraphQL, and MCP
+  surfaces are three OVERLAPPING-BUT-DIVERGENT projections of one data core — no surface is a superset.
+surfaces:
+  rest_openapi: openapi/harmonic-ai-openapi.json     # 86 operations, 224 schemas, OpenAPI 3.1.0
+  graphql: https://api.harmonic.ai/graphql           # SDL gated (introspection requires api key / JWT)
+  mcp: https://mcp.api.harmonic.ai                    # tools/list gated (OAuth); tool names from llms.txt
+
+# Each MCP tool -> the REST operationId(s) that back it. inputSchema for a bound tool is the
+# operation's parameters + requestBody in the OpenAPI (real, not fabricated). Unbound tools have
+# no public REST contract and their inputSchema is only obtainable via authenticated MCP tools/list.
+crosswalk:
+  - tool: enrich_companies
+    category: enrichment
+    rest: [get_company_by_identifiers_companies_post, get_company_by_id_or_urn_companies__id_or_urn__get]
+    binding: rest
+    confidence: high
+  - tool: enrich_people
+    category: enrichment
+    rest: [get_person_by_canonical_persons_post, get_person_by_id_or_urn_persons__id_or_urn__get]
+    binding: rest
+    confidence: high
+  - tool: search_companies_natural_language
+    category: search
+    rest: [search_companies_by_keywords_search_companies_by_keywords_post, search_agent_search_search_agent_get]
+    binding: rest
+    confidence: medium
+    note: NL search maps to keyword search and/or the search_agent endpoint; exact routing is server-side.
+  - tool: typeahead_search
+    category: search
+    rest: [typeahead_search_search_typeahead_get]
+    binding: rest
+    confidence: high
+  - tool: get_companies_by_id
+    category: lookup
+    rest: [batch_get_companies_by_id_or_urn_using_post_companies_batchGet_post, batch_get_company_by_id_or_urn_companies_get]
+    binding: rest
+    confidence: high
+  - tool: get_persons_by_id
+    category: lookup
+    rest: [batch_get_person_by_id_or_urn_post_method_persons_batchGet_post, batch_get_persons_by_id_or_urn_persons_get]
+    binding: rest
+    confidence: high
+  - tool: list_saved_searches
+    category: saved_searches
+    rest: [get_saved_search_by_owner_saved_searches_get]
+    binding: rest
+    confidence: high
+  - tool: get_saved_search_companies_results
+    category: saved_searches
+    rest: [get_saved_search_results_saved_searches_results__id_or_urn__get, get_saved_search_net_new_results_saved_searches__id_or_urn__net_new_results_get]
+    binding: rest
+    confidence: high
+    note: net-new variant maps to the net_new_results operation.
+  - tool: get_saved_search_people_results
+    category: saved_searches
+    rest: [get_saved_search_results_saved_searches_results__id_or_urn__get]
+    binding: rest
+    confidence: medium
+    note: Same generic results endpoint; result entity type is a search property, not a distinct path.
+  - tool: get_saved_search_investors_results
+    category: saved_searches
+    rest: [get_saved_search_results_saved_searches_results__id_or_urn__get]
+    binding: rest
+    confidence: medium
+  - tool: create_company_list
+    category: lists
+    rest: [create_company_watchlist_watchlists_companies_post]
+    binding: rest
+    confidence: high
+    note: MCP "list" == REST "watchlist" (renamed in the agent projection).
+  - tool: get_company_lists
+    category: lists
+    rest: [get_company_watchlists_by_owner_watchlists_companies_get]
+    binding: rest
+    confidence: high
+  - tool: get_company_list_entries
+    category: lists
+    rest: [get_company_watchlist_entries_watchlists_companies__id_or_urn__entries_get]
+    binding: rest
+    confidence: high
+  - tool: add_companies_to_list
+    category: lists
+    rest: [add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post, company_watchlist_add_entries_watchlists_companies__id_or_urn__entries_post]
+    binding: rest
+    confidence: high
+  - tool: update_company_list_entries
+    category: lists
+    rest: [upsert_company_watchlist_named_views_watchlists_companies__id_or_urn__named_views_post]
+    binding: rest
+    confidence: low
+    note: "'people-list' variant maps to the parallel watchlists/people operations."
+  - tool: list_global_custom_fields
+    category: custom_fields
+    rest: [get_global_custom_fields_companies_custom_fields_get]
+    binding: rest
+    confidence: high
+  - tool: create_global_custom_field
+    category: custom_fields
+    rest: [create_global_custom_field_companies_custom_field_post]
+    binding: rest
+    confidence: high
+  - tool: upsert_company_global_custom_field_values
+    category: custom_fields
+    rest: [update_global_custom_field_companies_custom_field_put]
+    binding: rest
+    confidence: medium
+  - tool: get_companies_user_connections
+    category: network
+    rest: [get_user_connections_companies__id_or_urn__userConnections_get]
+    binding: rest
+    confidence: high
+
+# MCP-ONLY: exposed as MCP tools but ABSENT from the public REST OpenAPI. Likely GraphQL-backed or
+# a server-side composite. No public REST inputSchema — flags a real surface divergence.
+mcp_only:
+  - tool: get_investors
+    category: investors
+    reason: No investor operation in the public REST OpenAPI; investor data appears GraphQL/MCP-only.
+  - tool: get_people_user_connections
+    category: network
+    reason: REST exposes company userConnections but no person-level userConnections operation.
+  - tool: upsert_people_global_custom_field_values
+    category: custom_fields
+    reason: REST custom-field operations are company-scoped only; people custom-field writes are MCP/GraphQL-only.
+  - tool: get_team_members
+    category: team
+    reason: No account/team operation in the public REST OpenAPI (admin surface).
+
+# REST-ONLY: real OpenAPI operations with NO corresponding MCP tool. The agent projection omits them.
+rest_only:
+  - group: watchlist imports
+    ops: [get_company_watchlist_imports_watchlists_companies__id_or_urn__imports_get, get_user_company_import_watchlists_companies_imports__id_or_urn__get]
+  - group: attachments (company documents)
+    ops: [batch_create_attachments_companies__id_or_urn__attachments_post, get_attachment_content_companies__id_or_urn__attachments__urn__get]
+  - group: email enrichment jobs
+    ops: [submit_job_email_enrichment_jobs_post, get_job_email_enrichment_jobs__job_id__get, get_public_usage_email_enrichment_usage_get]
+  - group: similar companies
+    ops: [search_similar_companies_search_similar_companies__id_or_urn__get]
+  - group: enrichment status polling
+    ops: [get_enrichment_request_status_enrichment_status_get]
+
+coverage:
+  mcp_tools_named: 23
+  mcp_bound_to_rest: 19
+  mcp_only: 4
+  rest_operations_total: 86
+  rest_operations_with_mcp_tool: ~22
+  note: >-
+    Rough — REST has camelCase/snake_case dual paths (saved_searches vs savedSearches) that collapse to
+    one logical operation, and one MCP tool often fans out to several REST ops.

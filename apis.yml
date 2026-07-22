@@ -49,6 +49,8 @@ apis:
         url: https://console.harmonic.ai/docs/api-reference/introduction
       - type: APIReference
         url: https://console.harmonic.ai/docs/api-reference/introduction
+      - type: OpenAPI
+        url: openapi/harmonic-ai-openapi.json
       - type: GraphQL
         url: https://api.harmonic.ai/graphql
       - type: Authentication
@@ -57,6 +59,12 @@ apis:
         url: conventions/harmonic-ai-conventions.yml
       - type: Postman
         url: https://www.postman.com/harmonic-ai/harmonic/overview
+      - type: DataModel
+        url: data-model/harmonic-ai-data-model.yml
+      - type: ErrorCatalog
+        url: errors/harmonic-ai-problem-types.yml
+      - type: Overlay
+        url: overlays/harmonic-ai-security-overlay.yaml
   - name: Harmonic MCP Server
     description: >-
       Hosted, agent-native MCP server exposing 40+ tools for enrichment, search, saved searches, lists, investors,
@@ -132,6 +140,8 @@ common:
     url: conformance/harmonic-ai-conformance.yml
   - type: DomainSecurity
     url: security/harmonic-ai-domain-security.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
   - FN: Harmonic.ai
     url: https://harmonic.ai/

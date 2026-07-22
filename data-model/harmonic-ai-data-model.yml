@@ -1,0 +1,101 @@
+generated: '2026-07-22'
+method: derived
+source: >-
+  Derived from the object relationships in openapi/harmonic-ai-openapi.json
+  (OpenAPI 3.1.0, 224 components.schemas): schema $ref links and id/urn
+  reference fields (company_urn, investor_urn, watchlist_urn, list_urn,
+  current_company_urns, funding_rounds, etc.) plus the URN grammar exposed in
+  the schema examples. Captures the core entity-relationship graph behind the
+  startup-intelligence data core (companies, people, investors, saved searches,
+  watchlists/lists, custom fields, funding rounds).
+docs: https://console.harmonic.ai/docs/api-reference/introduction
+notation: >-
+  Every entity is addressed by a stable URN of the form
+  urn:harmonic:<entity_type>:<id> (seen verbatim in the OpenAPI schema
+  examples); Company/Person/Investor also carry an integer `id`. Relationships
+  use has_one / has_many / belongs_to with the reference field name in `via`;
+  direction is from the entity that owns the reference field.
+
+urn_grammar:
+  pattern: 'urn:harmonic:<entity_type>:<id>'
+  namespace: 'urn:harmonic'
+  note: >-
+    The path parameter `{id_or_urn}` on most operations accepts either the
+    integer id or the full URN. Search/lookup outputs return the URN form.
+
+entities:
+  - {name: Company, urn_prefix: 'urn:harmonic:company', id_type: integer, schema: CompanyOutput, domain: core, description: A company/startup record; the primary enrichment entity.}
+  - {name: Person, urn_prefix: 'urn:harmonic:person', id_type: integer, schema: PersonOutput, domain: core, description: A person/professional record (founders, employees, contacts).}
+  - {name: Investor, urn_prefix: 'urn:harmonic:investor', id_type: integer, schema: InvestorOutput, domain: investors, description: An investing entity (VC/PE/angel) with portfolio and activity metrics.}
+  - {name: FundingRound, urn_prefix: 'urn:harmonic:funding_round', schema: FundingRoundOutput, domain: funding, description: A single financing event for a company, with amount, type, and investors.}
+  - {name: FundingRoundInvestor, urn_prefix: 'urn:harmonic:funding_round_investor_association', schema: FundingRoundInvestor, domain: funding, description: A participation of an investor in a funding round (lead flag, name, urn).}
+  - {name: CompanySnapshot, urn_prefix: 'urn:harmonic:company_snapshot', schema: CompanySnapshotOutput, domain: core, description: A point-in-time snapshot of a company's traction/metrics.}
+  - {name: SavedSearch, urn_prefix: 'urn:harmonic:saved_search', id_type: integer, schema: SavedSearchOutput, domain: search, description: A stored query over companies or people with net-new result tracking.}
+  - {name: CompanyWatchlist, urn_prefix: 'urn:harmonic:company_watchlist', id_type: string, schema: CompanyWatchlistOutput, domain: lists, aliases: [List], description: A user/team list of companies (the MCP surface calls this a "list").}
+  - {name: PeopleWatchlist, urn_prefix: 'urn:harmonic:people_watchlist', id_type: string, schema: PeopleWatchlistOutput, domain: lists, aliases: [List], description: A user/team list of people.}
+  - {name: CompanyWatchlistEntry, urn_prefix: 'urn:harmonic:company_watchlist_entry', schema: CompanyWatchlistEntry, domain: lists, description: Membership of one company in a company watchlist, with custom-field values.}
+  - {name: PeopleWatchlistEntry, urn_prefix: 'urn:harmonic:list_entry', schema: PeopleWatchlistEntry, domain: lists, description: Membership of one person in a people watchlist, with custom-field values.}
+  - {name: CompanyListCustomField, urn_prefix: 'urn:harmonic:company_list_custom_field', schema: CompanyListCustomFieldOutput, domain: custom_fields, description: A custom field defined on a company watchlist.}
+  - {name: PersonListCustomField, urn_prefix: 'urn:harmonic:person_list_custom_field', schema: PersonListCustomFieldOutput, domain: custom_fields, description: A custom field defined on a people watchlist.}
+  - {name: CompanyListNamedView, urn_prefix: 'urn:harmonic:company_list_named_view', schema: CompanyListNamedViewOutput, domain: lists, description: A saved column/named view on a company watchlist.}
+  - {name: PersonListNamedView, urn_prefix: 'urn:harmonic:person_list_named_view', schema: PersonListNamedViewOutput, domain: lists, description: A saved column/named view on a people watchlist.}
+  - {name: UserCompanyImport, urn_prefix: 'urn:harmonic:user_company_import', schema: UserCompaniesImportOutputWithStats, domain: imports, description: A bulk company-import job feeding a watchlist.}
+  - {name: UserPeopleImport, urn_prefix: 'urn:harmonic:user_people_import', schema: UserPeopleImportOutputWithStats, domain: imports, description: A bulk people-import job feeding a watchlist.}
+  - {name: Attachment, urn_prefix: 'urn:harmonic:user_uploaded_content', schema: AttachmentMetadataOutput, domain: attachments, description: A document/attachment linked to a company or person record.}
+  - {name: Tag, urn_prefix: 'urn:harmonic:tag', domain: core, description: A classification tag on a company.}
+  - {name: Location, urn_prefix: 'urn:harmonic:location', domain: core, description: A resolved location referenced by companies and people.}
+  - {name: User, urn_prefix: 'urn:harmonic:user', domain: identity, description: The account/user that owns saved searches and watchlists.}
+
+relationships:
+  # Company core graph
+  - {from: Company, to: FundingRound, kind: has_many, via: funding_rounds}
+  - {from: FundingRound, to: Company, kind: belongs_to, via: company_urn}
+  - {from: Company, to: CompanySnapshot, kind: has_many, via: snapshots}
+  - {from: Company, to: Person, kind: has_many, via: people}
+  - {from: Company, to: Person, kind: has_many, via: employees}
+  - {from: Company, to: Tag, kind: has_many, via: tags}
+  - {from: Company, to: Attachment, kind: has_many, via: attachments}
+  # Person graph
+  - {from: Person, to: Company, kind: belongs_to, via: current_company_urns}
+  - {from: Person, to: Investor, kind: belongs_to, via: investor_urn}
+  - {from: Person, to: Attachment, kind: has_many, via: attachments}
+  # Funding / investor graph
+  - {from: FundingRound, to: FundingRoundInvestor, kind: has_many, via: investors}
+  - {from: FundingRoundInvestor, to: Investor, kind: belongs_to, via: investor_urn}
+  - {from: Investor, to: FundingRound, kind: has_many, via: last_funding_rounds}
+  # Saved search
+  - {from: SavedSearch, to: User, kind: belongs_to, via: creator}
+  - {from: SavedSearch, to: Company, kind: has_many, via: results}
+  - {from: SavedSearch, to: Person, kind: has_many, via: results}
+  # Company watchlist / list graph
+  - {from: CompanyWatchlist, to: User, kind: belongs_to, via: owner}
+  - {from: CompanyWatchlist, to: Company, kind: has_many, via: companies}
+  - {from: CompanyWatchlist, to: CompanyWatchlistEntry, kind: has_many, via: entries}
+  - {from: CompanyWatchlistEntry, to: CompanyWatchlist, kind: belongs_to, via: watchlist_urn}
+  - {from: CompanyWatchlistEntry, to: Company, kind: belongs_to, via: company_urn}
+  - {from: CompanyWatchlist, to: CompanyListCustomField, kind: has_many, via: custom_fields}
+  - {from: CompanyListCustomField, to: CompanyWatchlist, kind: belongs_to, via: list_urn}
+  - {from: CompanyWatchlist, to: CompanyListNamedView, kind: has_many, via: named_views}
+  - {from: CompanyWatchlist, to: UserCompanyImport, kind: has_many, via: imports}
+  # People watchlist / list graph
+  - {from: PeopleWatchlist, to: User, kind: belongs_to, via: owner}
+  - {from: PeopleWatchlist, to: Person, kind: has_many, via: people}
+  - {from: PeopleWatchlist, to: PeopleWatchlistEntry, kind: has_many, via: entries}
+  - {from: PeopleWatchlistEntry, to: PeopleWatchlist, kind: belongs_to, via: watchlist_urn}
+  - {from: PeopleWatchlistEntry, to: Person, kind: belongs_to, via: person_urn}
+  - {from: PeopleWatchlist, to: PersonListCustomField, kind: has_many, via: custom_fields}
+  - {from: PersonListCustomField, to: PeopleWatchlist, kind: belongs_to, via: list_urn}
+  - {from: PeopleWatchlist, to: PersonListNamedView, kind: has_many, via: named_views}
+  - {from: PeopleWatchlist, to: UserPeopleImport, kind: has_many, via: imports}
+
+interchange_hubs: [Company, Person, Investor, CompanyWatchlist]
+notes:
+  - >-
+    The API exposes dual snake_case (/saved_searches, /savedSearches) and camel
+    path variants for saved searches that collapse to the same SavedSearch
+    entity; likewise watchlists are the REST name for what the MCP surface calls
+    "lists".
+  - >-
+    Investor is a first-class output schema in the REST spec (InvestorOutput)
+    reachable transitively via funding rounds, though there is no top-level
+    /investors CRUD path (investor lookup is MCP/GraphQL-fronted).

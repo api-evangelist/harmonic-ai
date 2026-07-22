@@ -1,0 +1,51 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist security overlay for Harmonic.ai Public API
+  version: 1.0.0
+extends: openapi/harmonic-ai-openapi.json
+generated: '2026-07-22'
+method: generated
+source: openapi/harmonic-ai-openapi.json
+rationale: >-
+  The captured OpenAPI (openapi/harmonic-ai-openapi.json) ships an EMPTY
+  components.securitySchemes and no root security requirement, yet Harmonic
+  documents two auth mechanisms: an `apikey` request header and OAuth 2.0
+  (used by the hosted MCP server). This overlay adds both schemes and a root
+  security requirement WITHOUT mutating the original spec. Apply with any
+  Overlay 1.0.0 processor against openapi/harmonic-ai-openapi.json.
+actions:
+  - target: $.components.securitySchemes
+    description: Add the apikey header scheme documented by Harmonic.
+    update:
+      apiKeyAuth:
+        type: apiKey
+        in: header
+        name: apikey
+        description: >-
+          Harmonic API key sent in the `apikey` request header. Obtain from the
+          Harmonic console (Settings > API). See
+          authentication/harmonic-ai-authentication.yml.
+  - target: $.components.securitySchemes
+    description: Add the OAuth 2.0 authorization-code scheme used by the hosted MCP server.
+    update:
+      oauth2:
+        type: oauth2
+        description: >-
+          OAuth 2.0 authorization-code flow fronting the Harmonic MCP server.
+          See scopes/harmonic-ai-scopes.yml and
+          well-known/harmonic-ai-mcp-oauth-authorization-server.json.
+        flows:
+          authorizationCode:
+            authorizationUrl: https://mcp.api.harmonic.ai/authorize
+            tokenUrl: https://mcp.api.harmonic.ai/token
+            scopes:
+              read: Read access to companies, people, investors, saved searches, and lists.
+              write: Create and modify saved searches, watchlists/lists, entries, and custom fields.
+  - target: $
+    description: Add a root security requirement so every operation requires apikey or OAuth 2.0.
+    update:
+      security:
+        - apiKeyAuth: []
+        - oauth2:
+            - read
+            - write
