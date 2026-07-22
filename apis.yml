@@ -2,7 +2,10 @@ name: Harmonic.ai
 description: >-
   Startup discovery and intelligence platform built on a proprietary database of 30M+ companies and 200M+ people,
   offering real-time funding data, headcount/traction metrics, team composition, and investor relationships via REST,
-  GraphQL, and a hosted MCP server.
+  GraphQL, and a hosted MCP server. Used by venture capital, growth equity, corporate development, and go-to-market
+  teams to find, research, and qualify startups programmatically or through the console web app, Chrome extension,
+  bulk data exports (BigQuery/Snowflake/S3), and CRM integrations (Salesforce/HubSpot/Affinity).
+image: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/65f31ad2b4ac6cf0cb8bd691_og-img.png
 url: https://harmonic-ai.apievangelist.com/apis.yml
 created: '2026-07-22'
 modified: '2026-07-22'
@@ -44,8 +47,16 @@ apis:
     properties:
       - type: Documentation
         url: https://console.harmonic.ai/docs/api-reference/introduction
+      - type: APIReference
+        url: https://console.harmonic.ai/docs/api-reference/introduction
       - type: GraphQL
         url: https://api.harmonic.ai/graphql
+      - type: Authentication
+        url: authentication/harmonic-ai-authentication.yml
+      - type: Conventions
+        url: conventions/harmonic-ai-conventions.yml
+      - type: Postman
+        url: https://www.postman.com/harmonic-ai/harmonic/overview
   - name: Harmonic MCP Server
     description: >-
       Hosted, agent-native MCP server exposing 40+ tools for enrichment, search, saved searches, lists, investors,
@@ -55,24 +66,72 @@ apis:
     baseURL: https://mcp.api.harmonic.ai/
     tags:
       - startup-intelligence
-      - venture-capital
+      - mcp
+      - agent-native
+      - data-enrichment
       - company-data
       - people-data
       - investor-data
-      - funding-data
-      - data-enrichment
-      - sales-intelligence
-      - market-intelligence
-      - graphql
-      - mcp
-      - agent-native
     properties:
+      - type: MCPServer
+        url: mcp/harmonic-ai-mcp.yml
       - type: MCP
         url: https://mcp.api.harmonic.ai/
       - type: Documentation
         url: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
+      - type: OAuthScopes
+        url: scopes/harmonic-ai-scopes.yml
       - type: LLMSTxt
         url: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/69aeeb8f09c598b6aea54692_llms.txt
+common:
+  - type: DeveloperPortal
+    url: https://console.harmonic.ai/
+  - type: Documentation
+    url: https://console.harmonic.ai/docs/api-reference/introduction
+  - type: APIReference
+    url: https://console.harmonic.ai/docs/api-reference/introduction
+  - type: GettingStarted
+    url: https://console.harmonic.ai/docs/getting-started
+  - type: Support
+    url: https://support.harmonic.ai/
+  - type: Blog
+    url: https://harmonic.ai/blog
+  - type: GitHubOrganization
+    url: https://github.com/harmonic-ai
+  - type: Pricing
+    url: https://harmonic.ai/pricing
+  - type: SignUp
+    url: https://console.harmonic.ai/signup
+  - type: Login
+    url: https://console.harmonic.ai/login
+  - type: TermsOfService
+    url: https://harmonic.ai/legal/terms-of-service
+  - type: PrivacyPolicy
+    url: https://harmonic.ai/legal/privacy-policy
+  - type: Postman
+    url: https://www.postman.com/harmonic-ai/harmonic/overview
+  - type: StatusPage
+    url: https://status.harmonic.ai
+  - type: ChangeLog
+    url: https://console.harmonic.ai/docs/changelog
+  - type: MCPServer
+    url: mcp/harmonic-ai-mcp.yml
+  - type: LLMsTxt
+    url: llms/harmonic-ai-llms.txt
+  - type: WellKnown
+    url: well-known/harmonic-ai-well-known.yml
+  - type: Authentication
+    url: authentication/harmonic-ai-authentication.yml
+  - type: OAuthScopes
+    url: scopes/harmonic-ai-scopes.yml
+  - type: Conventions
+    url: conventions/harmonic-ai-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/harmonic-ai-lifecycle.yml
+  - type: Conformance
+    url: conformance/harmonic-ai-conformance.yml
+  - type: DomainSecurity
+    url: security/harmonic-ai-domain-security.yml
 maintainers:
   - FN: Harmonic.ai
     url: https://harmonic.ai/

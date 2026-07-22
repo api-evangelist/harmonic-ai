@@ -1,0 +1,54 @@
+generated: '2026-07-22'
+method: searched
+status: published
+source: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
+llms_source: https://console.harmonic.ai/ (llms.txt)
+server:
+  name: harmonic
+  transport: http          # http (recommended) | sse
+  url: https://mcp.api.harmonic.ai
+  sse_url: https://mcp.api.harmonic.ai/sse
+  listings:
+    - Claude Connector store ("Discover, research, and enrich companies and people")
+    - ChatGPT Apps directory ("Harmonic")
+auth:
+  methods: [oauth2, apikey]
+  oauth2:
+    authorization_server: https://mcp.api.harmonic.ai/
+    scopes_supported: [read, write]
+    grant_types: [authorization_code, refresh_token]
+    pkce: S256
+    discovery: well-known/harmonic-ai-mcp-oauth-authorization-server.json
+  apikey:
+    header: apikey
+    env: HARMONIC_API_KEY
+tool_count: "40+"
+tools:
+  - {name: enrich_companies, category: enrichment, description: "Enrich companies by website URL, domain, LinkedIn, Crunchbase, or Pitchbook identifier; returns configurable field groups (funding, team, traction, location)."}
+  - {name: enrich_people, category: enrichment, description: "Enrich people by LinkedIn URL; returns experience, education, contact info, socials."}
+  - {name: search_companies_natural_language, category: search, description: "Full-text semantic company search with filters; up to 1000 results with pagination."}
+  - {name: typeahead_search, category: search, description: "Fast name-based lookup for companies, people, or investors."}
+  - {name: list_saved_searches, category: saved_searches, description: "List saved searches."}
+  - {name: get_saved_search_companies_results, category: saved_searches, description: "Get company results for a saved search (plus net-new variant)."}
+  - {name: get_saved_search_people_results, category: saved_searches, description: "Get people results for a saved search (plus net-new variant)."}
+  - {name: get_saved_search_investors_results, category: saved_searches, description: "Get investor results for a saved search (plus net-new variant)."}
+  - {name: create_company_list, category: lists, description: "Create a company list."}
+  - {name: get_company_lists, category: lists, description: "List company lists."}
+  - {name: get_company_list_entries, category: lists, description: "Get entries in a company list."}
+  - {name: add_companies_to_list, category: lists, description: "Add companies to a list."}
+  - {name: update_company_list_entries, category: lists, description: "Update entries in a company list (plus matching people-list tools)."}
+  - {name: get_investors, category: investors, description: "Get investor portfolio, co-investors, partners, activity, network connections, and unicorn investments."}
+  - {name: get_companies_user_connections, category: network, description: "Map team network connections to companies (email and calendar activity)."}
+  - {name: get_people_user_connections, category: network, description: "Map team network connections to people (email and calendar activity)."}
+  - {name: get_companies_by_id, category: lookup, description: "Batch retrieval of companies by ID or URN (up to 50 per request)."}
+  - {name: get_persons_by_id, category: lookup, description: "Batch retrieval of people by ID or URN (up to 50 per request)."}
+  - {name: list_global_custom_fields, category: custom_fields, description: "List global custom fields."}
+  - {name: create_global_custom_field, category: custom_fields, description: "Create a global custom field."}
+  - {name: upsert_company_global_custom_field_values, category: custom_fields, description: "Upsert company global custom field values."}
+  - {name: upsert_people_global_custom_field_values, category: custom_fields, description: "Upsert people global custom field values."}
+  - {name: get_team_members, category: team, description: "List account members with roles and status."}
+notes: >-
+  Tool names and categories captured verbatim from Harmonic's published llms.txt (MCP Server Tools
+  section). The provider states 40+ tools; the ~23 named above plus their net-new/people-list variants
+  make up the published surface. Unofficial third-party servers (e.g. blue-yard/harmonic-mcp-server)
+  exist on GitHub but are distinct from this official hosted server.

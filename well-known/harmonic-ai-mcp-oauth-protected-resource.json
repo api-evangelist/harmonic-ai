@@ -1,0 +1,1 @@
+{"resource":"https://mcp.api.harmonic.ai/","authorization_servers":["https://mcp.api.harmonic.ai/"],"scopes_supported":["read","write"],"bearer_methods_supported":["header"]}

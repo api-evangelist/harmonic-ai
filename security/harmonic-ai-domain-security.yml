@@ -1,0 +1,27 @@
+generated: '2026-07-22'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: console.harmonic.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 10 06:24:08 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: api.harmonic.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 21:20:13 2026 GMT
+  hsts: null
+- host: support.harmonic.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 24 21:52:45 2026 GMT
+  hsts: false
+domains:
+- domain: harmonic.ai
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

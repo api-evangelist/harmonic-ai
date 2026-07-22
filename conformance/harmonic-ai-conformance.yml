@@ -1,0 +1,28 @@
+generated: '2026-07-22'
+method: searched
+source: https://mcp.api.harmonic.ai/.well-known/oauth-authorization-server + llms.txt
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: MCP server publishes RFC 8414 oauth-authorization-server metadata (authorization_code + refresh_token grants, read/write scopes).
+  - id: oauth2-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256.
+  - id: rfc8414-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns valid metadata (200).
+  - id: rfc9728-protected-resource-metadata
+    conforms: true
+    evidence: /.well-known/oauth-protected-resource returns valid metadata (200).
+  - id: oidc-discovery
+    conforms: false
+    evidence: /.well-known/openid-configuration returns 404 on the MCP host.
+  - id: mcp
+    conforms: true
+    evidence: Hosted Model Context Protocol server at mcp.api.harmonic.ai (http + sse), listed in Claude Connector store and ChatGPT Apps directory.
+  - id: graphql
+    conforms: true
+    evidence: Full GraphQL endpoint at api.harmonic.ai/graphql.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: No /.well-known/security.txt found (404/403 across hosts).

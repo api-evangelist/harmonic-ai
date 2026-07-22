@@ -1,0 +1,139 @@
+# Harmonic
+
+> Harmonic is the startup discovery and intelligence platform. It provides a proprietary database of 30M+ companies and 200M+ people with real-time funding data, headcount traction metrics, team composition, and investor relationships. Harmonic is used by venture capital firms, growth investors, corporate development teams, innovation teams, R&D teams, and go-to-market teams to find, research, and qualify startups programmatically or through a web application.
+
+Harmonic combines a comprehensive startup and venture database (the source of truth for venture data, with a wide range of first, second and third-party data sources) with AI-powered research tools, enabling users to discover companies before they're widely known, track founder movements, monitor funding activity, and build deal pipelines. Data is accessible through the web app at [console.harmonic.ai](https://console.harmonic.ai/), a Chrome extension, REST and GraphQL APIs, bulk data exports, and an MCP server for AI agent integration.
+
+## Core Data
+
+Harmonic tracks four primary entity types:
+
+**Companies** — name, website, domain, description, logo, founding date, location, headcount (current + 30/90-day trends), web traffic metrics, funding stage, total funding raised, founders and executives, team members, accelerator participation, industry verticals, competitor analysis, M&A activity, and subsidiaries.
+
+**People** — full name, primary email, email history, LinkedIn profile, headline, work experience (titles, companies, dates), education (schools, degrees, fields), social profiles, and network connections.
+
+**Investors** — entity details, investment portfolio, co-investors, partners, activity timeline, network connections, and unicorn investments.
+
+**Funding Rounds** — round-by-round funding data including round type, amount raised, date, lead investor, participating investors, and pre/post-money valuation. Sourced from Crunchbase, Pitchbook, and proprietary signals.
+
+All entities support user-defined custom fields (text, number, date, select, status, currency, URL, email, and more).
+
+## Key Capabilities
+
+**Natural language company search** — Search for companies using criteria like "fintech startups in NYC that raised Series B in the last 6 months" or "AI companies with ex-Google founders." Returns enriched company profiles with funding, team, and traction data.
+
+**Rich profiles and research reports** — Get deep profiles for any company, person, or investor. Company profiles include funding history, headcount trends, founding team backgrounds, competitive landscape, and M&A activity. People profiles include full work history, education, contact information, and network connections. Generate customized AI research reports on any entity.
+
+**Saved searches with alerts** — Create persistent searches that notify users via email or Slack when new companies match criteria. Supports company, people, and investor searches.
+
+**Lists and custom tracking** — Create company and people lists with custom fields, add entries programmatically, and organize research into projects. Lists support CSV import and bulk operations.
+
+**Network intelligence** — Map team connections to companies and people. See which colleagues have relationships with target companies, including email and calendar interaction history.
+
+**Investor research** — Look up investors by name or identifier. Get portfolio companies, co-investors, partner details, and investment activity.
+
+**Scout (AI research agent)** — A powerful AI agent built into the platform that handles arbitrarily complex research tasks, running for as long as needed (up to tens of minutes for deep research). Scout leverages Harmonic's proprietary data, all synced customer data, and the full context of your workspace — including companies you're already tracking, saved searches you've set up, and your team's lists. It can search, enrich, create and manage lists, generate research reports, draft outreach, and take actions on your behalf to automate the discovery, research, and diligence process. Responses are validated with citations, and natively render interactive artifacts: tables of companies, people, or investors are rendered as Harmonic lists with one-click add-to-list, referenced entities appear as chips that open rich detail panels, and data visualizations are rendered as interactive charts and graphs.
+
+## Integration Methods
+
+[REST API](https://console.harmonic.ai/docs/api-reference/introduction) — RESTful endpoints for company search, enrichment, saved searches, list management, and bulk operations. Authenticate with API key (header: `apikey: YOUR_KEY`) or OAuth Bearer token.
+
+[GraphQL API](https://console.harmonic.ai/docs/api-reference/introduction) — Full GraphQL endpoint at [api.harmonic.ai/graphql](https://api.harmonic.ai/graphql) for flexible queries across companies, people, investors, lists, and custom fields.
+
+[MCP Server](https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide) — Model Context Protocol server for AI agent integration. Exposes 40+ tools including company enrichment, natural language search, list management, investor lookup, and network mapping. Publicly listed in the Claude Connector store. Any MCP client that supports OAuth can connect to the hosted server at [mcp.api.harmonic.ai](https://mcp.api.harmonic.ai/), or connect programmatically using an API key.
+
+[Chrome Extension](https://harmonic.ai/extension) — Browser extension for enriching company and people profiles while browsing LinkedIn or any website.
+
+[Bulk Data Export](https://harmonic.ai/) — Full dataset delivery to BigQuery, Snowflake, or S3 for companies, people, investors, and funding rounds.
+
+[CRM Integrations](https://harmonic.ai/) — Native integrations with Salesforce, HubSpot, and Affinity for syncing company and contact data to deal pipelines.
+
+## MCP Server Tools
+
+The Harmonic MCP server ([mcp.api.harmonic.ai](https://mcp.api.harmonic.ai/)) exposes these tool categories for AI agents:
+
+**Enrichment** — `enrich_companies` (by website URL, domain, LinkedIn, Crunchbase, or Pitchbook identifier; returns configurable field groups including funding, team, traction, location), `enrich_people` (by LinkedIn URL; returns experience, education, contact info, socials).
+
+**Search** — `search_companies_natural_language` (full-text semantic search with filters, returns up to 1000 results with pagination), `typeahead_search` (fast name-based lookup for companies, people, or investors).
+
+**Saved Searches** — `list_saved_searches`, `get_saved_search_companies_results`, `get_saved_search_people_results`, `get_saved_search_investors_results`, plus net-new variants for tracking changes.
+
+**Lists** — `create_company_list`, `get_company_lists`, `get_company_list_entries`, `add_companies_to_list`, `update_company_list_entries`, plus matching people list tools. Supports custom field creation and value updates.
+
+**Investors** — `get_investors` (portfolio, co-investors, partners, activity, network connections, and unicorn investments with configurable field groups and limits).
+
+**Network** — `get_companies_user_connections`, `get_people_user_connections` (team network mapping with email and calendar activity data).
+
+**Lookup** — `get_companies_by_id`, `get_persons_by_id` (batch retrieval by ID or URN, up to 50 per request).
+
+**Custom Fields** — `list_global_custom_fields`, `create_global_custom_field`, `upsert_company_global_custom_field_values`, `upsert_people_global_custom_field_values`.
+
+**Team** — `get_team_members` (list account members with roles and status).
+
+## MCP Server Setup
+
+The Harmonic MCP server is publicly listed in the **Claude Connector store** for one-click setup in Claude.
+
+For any MCP client that supports OAuth, connect to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "harmonic": {
+      "transport": {
+        "type": "http",
+        "url": "https://mcp.api.harmonic.ai"
+      }
+    }
+  }
+}
+```
+
+OAuth authentication is handled automatically — the client discovers endpoints and prompts for login through [console.harmonic.ai](https://console.harmonic.ai/).
+
+For API key authentication (programmatic access or any MCP client):
+
+```json
+{
+  "mcpServers": {
+    "harmonic": {
+      "command": "poetry",
+      "args": ["run", "python", "-m", "src.server"],
+      "cwd": "/path/to/harmonic-mcp",
+      "env": {
+        "HARMONIC_API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+## API Authentication
+
+**API Key** — Include as header `apikey: YOUR_API_KEY` on requests to [api.harmonic.ai](https://api.harmonic.ai/). Obtain from your Harmonic account settings.
+
+**OAuth 2.0** — Used by the MCP server and web application. Authenticates through [console.harmonic.ai](https://console.harmonic.ai/) with Firebase JWT tokens. Supports automatic token refresh.
+
+## Use Cases
+
+**Venture capital deal sourcing** — Find early-stage companies matching investment thesis criteria before they appear in mainstream databases. Track founder movements from breakout companies. Monitor when portfolio competitors raise funding.
+
+**Growth equity research** — Identify companies hitting inflection points using headcount growth trends, funding velocity, and web traffic signals. Build pipeline of expansion-stage opportunities across sectors.
+
+**M&A and corporate development** — Screen acquisition targets by technology category, team composition, funding stage, and competitive positioning. Track market consolidation patterns and identify strategic fits. Monitor competitor acquisitions and talent movements.
+
+**Company enrichment at scale** — Enrich a list of 500+ startups with funding data, headcount trends, founding team backgrounds, and traction signals via API or MCP tools.
+
+**Market mapping** — Build comprehensive views of specific market segments with company profiles, competitive positioning, funding landscapes, and talent flows.
+
+**Investor research** — Identify active investors by stage, sector, geography, and check size. Analyze co-investment patterns and portfolio company performance.
+
+**Sales prospecting** — Find companies matching ideal customer profiles using growth signals, funding events, and technology stack indicators.
+
+**Network-driven outreach** — Identify warm introduction paths to target companies through team connection mapping with email and calendar activity analysis.
+
+## Optional
+
+[Harmonic Homepage](https://harmonic.ai/) — Product overview, positioning, and customer testimonials.
+
+[Harmonic Console](https://console.harmonic.ai/) — Web application for interactive search, list management, research, and team collaboration.

@@ -1,0 +1,30 @@
+generated: '2026-07-22'
+method: searched
+source: live probes of /.well-known/ on Harmonic hosts
+hosts:
+  - host: https://mcp.api.harmonic.ai
+    documents:
+      - path: /.well-known/oauth-authorization-server   # RFC 8414
+        status: 200
+        file: harmonic-ai-mcp-oauth-authorization-server.json
+      - path: /.well-known/oauth-protected-resource      # RFC 9728
+        status: 200
+        file: harmonic-ai-mcp-oauth-protected-resource.json
+      - path: /.well-known/openid-configuration
+        status: 404
+  - host: https://api.harmonic.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: https://harmonic.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404

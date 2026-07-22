@@ -1,0 +1,25 @@
+generated: '2026-07-22'
+method: searched
+source: https://mcp.api.harmonic.ai/.well-known/oauth-authorization-server
+docs: https://console.harmonic.ai/docs/api-reference/introduction
+schemes:
+  - name: oauth2
+    source: well-known/harmonic-ai-mcp-oauth-authorization-server.json
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://mcp.api.harmonic.ai/authorize
+        tokenUrl: https://mcp.api.harmonic.ai/token
+        pkce: S256
+scopes:
+  - scope: read
+    description: Read access to Harmonic data (companies, people, investors, saved searches, lists) via the OAuth-protected MCP server.
+    flows: [authorizationCode]
+    sources: [well-known/harmonic-ai-mcp-oauth-authorization-server.json]
+  - scope: write
+    description: Write access — create/update lists, list entries, and custom field values via the OAuth-protected MCP server.
+    flows: [authorizationCode]
+    sources: [well-known/harmonic-ai-mcp-oauth-authorization-server.json]
+notes: >-
+  Scopes are advertised by the MCP OAuth authorization-server and protected-resource metadata
+  (scopes_supported: [read, write]). The REST/GraphQL API is API-key authenticated and exposes no
+  additional OAuth scope surface.

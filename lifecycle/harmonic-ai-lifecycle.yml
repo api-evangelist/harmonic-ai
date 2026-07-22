@@ -1,0 +1,20 @@
+generated: '2026-07-22'
+method: searched
+source: https://status.harmonic.ai + https://console.harmonic.ai/docs/changelog
+versioning:
+  scheme: unversioned-path
+  notes: >-
+    REST endpoints served under api.harmonic.ai with no version segment in the documented base URL;
+    GraphQL at api.harmonic.ai/graphql. No public API version identifier is documented.
+changelog:
+  url: https://console.harmonic.ai/docs/changelog
+  notes: Product/API changelog published in the docs console (JS-rendered; entries not machine-captured).
+status_page:
+  url: https://status.harmonic.ai
+  provider: Atlassian Statuspage
+  observed_state: All Systems Operational
+deprecation:
+  policy_documented: false
+  notes: No public deprecation / sunset (RFC 8594) policy located.
+sla:
+  documented: false

@@ -1,0 +1,44 @@
+generated: '2026-07-22'
+method: searched
+source: https://console.harmonic.ai/ (llms.txt) + https://console.harmonic.ai/docs/api-reference/introduction
+summary: >-
+  Cross-cutting request/response semantics for the Harmonic REST + GraphQL API and hosted MCP server,
+  captured from the published docs and llms.txt. Idempotency is not documented; do not assume it.
+authentication:
+  styles: [api_key_header, oauth2_bearer]
+  api_key_header: apikey
+  see: authentication/harmonic-ai-authentication.yml
+pagination:
+  style: page-based
+  notes: >-
+    Search operations return large result sets with pagination — natural-language company search
+    returns up to 1000 results with pagination. Batch lookup operations cap at 50 IDs/URNs per request.
+  documented_limits:
+    search_max_results: 1000
+    batch_lookup_max_ids: 50
+query_interfaces:
+  - style: rest
+    base_url: https://api.harmonic.ai/
+  - style: graphql
+    endpoint: https://api.harmonic.ai/graphql
+    notes: Full GraphQL endpoint for flexible field selection across companies, people, investors, lists, and custom fields.
+field_selection:
+  supported: true
+  notes: >-
+    Enrichment operations accept configurable field groups (e.g. funding, team, traction, location);
+    GraphQL provides arbitrary field selection.
+custom_fields:
+  supported: true
+  types: [text, number, date, select, status, currency, url, email]
+  notes: All primary entities support user-defined custom fields (global or per-list).
+idempotency:
+  documented: false
+  notes: No idempotency-key mechanism is documented in the public API reference.
+alerts:
+  channels: [email, slack]
+  notes: Saved searches can notify via email or Slack when new entities match criteria (net-new tracking).
+cross_links:
+  authentication: authentication/harmonic-ai-authentication.yml
+  scopes: scopes/harmonic-ai-scopes.yml
+  lifecycle: lifecycle/harmonic-ai-lifecycle.yml
+  mcp: mcp/harmonic-ai-mcp.yml
