@@ -1,0 +1,83 @@
+name: Harmonic.ai
+description: >-
+  Startup discovery and intelligence platform built on a proprietary database of 30M+ companies and 200M+ people,
+  offering real-time funding data, headcount/traction metrics, team composition, and investor relationships via REST,
+  GraphQL, and a hosted MCP server.
+url: https://harmonic-ai.apievangelist.com/apis.yml
+created: '2026-07-22'
+modified: '2026-07-22'
+specificationVersion: '0.21'
+tags:
+  - startup-intelligence
+  - venture-capital
+  - company-data
+  - people-data
+  - investor-data
+  - funding-data
+  - data-enrichment
+  - sales-intelligence
+  - market-intelligence
+  - graphql
+  - mcp
+  - agent-native
+apis:
+  - name: Harmonic REST & GraphQL API
+    description: >-
+      REST API for company search, enrichment, saved searches, list management, and bulk operations, plus a full GraphQL
+      endpoint for flexible queries across companies, people, investors, lists, and custom fields. Auth via apikey
+      header or OAuth 2.0 bearer tokens.
+    humanURL: https://console.harmonic.ai/docs/api-reference/introduction
+    baseURL: https://api.harmonic.ai/
+    tags:
+      - startup-intelligence
+      - venture-capital
+      - company-data
+      - people-data
+      - investor-data
+      - funding-data
+      - data-enrichment
+      - sales-intelligence
+      - market-intelligence
+      - graphql
+      - mcp
+      - agent-native
+    properties:
+      - type: Documentation
+        url: https://console.harmonic.ai/docs/api-reference/introduction
+      - type: GraphQL
+        url: https://api.harmonic.ai/graphql
+  - name: Harmonic MCP Server
+    description: >-
+      Hosted, agent-native MCP server exposing 40+ tools for enrichment, search, saved searches, lists, investors,
+      network mapping, batch lookup, custom fields, and team. Listed in the Claude Connector store and ChatGPT Apps
+      directory. Auth via OAuth 2.0 or API key.
+    humanURL: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
+    baseURL: https://mcp.api.harmonic.ai/
+    tags:
+      - startup-intelligence
+      - venture-capital
+      - company-data
+      - people-data
+      - investor-data
+      - funding-data
+      - data-enrichment
+      - sales-intelligence
+      - market-intelligence
+      - graphql
+      - mcp
+      - agent-native
+    properties:
+      - type: MCP
+        url: https://mcp.api.harmonic.ai/
+      - type: Documentation
+        url: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
+      - type: LLMSTxt
+        url: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/69aeeb8f09c598b6aea54692_llms.txt
+maintainers:
+  - FN: Harmonic.ai
+    url: https://harmonic.ai/
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-07-22T16:00:02.185Z'
