@@ -3,10 +3,10 @@ generated: '2026-07-22'
 name: Build and populate a company watchlist
 method: generated
 description: Create a Harmonic company watchlist (the MCP "list"), add companies to it by URN, and read back the entries.
-api: openapi/harmonic-ai-openapi.json
+api: openapi/harmonic-ai-companies-api-openapi.yml
 operations: [create_company_watchlist_watchlists_companies_post, add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post, get_company_watchlist_entries_watchlists_companies__id_or_urn__entries_get]
 source: >-
-  Grounded in openapi/harmonic-ai-openapi.json. All three operationIds verified
+  Grounded in the openapi/ set (source in openapi/_original/). All three operationIds verified
   verbatim in the spec; entity graph per data-model/harmonic-ai-data-model.yml;
   MCP naming ("list" == watchlist) per mcp/harmonic-ai-tool-crosswalk.yml.
 ---

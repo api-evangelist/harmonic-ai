@@ -1,0 +1,6542 @@
+openapi: 3.1.0
+info:
+  title: Harmonic.ai Public companies API
+  version: 0.0.1
+  description: Public API documentation for Harmonic.ai.
+tags:
+- name: companies
+paths:
+  /companies:
+    get:
+      tags:
+      - companies
+      summary: Batch Get Company By Id Or Urn
+      operationId: batch_get_company_by_id_or_urn_companies_get
+      parameters:
+      - name: ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+          default: []
+          title: Ids
+      - name: urns
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+          default: []
+          title: Urns
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Extended
+      - name: include_fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Company fields to fetch.
+          title: Include Fields
+        description: Company fields to fetch.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+      - companies
+      summary: Get Company By Identifiers
+      operationId: get_company_by_identifiers_companies_post
+      parameters:
+      - name: linkedin_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company LinkedIn profile URL.
+          title: Linkedin Url
+        description: Company LinkedIn profile URL.
+        example: https://www.linkedin.com/company/facebook
+      - name: website_url
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Company website URL.
+          title: Website Url
+        description: Company website URL.
+        example: https://www.harmonic.ai
+      - name: twitter_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company twitter URL.
+          title: Twitter Url
+        description: Company twitter URL.
+        example: twitter.com/facebook
+      - name: crunchbase_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Crunchbase profile URL.
+          title: Crunchbase Url
+        description: Company Crunchbase profile URL.
+        example: https://www.crunchbase.com/organization/amazon
+      - name: pitchbook_url
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Company, Investor, or Advisor Pitchbook profile URL.
+          title: Pitchbook Url
+        description: Company, Investor, or Advisor Pitchbook profile URL.
+        example: https://pitchbook.com/profiles/company/11919-79
+      - name: instagram_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Instagram profile URL.
+          title: Instagram Url
+        description: Company Instagram profile URL.
+        example: https://www.instagram.com/allbirds
+      - name: facebook_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Facebook profile URL.
+          title: Facebook Url
+        description: Company Facebook profile URL.
+        example: https://www.facebook.com/weareallbirds/
+      - name: angellist_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Angellist profile URL.
+          title: Angellist Url
+        description: Company Angellist profile URL.
+        example: https://angel.co/company/amazon
+      - name: monster_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Monster profile URL.
+          title: Monster Url
+        description: Company Monster profile URL.
+        example: https://www.monster.com/company/profiles/ikea/
+      - name: indeed_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Indeed profile URL.
+          title: Indeed Url
+        description: Company Indeed profile URL.
+        example: indeed.com/cmp/Ikea
+      - name: stackoverflow_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company StackOverflow profile URL.
+          title: Stackoverflow Url
+        description: Company StackOverflow profile URL.
+        example: https://www.stackoverflow.com/jobs/companies/3db-labs
+      - name: glassdoor_url
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Company Glassdoor profile URL.
+          title: Glassdoor Url
+        description: Company Glassdoor profile URL.
+        example: https://www.glassdoor.com/Overview/Working-at-3rd-Digital-EI_IE3045173.11,22.htm
+      - name: website_domain
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Company website domain.
+          title: Website Domain
+        description: Company website domain.
+        example: harmonic.ai
+      - name: include_fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Company fields to fetch.
+          title: Include Fields
+        description: Company fields to fetch.
+      - name: enrich_missing_company
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Enrich Missing Company
+      - name: hide_non_surfaceable_company
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Hide Non Surfaceable Company
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/CompanyOutput'
+                - type: 'null'
+                title: Response Get Company By Identifiers Companies Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/entries:
+    post:
+      tags:
+      - companies
+      summary: Global Import Companies
+      description: Import companies with global custom field values
+      operationId: global_import_companies_companies_entries_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyListEntriesBatchImportInput'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportCompaniesCanonicalsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/custom_fields:
+    get:
+      tags:
+      - companies
+      summary: Get Global Custom Fields
+      operationId: get_global_custom_fields_companies_custom_fields_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /companies/custom_field:
+    post:
+      tags:
+      - companies
+      summary: Create Global Custom Field
+      operationId: create_global_custom_field_companies_custom_field_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompanyListCustomFieldInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - companies
+      summary: Update Global Custom Field
+      operationId: update_global_custom_field_companies_custom_field_put
+      parameters:
+      - name: custom_field_urn
+        in: query
+        required: true
+        schema:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          description: Custom field URN
+          title: Custom Field Urn
+        description: Custom field URN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyListCustomFieldInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - companies
+      summary: Delete Custom Field
+      operationId: delete_custom_field_companies_custom_field_delete
+      parameters:
+      - name: custom_field_urn
+        in: query
+        required: true
+        schema:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          description: Custom field URN
+          title: Custom Field Urn
+        description: Custom field URN
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyListCustomFieldUrn__ListAttributeUrn__RecordAttributeUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/batchGet:
+    post:
+      tags:
+      - companies
+      summary: Batch Get Companies By Id Or Urn Using Post
+      operationId: batch_get_companies_by_id_or_urn_using_post_companies_batchGet_post
+      parameters:
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Extended
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyBatchGetInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyOutput'
+                title: Response Batch Get Companies By Id Or Urn Using Post Companies Batchget Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}:
+    get:
+      tags:
+      - companies
+      summary: Get Company By Id Or Urn
+      operationId: get_company_by_id_or_urn_companies__id_or_urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: extended
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Extended
+      - name: include_fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Include Fields
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}/employees:
+    get:
+      tags:
+      - companies
+      summary: Get Employees
+      operationId: get_employees_companies__id_or_urn__employees_get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: employee_group_type
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/EmployeeGroupType'
+          default: ALL
+      - name: employee_status
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/EmployeeStatus'
+          default: ACTIVE
+      - name: user_connection_status
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/UserConnectionStatus'
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          title: Page
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          title: Size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchOutput_PersonUrn_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}/userConnections:
+    get:
+      tags:
+      - companies
+      summary: Get User Connections
+      operationId: get_user_connections_companies__id_or_urn__userConnections_get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserConnectionExtendedOutput'
+                title: Response Get User Connections Companies  Id Or Urn  Userconnections Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/attachments:
+    post:
+      tags:
+      - companies
+      summary: Batch Get Attachments
+      operationId: batch_get_attachments_companies_attachments_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCompanyAttachmentsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BatchCompanyAttachmentsOutput'
+                type: array
+                title: Response Batch Get Attachments Companies Attachments Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - companies
+      summary: Batch Delete Attachments
+      operationId: batch_delete_attachments_companies_attachments_delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchDeleteAttachmentsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: integer
+                title: Response Batch Delete Attachments Companies Attachments Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}/attachments:
+    post:
+      tags:
+      - companies
+      summary: Batch Create Attachments
+      operationId: batch_create_attachments_companies__id_or_urn__attachments_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCreateAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchCreateAttachmentsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - companies
+      summary: Batch Complete Upload
+      operationId: batch_complete_upload_companies__id_or_urn__attachments_put
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCompleteUploadRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentMetadataListOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      tags:
+      - companies
+      summary: Link Attachments
+      operationId: link_attachments_companies__id_or_urn__attachments_patch
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentMetadataOutput'
+                title: Response Link Attachments Companies  Id Or Urn  Attachments Patch
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}/attachments/{urn}:
+    get:
+      tags:
+      - companies
+      summary: Get Attachment Content
+      operationId: get_attachment_content_companies__id_or_urn__attachments__urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      - name: preview
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Preview
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAttachmentContentResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - companies
+      summary: Delete Attachment
+      operationId: delete_attachment_companies__id_or_urn__attachments__urn__delete
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Delete Attachment Companies  Id Or Urn  Attachments  Urn  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies:
+    get:
+      tags:
+      - companies
+      summary: Get Company Watchlists By Owner
+      operationId: get_company_watchlists_by_owner_watchlists_companies_get
+      parameters:
+      - name: company_urns
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+          description: Only show those watchlists that contains company urns
+          default: []
+          title: Company Urns
+        description: Only show those watchlists that contains company urns
+      - name: watchlist_type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - $ref: '#/components/schemas/UserWatchlistType'
+          - type: 'null'
+          description: Fetch watchlists with specific type. If None is provided, it fetches all
+          title: Watchlist Type
+        description: Fetch watchlists with specific type. If None is provided, it fetches all
+      - name: return_company_urns
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Whether the endpoint should return the company ids associated with the watchlist or not.
+          default: true
+          title: Return Company Urns
+        description: Whether the endpoint should return the company ids associated with the watchlist or not.
+      - name: return_company_count
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Whether the endpoint should return the number of companies associated with the watchlist or not.
+          default: true
+          title: Return Company Count
+        description: Whether the endpoint should return the number of companies associated with the watchlist or not.
+      - name: get_team_shared_list
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Fetch public watchlists shared by other users in the team
+          default: true
+          title: Get Team Shared List
+        description: Fetch public watchlists shared by other users in the team
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyWatchlistOutput'
+                title: Response Get Company Watchlists By Owner Watchlists Companies Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+      - companies
+      summary: Create Company Watchlist
+      operationId: create_company_watchlist_watchlists_companies_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyWatchlistInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}/custom_field:
+    post:
+      tags:
+      - companies
+      summary: Create Company Watchlist Custom Field
+      operationId: create_company_watchlist_custom_field_watchlists_companies__id_or_urn__custom_field_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompanyListCustomFieldInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyListCustomFieldOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - companies
+      summary: Update Company Watchlist Custom Field
+      operationId: update_company_watchlist_custom_field_watchlists_companies__id_or_urn__custom_field_put
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: custom_field_urn
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          - type: 'null'
+          description: Custom field URN
+          title: Custom Field Urn
+        description: Custom field URN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyListCustomFieldInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyListCustomFieldOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - companies
+      summary: Delete Company Watchlist Custom Field
+      operationId: delete_company_watchlist_custom_field_watchlists_companies__id_or_urn__custom_field_delete
+      parameters:
+      - name: custom_field_urn
+        in: query
+        required: false
+        schema:
+          type: string
+          pattern: urn:harmonic:company_list_custom_field:id
+          title: Custom Field Urn
+          description: Custom field URN
+        description: Custom field URN
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_CompanyListCustomFieldUrn_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}/imports:
+    get:
+      tags:
+      - companies
+      summary: Get Company Watchlist Imports
+      operationId: get_company_watchlist_imports_watchlists_companies__id_or_urn__imports_get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          description: Page number
+          default: 0
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          description: Page size
+          default: 50
+          title: Size
+        description: Page size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCompaniesImportsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}/named_views:
+    post:
+      tags:
+      - companies
+      summary: Upsert Company Watchlist Named Views
+      operationId: upsert_company_watchlist_named_views_watchlists_companies__id_or_urn__named_views_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: named_view_urn
+        in: query
+        required: false
+        schema:
+          type: string
+          pattern: urn:harmonic:company_list_named_view:id
+          title: Named View Urn
+          description: Named view urn
+        description: Named view urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyListNamedViewUpsertInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyListNamedViewOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}:
+    get:
+      tags:
+      - companies
+      summary: Get Company Watchlist
+      operationId: get_company_watchlist_watchlists_companies__id_or_urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          description: Page number
+          default: 0
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          description: Page size
+          default: 50
+          title: Size
+        description: Page size
+      - name: sort_field
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Sort field
+          default: company_id
+          title: Sort Field
+        description: Sort field
+      - name: sort_descending
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Is sort order descending
+          default: false
+          title: Sort Descending
+        description: Is sort order descending
+      - name: include_ids_only
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Include Ids Only
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyWatchlistOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - companies
+      summary: Update Company Watchlist
+      operationId: update_company_watchlist_watchlists_companies__id_or_urn__put
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyWatchlistUpdateInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - companies
+      summary: Delete Company Watchlist
+      operationId: delete_company_watchlist_watchlists_companies__id_or_urn__delete
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}/entries:
+    get:
+      tags:
+      - companies
+      summary: Get Company Watchlist Entries
+      operationId: get_company_watchlist_entries_watchlists_companies__id_or_urn__entries_get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: page
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            minimum: 0
+          - type: 'null'
+          description: Page number
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 1000
+          minimum: 1
+          description: Page size
+          default: 50
+          title: Size
+        description: Page size
+      - name: sort_field
+        in: query
+        required: false
+        schema:
+          type: string
+          description: Sort field
+          default: company_id
+          title: Sort Field
+        description: Sort field
+      - name: sort_descending
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Is sort order descending
+          default: false
+          title: Sort Descending
+        description: Is sort order descending
+      - name: search_query
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            contentMediaType: application/json
+            contentSchema: {}
+          - type: 'null'
+          description: Search query
+          title: Search Query
+        description: Search query
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: After cursor
+          title: Cursor
+        description: After cursor
+      - name: sort_custom_field_urn
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_field:id
+            title: CompanyFieldUrn
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          - type: 'null'
+          description: Sort by a built-in field URN, custom-field URN, or record/list attribute URN (e.g. urn:harmonic:company_field:company_name or urn:harmonic:record_attribute:company:name).
+          title: Sort Custom Field Urn
+        description: Sort by a built-in field URN, custom-field URN, or record/list attribute URN (e.g. urn:harmonic:company_field:company_name or urn:harmonic:record_attribute:company:name).
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCompanyWatchlistEntriesOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+      - companies
+      summary: Company Watchlist Add Entries
+      operationId: company_watchlist_add_entries_watchlists_companies__id_or_urn__entries_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyListEntriesBatchImportInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportCompaniesCanonicalsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}:addCompanies:
+    post:
+      tags:
+      - companies
+      summary: Add Companies To Company Watchlist
+      operationId: add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}:removeCompanies:
+    post:
+      tags:
+      - companies
+      summary: Remove Companies From Company Watchlist
+      operationId: remove_companies_from_company_watchlist_watchlists_companies__id_or_urn__removeCompanies_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_remove_companies_from_company_watchlist_watchlists_companies__id_or_urn__removeCompanies_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/{id_or_urn}/entries:batchDelete:
+    post:
+      tags:
+      - companies
+      summary: Company Watchlist Batch Delete Entries
+      operationId: company_watchlist_batch_delete_entries_watchlists_companies__id_or_urn__entries_batchDelete_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyListEntriesBatchDeleteInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyListEntriesBatchDeleteOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/imports/{id_or_urn}:
+    get:
+      tags:
+      - companies
+      summary: Get User Company Import
+      operationId: get_user_company_import_watchlists_companies_imports__id_or_urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCompaniesImportOutputWithStats'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /watchlists/companies/imports/{id_or_urn}/entries:
+    get:
+      tags:
+      - companies
+      summary: Get User Company Import Entries
+      operationId: get_user_company_import_entries_watchlists_companies_imports__id_or_urn__entries_get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: status
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: 'Status: pending, success, failed'
+          title: Status
+        description: 'Status: pending, success, failed'
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          description: Page number
+          default: 0
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 1000
+          minimum: 1
+          description: Page size
+          default: 100
+          title: Size
+        description: Page size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCompanyImportEntries'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /search/companies_by_keywords:
+    post:
+      tags:
+      - companies
+      summary: Search Companies By Keywords
+      operationId: search_companies_by_keywords_search_companies_by_keywords_post
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          description: Page number
+          default: 0
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 1000
+          minimum: 1
+          description: Page size
+          default: 50
+          title: Size
+        description: Page size
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeywordSearchInput'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchOutput_Union_CompanyUrn__CompanyOutput__'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /search/similar_companies/{id_or_urn}:
+    get:
+      tags:
+      - companies
+      summary: Search Similar Companies
+      operationId: search_similar_companies_search_similar_companies__id_or_urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          description: Number of similar companies to fetch
+          default: 10
+          title: Size
+        description: Number of similar companies to fetch
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchOutput_CompanyUrn_'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /search/typeahead:
+    get:
+      tags:
+      - companies
+      summary: Typeahead Search
+      operationId: typeahead_search_search_typeahead_get
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Query
+      - name: search_type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - $ref: '#/components/schemas/TypeaheadSearchType'
+          - type: 'null'
+          title: Search Type
+      - name: source
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - $ref: '#/components/schemas/TypeaheadSource'
+          - type: 'null'
+          title: Source
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          description: Page number
+          default: 0
+          title: Page
+        description: Page number
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 500
+          minimum: 1
+          description: Page size
+          default: 25
+          title: Size
+        description: Page size
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TypeaheadSearchOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /search/search_agent:
+    get:
+      tags:
+      - companies
+      summary: Search Agent
+      operationId: search_agent_search_search_agent_get
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Query
+      - name: similarity_threshold
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: number
+            maximum: 1.0
+            minimum: 0.0
+          - type: 'null'
+          description: Similarity threshold
+          title: Similarity Threshold
+        description: Similarity threshold
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 1000
+          minimum: 1
+          description: Page size
+          default: 25
+          title: Size
+        description: Page size
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Cursor for pagination
+          title: Cursor
+        description: Cursor for pagination
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchAgentCursorSearchOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    NumberListCustomFieldValueFormat:
+      type: string
+      enum:
+      - NUMBER
+      - PERCENT
+      - US_DOLLAR
+      title: NumberListCustomFieldValueFormat
+    CompanyListNamedViewUpsertInput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        visible_columns:
+          anyOf:
+          - items:
+              anyOf:
+              - type: string
+                pattern: urn:harmonic:company_field:id
+                title: CompanyFieldUrn
+              - type: string
+                pattern: urn:harmonic:company_list_custom_field:id
+                title: CompanyListCustomFieldUrn
+              - type: string
+                pattern: urn:harmonic:list_attribute:id
+                title: ListAttributeUrn
+              - type: string
+                pattern: urn:harmonic:record_attribute:id
+                title: RecordAttributeUrn
+            type: array
+          - type: 'null'
+          title: Visible Columns
+        search_query:
+          anyOf:
+          - $ref: '#/components/schemas/ApiSearchQuery-Input'
+          - type: 'null'
+        display_type:
+          anyOf:
+          - $ref: '#/components/schemas/ListNamedViewDisplayType'
+          - type: 'null'
+        group_by_field:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: 'null'
+          title: Group By Field
+        hide_empty_columns:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Hide Empty Columns
+        column_view_settings:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompanyListNamedViewColumnViewSettings'
+            type: array
+          - type: 'null'
+          title: Column View Settings
+      additionalProperties: false
+      type: object
+      title: CompanyListNamedViewUpsertInput
+    ResourceUrnResponse_Union_CompanyWatchlistUrn__SynapseListUrn__:
+      properties:
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist:id
+            title: CompanyWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:list:id
+            title: SynapseListUrn
+          title: Urn
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/DBOperationMetadata'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: ResourceUrnResponse[Union[CompanyWatchlistUrn, SynapseListUrn]]
+    CompanyListNamedViewColumnViewSettings:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_field:id
+            title: CompanyFieldUrn
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Entity Urn
+        column_width:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Column Width
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      title: CompanyListNamedViewColumnViewSettings
+    SingleListSelectCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: SingleListSelectCustomFieldValue
+    NotableFollowerOutput:
+      properties:
+        follower_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          title: Follower Urn
+        follower_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follower Name
+        firm_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Firm Urn
+        firm_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Firm Name
+        followed_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Followed Urn
+        followed_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Followed Name
+        follow_observed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follow Observed At
+      additionalProperties: false
+      type: object
+      required:
+      - follower_urn
+      - followed_urn
+      title: NotableFollowerOutput
+      description: 'A tracked notable account (firm or individual investor) following a
+
+        person at the company, or the company''s own X handle.'
+    UserConnectionSource:
+      type: string
+      enum:
+      - LINKEDIN
+      - EMAIL
+      - CALENDAR
+      title: UserConnectionSource
+    CompanyWatchlistInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        shared_with_team:
+          type: boolean
+          title: Shared With Team
+        user_watchlist_type:
+          anyOf:
+          - $ref: '#/components/schemas/UserWatchlistType'
+          - type: 'null'
+        companies:
+          items:
+            type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          type: array
+          title: Companies
+          default: []
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - shared_with_team
+      title: CompanyWatchlistInput
+    FilterGroupGeneratorId:
+      type: string
+      enum:
+      - company_headcount
+      - search_v2_accelerator
+      - search_v2_company_funding_stage
+      - search_v2_company_funding_stage_simple
+      - search_v2_company_funding_total_range
+      - search_v2_company_funding_last_round_total_range
+      - search_v2_company_funding_undisclosed
+      - search_v2_company_currently_raising
+      - search_v2_company_funding_include_investors
+      - search_v2_company_funding_exclude_investors
+      - search_v2_company_funding_last_round_date
+      - search_v2_company_funding_foundation_date
+      - search_v2_company_funding_investors_deal_search
+      - search_v2_company_team_headcount_range
+      - search_v2_company_team_headcount_percent_growth_range
+      - search_v2_company_latest_web_traffic_range
+      - search_v2_company_web_traffic_percent_growth_range
+      - search_v2_company_headcount_department_percent_growth_range
+      - search_v2_company_social_follower_percent_growth_range
+      - search_v2_company_team_highlights
+      - search_v2_company_sector_include_keywords
+      - search_v2_company_sector_exclude_keywords
+      - search_v2_company_sector_match_keywords
+      - search_v2_company_sector_include_industry_tags
+      - search_v2_company_sector_exclude_industry_tags
+      - search_v2_company_sector_include_business_tags
+      - search_v2_company_sector_exclude_business_tags
+      - search_v2_company_sector_include_technology_tags
+      - search_v2_company_sector_exclude_technology_tags
+      - search_v2_company_sector_preset
+      - search_v2_company_sector_include_tags
+      - search_v2_company_sector_exclude_tags
+      - search_v2_company_sector_product_categories
+      - search_v2_company_team_founding_experience
+      - search_v2_company_team_member_experience
+      - search_v2_company_team_notable_followers
+      - search_v2_company_team_notable_followers_count
+      - search_v2_company_list_and_more_initialized_date
+      - search_v2_company_list_and_more_updated_date
+      - search_v2_company_list_and_more_include_from_watchlist
+      - search_v2_company_list_and_more_exclude_from_watchlist
+      - search_v2_company_list_and_more_accelerators
+      - search_v2_company_list_and_more_location
+      - search_v2_company_list_and_more_continents
+      - search_v2_company_list_and_more_include_from_people_list
+      - search_v2_company_list_and_more_exclude_from_people_list
+      - search_v2_company_is_not_investor
+      - search_people_employees
+      - search_v2_people_education_experience
+      - search_v2_people_general_highlights
+      - search_v2_people_general_location
+      - search_v2_people_general_connections
+      - search_v2_people_general_linkedin_headlines
+      - search_v2_people_general_people_lists
+      - search_v2_people_current_experience
+      - search_v2_people_past_experience
+      - search_v2_people_general_correspondences
+      - search_v2_company_team_correspondences
+      - search_v2_semantic_search_filter
+      - search_v2_similar_company_search_filter
+      - search_v2_investor_aum_range
+      - search_v2_investor_check_size_range
+      - search_v2_investor_funded_company_location
+      - search_v2_investor_invested_stage
+      - search_v2_investor_latest_investment_date
+      - search_v2_investor_location
+      - search_v2_investor_num_deals_range
+      - search_v2_investor_team_size_range
+      - search_v2_investor_co_investors
+      - search_v2_investor_average_investment_size_range
+      - search_v2_investor_entry_stage_focus
+      - search_v2_investor_country_focus
+      - search_v2_investor_sector_focus
+      - search_v2_investor_funded_company
+      - search_v2_investor_website_keywords
+      - search_v2_investor_funded_company_sector_tags
+      - search_v2_investor_portfolio_details
+      - search_v2_investor_team_correspondences
+      - search_v2_investor_type
+      - search_v2_investor_primary_type
+      - search_v2_investor_secondary_types
+      title: FilterGroupGeneratorId
+    CurrentlyRaisingEnum:
+      type: string
+      enum:
+      - 'YES'
+      - MAYBE
+      - 'NO'
+      - UNKNOWN
+      title: CurrentlyRaisingEnum
+    CheckboxListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: CheckboxListCustomFieldValue
+    CompanyCanonicalParameter:
+      properties:
+        linkedin_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linkedin Url
+        crunchbase_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Crunchbase Url
+        pitchbook_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Pitchbook Url
+        website_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Website Url
+      additionalProperties: false
+      type: object
+      title: CompanyCanonicalParameter
+    BatchCreateAttachmentsRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentRequest'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsRequest
+    Sort-Output:
+      properties:
+        sort_field:
+          type: string
+          title: Sort Field
+        descending:
+          type: boolean
+          title: Descending
+        sort_context_values:
+          anyOf:
+          - $ref: '#/components/schemas/SortContextArguments'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - sort_field
+      - descending
+      title: Sort
+    SearchOutput_PersonUrn_:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: SearchOutput[PersonUrn]
+    FundingMetadata-Output:
+      properties:
+        funding_total:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Funding Total
+        num_funding_rounds:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Num Funding Rounds
+        investors:
+          items:
+            $ref: '#/components/schemas/Investor'
+          type: array
+          title: Investors
+          default: []
+        last_funding_at:
+          anyOf:
+          - {}
+          - type: 'null'
+          title: Last Funding At
+        last_funding_type:
+          anyOf:
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+        last_funding_total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Funding Total
+        funding_stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Funding Stage
+        valuation:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Valuation
+        valuation_info:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyValuationInfo-Output'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: FundingMetadata
+    CompanyRelationship:
+      properties:
+        beta_notice:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Beta Notice
+          default: Relationship data is in beta and may not be accurate, please reach out with any feedback.
+        acquisitions:
+          items:
+            $ref: '#/components/schemas/Acquisition'
+          type: array
+          title: Acquisitions
+          default: []
+        acquired_by:
+          anyOf:
+          - $ref: '#/components/schemas/Acquisition'
+          - type: 'null'
+        subsidiaries:
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          type: array
+          title: Subsidiaries
+          default: []
+        subsidiary_of:
+          anyOf:
+          - $ref: '#/components/schemas/Subsidiary'
+          - type: 'null'
+        prior_stealth_association:
+          anyOf:
+          - $ref: '#/components/schemas/StealthEmergence'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: CompanyRelationship
+    WebsiteMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        domain:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Domain
+        is_broken:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Broken
+      additionalProperties: false
+      type: object
+      title: WebsiteMetadata
+    CreateAttachmentRequest:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      title: CreateAttachmentRequest
+    FacetModel:
+      properties:
+        field_name:
+          type: string
+          title: Field Name
+        operator:
+          type: string
+          title: Operator
+        filter_value:
+          title: Filter Value
+        parsed_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parsed Text
+      additionalProperties: false
+      type: object
+      required:
+      - field_name
+      - operator
+      - filter_value
+      title: FacetModel
+    CompanyHighlightCategory:
+      type: string
+      enum:
+      - Strong Team Growth
+      - Angel Backed
+      - Venture Backed
+      - Major Hire
+      - Soonicorn
+      title: CompanyHighlightCategory
+    NumberListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: NumberListCustomFieldValue
+    UpdateCompanyListCustomFieldInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      title: UpdateCompanyListCustomFieldInput
+    CompaniesModel:
+      properties:
+        company_name:
+          type: string
+          title: Company Name
+        company_urn:
+          type: string
+          title: Company Urn
+        inclusion:
+          type: string
+          enum:
+          - include
+          - exclude
+          - filter
+          title: Inclusion
+        parsed_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parsed Text
+      additionalProperties: false
+      type: object
+      required:
+      - company_name
+      - company_urn
+      - inclusion
+      title: CompaniesModel
+      description: 'Model representing company data for search and filtering.
+
+        Extracted to avoid circular imports between saved_search.py and facet_parsing_schemas.py'
+    SocialStatus:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: SocialStatus
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    services__midtier__schemas__common__Highlight-Output:
+      properties:
+        category:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyHighlightCategory'
+          - $ref: '#/components/schemas/PersonHighlightCategory'
+          title: Category
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - category
+      title: Highlight
+    BatchCompanyAttachmentsRequest:
+      properties:
+        entity_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          type: array
+          title: Entity Urns
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urns
+      title: BatchCompanyAttachmentsRequest
+    DateListCustomFieldValueFormat:
+      type: string
+      enum:
+      - MM_DD_YYYY
+      - DD_MM_YYYY
+      - YYYY_MM_DD
+      title: DateListCustomFieldValueFormat
+    FundingRoundOutput:
+      properties:
+        announcement_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Announcement Date
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        funding_round_type:
+          type: string
+          title: Funding Round Type
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        funding_amount:
+          type: number
+          title: Funding Amount
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+        funding_currency:
+          type: string
+          title: Funding Currency
+          default: USD
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        investors:
+          items:
+            $ref: '#/components/schemas/FundingRoundInvestor'
+          type: array
+          title: Investors
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: array
+        post_money_valuation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Post Money Valuation
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:funding_round:id
+            title: FundingRoundUrn
+          - type: string
+            pattern: urn:harmonic:test_funding_round:id
+            title: TestFundingRoundUrn
+          title: Entity Urn
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        source_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Url
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        contributes_to_funding_total:
+          type: boolean
+          title: Contributes To Funding Total
+          default: true
+        additional_sources:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Additional Sources
+        completion_status:
+          anyOf:
+          - $ref: '#/components/schemas/FundingCompletionStatus'
+          - type: 'null'
+        valuation_info:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationInfo'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+      additionalProperties: false
+      type: object
+      required:
+      - funding_round_type
+      - funding_amount
+      - entity_urn
+      - company_urn
+      title: FundingRoundOutput
+    SelectListCustomFieldValueOption:
+      properties:
+        urn:
+          type: string
+          pattern: urn:harmonic:select_list_custom_field_value_option:id
+          title: SelectListCustomFieldValueOptionUrn
+        name:
+          type: string
+          title: Name
+        color:
+          type: string
+          title: Color
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - color
+      title: SelectListCustomFieldValueOption
+    SelectListCustomFieldMetadata:
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/SelectListCustomFieldValueOption'
+          type: array
+          title: Options
+          default: []
+        default:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Default
+      additionalProperties: false
+      type: object
+      title: SelectListCustomFieldMetadata
+    CompanyWatchlistEntry:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+        watchlist_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist:id
+            title: CompanyWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:list:id
+            title: SynapseListUrn
+          title: Watchlist Urn
+        entry_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist_entry:id
+            title: CompanyWatchlistEntryUrn
+          - type: string
+            pattern: urn:harmonic:list_entry:id
+            title: SynapseListEntryUrn
+          title: Entry Urn
+        custom_field_values:
+          items:
+            $ref: '#/components/schemas/CompanyListCustomFieldValueOutput'
+          type: array
+          title: Custom Field Values
+          default: []
+        entry_created_at:
+          type: string
+          format: date-time
+          title: Entry Created At
+        entry_updated_at:
+          type: string
+          format: date-time
+          title: Entry Updated At
+        cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cursor
+        added_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: Added By
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      - watchlist_urn
+      - entry_urn
+      - entry_created_at
+      - entry_updated_at
+      title: CompanyWatchlistEntry
+    StatusListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: StatusListCustomFieldValue
+    FounderProvidedAttachment:
+      properties:
+        url:
+          type: string
+          title: Url
+        filename:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Filename
+        content_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Content Type
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: FounderProvidedAttachment
+    EmployeeStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - NOT_ACTIVE
+      - ACTIVE_AND_NOT_ACTIVE
+      title: EmployeeStatus
+    LocationMetadata:
+      properties:
+        address_formatted:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address Formatted
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Street
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        zip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zip
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
+        metro_areas:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Metro Areas
+      additionalProperties: false
+      type: object
+      title: LocationMetadata
+    UserWatchlistType:
+      type: string
+      enum:
+      - USER_MANAGED_WATCHLIST
+      - CUSTOMER_MANAGED_WATCHLIST
+      - USER_FAVORITED_ENTITIES
+      - USER_HIDDEN_ENTITIES
+      - CUSTOMER_PORTFOLIO_LIST
+      - CUSTOMER_AFFINITY_SYNCED_LIST
+      - GLOBAL_FIELD_LIST
+      title: UserWatchlistType
+    BatchCompanyAttachmentsOutput:
+      properties:
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - attachments
+      title: BatchCompanyAttachmentsOutput
+    ValuationSource:
+      type: string
+      enum:
+      - UNKNOWN
+      - PUBLICLY_DISCLOSED
+      - PRIVATELY_SOURCED
+      - ESTIMATED
+      title: ValuationSource
+      description: Source classification for valuation data.
+    InvestorVisbility:
+      type: string
+      enum:
+      - VISIBLE
+      - HIDDEN
+      title: InvestorVisbility
+    DateListCustomFieldMetadata:
+      properties:
+        format:
+          $ref: '#/components/schemas/DateListCustomFieldValueFormat'
+          default: MM_DD_YYYY
+      additionalProperties: false
+      type: object
+      title: DateListCustomFieldMetadata
+    TypeaheadSource:
+      type: string
+      enum:
+      - ENTERPRISE_APP
+      const: ENTERPRISE_APP
+      title: TypeaheadSource
+    BatchCreateAttachmentsOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsOutput
+    SearchAgentCursorSearchOutput:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            $ref: '#/components/schemas/SearchResult_CompanyUrn_'
+          type: array
+          title: Results
+        query_interpretation:
+          $ref: '#/components/schemas/ParsedQueryModel-Output'
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      - query_interpretation
+      title: SearchAgentCursorSearchOutput
+    RecordReferenceListCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: RecordReferenceListCustomFieldValue
+    SortContextArguments:
+      properties:
+        saved_search_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Saved Search Id
+        date_added_after:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added After
+        list_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist:id
+            title: CompanyWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:people_watchlist:id
+            title: PeopleWatchlistUrn
+          - type: 'null'
+          title: List Urn
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: 'null'
+          title: Custom Field Urn
+        company_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Company Id
+          description: When sorting by `person_position_start_date`, scopes the sort to a single company so a person's unrelated active roles (board seats, prior jobs) don't skew their position in per-company employee lists.
+      additionalProperties: false
+      type: object
+      title: SortContextArguments
+    UserImportedCompanyOutput:
+      properties:
+        matched_company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Matched Company Urn
+        canonicals:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyCanonicalParameter'
+          - type: 'null'
+        enrichment_request_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Enrichment Request Id
+        user_companies_import_urn:
+          type: string
+          pattern: urn:harmonic:user_company_import:id
+          title: UserCompaniesImportUrn
+        custom_field_values:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompanyFieldInputValue'
+            type: array
+          - type: 'null'
+          title: Custom Field Values
+        external_display_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Display Name
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Id
+        external_entry:
+          anyOf:
+          - $ref: '#/components/schemas/UnifiedExternalCompanyListEntryModel'
+          - type: 'null'
+        id:
+          type: string
+          format: uuid
+          title: Id
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        user_imported_company_urn:
+          type: string
+          pattern: urn:harmonic:user_imported_company:id
+          title: UserImportedCompanyUrn
+        invalid_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Invalid Urn
+        error_message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error Message
+        error_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error Code
+      additionalProperties: false
+      type: object
+      required:
+      - user_companies_import_urn
+      - id
+      - created_at
+      - updated_at
+      - user_imported_company_urn
+      title: UserImportedCompanyOutput
+    PersonMetadata-Output:
+      properties:
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        department:
+          anyOf:
+          - $ref: '#/components/schemas/Department'
+          - type: 'null'
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        start_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+        end_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+        is_current_position:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Current Position
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        role_type:
+          anyOf:
+          - $ref: '#/components/schemas/RoleType'
+          - type: 'null'
+        person:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        person_company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:(urn:harmonic:person:A, urn:harmonic:company:B):id
+            title: PersonCompanyComplexUrn
+          - type: 'null'
+          title: Person Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - person
+      title: PersonMetadata
+    RoleType:
+      type: string
+      enum:
+      - FOUNDER
+      - CEO
+      - EXECUTIVE
+      - OPERATOR
+      - INTERN
+      - ALUMNI
+      - ADVISER
+      - EMPLOYEE
+      - INVESTOR
+      - FALSE_POSITION
+      title: RoleType
+    CompanyListEntriesBatchDeleteInput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/CompanyListEntryInput'
+          type: array
+          title: Entries
+      additionalProperties: false
+      type: object
+      required:
+      - entries
+      title: CompanyListEntriesBatchDeleteInput
+    SelectListCustomFieldValueOptionInputSchema:
+      properties:
+        urn:
+          type: string
+          pattern: urn:harmonic:select_list_custom_field_value_option:id
+          title: SelectListCustomFieldValueOptionUrn
+        name:
+          type: string
+          title: Name
+        color:
+          type: string
+          title: Color
+        default:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Default
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - color
+      title: SelectListCustomFieldValueOptionInputSchema
+    PersonListCustomFieldValueMode:
+      type: string
+      enum:
+      - SINGLE
+      - MULTIPLE
+      title: PersonListCustomFieldValueMode
+    KeywordSearchInput:
+      properties:
+        keywords:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Keywords
+        contains_any_of_keywords:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Contains Any Of Keywords
+        contains_all_of_keywords:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Contains All Of Keywords
+        does_not_contain_keywords:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Does Not Contain Keywords
+        include_ids_only:
+          type: boolean
+          title: Include Ids Only
+          default: true
+        type:
+          $ref: '#/components/schemas/SearchType'
+          default: COMPANIES_LIST
+      additionalProperties: false
+      type: object
+      title: KeywordSearchInput
+    CompanyBatchGetInput:
+      properties:
+        ids:
+          items:
+            type: integer
+          type: array
+          title: Ids
+          default: []
+        urns:
+          items:
+            type: string
+          type: array
+          title: Urns
+          default: []
+        include_fields:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Include Fields
+      additionalProperties: false
+      type: object
+      title: CompanyBatchGetInput
+    TypeaheadEntity:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:school:id
+            title: SchoolUrn
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: string
+            pattern: urn:harmonic:location:id
+            title: LocationUrn
+          - type: string
+            pattern: urn:harmonic:location_metro_area:id
+            title: LocationMetroAreaUrn
+          title: Entity Urn
+        type:
+          $ref: '#/components/schemas/TypeaheadSearchType'
+        source:
+          $ref: '#/components/schemas/TypeaheadSource'
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        alt_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Alt Text
+        index_field:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Field
+        index_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Id
+        ranking_score:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Ranking Score
+          default: 0
+        index_method:
+          anyOf:
+          - $ref: '#/components/schemas/IndexMethod'
+          - type: 'null'
+          default: 1
+        subtype:
+          anyOf:
+          - $ref: '#/components/schemas/TypeaheadSubtype'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - type
+      - source
+      title: TypeaheadEntity
+    CompanyValuationInfo-Output:
+      properties:
+        value:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationSource'
+          - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
+        is_potentially_stale:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Potentially Stale
+        is_potentially_stale_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Is Potentially Stale Details
+      additionalProperties: false
+      type: object
+      title: CompanyValuationInfo
+      description: Company-level valuation info - extends base with staleness fields.
+    ImportCompaniesCanonicalsOutput:
+      properties:
+        user_companies_import_urn:
+          type: string
+          pattern: urn:harmonic:user_company_import:id
+          title: UserCompaniesImportUrn
+        total_companies_count:
+          type: integer
+          title: Total Companies Count
+        companies_found_count:
+          type: integer
+          title: Companies Found Count
+        companies_not_found_count:
+          type: integer
+          title: Companies Not Found Count
+        companies_invalid_count:
+          type: integer
+          title: Companies Invalid Count
+      additionalProperties: false
+      type: object
+      required:
+      - user_companies_import_urn
+      - total_companies_count
+      - companies_found_count
+      - companies_not_found_count
+      - companies_invalid_count
+      title: ImportCompaniesCanonicalsOutput
+    TagType:
+      type: string
+      enum:
+      - UNKNOWN
+      - PRODUCT_HUNT
+      - YC_BATCH
+      - INDUSTRY
+      - EXTERNAL_INDUSTRY
+      - TECHNOLOGY
+      - PRODUCT_TYPE
+      - CUSTOMER_TYPE
+      - TECHNOLOGY_TYPE
+      - MARKET_VERTICAL
+      - MARKET_SUB_VERTICAL
+      - ACCELERATOR
+      title: TagType
+    FacebookSocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+        following_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Following Count
+        like_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Like Count
+      additionalProperties: false
+      type: object
+      title: FacebookSocialMetadata
+    PersonHighlightCategory:
+      type: string
+      enum:
+      - Seasoned Executive
+      - Seasoned Operator
+      - Seasoned Founder
+      - Seasoned Adviser
+      - Unicorn Executive
+      - Unicorn Operator
+      - Unicorn Founder
+      - Unicorn Adviser
+      - High Growth Startup Executive
+      - High Growth Startup Operator
+      - High Growth Startup Founder
+      - High Growth Startup Adviser
+      - Prior VC Backed Executive
+      - Prior VC Backed Operator
+      - Prior VC Backed Founder
+      - Prior VC Backed Adviser
+      - Current Student
+      - Top University
+      - HBCU Alum
+      - HBCU University
+      - Deep Technical Background
+      - Prior Exit
+      - Top Company Alum
+      - Unicorn Alum
+      - Major Tech Company Experience
+      - Legacy Tech Company Experience
+      - Elite Industry Experience
+      - Major Research Institution Experience
+      - Major Government Experience
+      - Major Financial Institution Experience
+      - Venture Background
+      - $5M Club
+      - $10M Club
+      - $15M Club
+      - $20M Club
+      - $25M Club
+      - $30M Club
+      - $30M Raised
+      - $35M Club
+      - $40M Club
+      - $45M Club
+      - $50M Club
+      - $50M+ Club
+      - $55M Club
+      - $60M Club
+      - $65M Club
+      - $70M Club
+      - $75M Club
+      - $80M Club
+      - $85M Club
+      - $90M Club
+      - $95M Club
+      - $100M Club
+      - $105M Club
+      - $110M Club
+      - $115M Club
+      - $120M Club
+      - $125M Club
+      - $130M Club
+      - $135M Club
+      - $140M Club
+      - $145M Club
+      - $150M Club
+      - $155M Club
+      - $160M Club
+      - $165M Club
+      - $170M Club
+      - $175M Club
+      - $180M Club
+      - $185M Club
+      - $190M Club
+      - $195M Club
+      - $200M Club
+      - $205M Club
+      - $210M Club
+      - $215M Club
+      - $220M Club
+      - $225M Club
+      - $230M Club
+      - $235M Club
+      - $240M Club
+      - $245M Club
+      - $250M Club
+      - $255M Club
+      - $260M Club
+      - $265M Club
+      - $270M Club
+      - $275M Club
+      - $280M Club
+      - $285M Club
+      - $290M Club
+      - $295M Club
+      - $300M Club
+      - Free Agent
+      - Founder Turned Operator
+      - Stealth Founder
+      - Vested Former Founder
+      - Jack of All Trades
+      - YC Backed Founder
+      - Top Web3 Experience
+      - Top AI Experience
+      - Notable Followers
+      - New Notable Followers
+      title: PersonHighlightCategory
+    CreateAttachmentOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+        attachment_urn:
+          type: string
+          pattern: urn:harmonic:user_uploaded_content:id
+          title: UserUploadedContentUrn
+        upload_uri:
+          type: string
+          title: Upload Uri
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        uploaded_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Uploaded By
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      - attachment_urn
+      - upload_uri
+      - created_at
+      - updated_at
+      - uploaded_by
+      title: CreateAttachmentOutput
+    SelectListCustomFieldMetadataInputSchema:
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/SelectListCustomFieldValueOptionInputSchema'
+          type: array
+          title: Options
+          default: []
+      additionalProperties: false
+      type: object
+      title: SelectListCustomFieldMetadataInputSchema
+    Subsidiary:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Subsidiary
+    TypeaheadSearchOutput:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        total_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Total Count
+        results:
+          items:
+            $ref: '#/components/schemas/TypeaheadEntity'
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: TypeaheadSearchOutput
+    ResourceUrnResponse_Union_CompanyListCustomFieldUrn__ListAttributeUrn__RecordAttributeUrn__:
+      properties:
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Urn
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/DBOperationMetadata'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: ResourceUrnResponse[Union[CompanyListCustomFieldUrn, ListAttributeUrn, RecordAttributeUrn]]
+    FundingRoundInvestor:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Entity Urn
+        is_lead:
+          type: boolean
+          title: Is Lead
+          default: false
+        investor_name:
+          type: string
+          title: Investor Name
+        association_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:funding_round_association:id
+            title: FundingRoundAssociationUrn
+          - type: string
+            pattern: urn:harmonic:funding_round_investor_association:id
+            title: FundingRoundInvestorAssociationUrn
+          - type: string
+            pattern: urn:harmonic:(urn:harmonic:investor:A, urn:harmonic:company:B):id
+            title: InvestorPortcoCompanyAssociationUrn
+          - type: string
+            pattern: urn:harmonic:test_funding_round_association:id
+            title: TestFundingRoundAssociationUrn
+          title: Association Urn
+        investor_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Investor Urn
+        visibility_status:
+          anyOf:
+          - $ref: '#/components/schemas/InvestorVisbility'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - investor_name
+      - association_urn
+      title: FundingRoundInvestor
+    FoundingDate-Output:
+      properties:
+        date:
+          type: string
+          title: Date
+        granularity:
+          $ref: '#/components/schemas/FoundingDatePrecision'
+      additionalProperties: false
+      type: object
+      required:
+      - date
+      - granularity
+      title: FoundingDate
+    GetAttachmentContentResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: GetAttachmentContentResponse
+    DBOperationMetadata:
+      properties:
+        count_total:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Total
+        count_changed:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Changed
+        count_skipped:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Skipped
+        count_not_found:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Not Found
+      additionalProperties: false
+      type: object
+      title: DBOperationMetadata
+    CompanyListEntriesBatchDeleteOutput:
+      properties:
+        urns:
+          items:
+            type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          type: array
+          title: Urns
+          default: []
+      additionalProperties: false
+      type: object
+      title: CompanyListEntriesBatchDeleteOutput
+    DateListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_DATE
+      - CREATED_AT
+      title: DateListCustomFieldDefaultValueMode
+    CompanyListEntryInput:
+      properties:
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+        canonical:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyCanonicalParameter'
+          - type: 'null'
+        values:
+          items:
+            $ref: '#/components/schemas/CompanyFieldInputValue'
+          type: array
+          title: Values
+          default: []
+        external_display_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Display Name
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Id
+        external_entry:
+          anyOf:
+          - $ref: '#/components/schemas/UnifiedExternalCompanyListEntryModel'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: CompanyListEntryInput
+    CurrentlyRaising:
+      properties:
+        value:
+          $ref: '#/components/schemas/CurrentlyRaisingEnum'
+          default: UNKNOWN
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: CurrentlyRaising
+    ListNamedViewDisplayType:
+      type: string
+      enum:
+      - GRID
+      - BOARD
+      title: ListNamedViewDisplayType
+    CompanyListCustomFieldValueOutput:
+      properties:
+        created_at:
+          type: string
+          title: Created At
+        updated_at:
+          type: string
+          title: Updated At
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field_value:id
+            title: CompanyListCustomFieldValueUrn
+          - type: string
+            pattern: urn:harmonic:list_entry_value:id
+            title: SynapseListEntryValueUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_value:id
+            title: RecordValueUrn
+          title: Urn
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Custom Field Urn
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          title: Data
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+      additionalProperties: false
+      type: object
+      required:
+      - created_at
+      - updated_at
+      - urn
+      - custom_field_urn
+      - data
+      - type
+      title: CompanyListCustomFieldValueOutput
+    StealthEmergence:
+      properties:
+        emergence_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Emergence Date
+          source_big_table_column_key:
+          - stealth_emergence_date
+        previously_known_as:
+          items:
+            type: string
+          type: array
+          title: Previously Known As
+          default: []
+          source_big_table_column_key:
+          - merged_stealth_company_names
+      additionalProperties: false
+      type: object
+      title: StealthEmergence
+    CompanyFieldInputValue:
+      properties:
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Custom Field Urn
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValueInput'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          title: Data
+      additionalProperties: false
+      type: object
+      required:
+      - custom_field_urn
+      - data
+      title: CompanyFieldInputValue
+    CompanyType:
+      type: string
+      enum:
+      - UNKNOWN
+      - STARTUP
+      - SCHOOL
+      title: CompanyType
+    RecordReferenceListCustomFieldMetadata:
+      properties:
+        record_type_urn:
+          type: string
+          title: Record Type Urn
+        allow_multiple:
+          type: boolean
+          title: Allow Multiple
+        mode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Mode
+      additionalProperties: false
+      type: object
+      required:
+      - record_type_urn
+      - allow_multiple
+      title: RecordReferenceListCustomFieldMetadata
+    ContactMetadata:
+      properties:
+        emails:
+          items:
+            type: string
+          type: array
+          title: Emails
+          default: []
+        phone_numbers:
+          items:
+            type: string
+          type: array
+          title: Phone Numbers
+          default: []
+        exec_emails:
+          items:
+            type: string
+          type: array
+          title: Exec Emails
+          default: []
+        primary_email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Primary Email
+        primary_email_person_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Primary Email Person Id
+      additionalProperties: false
+      type: object
+      title: ContactMetadata
+    SocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: SocialMetadata
+    UserCompanyImportEntries:
+      properties:
+        imported_companies:
+          items:
+            $ref: '#/components/schemas/UserImportedCompanyOutput'
+          type: array
+          title: Imported Companies
+      additionalProperties: false
+      type: object
+      required:
+      - imported_companies
+      title: UserCompanyImportEntries
+    CompanyListCustomFieldOutput:
+      properties:
+        created_at:
+          type: string
+          title: Created At
+        updated_at:
+          type: string
+          title: Updated At
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Urn
+        list_urn:
+          type: string
+          pattern: urn:harmonic:company_watchlist:id
+          title: CompanyWatchlistUrn
+        name:
+          type: string
+          title: Name
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadata'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+      additionalProperties: false
+      type: object
+      required:
+      - created_at
+      - updated_at
+      - urn
+      - list_urn
+      - name
+      - type
+      title: CompanyListCustomFieldOutput
+    GetCompanyWatchlistEntriesOutput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/CompanyWatchlistEntry'
+          type: array
+          title: Entries
+          default: []
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        total_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Total Count
+      additionalProperties: false
+      type: object
+      title: GetCompanyWatchlistEntriesOutput
+    UserCompaniesImportsOutput:
+      properties:
+        user_companies_imports:
+          items:
+            $ref: '#/components/schemas/UserCompaniesImportOutputWithStats'
+          type: array
+          title: User Companies Imports
+        total_count:
+          type: integer
+          title: Total Count
+      additionalProperties: false
+      type: object
+      required:
+      - user_companies_imports
+      - total_count
+      title: UserCompaniesImportsOutput
+    BatchCompleteUploadRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: BatchCompleteUploadRequest
+    WebsiteListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: WebsiteListCustomFieldValue
+    SearchType:
+      type: string
+      enum:
+      - EVENT_FEED
+      - COMPANIES_LIST
+      - PERSONS
+      - TYPEAHEAD
+      - INVESTORS
+      title: SearchType
+    MultiSelectListCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: MultiSelectListCustomFieldValue
+    SearchOutput_Union_CompanyUrn__CompanyOutput__:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:company:id
+              title: CompanyUrn
+            - $ref: '#/components/schemas/CompanyOutput'
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: SearchOutput[Union[CompanyUrn, CompanyOutput]]
+    SearchOutput_CompanyUrn_:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: SearchOutput[CompanyUrn]
+    FoundingDatePrecision:
+      type: string
+      enum:
+      - DAY
+      - MONTH
+      - YEAR
+      title: FoundingDatePrecision
+    FundingStage:
+      type: string
+      enum:
+      - STEALTH
+      - PRE_SEED
+      - SEED
+      - SERIES_A
+      - SERIES_B
+      - SERIES_C
+      - SERIES_D
+      - SERIES_E
+      - SERIES_F
+      - SERIES_G
+      - SERIES_H
+      - SERIES_I
+      - SERIES_J
+      - SERIES_K_PLUS
+      - VENTURE_UNKNOWN
+      - EXITED
+      - OUT_OF_BUSINESS
+      title: FundingStage
+    IndexMethod:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: IndexMethod
+    ParsedQueryModel-Output:
+      properties:
+        semantic:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Semantic
+        faceted:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FacetModel'
+            type: array
+          - type: 'null'
+          title: Faceted
+        preserved_semantic_input:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Preserved Semantic Input
+        companies:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompaniesModel'
+            type: array
+          - type: 'null'
+          title: Companies
+        unprocessable_query_part:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Unprocessable Query Part
+        similarity:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Similarity
+        filter_str_repr:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Filter Str Repr
+        api_request:
+          anyOf:
+          - $ref: '#/components/schemas/LimitedApiRequestModel-Output'
+          - type: 'null'
+        query_translations:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Query Translations
+        parser_version:
+          type: string
+          enum:
+          - v1
+          - v2
+          - v3
+          - v4
+          title: Parser Version
+          default: v4
+      additionalProperties: true
+      type: object
+      title: ParsedQueryModel
+    TagOutput:
+      properties:
+        display_value:
+          type: string
+          title: Display Value
+        type:
+          $ref: '#/components/schemas/TagType'
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:tag:id
+          title: TagUrn
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+        is_primary_tag:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Primary Tag
+      additionalProperties: false
+      type: object
+      required:
+      - display_value
+      - type
+      - entity_urn
+      title: TagOutput
+    FundingType:
+      type: string
+      enum:
+      - ACCELERATOR_INCUBATOR
+      - ANGEL
+      - BANK_ADMIN
+      - BRIDGE
+      - BUYOUT_LBO
+      - CAPITALIZATION
+      - CONVERTIBLE_NOTE
+      - CROWDFUNDING
+      - DEBT
+      - DEBT_REPAY
+      - EARLY_STAGE
+      - GRANT
+      - INITIAL_COIN_OFFERING
+      - IPO
+      - JOINT_VENTURE
+      - LATER_STAGE
+      - M_AND_A
+      - MEZZANINE
+      - PRE_SEED
+      - PRIVATE_EQUITY
+      - PUBLIC_EQUITY_OFFERING
+      - REVERSE_MERGER
+      - SECONDARY_TRANSACTION
+      - SEED
+      - SEED_EXTENSION
+      - SERIES_1
+      - SERIES_2
+      - SERIES_3
+      - SERIES_A
+      - SERIES_A_EXTENSION
+      - SERIES_A1
+      - SERIES_A2
+      - SERIES_A3
+      - SERIES_AA
+      - SERIES_AAA
+      - SERIES_B
+      - SERIES_B_EXTENSION
+      - SERIES_B1
+      - SERIES_B2
+      - SERIES_B3
+      - SERIES_BB
+      - SERIES_C
+      - SERIES_C_EXTENSION
+      - SERIES_C1
+      - SERIES_C2
+      - SERIES_C3
+      - SERIES_CC
+      - SERIES_D
+      - SERIES_D_EXTENSION
+      - SERIES_D1
+      - SERIES_D2
+      - SERIES_D3
+      - SERIES_E
+      - SERIES_E_EXTENSION
+      - SERIES_E1
+      - SERIES_E2
+      - SERIES_F
+      - SERIES_F_EXTENSION
+      - SERIES_G
+      - SERIES_G_EXTENSION
+      - SERIES_H
+      - SERIES_I
+      - SERIES_J
+      - SPAC
+      - SPIN_OFF
+      - STRATEGIC
+      - UNKNOWN
+      - VENTURE_LEASING
+      - PRODUCT_CROWDFUNDING
+      - MERGER_OF_EQ
+      - PE_GROWTH
+      - CORPORATE
+      - DEBT_REFIN
+      - EQUITY_CROWDFUNDING
+      - NON_EQUITY_ASSISTANCE
+      - SECONDARY_OPEN
+      - RESTART_ANGEL
+      - SECONDARY_DISTRIB
+      - RESTART_LATER
+      - RESTART_EARLY
+      - ANGEL_INDIVIDUAL
+      - CORPORATE_ROUND
+      - DEBT_FINANCING
+      - CONV_DEBT
+      - DEBT_CONV
+      - SECONDARY_TRANSACTION_PRIVATE
+      - SECONDARY_TRANSACTION_PUBLIC
+      - LATER_[STAGE_SERIES_G
+      - DEBT_GENERAL
+      - LATER_STAGE_SERIES_F
+      - LATER_STAGE_SERIES_A
+      - VENTURE_DEBT
+      - EARLY_STAGE_VENTURE
+      - LATER_STAGE_VENTURE
+      - PRE__SEED
+      - FUNDING_ROUND
+      - SEED_ROUND
+      - EARLY_STAGE_SERIES_A
+      - EARLY_STAGE_SERIES_A1
+      - EARLY_STAGE_SERIES_B
+      - EARLY_STAGE_SERIES_B1
+      - LATER_STAGE_SERIES_C
+      - LATER_STAGE_SERIES_C1
+      - CORPORATE_SERIES_A
+      - LATER_STAGE_SERIES_E
+      - LATER_STAGE_SERIES_B
+      - LATER_STAGE_SERIES_D
+      - EARLY_STAGE_VC
+      - ACCELERATOR_INC
+      - DEBT_PP
+      - LATER_STAGE_VC
+      - UNDISCLOSED
+      - POST_IPO_DEBT
+      - POST_IPO_EQUITY
+      - POST_IPO_SECONDARY
+      - SECONDARY_MARKET
+      - SECONDARY_PRIVATE
+      - SERIES_UNKNOWN
+      - OUT_OF_BUSINESS
+      - IBO
+      - PIPE
+      - LIQUIDATION
+      - UNDERTERMINED
+      - ASSET_PURCH
+      - PLATFORM
+      - DIV_RECAP
+      - LEV_RECAP
+      - REPURCHASE
+      - TWO_PO
+      - EQUITY_FOR_SVC
+      - DIVIDEND
+      - SALE_LEASE_BACK
+      - GP_STAKES
+      title: FundingType
+    Investor:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Entity Urn
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      additionalProperties: false
+      type: object
+      title: Investor
+    PersonListCustomFieldDefaultValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          type: array
+          title: Value
+          default: []
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: PersonListCustomFieldDefaultValue
+    CompanyWatchlistUpdateInput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        shared_with_team:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Shared With Team
+        named_views_order:
+          anyOf:
+          - items:
+              type: string
+              pattern: urn:harmonic:company_list_named_view:id
+              title: CompanyListNamedViewUrn
+            type: array
+          - type: 'null'
+          title: Named Views Order
+      additionalProperties: false
+      type: object
+      title: CompanyWatchlistUpdateInput
+    CompanyListEntriesBatchImportInput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/CompanyListEntryInput'
+          type: array
+          title: Entries
+      additionalProperties: false
+      type: object
+      required:
+      - entries
+      title: CompanyListEntriesBatchImportInput
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Filter:
+      properties:
+        field:
+          type: string
+          title: Field
+        field_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Field Urn
+        comparator:
+          type: string
+          title: Comparator
+        filter_value:
+          title: Filter Value
+      additionalProperties: false
+      type: object
+      required:
+      - field
+      - comparator
+      title: Filter
+    Body_add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post:
+      properties:
+        ids:
+          items:
+            type: integer
+          type: array
+          title: Ids
+          default: []
+        urns:
+          items:
+            type: string
+          type: array
+          title: Urns
+          default: []
+      type: object
+      title: Body_add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post
+    TractionMetricsTimeSeriesMetric:
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          title: Timestamp
+        metric_value:
+          anyOf:
+          - type: integer
+          - type: number
+          title: Metric Value
+      additionalProperties: false
+      type: object
+      required:
+      - timestamp
+      - metric_value
+      title: TractionMetricsTimeSeriesMetric
+    PersonListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_URN
+      - ADDED_BY_USER
+      title: PersonListCustomFieldDefaultValueMode
+    LinkAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: LinkAttachmentsRequest
+    CompanyOutput:
+      properties:
+        website:
+          anyOf:
+          - $ref: '#/components/schemas/WebsiteMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - website_url
+          - website_domain
+          - website_url_is_broken
+        logo_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logo Url
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - logo_url
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - name
+        legal_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Legal Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - legal_name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - description
+        customer_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Customer Type
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - customer_type
+        founding_date:
+          anyOf:
+          - $ref: '#/components/schemas/FoundingDate-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - founding_date
+          - founding_date_precision
+        headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Headcount
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+          source_big_table_column_key:
+          - headcount
+        ownership_status:
+          anyOf:
+          - $ref: '#/components/schemas/OwnershipStatus'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - ownership_status
+        company_type:
+          $ref: '#/components/schemas/CompanyType'
+          default: UNKNOWN
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - company_type
+        location:
+          anyOf:
+          - $ref: '#/components/schemas/LocationMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - address_formatted
+          - street
+          - location
+          - state
+          - city
+          - country
+          - zip_code
+          - metro_areas
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - id
+          - contact_exec_emails
+          - contact_numbers
+          - contact_emails
+          - primary_email
+          - primary_email_person_id
+        socials:
+          anyOf:
+          - additionalProperties:
+              anyOf:
+              - $ref: '#/components/schemas/SocialMetadata'
+              - $ref: '#/components/schemas/FacebookSocialMetadata'
+            type: object
+          - type: 'null'
+          title: Socials
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - linkedin_url
+          - linkedin_follower_count
+          - twitter_url
+          - twitter_handle
+          - twitter_follower_count
+          - crunchbase_url
+          - pitchbook_url
+          - instagram_url
+          - instagram_follower_count
+          - facebook_url
+          - facebook_page_like_count
+          - facebook_follower_count
+          - facebook_following_count
+          - angellist_url
+          - indeed_url
+          - monster_url
+          - stackoverflow_url
+          - glassdoor_url
+        funding:
+          anyOf:
+          - $ref: '#/components/schemas/FundingMetadata-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - company_investors
+          - investor_company_id
+          - investor_company_name
+          - person_investors
+          - investor_person_id
+          - investor_person_name
+          - funding_total
+          - num_funding_rounds
+          - last_funding_at
+          - last_funding_type
+          - last_funding_total
+          - funding_stage
+          - latest_post_money_valuation
+          - valuation_info
+          - funding_rounds
+        name_aliases:
+          items:
+            type: string
+          type: array
+          title: Name Aliases
+          default: []
+          source_big_table_column_key:
+          - name_aliases
+        website_domain_aliases:
+          items:
+            type: string
+          type: array
+          title: Website Domain Aliases
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: variant
+          source_big_table_column_key:
+          - website_domain_aliases
+        corrected_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Corrected Headcount
+          source_big_table_column_key:
+          - corrected_headcount
+        external_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: External Headcount
+          source_big_table_column_key:
+          - external_headcount
+        web_traffic:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Web Traffic
+          source_big_table_column_key:
+          - web_traffic
+          - traction_metrics
+        stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Stage
+          source_big_table_column_key:
+          - funding_stage
+        redirect_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Redirect Urn
+          source_big_table_column_key:
+          - redirect_urn
+        requested_entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Requested Entity Urn
+          source_big_table_column_key:
+          - id
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - id
+        id:
+          type: integer
+          title: Id
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+          source_big_table_column_key:
+          - id
+        funding_attribute_null_status:
+          anyOf:
+          - $ref: '#/components/schemas/FundingAttributeNullStatus'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - funding_attribute_null_status
+        headquarters:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Headquarters
+          source_big_table_column_key:
+          - headquarters
+        tags:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TagOutput'
+            type: array
+          - items:
+              type: string
+              pattern: urn:harmonic:tag:id
+              title: TagUrn
+            type: array
+          title: Tags
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: array
+          source_big_table_column_key:
+          - typed_tags
+          - typed_tags_v2
+        tags_v2:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TagOutput'
+            type: array
+          - items:
+              type: string
+              pattern: urn:harmonic:tag:id
+              title: TagUrn
+            type: array
+          title: Tags V2
+          default: []
+          source_big_table_column_key:
+          - typed_tags
+          - typed_tags_v2
+        snapshots:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompanySnapshotOutput'
+            type: array
+          - items:
+              type: string
+              pattern: urn:harmonic:company_snapshot:id
+              title: CompanySnapshotUrn
+            type: array
+          title: Snapshots
+          default: []
+          deprecated: true
+          source_big_table_column_key:
+          - snapshots
+        initialized_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Initialized Date
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - created_at
+        highlights:
+          items:
+            $ref: '#/components/schemas/services__midtier__schemas__common__Highlight-Output'
+          type: array
+          title: Highlights
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: array
+          source_big_table_column_key:
+          - highlights
+        traction_metrics:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetrics'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - traction_metrics
+        updated_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Updated At
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - updated_at
+        people:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonMetadata-Output'
+            type: array
+          - items:
+              type: string
+              pattern: urn:harmonic:person:id
+              title: PersonUrn
+            type: array
+          title: People
+          default: []
+          bq_to_snowflake_dsl:
+            big_query:
+              read_as: "\n                    ARRAY(SELECT CAST(REGEXP_EXTRACT(person, r'urn:harmonic:person:(\\d+)') AS INT64) FROM UNNEST(people) AS person)\n                    AS people"
+            snowflake:
+              field_type: array
+          source_big_table_column_key:
+          - id
+          - entity_urn
+          - person_relationships
+        employee_highlights:
+          items:
+            $ref: '#/components/schemas/services__midtier__schemas__common__Highlight-Output'
+          type: array
+          title: Employee Highlights
+          default: []
+          source_big_table_column_key:
+          - employee_highlights
+        funding_rounds:
+          items:
+            $ref: '#/components/schemas/FundingRoundOutput'
+          type: array
+          title: Funding Rounds
+          default: []
+          source_big_table_column_key:
+          - id
+          - funding_rounds
+          - investors
+        notable_followers:
+          items:
+            $ref: '#/components/schemas/NotableFollowerOutput'
+          type: array
+          title: Notable Followers
+          default: []
+          source_big_table_column_key:
+          - notable_followers
+        num_notable_followers:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Num Notable Followers
+          source_big_table_column_key:
+          - num_notable_followers
+        funding_per_employee:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Funding Per Employee
+          source_big_table_column_key:
+          - headcount
+          - funding_total
+        external_description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: External Description
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - description
+          - external_description
+        short_description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Short Description
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - short_description
+        investor_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Investor Urn
+          source_big_table_column_key:
+          - investor_id
+        related_companies:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyRelationship'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - related_companies
+          - stealth_emergence_date
+          - merged_stealth_company_names
+        leadership_prior_companies:
+          anyOf:
+          - items:
+              type: string
+              pattern: urn:harmonic:company:id
+              title: CompanyUrn
+            type: array
+          - type: 'null'
+          title: Leadership Prior Companies
+          source_big_table_column_key:
+          - leadership_prior_companies
+        stealth_emergence_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Stealth Emergence Date
+          description: Deprecated - use CompanyOutput.related_companies.prior_stealth_association.emergence_date
+          deprecated: true
+          source_big_table_column_key:
+          - stealth_emergence_date
+        currently_raising:
+          anyOf:
+          - $ref: '#/components/schemas/CurrentlyRaising'
+          - type: 'null'
+          source_big_table_column_key:
+          - currently_raising
+        founder_story:
+          anyOf:
+          - $ref: '#/components/schemas/FounderStory'
+          - type: 'null'
+          source_big_table_column_key:
+          - founder_story
+        founder_attachments:
+          anyOf:
+          - $ref: '#/components/schemas/Attachments'
+          - type: 'null'
+          source_big_table_column_key:
+          - founder_attachments
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - id
+      title: CompanyOutput
+    UserConnectionExtendedOutput:
+      properties:
+        user_urn:
+          type: string
+          pattern: urn:harmonic:user:id
+          title: UserUrn
+        customer_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          - type: 'null'
+          title: Customer Urn
+        target_person_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Target Person Urn
+        target_person_email_address:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Target Person Email Address
+        target_company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Target Company Urn
+        latest_calendar_event_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:calendar_event:id
+            title: CalendarEventUrn
+          - type: 'null'
+          title: Latest Calendar Event Urn
+        latest_email_message_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:email_message:id
+            title: EmailMessageUrn
+          - type: 'null'
+          title: Latest Email Message Urn
+        connection_sources:
+          items:
+            $ref: '#/components/schemas/UserConnectionSource'
+          type: array
+          title: Connection Sources
+      additionalProperties: false
+      type: object
+      required:
+      - user_urn
+      - connection_sources
+      title: UserConnectionExtendedOutput
+    CompanyListNamedViewOutput:
+      properties:
+        id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Id
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:company_list_named_view:id
+          title: CompanyListNamedViewUrn
+        name:
+          type: string
+          title: Name
+        list_urn:
+          type: string
+          pattern: urn:harmonic:company_watchlist:id
+          title: CompanyWatchlistUrn
+        visible_columns:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:company_field:id
+              title: CompanyFieldUrn
+            - type: string
+              pattern: urn:harmonic:company_list_custom_field:id
+              title: CompanyListCustomFieldUrn
+            - type: string
+              pattern: urn:harmonic:list_attribute:id
+              title: ListAttributeUrn
+            - type: string
+              pattern: urn:harmonic:record_attribute:id
+              title: RecordAttributeUrn
+          type: array
+          title: Visible Columns
+        search_query:
+          anyOf:
+          - $ref: '#/components/schemas/ApiSearchQuery-Output'
+          - type: 'null'
+        display_type:
+          $ref: '#/components/schemas/ListNamedViewDisplayType'
+        group_by_field:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: 'null'
+          title: Group By Field
+        hide_empty_columns:
+          type: boolean
+          title: Hide Empty Columns
+        column_view_settings:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompanyListNamedViewColumnViewSettings'
+            type: array
+          - type: 'null'
+          title: Column View Settings
+      additionalProperties: false
+      type: object
+      required:
+      - id
+      - entity_urn
+      - name
+      - list_urn
+      - visible_columns
+      - display_type
+      - hide_empty_columns
+      title: CompanyListNamedViewOutput
+    ListImportType:
+      type: string
+      enum:
+      - CONSOLE_IMPORT
+      - API_IMPORT
+      - INTEGRATED_LIST_SYNC
+      - ADD_TO_WATCHLIST
+      - REMOVE_FROM_WATCHLIST
+      - UPSERT_CUSTOM_FIELD_VALUE
+      title: ListImportType
+    ApiSearchQuery-Input:
+      properties:
+        filter_group:
+          $ref: '#/components/schemas/FilterGroup-Input'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        sort:
+          items:
+            $ref: '#/components/schemas/services__midtier__schemas__saved_search__Sort'
+          type: array
+          title: Sort
+          default: []
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Input'
+          - type: 'null'
+        merge_query_for_nested_fields:
+          type: boolean
+          title: Merge Query For Nested Fields
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - filter_group
+      - pagination
+      title: ApiSearchQuery
+    FilterGroupGenerator:
+      properties:
+        generator_id:
+          $ref: '#/components/schemas/FilterGroupGeneratorId'
+        arguments:
+          type: object
+          title: Arguments
+      additionalProperties: false
+      type: object
+      required:
+      - generator_id
+      - arguments
+      title: FilterGroupGenerator
+    CompanySnapshotOutput:
+      properties:
+        website:
+          anyOf:
+          - $ref: '#/components/schemas/WebsiteMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - website_url
+          - website_domain
+          - website_url_is_broken
+        logo_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logo Url
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - logo_url
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - name
+        legal_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Legal Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - legal_name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - description
+        customer_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Customer Type
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - customer_type
+        founding_date:
+          anyOf:
+          - $ref: '#/components/schemas/FoundingDate-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - founding_date
+          - founding_date_precision
+        headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Headcount
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+          source_big_table_column_key:
+          - headcount
+        ownership_status:
+          anyOf:
+          - $ref: '#/components/schemas/OwnershipStatus'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - ownership_status
+        company_type:
+          $ref: '#/components/schemas/CompanyType'
+          default: UNKNOWN
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - company_type
+        location:
+          anyOf:
+          - $ref: '#/components/schemas/LocationMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - address_formatted
+          - street
+          - location
+          - state
+          - city
+          - country
+          - zip_code
+          - metro_areas
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - id
+          - contact_exec_emails
+          - contact_numbers
+          - contact_emails
+          - primary_email
+          - primary_email_person_id
+        socials:
+          anyOf:
+          - additionalProperties:
+              anyOf:
+              - $ref: '#/components/schemas/SocialMetadata'
+              - $ref: '#/components/schemas/FacebookSocialMetadata'
+            type: object
+          - type: 'null'
+          title: Socials
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - linkedin_url
+          - linkedin_follower_count
+          - twitter_url
+          - twitter_handle
+          - twitter_follower_count
+          - crunchbase_url
+          - pitchbook_url
+          - instagram_url
+          - instagram_follower_count
+          - facebook_url
+          - facebook_page_like_count
+          - facebook_follower_count
+          - facebook_following_count
+          - angellist_url
+          - indeed_url
+          - monster_url
+          - stackoverflow_url
+          - glassdoor_url
+        funding:
+          anyOf:
+          - $ref: '#/components/schemas/FundingMetadata-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - company_investors
+          - investor_company_id
+          - investor_company_name
+          - person_investors
+          - investor_person_id
+          - investor_person_name
+          - funding_total
+          - num_funding_rounds
+          - last_funding_at
+          - last_funding_type
+          - last_funding_total
+          - funding_stage
+          - latest_post_money_valuation
+          - valuation_info
+          - funding_rounds
+        name_aliases:
+          items:
+            type: string
+          type: array
+          title: Name Aliases
+          default: []
+          source_big_table_column_key:
+          - name_aliases
+        website_domain_aliases:
+          items:
+            type: string
+          type: array
+          title: Website Domain Aliases
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: variant
+          source_big_table_column_key:
+          - website_domain_aliases
+        corrected_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Corrected Headcount
+          source_big_table_column_key:
+          - corrected_headcount
+        external_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: External Headcount
+          source_big_table_column_key:
+          - external_headcount
+        web_traffic:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Web Traffic
+          source_big_table_column_key:
+          - web_traffic
+          - traction_metrics
+        stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Stage
+          source_big_table_column_key:
+          - funding_stage
+        redirect_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Redirect Urn
+          source_big_table_column_key:
+          - redirect_urn
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_snapshot:id
+            title: CompanySnapshotUrn
+          - type: 'null'
+          title: Entity Urn
+        initialized_date:
+          type: string
+          title: Initialized Date
+        funding_attribute_null_status:
+          anyOf:
+          - $ref: '#/components/schemas/FundingAttributeNullStatus'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - initialized_date
+      title: CompanySnapshotOutput
+    services__midtier__schemas__saved_search__Sort:
+      properties:
+        sort_field:
+          type: string
+          title: Sort Field
+        descending:
+          type: boolean
+          title: Descending
+        sort_context_values:
+          anyOf:
+          - $ref: '#/components/schemas/SortContextArguments'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - sort_field
+      - descending
+      title: Sort
+    OwnershipStatus:
+      type: string
+      enum:
+      - PRIVATE
+      - OUT_OF_BUSINESS
+      - ACQUIRED_OR_MERGED
+      - ACTIVE
+      - INACTIVE
+      - MANAGING
+      - IPO_REGISTRATION
+      - PUBLIC
+      title: OwnershipStatus
+    CompanyWatchlistOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        shared_with_team:
+          type: boolean
+          title: Shared With Team
+        user_watchlist_type:
+          anyOf:
+          - $ref: '#/components/schemas/UserWatchlistType'
+          - type: 'null'
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist:id
+            title: CompanyWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:list:id
+            title: SynapseListUrn
+          title: Entity Urn
+        creator:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: Creator
+        owner:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Owner
+        companies:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CompanyOutput'
+            type: array
+          - items:
+              type: string
+              pattern: urn:harmonic:company:id
+              title: CompanyUrn
+            type: array
+          - type: 'null'
+          title: Companies
+          default: []
+        companies_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Companies Count
+        custom_fields:
+          items:
+            $ref: '#/components/schemas/CompanyListCustomFieldOutput'
+          type: array
+          title: Custom Fields
+          default: []
+        named_views:
+          items:
+            $ref: '#/components/schemas/CompanyListNamedViewOutput'
+          type: array
+          title: Named Views
+          default: []
+        named_views_order:
+          items:
+            type: string
+            pattern: urn:harmonic:company_list_named_view:id
+            title: CompanyListNamedViewUrn
+          type: array
+          title: Named Views Order
+          default: []
+        id:
+          type: string
+          format: uuid
+          title: Id
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        user_relevance_score_influence_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User Relevance Score Influence Type
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - shared_with_team
+      - entity_urn
+      - owner
+      - id
+      - updated_at
+      - created_at
+      title: CompanyWatchlistOutput
+    FounderStory:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: FounderStory
+    Department:
+      type: string
+      enum:
+      - Advisor
+      - Customer Success
+      - Data
+      - Design
+      - Engineering
+      - Finance
+      - Legal
+      - Marketing
+      - Operations
+      - Other
+      - People
+      - Product
+      - Sales
+      - Support
+      title: Department
+    TypeaheadSearchType:
+      type: string
+      enum:
+      - PERSON
+      - COMPANY
+      - SCHOOL
+      - EMAIL_INTEGRATED_USER
+      - INVESTOR
+      - INVESTOR_COMPANY
+      - INVESTOR_PERSON
+      - LOCATION
+      - LOCATION_CITY
+      - LOCATION_STATE
+      - LOCATION_COUNTRY
+      - LOCATION_METRO_AREA
+      title: TypeaheadSearchType
+    PersonSelectCustomFieldValueInput:
+      properties:
+        value:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:user:id
+              title: UserUrn
+            - type: string
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonSelectCustomFieldValueInput
+    BatchDeleteAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: BatchDeleteAttachmentsRequest
+    ApiSearchQuery-Output:
+      properties:
+        filter_group:
+          $ref: '#/components/schemas/FilterGroup-Output'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        sort:
+          items:
+            $ref: '#/components/schemas/Sort-Output'
+          type: array
+          title: Sort
+          default: []
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+        merge_query_for_nested_fields:
+          type: boolean
+          title: Merge Query For Nested Fields
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - filter_group
+      - pagination
+      title: ApiSearchQuery
+    ValuationInfo:
+      properties:
+        value:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationSource'
+          - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
+      additionalProperties: false
+      type: object
+      title: ValuationInfo
+      description: Base valuation info - used for per-funding-round valuation.
+    FilterGroup-Input:
+      properties:
+        join_operator:
+          type: string
+          enum:
+          - and
+          - or
+          title: Join Operator
+        filters:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Filter'
+            type: array
+          - type: 'null'
+          title: Filters
+        filter_groups:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroup-Input'
+            type: array
+          - type: 'null'
+          title: Filter Groups
+        filter_group_generators:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroupGenerator'
+            type: array
+          - type: 'null'
+          title: Filter Group Generators
+      additionalProperties: false
+      type: object
+      required:
+      - join_operator
+      title: FilterGroup
+    TypeaheadSubtype:
+      type: string
+      enum:
+      - COMPANY
+      - PERSON
+      - CITY
+      - STATE
+      - COUNTRY
+      - METRO_AREA
+      title: TypeaheadSubtype
+    SearchResult_CompanyUrn_:
+      properties:
+        urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+        cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cursor
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: SearchResult[CompanyUrn]
+    FundingCompletionStatus:
+      type: string
+      enum:
+      - COMPLETED
+      - CONFIRMED_UNDISCLOSED
+      title: FundingCompletionStatus
+    Attachments:
+      properties:
+        value:
+          items:
+            $ref: '#/components/schemas/FounderProvidedAttachment'
+          type: array
+          title: Value
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: Attachments
+    Pagination:
+      properties:
+        start:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Start
+        page_size:
+          type: integer
+          title: Page Size
+      additionalProperties: false
+      type: object
+      required:
+      - page_size
+      title: Pagination
+    Body_remove_companies_from_company_watchlist_watchlists_companies__id_or_urn__removeCompanies_post:
+      properties:
+        ids:
+          items:
+            type: integer
+          type: array
+          title: Ids
+          default: []
+        urns:
+          items:
+            type: string
+          type: array
+          title: Urns
+          default: []
+      type: object
+      title: Body_remove_companies_from_company_watchlist_watchlists_companies__id_or_urn__removeCompanies_post
+    PersonListCustomFieldMetadata:
+      properties:
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: PersonListCustomFieldMetadata
+    UserCompaniesImportOutputWithStats:
+      properties:
+        companies_list_urn:
+          type: string
+          pattern: urn:harmonic:company_watchlist:id
+          title: CompanyWatchlistUrn
+        file_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: File Name
+        flatfile_batch_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Flatfile Batch Id
+        list_import_type:
+          anyOf:
+          - $ref: '#/components/schemas/ListImportType'
+          - type: 'null'
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        user_companies_import_urn:
+          type: string
+          pattern: urn:harmonic:user_company_import:id
+          title: UserCompaniesImportUrn
+        user_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: User Urn
+        customer_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          - type: 'null'
+          title: Customer Urn
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user_company_import:id
+            title: UserCompaniesImportUrn
+          - type: 'null'
+          title: Entity Urn
+        id:
+          type: string
+          format: uuid
+          title: Id
+        user_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: User Id
+        customer_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Customer Id
+        failed_imports_count:
+          type: integer
+          title: Failed Imports Count
+        pending_imports_count:
+          type: integer
+          title: Pending Imports Count
+        found_imports_count:
+          type: integer
+          title: Found Imports Count
+        total_imports_count:
+          type: integer
+          title: Total Imports Count
+        unresolved_imports_count:
+          type: integer
+          title: Unresolved Imports Count
+      additionalProperties: false
+      type: object
+      required:
+      - companies_list_urn
+      - created_at
+      - updated_at
+      - user_companies_import_urn
+      - id
+      - failed_imports_count
+      - pending_imports_count
+      - found_imports_count
+      - total_imports_count
+      - unresolved_imports_count
+      title: UserCompaniesImportOutputWithStats
+    UnifiedExternalCompanyListEntryModel:
+      properties:
+        id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Id
+        list_id:
+          type: string
+          title: List Id
+        target_list_urn:
+          type: string
+          pattern: urn:harmonic:company_watchlist:id
+          title: CompanyWatchlistUrn
+        entity_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Entity Id
+        entity_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Entity Type
+        added_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Added At
+        updated_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Updated At
+        canonical:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyCanonicalParameter'
+          - type: 'null'
+        label:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Label
+        integration_provider:
+          type: string
+          title: Integration Provider
+      additionalProperties: false
+      type: object
+      required:
+      - list_id
+      - target_list_urn
+      - integration_provider
+      title: UnifiedExternalCompanyListEntryModel
+    TextListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: TextListCustomFieldValue
+    CreateCompanyListCustomFieldInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - type
+      title: CreateCompanyListCustomFieldInput
+    Acquisition:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Acquisition
+    TractionMetricsPoint:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+        change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Change
+        percent_change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Percent Change
+      additionalProperties: false
+      type: object
+      title: TractionMetricsPoint
+    ResourceUrnResponse_CompanyListCustomFieldUrn_:
+      properties:
+        urn:
+          type: string
+          pattern: urn:harmonic:company_list_custom_field:id
+          title: CompanyListCustomFieldUrn
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/DBOperationMetadata'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: ResourceUrnResponse[CompanyListCustomFieldUrn]
+    DateListCustomFieldDefaultValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        mode:
+          $ref: '#/components/schemas/DateListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: DateListCustomFieldDefaultValue
+    PaginationMetadata:
+      properties:
+        next:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next
+        current:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Current
+        has_next:
+          type: boolean
+          title: Has Next
+      additionalProperties: false
+      type: object
+      required:
+      - has_next
+      title: PaginationMetadata
+    DateListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: DateListCustomFieldValue
+    NumberListCustomFieldMetadata:
+      properties:
+        format:
+          $ref: '#/components/schemas/NumberListCustomFieldValueFormat'
+          default: NUMBER
+      additionalProperties: false
+      type: object
+      title: NumberListCustomFieldMetadata
+    LimitedApiRequestModel-Output:
+      properties:
+        filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: LimitedApiRequestModel
+    TractionMetricsInfo:
+      properties:
+        14d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        30d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        90d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        180d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        365d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        metrics:
+          items:
+            $ref: '#/components/schemas/TractionMetricsTimeSeriesMetric'
+          type: array
+          title: Metrics
+          default: []
+        latest_metric_value:
+          anyOf:
+          - type: number
+          - type: integer
+          - type: 'null'
+          title: Latest Metric Value
+      additionalProperties: true
+      type: object
+      required:
+      - 14d_ago
+      - 30d_ago
+      - 90d_ago
+      - 180d_ago
+      - 365d_ago
+      title: TractionMetricsInfo
+    TractionMetrics:
+      properties:
+        facebook_like_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_like_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        facebook_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        facebook_following_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_following_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        linkedin_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_linkedin_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        instagram_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_instagram_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        twitter_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_twitter_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        headcount:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        corrected_headcount:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        external_headcount:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        funding_total:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        web_traffic:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_advisor:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_customer_success:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_data:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_design:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_engineering:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_finance:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_legal:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_marketing:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_operations:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_other:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_people:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_product:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_sales:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_support:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+      additionalProperties: false
+      type: object
+      required:
+      - facebook_like_count
+      - facebook_follower_count
+      - facebook_following_count
+      - linkedin_follower_count
+      - instagram_follower_count
+      - twitter_follower_count
+      - headcount
+      - funding_total
+      - web_traffic
+      - headcount_advisor
+      - headcount_customer_success
+      - headcount_data
+      - headcount_design
+      - headcount_engineering
+      - headcount_finance
+      - headcount_legal
+      - headcount_marketing
+      - headcount_operations
+      - headcount_other
+      - headcount_people
+      - headcount_product
+      - headcount_sales
+      - headcount_support
+      title: TractionMetrics
+    UserConnectionStatus:
+      type: string
+      enum:
+      - USER_CONNECTION
+      - TEAM_CONNECTION
+      - NO_CONNECTION
+      title: UserConnectionStatus
+    PersonSelectCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonSelectCustomFieldValue
+    EmployeeGroupType:
+      type: string
+      enum:
+      - CEO
+      - FOUNDERS_AND_CEO
+      - EXECUTIVES
+      - FOUNDERS
+      - LEADERSHIP
+      - NON_LEADERSHIP
+      - ALL
+      - ADVISORS
+      - NON_PARTNERS
+      title: EmployeeGroupType
+    FilterGroup-Output:
+      properties:
+        join_operator:
+          type: string
+          enum:
+          - and
+          - or
+          title: Join Operator
+        filters:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Filter'
+            type: array
+          - type: 'null'
+          title: Filters
+        filter_groups:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroup-Output'
+            type: array
+          - type: 'null'
+          title: Filter Groups
+        filter_group_generators:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroupGenerator'
+            type: array
+          - type: 'null'
+          title: Filter Group Generators
+      additionalProperties: false
+      type: object
+      required:
+      - join_operator
+      title: FilterGroup
+    ListCustomFieldType:
+      type: string
+      enum:
+      - TEXT
+      - NUMBER
+      - DATE
+      - SINGLE_SELECT
+      - MULTI_SELECT
+      - PERSON
+      - WEBSITE
+      - CHECKBOX
+      - STATUS
+      - RECORD_REFERENCE
+      title: ListCustomFieldType
+    FundingAttributeNullStatus:
+      type: string
+      enum:
+      - EXISTS_BUT_UNDISCLOSED
+      - NONE_ANNOUNCED
+      title: FundingAttributeNullStatus
+      description: 'Describes how to interpret a null value for a funding attribute on a Company object. Affects the following Company
+
+        fields:
+
+        - num_funding_rounds
+
+        - num_investors
+
+        - funding_total
+
+        - investor_names_list
+
+        - last_funding_at
+
+        - last_funding_type
+
+        - last_funding_total'
+    AttachmentMetadataOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+        attachment_urn:
+          type: string
+          pattern: urn:harmonic:user_uploaded_content:id
+          title: UserUploadedContentUrn
+        upload_uri:
+          type: string
+          title: Upload Uri
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        uploaded_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Uploaded By
+        link:
+          type: string
+          title: Link
+        uploaded_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Uploaded At
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      - attachment_urn
+      - upload_uri
+      - created_at
+      - updated_at
+      - uploaded_by
+      - link
+      - uploaded_at
+      title: AttachmentMetadataOutput

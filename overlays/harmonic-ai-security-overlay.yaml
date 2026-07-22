@@ -2,17 +2,17 @@ overlay: 1.0.0
 info:
   title: API Evangelist security overlay for Harmonic.ai Public API
   version: 1.0.0
-extends: openapi/harmonic-ai-openapi.json
+extends: openapi/_original/harmonic-ai-openapi.json
 generated: '2026-07-22'
 method: generated
-source: openapi/harmonic-ai-openapi.json
+source: openapi/_original/harmonic-ai-openapi.json
 rationale: >-
-  The captured OpenAPI (openapi/harmonic-ai-openapi.json) ships an EMPTY
+  The captured OpenAPI (openapi/_original/harmonic-ai-openapi.json) ships an EMPTY
   components.securitySchemes and no root security requirement, yet Harmonic
   documents two auth mechanisms: an `apikey` request header and OAuth 2.0
   (used by the hosted MCP server). This overlay adds both schemes and a root
   security requirement WITHOUT mutating the original spec. Apply with any
-  Overlay 1.0.0 processor against openapi/harmonic-ai-openapi.json.
+  Overlay 1.0.0 processor against openapi/_original/harmonic-ai-openapi.json.
 actions:
   - target: $.components.securitySchemes
     description: Add the apikey header scheme documented by Harmonic.

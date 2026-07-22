@@ -1,0 +1,32 @@
+{
+  "provider": "harmonic-ai",
+  "sources": [
+    "harmonic-ai-openapi.json"
+  ],
+  "outputs": [
+    "harmonic-ai-attachments-api-openapi.yml",
+    "harmonic-ai-companies-api-openapi.yml",
+    "harmonic-ai-email-enrichment-api-openapi.yml",
+    "harmonic-ai-enrichment-api-openapi.yml",
+    "harmonic-ai-people-api-openapi.yml",
+    "harmonic-ai-persons-api-openapi.yml",
+    "harmonic-ai-saved-searches-api-openapi.yml",
+    "harmonic-ai-search-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/harmonic-ai-openapi.json"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "harmonic-ai-openapi.json: declared missing tag: attachments",
+    "harmonic-ai-openapi.json: declared missing tag: companies",
+    "harmonic-ai-openapi.json: declared missing tag: email_enrichment",
+    "harmonic-ai-openapi.json: declared missing tag: enrichment",
+    "harmonic-ai-openapi.json: declared missing tag: people",
+    "harmonic-ai-openapi.json: declared missing tag: persons",
+    "harmonic-ai-openapi.json: declared missing tag: saved_searches",
+    "harmonic-ai-openapi.json: declared missing tag: search"
+  ],
+  "skipped": []
+}

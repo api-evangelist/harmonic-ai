@@ -1,20 +1,20 @@
 generated: '2026-07-22'
 method: generated
 source: >-
-  Packaged Agent Skills generated from openapi/harmonic-ai-openapi.json
-  (OpenAPI 3.1.0, 86 operations). Every step is grounded in an operationId
+  Packaged Agent Skills generated from Harmonic's OpenAPI (now split one-per-tag
+  under openapi/; source in openapi/_original/). Every step is grounded in an operationId
   verified verbatim in the spec; cross-cutting rules cite
   ../authentication/, ../errors/, ../data-model/, and ../mcp/.
 skills:
   - file: harmonic-ai-enrich-a-company.md
     name: Enrich a company
-    api: openapi/harmonic-ai-openapi.json
+    api: openapi/harmonic-ai-companies-api-openapi.yml
     operations: [get_company_by_identifiers_companies_post, get_company_by_id_or_urn_companies__id_or_urn__get]
   - file: harmonic-ai-natural-language-company-search.md
     name: Natural-language company search
-    api: openapi/harmonic-ai-openapi.json
+    api: openapi/harmonic-ai-companies-api-openapi.yml
     operations: [search_companies_by_keywords_search_companies_by_keywords_post, typeahead_search_search_typeahead_get, search_agent_search_search_agent_get]
   - file: harmonic-ai-build-and-populate-a-watchlist.md
     name: Build and populate a company watchlist
-    api: openapi/harmonic-ai-openapi.json
+    api: openapi/harmonic-ai-companies-api-openapi.yml
     operations: [create_company_watchlist_watchlists_companies_post, add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post, get_company_watchlist_entries_watchlists_companies__id_or_urn__entries_get]

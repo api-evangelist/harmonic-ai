@@ -2,13 +2,14 @@ generated: '2026-07-22'
 method: derived
 source: >-
   Derived by aligning the published MCP tool list (llms.txt / mcp/harmonic-ai-mcp.yml) with the
-  live REST OpenAPI (openapi/harmonic-ai-openapi.json, 86 operations). Confidence per row.
+  live REST OpenAPI — now split one-per-tag under openapi/ (source archived at
+  openapi/_original/harmonic-ai-openapi.json, 86 operations). Confidence per row.
 purpose: >-
   Make the MCP tool the first-class discovery unit and bind it to its backing REST operation, the
   way apis.io binds an OpenAPI operation. Demonstrates that Harmonic's REST, GraphQL, and MCP
   surfaces are three OVERLAPPING-BUT-DIVERGENT projections of one data core — no surface is a superset.
 surfaces:
-  rest_openapi: openapi/harmonic-ai-openapi.json     # 86 operations, 224 schemas, OpenAPI 3.1.0
+  rest_openapi: openapi/                             # split one-per-tag; source in _original/; 86 operations, 224 schemas
   graphql: https://api.harmonic.ai/graphql           # SDL gated (introspection requires api key / JWT)
   mcp: https://mcp.api.harmonic.ai                    # tools/list gated (OAuth); tool names from llms.txt
 

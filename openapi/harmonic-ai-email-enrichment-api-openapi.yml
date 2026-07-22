@@ -1,0 +1,380 @@
+openapi: 3.1.0
+info:
+  title: Harmonic.ai Public email_enrichment API
+  version: 0.0.1
+  description: Public API documentation for Harmonic.ai.
+tags:
+- name: email_enrichment
+paths:
+  /email_enrichment/jobs:
+    post:
+      tags:
+      - email_enrichment
+      summary: Submit Job
+      description: 'Submit a bulk email enrichment job.
+
+
+        Accepts exactly one of `person_linkedin_urls` or `person_urns`.
+
+        Returns 202 with the created job_id and a list of any people that
+
+        were dropped at submit time (with reasons). Returns 422 when no
+
+        submitted people are eligible for enrichment, and 429 when the
+
+        request requires more enrichment credits than remain in your monthly
+
+        quota.'
+      operationId: submit_job_email_enrichment_jobs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobRequest'
+        required: true
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobSubmitResponse'
+        '422':
+          description: None of the submitted people are eligible for enrichment. See `dropped` for the reason each was excluded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoEligiblePeopleErrorDetail'
+        '429':
+          description: The request requires more enrichment credits than remain in your monthly quota. Submit fewer people or wait until your quota resets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuotaInsufficientErrorDetail'
+  /email_enrichment/jobs/{job_id}:
+    get:
+      tags:
+      - email_enrichment
+      summary: Get Job
+      description: 'Poll job status. `results` is `null` until status is terminal
+
+        (COMPLETED / FAILED); once terminal, all per-person outcomes are
+
+        returned in a single response. Emails themselves are fetched via
+
+        existing public people endpoints (`GET /persons/{urn}/emails`).'
+      operationId: get_job_email_enrichment_jobs__job_id__get
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Job Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatusResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /email_enrichment/usage:
+    get:
+      tags:
+      - email_enrichment
+      summary: Get Public Usage
+      description: Customer's current monthly quota state.
+      operationId: get_public_usage_email_enrichment_usage_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkEmailEnrichmentUsageResponse'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DroppedPerson:
+      properties:
+        submitted_identifier:
+          type: string
+          title: Submitted Identifier
+        reason:
+          type: string
+          enum:
+          - NOT_FOUND
+          - INVALID_URL
+          - ALREADY_HAS_EMAIL
+          - RECENTLY_ATTEMPTED
+          title: Reason
+      type: object
+      required:
+      - submitted_identifier
+      - reason
+      title: DroppedPerson
+      description: A person filtered out at submit time, with the reason.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    JobStatusResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        counts:
+          $ref: '#/components/schemas/PersonJobCounts'
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonJobResult'
+            type: array
+          - type: 'null'
+          title: Results
+        created_at:
+          type: string
+          title: Created At
+        completed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Completed At
+      type: object
+      required:
+      - job_id
+      - status
+      - counts
+      - created_at
+      title: JobStatusResponse
+    NoEligiblePeopleErrorDetail:
+      properties:
+        error:
+          type: string
+          enum:
+          - NO_ELIGIBLE_PEOPLE
+          const: NO_ELIGIBLE_PEOPLE
+          title: Error
+          default: NO_ELIGIBLE_PEOPLE
+        submitted:
+          type: integer
+          title: Submitted
+        dropped:
+          items:
+            $ref: '#/components/schemas/DroppedPerson'
+          type: array
+          title: Dropped
+      type: object
+      required:
+      - submitted
+      title: NoEligiblePeopleErrorDetail
+      description: 'Returned when none of the submitted people are eligible for
+
+        enrichment. The `dropped` array explains why each was excluded.'
+    PersonJobResult:
+      properties:
+        person_urn:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobItemStatus'
+      type: object
+      required:
+      - person_urn
+      - status
+      title: PersonJobResult
+    PersonJobCounts:
+      properties:
+        total_processed:
+          type: integer
+          title: Total Processed
+        total_succeeded:
+          type: integer
+          title: Total Succeeded
+        total_failed:
+          type: integer
+          title: Total Failed
+        total_skipped:
+          type: integer
+          title: Total Skipped
+        total_not_found:
+          type: integer
+          title: Total Not Found
+      type: object
+      required:
+      - total_processed
+      - total_succeeded
+      - total_failed
+      - total_skipped
+      - total_not_found
+      title: PersonJobCounts
+    JobSubmitResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        accepted_count:
+          type: integer
+          title: Accepted Count
+        dropped:
+          items:
+            $ref: '#/components/schemas/DroppedPerson'
+          type: array
+          title: Dropped
+        monthly_remaining:
+          type: integer
+          title: Monthly Remaining
+        created_at:
+          type: string
+          title: Created At
+      type: object
+      required:
+      - job_id
+      - status
+      - accepted_count
+      - monthly_remaining
+      - created_at
+      title: JobSubmitResponse
+    QuotaInsufficientErrorDetail:
+      properties:
+        error:
+          type: string
+          enum:
+          - MONTHLY_QUOTA_INSUFFICIENT
+          const: MONTHLY_QUOTA_INSUFFICIENT
+          title: Error
+          default: MONTHLY_QUOTA_INSUFFICIENT
+        needed:
+          type: integer
+          title: Needed
+        available:
+          type: integer
+          title: Available
+        submitted:
+          type: integer
+          title: Submitted
+      type: object
+      required:
+      - needed
+      - available
+      - submitted
+      title: QuotaInsufficientErrorDetail
+      description: 'Returned when the request requires more enrichment credits than
+
+        remain in the customer''s monthly quota. The customer''s action is to
+
+        retry with fewer inputs or wait for the next monthly reset — drops
+
+        aren''t surfaced here since they don''t change that action.'
+    JobRequest:
+      properties:
+        person_linkedin_urls:
+          anyOf:
+          - items:
+              type: string
+              minLength: 1
+              format: uri
+            type: array
+            maxItems: 5000
+            minItems: 1
+          - type: 'null'
+          title: Person Linkedin Urls
+        person_urns:
+          anyOf:
+          - items:
+              type: string
+              pattern: urn:harmonic:person:id
+              title: PersonUrn
+            type: array
+            maxItems: 5000
+            minItems: 1
+          - type: 'null'
+          title: Person Urns
+      type: object
+      title: JobRequest
+      description: 'Submit a bulk email enrichment job.
+
+
+        Exactly one of `person_linkedin_urls` or `person_urns` must be set.
+
+        LinkedIn URLs and URNs are peer alternatives — both resolve to the
+
+        same internal person_id.'
+    BulkEmailEnrichmentUsageResponse:
+      properties:
+        monthly_usage:
+          type: integer
+          title: Monthly Usage
+        monthly_limit:
+          type: integer
+          title: Monthly Limit
+        monthly_remaining:
+          type: integer
+          title: Monthly Remaining
+      type: object
+      required:
+      - monthly_usage
+      - monthly_limit
+      - monthly_remaining
+      title: BulkEmailEnrichmentUsageResponse
+    BulkEmailEnrichmentJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
+      title: BulkEmailEnrichmentJobStatus
+    BulkEmailEnrichmentJobItemStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - NOT_FOUND
+      - FAILED
+      - SKIPPED
+      title: BulkEmailEnrichmentJobItemStatus

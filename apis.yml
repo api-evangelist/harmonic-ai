@@ -50,7 +50,21 @@ apis:
       - type: APIReference
         url: https://console.harmonic.ai/docs/api-reference/introduction
       - type: OpenAPI
-        url: openapi/harmonic-ai-openapi.json
+        url: openapi/harmonic-ai-companies-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-persons-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-people-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-saved-searches-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-search-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-enrichment-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-email-enrichment-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-attachments-api-openapi.yml
       - type: GraphQL
         url: https://api.harmonic.ai/graphql
       - type: Authentication
@@ -83,6 +97,8 @@ apis:
     properties:
       - type: MCPServer
         url: mcp/harmonic-ai-mcp.yml
+      - type: ToolCrosswalk
+        url: mcp/harmonic-ai-tool-crosswalk.yml
       - type: MCP
         url: https://mcp.api.harmonic.ai/
       - type: Documentation

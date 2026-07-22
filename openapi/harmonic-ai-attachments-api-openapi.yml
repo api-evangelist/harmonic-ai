@@ -1,0 +1,618 @@
+openapi: 3.1.0
+info:
+  title: Harmonic.ai Public attachments API
+  version: 0.0.1
+  description: Public API documentation for Harmonic.ai.
+tags:
+- name: attachments
+paths:
+  /companies/{id_or_urn}/attachments:
+    post:
+      tags:
+      - attachments
+      summary: Batch Create Attachments
+      operationId: batch_create_attachments_companies__id_or_urn__attachments_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCreateAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchCreateAttachmentsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - attachments
+      summary: Batch Complete Upload
+      operationId: batch_complete_upload_companies__id_or_urn__attachments_put
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCompleteUploadRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentMetadataListOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      tags:
+      - attachments
+      summary: Link Attachments
+      operationId: link_attachments_companies__id_or_urn__attachments_patch
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentMetadataOutput'
+                title: Response Link Attachments Companies  Id Or Urn  Attachments Patch
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /companies/{id_or_urn}/attachments/{urn}:
+    get:
+      tags:
+      - attachments
+      summary: Get Attachment Content
+      operationId: get_attachment_content_companies__id_or_urn__attachments__urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      - name: preview
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Preview
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAttachmentContentResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - attachments
+      summary: Delete Attachment
+      operationId: delete_attachment_companies__id_or_urn__attachments__urn__delete
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Delete Attachment Companies  Id Or Urn  Attachments  Urn  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /persons/{id_or_urn}/attachments:
+    post:
+      tags:
+      - attachments
+      summary: Batch Create Attachments
+      operationId: batch_create_attachments_persons__id_or_urn__attachments_post
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCreateAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchCreateAttachmentsOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - attachments
+      summary: Batch Complete Upload
+      operationId: batch_complete_upload_persons__id_or_urn__attachments_put
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCompleteUploadRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttachmentMetadataListOutput'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      tags:
+      - attachments
+      summary: Link Attachments
+      operationId: link_attachments_persons__id_or_urn__attachments_patch
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkAttachmentsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentMetadataOutput'
+                title: Response Link Attachments Persons  Id Or Urn  Attachments Patch
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /persons/{id_or_urn}/attachments/{urn}:
+    get:
+      tags:
+      - attachments
+      summary: Get Attachment Content
+      operationId: get_attachment_content_persons__id_or_urn__attachments__urn__get
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      - name: preview
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Preview
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAttachmentContentResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - attachments
+      summary: Delete Attachment
+      operationId: delete_attachment_persons__id_or_urn__attachments__urn__delete
+      parameters:
+      - name: id_or_urn
+        in: path
+        required: true
+        schema:
+          anyOf:
+          - type: integer
+          - type: string
+            format: uuid
+          - type: string
+          title: Id Or Urn
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Urn
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Delete Attachment Persons  Id Or Urn  Attachments  Urn  Delete
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CreateAttachmentOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+        attachment_urn:
+          type: string
+          pattern: urn:harmonic:user_uploaded_content:id
+          title: UserUploadedContentUrn
+        upload_uri:
+          type: string
+          title: Upload Uri
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        uploaded_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Uploaded By
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      - attachment_urn
+      - upload_uri
+      - created_at
+      - updated_at
+      - uploaded_by
+      title: CreateAttachmentOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    BatchCreateAttachmentsOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsOutput
+    LinkAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: LinkAttachmentsRequest
+    BatchCompleteUploadRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: BatchCompleteUploadRequest
+    BatchCreateAttachmentsRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentRequest'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsRequest
+    CreateAttachmentRequest:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      title: CreateAttachmentRequest
+    GetAttachmentContentResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: GetAttachmentContentResponse
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    AttachmentMetadataOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+        attachment_urn:
+          type: string
+          pattern: urn:harmonic:user_uploaded_content:id
+          title: UserUploadedContentUrn
+        upload_uri:
+          type: string
+          title: Upload Uri
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        uploaded_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Uploaded By
+        link:
+          type: string
+          title: Link
+        uploaded_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Uploaded At
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      - attachment_urn
+      - upload_uri
+      - created_at
+      - updated_at
+      - uploaded_by
+      - link
+      - uploaded_at
+      title: AttachmentMetadataOutput

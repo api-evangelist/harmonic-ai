@@ -3,10 +3,10 @@ generated: '2026-07-22'
 name: Natural-language company search
 method: generated
 description: Find companies on Harmonic from a natural-language / keyword description, with as-you-type typeahead to disambiguate a specific company.
-api: openapi/harmonic-ai-openapi.json
+api: openapi/harmonic-ai-companies-api-openapi.yml
 operations: [search_companies_by_keywords_search_companies_by_keywords_post, typeahead_search_search_typeahead_get, search_agent_search_search_agent_get]
 source: >-
-  Grounded in openapi/harmonic-ai-openapi.json. All three operationIds verified
+  Grounded in the openapi/ set (source in openapi/_original/). All three operationIds verified
   verbatim in the spec; crosswalk to MCP tools in
   mcp/harmonic-ai-tool-crosswalk.yml.
 ---

@@ -3,10 +3,10 @@ generated: '2026-07-22'
 method: generated
 name: Enrich a company
 description: Resolve a company by domain/name/identifier with Harmonic, then fetch its full enriched profile (funding, headcount, team, traction) by id or URN.
-api: openapi/harmonic-ai-openapi.json
+api: openapi/harmonic-ai-companies-api-openapi.yml
 operations: [get_company_by_identifiers_companies_post, get_company_by_id_or_urn_companies__id_or_urn__get]
 source: >-
-  Grounded in openapi/harmonic-ai-openapi.json (OpenAPI 3.1.0). Both
+  Grounded in the openapi/ set (source in openapi/_original/) (OpenAPI 3.1.0). Both
   operationIds verified verbatim in the spec; auth per
   authentication/harmonic-ai-authentication.yml, errors per
   errors/harmonic-ai-problem-types.yml, entity graph per
