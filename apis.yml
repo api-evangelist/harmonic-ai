@@ -5,6 +5,18 @@ description: >-
   GraphQL, and a hosted MCP server. Used by venture capital, growth equity, corporate development, and go-to-market
   teams to find, research, and qualify startups programmatically or through the console web app, Chrome extension,
   bulk data exports (BigQuery/Snowflake/S3), and CRM integrations (Salesforce/HubSpot/Affinity).
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/65f31ad2b4ac6cf0cb8bd691_og-img.png
 url: https://harmonic-ai.apievangelist.com/apis.yml
 created: '2026-07-22'
