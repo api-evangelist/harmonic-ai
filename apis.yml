@@ -111,7 +111,7 @@ apis:
         url: mcp/harmonic-ai-mcp.yml
       - type: ToolCrosswalk
         url: mcp/harmonic-ai-tool-crosswalk.yml
-      - type: MCP
+      - type: MCPServer
         url: https://mcp.api.harmonic.ai/
       - type: Documentation
         url: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
