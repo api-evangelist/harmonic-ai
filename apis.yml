@@ -20,7 +20,7 @@ accessModel:
 image: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/65f31ad2b4ac6cf0cb8bd691_og-img.png
 url: https://harmonic-ai.apievangelist.com/apis.yml
 created: '2026-07-22'
-modified: '2026-07-22'
+modified: '2026-08-14'
 specificationVersion: '0.21'
 tags:
   - startup-intelligence
@@ -77,6 +77,8 @@ apis:
         url: openapi/harmonic-ai-email-enrichment-api-openapi.yml
       - type: OpenAPI
         url: openapi/harmonic-ai-attachments-api-openapi.yml
+      - type: OpenAPI
+        url: openapi/harmonic-ai-investors-api-openapi.yml
       - type: GraphQL
         url: https://api.harmonic.ai/graphql
       - type: Authentication
@@ -117,9 +119,11 @@ apis:
         url: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
       - type: OAuthScopes
         url: scopes/harmonic-ai-scopes.yml
-      - type: LLMSTxt
-        url: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/69aeeb8f09c598b6aea54692_llms.txt
+      - type: LLMsTxt
+        url: https://harmonic.ai/llms.txt
 common:
+  - type: AgenticAccess
+    url: agentic-access/harmonic-ai-agentic-access.yml
   - type: DeveloperPortal
     url: https://console.harmonic.ai/
   - type: Documentation
@@ -132,8 +136,6 @@ common:
     url: https://support.harmonic.ai/
   - type: Blog
     url: https://harmonic.ai/blog
-  - type: GitHubOrganization
-    url: https://github.com/harmonic-ai
   - type: Pricing
     url: https://harmonic.ai/pricing
   - type: SignUp
@@ -170,11 +172,31 @@ common:
     url: security/harmonic-ai-domain-security.yml
   - type: AgentSkill
     url: skills/_index.yml
+  - type: Packages
+    url: packages/harmonic-ai-packages.yml
+  - type: RateLimits
+    url: rate-limits/harmonic-ai-rate-limits.yml
+  - type: Plans
+    url: plans/harmonic-ai-plans-pricing.yml
+  - type: ChangeLog
+    url: changelog/harmonic-ai-changelog.yml
+  - type: VulnerabilityDisclosure
+    url: security/harmonic-ai-vulnerability-disclosure.yml
+  - type: Security
+    url: security/harmonic-ai-vulnerability-disclosure.yml
+  - type: Compliance
+    url: conformance/harmonic-ai-conformance.yml
 maintainers:
   - FN: Harmonic.ai
+    email: info@harmonic.ai
     url: https://harmonic.ai/
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 95
   at: '2026-07-22T16:00:02.185Z'
+x-enrichment:
+  date: '2026-08-14'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
