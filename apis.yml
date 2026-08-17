@@ -18,7 +18,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://cdn.prod.website-files.com/6107b1101d4d3e748743f234/65f31ad2b4ac6cf0cb8bd691_og-img.png
-url: https://harmonic-ai.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/harmonic-ai/refs/heads/main/apis.yml
 created: '2026-07-22'
 modified: '2026-08-14'
 specificationVersion: '0.21'
