@@ -33,12 +33,86 @@ custom_fields:
   notes: All primary entities support user-defined custom fields (global or per-list).
 idempotency:
   documented: false
-  notes: No idempotency-key mechanism is documented in the public API reference.
+  header: null
+  notes: >-
+    No idempotency-key mechanism is documented in the public API reference, none appears in the
+    93-operation OpenAPI (zero matches for "idempoten" in the full spec text), and the write surface
+    includes non-idempotent POST creates (attachments, list entries, enrichment jobs). No
+    `Idempotency` pointer is emitted for this provider — the agent-readiness idempotency dimension
+    is a genuine zero, not a missing pointer.
+  agent_risk: >-
+    An agent that retries a POST after a timeout on /email_enrichment/jobs or the attachment batch
+    endpoints has no safe replay primitive and may double-spend monthly enrichment credits.
+
+# --- probed 2026-08-14: observed on live unauthenticated responses from api.harmonic.ai ---
+gateway:
+  product: kong/3.0.2
+  method: probed
+  auth_challenge: 'www-authenticate: Key realm="kong"'
+  source: 'HTTP headers on https://api.harmonic.ai/ and /companies?website_domain=stripe.com (both 403), 2026-08-14'
+request_tracing:
+  supported: true
+  method: probed
+  headers:
+    - name: x-request-id
+      note: >-
+        Returned on every response including 403s (e.g. f0087fb4-11ee-45b1-95f4-e6f28519ff23#2362525).
+        The value carries a `#<counter>` suffix. This is the identifier to quote to support.
+    - name: x-trace-id
+    - name: x-client-state-version
+    - name: x-kong-response-latency
+      note: Gateway-side latency in milliseconds.
+  cors_exposed: 'access-control-expose-headers: x-request-id,x-trace-id,x-client-state-version'
+  documented: false
+  note: >-
+    These headers are emitted and explicitly CORS-exposed but are NOT documented in the API
+    reference. Recorded here from live observation so an integrator can rely on them.
+rate_limit_signaling:
+  headers: [X-RateLimit-Limit-Second, X-RateLimit-Remaining-Second]
+  window: 1 second
+  limit: 10
+  status_on_exhaustion: 429
+  retry_after: not-served
+  quota_429: >-
+    A second, semantically different 429 signals monthly enrichment-credit exhaustion on
+    POST /email_enrichment/jobs. A client MUST distinguish the two: the per-second 429 is retryable
+    within a second, the quota 429 is not retryable until the month resets.
+  see: rate-limits/harmonic-ai-rate-limits.yml
+pagination_parameters:
+  method: derived
+  source: openapi/_original/harmonic-ai-openapi.json
+  cursor: cursor
+  page: page
+  size: size
+  net_new: new_results_since
+  snapshot_control: exclude_snapshots
+  sort: [sort_field, sort_descending, sort_custom_field_urn]
+  note: >-
+    Both cursor (`cursor`) and offset (`page`/`size`) styles appear across the surface; which one an
+    operation accepts is per-operation, so read the spec rather than assuming one style.
+identifiers:
+  style: URN
+  parameters: [id_or_urn, urn, urns, entity_urns, custom_field_urn, named_view_urn, company_context_urns]
+  note: >-
+    Most path/query identifiers accept either a numeric id or a Harmonic URN; the `id_or_urn` path
+    parameter is typed anyOf integer | uuid | string across the spec.
+error_envelope:
+  media_type: application/json
+  rfc9457: false
+  shape: FastAPI `detail` array (plus two typed 422 bodies using a flat `error` discriminator)
+  see: errors/harmonic-ai-problem-types.yml
 alerts:
   channels: [email, slack]
-  notes: Saved searches can notify via email or Slack when new entities match criteria (net-new tracking).
+  webhooks: false
+  notes: >-
+    Saved searches can notify via email or Slack when new entities match criteria (net-new tracking).
+    These are human-directed alerts, not customer-registerable webhooks — see
+    asyncapi/harmonic-ai-event-surface.yml.
 cross_links:
   authentication: authentication/harmonic-ai-authentication.yml
   scopes: scopes/harmonic-ai-scopes.yml
   lifecycle: lifecycle/harmonic-ai-lifecycle.yml
   mcp: mcp/harmonic-ai-mcp.yml
+  errors: errors/harmonic-ai-problem-types.yml
+  rate_limits: rate-limits/harmonic-ai-rate-limits.yml
+  event_surface: asyncapi/harmonic-ai-event-surface.yml

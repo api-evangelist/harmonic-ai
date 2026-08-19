@@ -1,4 +1,4 @@
-generated: '2026-07-22'
+generated: '2026-08-14'
 method: generated
 source: >-
   Packaged Agent Skills generated from Harmonic's OpenAPI (now split one-per-tag
@@ -18,3 +18,11 @@ skills:
     name: Build and populate a company watchlist
     api: openapi/harmonic-ai-companies-api-openapi.yml
     operations: [create_company_watchlist_watchlists_companies_post, add_companies_to_company_watchlist_watchlists_companies__id_or_urn__addCompanies_post, get_company_watchlist_entries_watchlists_companies__id_or_urn__entries_get]
+  - file: harmonic-ai-attach-a-document-to-an-investor.md
+    name: Attach a document to an investor record
+    api: openapi/harmonic-ai-investors-api-openapi.yml
+    operations: [batch_create_attachments_investors__id_or_urn__attachments_post, batch_complete_upload_investors__id_or_urn__attachments_put, link_attachments_investors__id_or_urn__attachments_patch, batch_get_attachments_investors_attachments_post, get_attachment_content_investors__id_or_urn__attachments__urn__get, delete_attachment_investors__id_or_urn__attachments__urn__delete, batch_delete_attachments_investors_attachments_delete]
+    added: '2026-08-14'
+    note: >-
+      Grounded in the `investors` attachment surface that appeared in the provider's spec between
+      the 2026-07-22 and 2026-08-14 captures.

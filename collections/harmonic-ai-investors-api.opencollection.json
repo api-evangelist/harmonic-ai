@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public investors API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "investors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch Get Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/investors/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Get Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Delete Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/investors/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Delete Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Create Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/investors/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Complete Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/investors/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Complete Upload"
+        },
+        {
+          "info": {
+            "name": "Link Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/investors/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link Attachments"
+        },
+        {
+          "info": {
+            "name": "Get Attachment Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/investors/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Attachment Content"
+        },
+        {
+          "info": {
+            "name": "Delete Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/investors/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Attachment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

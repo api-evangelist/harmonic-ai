@@ -1,0 +1,2280 @@
+{
+  "item": [
+    {
+      "id": "f7273086-e1a7-4ad0-a4c1-103f781c63a5",
+      "name": "persons",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15930477-4f49-4abe-a713-0d9f07493e15",
+          "name": "Batch Get Persons By Id Or Urn",
+          "request": {
+            "name": "Batch Get Persons By Id Or Urn",
+            "description": {},
+            "url": {
+              "path": [
+                "persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company_context_urns",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "company_context_urns",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5046147b-cc6f-40b8-97eb-4a0bdf51fdd5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"id\": \"db9f5a97-0563-7639-928b-117c82655807\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"profile_picture_url\": \"string\",\n    \"contact\": {\n      \"primary_email\": \"string\",\n      \"primary_email_person_id\": 4523\n    },\n    \"location\": {\n      \"address_formatted\": \"string\",\n      \"location\": \"string\",\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"metro_areas\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"socials\": {\n      \"key_0\": {\n        \"url\": \"string\",\n        \"follower_count\": 5572,\n        \"username\": \"string\",\n        \"status\": 2\n      },\n      \"key_1\": {\n        \"url\": \"string\",\n        \"follower_count\": 1184,\n        \"username\": \"string\",\n        \"status\": 2\n      }\n    },\n    \"linkedin_connections\": 8474,\n    \"usurping_person_id\": 9448,\n    \"linkedin_headline\": \"string\",\n    \"linkedin_profile_visibility_type\": \"FULLY_PUBLIC\",\n    \"last_checked_at\": \"string\",\n    \"requested_entity_urn\": \"urn:harmonic:person:id\",\n    \"num_notable_followers\": 960,\n    \"updated_at\": \"string\",\n    \"last_refreshed_at\": \"string\",\n    \"investor_urn\": \"urn:harmonic:investor:id\",\n    \"is_redacted\": true\n  },\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"id\": \"d6cd7c1c-9d05-7dc0-d1a0-202d9b0d198f\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"profile_picture_url\": \"string\",\n    \"contact\": {\n      \"primary_email\": \"string\",\n      \"primary_email_person_id\": 3955\n    },\n    \"location\": {\n      \"address_formatted\": \"string\",\n      \"location\": \"string\",\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"metro_areas\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"socials\": {\n      \"key_0\": {\n        \"url\": \"string\",\n        \"follower_count\": 5848,\n        \"username\": \"string\",\n        \"status\": 1\n      },\n      \"key_1\": {\n        \"url\": \"string\",\n        \"follower_count\": 7484,\n        \"username\": \"string\",\n        \"status\": 1\n      }\n    },\n    \"linkedin_connections\": 9307,\n    \"usurping_person_id\": 5943,\n    \"linkedin_headline\": \"string\",\n    \"linkedin_profile_visibility_type\": \"EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN\",\n    \"last_checked_at\": \"string\",\n    \"requested_entity_urn\": \"urn:harmonic:person:id\",\n    \"num_notable_followers\": 1643,\n    \"updated_at\": \"string\",\n    \"last_refreshed_at\": \"string\",\n    \"investor_urn\": \"urn:harmonic:investor:id\",\n    \"is_redacted\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b24863f1-12e3-445f-ab6f-294aa988d994",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d4e92c0-d484-4d41-8b1a-a658ab5db88d",
+          "name": "Get Person By Canonical",
+          "request": {
+            "name": "Get Person By Canonical",
+            "description": {},
+            "url": {
+              "path": [
+                "persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "linkedin_url",
+                  "value": "<string>",
+                  "description": "Linkedin profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Email address for person lookup. Used as fallback when linkedin_url is not provided or yields no result."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47237e56-fc9b-4bc0-b793-c5efa598f33f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/in/elonmusk"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_urn\": \"urn:harmonic:person:id\",\n  \"id\": \"7a0ef3aa-10bb-eadd-9225-c93a74b81e35\",\n  \"full_name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"profile_picture_url\": \"string\",\n  \"contact\": {\n    \"primary_email\": \"string\",\n    \"primary_email_person_id\": 425\n  },\n  \"location\": {\n    \"address_formatted\": \"string\",\n    \"location\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"metro_areas\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"socials\": {\n    \"key_0\": {\n      \"url\": \"string\",\n      \"follower_count\": 7060,\n      \"username\": \"string\",\n      \"status\": 1\n    }\n  },\n  \"linkedin_connections\": 4029,\n  \"usurping_person_id\": 9499,\n  \"linkedin_headline\": \"string\",\n  \"linkedin_profile_visibility_type\": \"PRIVATE_OR_NONEXISTENT\",\n  \"last_checked_at\": \"string\",\n  \"requested_entity_urn\": \"urn:harmonic:person:id\",\n  \"num_notable_followers\": 5123,\n  \"updated_at\": \"string\",\n  \"last_refreshed_at\": \"string\",\n  \"investor_urn\": \"urn:harmonic:investor:id\",\n  \"is_redacted\": true,\n  \"enrichment_urn\": \"urn:harmonic:enrichment:id\",\n  \"merged_person_urn\": \"urn:harmonic:person:id\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52b66cbc-246c-4033-a182-b0b17b1e57ef",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/in/elonmusk"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b57f3bc-78d9-44ee-bdda-e5ca6866e303",
+          "name": "Global Import People",
+          "request": {
+            "name": "Global Import People",
+            "description": {
+              "content": "Import people with global custom field values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "persons",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f8455d8-3748-4c86-b235-97a7e7f3bcf8",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1965-04-03T02:38:00.807Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2007-05-29T23:12:56.434Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n  \"total_people_count\": 5239,\n  \"people_found_count\": 3870,\n  \"people_not_found_count\": 7498,\n  \"people_invalid_count\": 1411\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e171c11e-c40c-41d9-b75e-84214dffea71",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1965-04-03T02:38:00.807Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2007-05-29T23:12:56.434Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6842054d-1125-44eb-8958-737751b454a1",
+          "name": "Get Global Custom Fields",
+          "request": {
+            "name": "Get Global Custom Fields",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "custom_fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cec6be64-8f39-4892-94bb-87f0bc93fe32",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0533c07e-eac1-4b52-89c8-d8b26872e836",
+          "name": "Create Global Custom Field",
+          "request": {
+            "name": "Create Global Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66ada111-6191-4211-95ea-f3c3ed1e934f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"DATE\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aabb4d32-f10c-4aa8-a247-56f407976b3f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"DATE\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2e22c73-bf1a-4389-b4fb-f0ff248f05ae",
+          "name": "Update Global Custom Field",
+          "request": {
+            "name": "Update Global Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "custom_field_urn",
+                  "value": "<string>",
+                  "description": "(Required) Custom field URN"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "751ebb88-d500-4d9a-8acc-6049393ee5a9",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1fb9e6f-2e8a-47d2-be17-8ca317a7a296",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aac30073-21d6-484a-852e-b5b26c02e596",
+          "name": "Delete Custom Field",
+          "request": {
+            "name": "Delete Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "custom_field_urn",
+                  "value": "<string>",
+                  "description": "(Required) Custom field URN"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f78f57a-2550-4b27-b614-55f979ca9460",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:person_list_custom_field:id\",\n  \"metadata\": {\n    \"count_total\": 3823,\n    \"count_changed\": 7194,\n    \"count_skipped\": 7502,\n    \"count_not_found\": 8450\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15084795-b93c-49f8-b5d3-6a33f12293b0",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88de7df8-2c02-4f79-8e5d-ff3ed043c59d",
+          "name": "Get Person By Id Or Urn",
+          "request": {
+            "name": "Get Person By Id Or Urn",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company_context_urns",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "company_context_urns",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2788d9d-e802-4a83-a788-b7bfed4f3034",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_urn\": \"urn:harmonic:person:id\",\n  \"id\": \"2bb50106-875c-7d6c-0a66-f014a12ccbdf\",\n  \"full_name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"profile_picture_url\": \"string\",\n  \"contact\": {\n    \"primary_email\": \"string\",\n    \"primary_email_person_id\": 6368\n  },\n  \"location\": {\n    \"address_formatted\": \"string\",\n    \"location\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"metro_areas\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"socials\": {\n    \"key_0\": {\n      \"url\": \"string\",\n      \"follower_count\": 6337,\n      \"username\": \"string\",\n      \"status\": 2\n    },\n    \"key_1\": {\n      \"url\": \"string\",\n      \"follower_count\": 7481,\n      \"username\": \"string\",\n      \"status\": 1\n    },\n    \"key_2\": {\n      \"url\": \"string\",\n      \"follower_count\": 2962,\n      \"username\": \"string\",\n      \"status\": 1\n    },\n    \"key_3\": {\n      \"url\": \"string\",\n      \"follower_count\": 1258,\n      \"username\": \"string\",\n      \"status\": 2\n    }\n  },\n  \"linkedin_connections\": 3676,\n  \"usurping_person_id\": 8150,\n  \"linkedin_headline\": \"string\",\n  \"linkedin_profile_visibility_type\": \"FULLY_PUBLIC\",\n  \"last_checked_at\": \"string\",\n  \"requested_entity_urn\": \"urn:harmonic:person:id\",\n  \"num_notable_followers\": 2771,\n  \"updated_at\": \"string\",\n  \"last_refreshed_at\": \"string\",\n  \"investor_urn\": \"urn:harmonic:investor:id\",\n  \"is_redacted\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d2b0134-2ed0-4d5c-9701-6eb00ee5f57f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_context_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe51d7d0-400a-4510-a5f7-a718cc35ae14",
+          "name": "Batch Get Person By Id Or Urn Post Method",
+          "request": {
+            "name": "Batch Get Person By Id Or Urn Post Method",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "batchGet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"include_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b0cc9a8-ddf2-4081-9b00-0c3e0e31f0b0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "batchGet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"include_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"id\": \"aa87354d-2a78-775e-a5f6-d09cd6017d4e\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"profile_picture_url\": \"string\",\n    \"contact\": {\n      \"primary_email\": \"string\",\n      \"primary_email_person_id\": 6913\n    },\n    \"location\": {\n      \"address_formatted\": \"string\",\n      \"location\": \"string\",\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"metro_areas\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"socials\": {\n      \"key_0\": {\n        \"url\": \"string\",\n        \"follower_count\": 3749,\n        \"username\": \"string\",\n        \"status\": 1\n      }\n    },\n    \"linkedin_connections\": 338,\n    \"usurping_person_id\": 2355,\n    \"linkedin_headline\": \"string\",\n    \"linkedin_profile_visibility_type\": \"PRIVATE_OR_NONEXISTENT\",\n    \"last_checked_at\": \"string\",\n    \"requested_entity_urn\": \"urn:harmonic:person:id\",\n    \"num_notable_followers\": 8756,\n    \"updated_at\": \"string\",\n    \"last_refreshed_at\": \"string\",\n    \"investor_urn\": \"urn:harmonic:investor:id\",\n    \"is_redacted\": true\n  },\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"id\": \"02950682-9af8-d60b-3f3c-10781c839a23\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"profile_picture_url\": \"string\",\n    \"contact\": {\n      \"primary_email\": \"string\",\n      \"primary_email_person_id\": 9198\n    },\n    \"location\": {\n      \"address_formatted\": \"string\",\n      \"location\": \"string\",\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"metro_areas\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"socials\": {\n      \"key_0\": {\n        \"url\": \"string\",\n        \"follower_count\": 641,\n        \"username\": \"string\",\n        \"status\": 2\n      },\n      \"key_1\": {\n        \"url\": \"string\",\n        \"follower_count\": 2197,\n        \"username\": \"string\",\n        \"status\": 1\n      }\n    },\n    \"linkedin_connections\": 824,\n    \"usurping_person_id\": 7492,\n    \"linkedin_headline\": \"string\",\n    \"linkedin_profile_visibility_type\": \"EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN\",\n    \"last_checked_at\": \"string\",\n    \"requested_entity_urn\": \"urn:harmonic:person:id\",\n    \"num_notable_followers\": 2380,\n    \"updated_at\": \"string\",\n    \"last_refreshed_at\": \"string\",\n    \"investor_urn\": \"urn:harmonic:investor:id\",\n    \"is_redacted\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c24a712-f164-4f78-b88c-2b5be554227b",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "batchGet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"include_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0fdb34f-18fa-4d16-b00c-3890a233882a",
+          "name": "Batch Get Attachments",
+          "request": {
+            "name": "Batch Get Attachments",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entity_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39bf69e8-6c31-4cf9-9903-74eb3e4ea9db",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entity_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"attachments\": [\n      {\n        \"name\": \"string\",\n        \"extension\": \"string\",\n        \"size\": 2292,\n        \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n        \"upload_uri\": \"string\",\n        \"created_at\": \"2023-07-28T04:47:09.670Z\",\n        \"updated_at\": \"1962-10-14T22:38:53.264Z\",\n        \"uploaded_by\": \"urn:harmonic:user:id\",\n        \"link\": \"string\",\n        \"uploaded_at\": \"1989-04-29T02:51:10.880Z\"\n      },\n      {\n        \"name\": \"string\",\n        \"extension\": \"string\",\n        \"size\": 8788,\n        \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n        \"upload_uri\": \"string\",\n        \"created_at\": \"1949-04-20T04:04:57.161Z\",\n        \"updated_at\": \"2023-10-08T10:08:04.109Z\",\n        \"uploaded_by\": \"urn:harmonic:user:id\",\n        \"link\": \"string\",\n        \"uploaded_at\": \"2013-01-15T21:34:05.444Z\"\n      }\n    ]\n  },\n  {\n    \"entity_urn\": \"urn:harmonic:person:id\",\n    \"attachments\": [\n      {\n        \"name\": \"string\",\n        \"extension\": \"string\",\n        \"size\": 8768,\n        \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n        \"upload_uri\": \"string\",\n        \"created_at\": \"2009-05-16T02:37:46.009Z\",\n        \"updated_at\": \"1978-02-17T11:13:49.867Z\",\n        \"uploaded_by\": \"urn:harmonic:user:id\",\n        \"link\": \"string\",\n        \"uploaded_at\": \"2023-03-19T12:50:50.161Z\"\n      },\n      {\n        \"name\": \"string\",\n        \"extension\": \"string\",\n        \"size\": 8526,\n        \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n        \"upload_uri\": \"string\",\n        \"created_at\": \"2009-07-27T14:17:16.190Z\",\n        \"updated_at\": \"1999-01-07T16:31:21.627Z\",\n        \"uploaded_by\": \"urn:harmonic:user:id\",\n        \"link\": \"string\",\n        \"uploaded_at\": \"1952-04-22T00:26:11.271Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d14064e-74a7-4c74-814f-074374d98a6b",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entity_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb376a59-91f0-48d2-9ab0-553b658bf6c9",
+          "name": "Batch Delete Attachments",
+          "request": {
+            "name": "Batch Delete Attachments",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4494d212-2875-43bd-8421-82bcac386f83",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "1556",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c3f63fc-595e-4192-a5c2-416b0b9ac1ef",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b5d587b-fa4a-4ec9-b612-ea9a0bd57826",
+          "name": "Batch Create Attachments",
+          "request": {
+            "name": "Batch Create Attachments",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"extension\": \"<string>\",\n      \"size\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"extension\": \"<string>\",\n      \"size\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "726f7f4e-8138-48c3-862a-f21b0b31b314",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 3074\n    },\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 7084\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 2595,\n      \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n      \"upload_uri\": \"string\",\n      \"created_at\": \"1982-06-18T04:34:36.573Z\",\n      \"updated_at\": \"1998-02-07T13:12:32.871Z\",\n      \"uploaded_by\": \"urn:harmonic:user:id\"\n    },\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 3423,\n      \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n      \"upload_uri\": \"string\",\n      \"created_at\": \"1988-07-16T01:30:06.538Z\",\n      \"updated_at\": \"2000-05-27T07:02:19.442Z\",\n      \"uploaded_by\": \"urn:harmonic:user:id\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3ecb29b-d995-4c3a-aafb-0abbc0cf60a9",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 3074\n    },\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 7084\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5bac13e-5229-4ef9-b6ba-39684f45fc51",
+          "name": "Batch Complete Upload",
+          "request": {
+            "name": "Batch Complete Upload",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "622f2c8b-9f1d-4b37-9ad5-fd0044d6c970",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 9655,\n      \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n      \"upload_uri\": \"string\",\n      \"created_at\": \"1992-02-20T09:25:27.025Z\",\n      \"updated_at\": \"2005-01-21T00:17:48.905Z\",\n      \"uploaded_by\": \"urn:harmonic:user:id\",\n      \"link\": \"string\",\n      \"uploaded_at\": \"1978-02-26T13:07:16.371Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"extension\": \"string\",\n      \"size\": 8019,\n      \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n      \"upload_uri\": \"string\",\n      \"created_at\": \"2026-02-04T13:25:40.957Z\",\n      \"updated_at\": \"2001-11-06T09:34:14.802Z\",\n      \"uploaded_by\": \"urn:harmonic:user:id\",\n      \"link\": \"string\",\n      \"uploaded_at\": \"2010-05-04T19:39:25.384Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91fa27f4-f9a7-47cc-adaf-894414ea6ce0",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3f2e440-0ca6-4659-b8f9-cfb3cbeaf81d",
+          "name": "Link Attachments",
+          "request": {
+            "name": "Link Attachments",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn",
+                "attachments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5465923-390a-4c56-bf4d-1c9b12fa4aa0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"extension\": \"string\",\n    \"size\": 9782,\n    \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n    \"upload_uri\": \"string\",\n    \"created_at\": \"1975-10-27T13:48:37.053Z\",\n    \"updated_at\": \"1991-01-12T17:32:44.862Z\",\n    \"uploaded_by\": \"urn:harmonic:user:id\",\n    \"link\": \"string\",\n    \"uploaded_at\": \"2005-08-02T20:50:40.444Z\"\n  },\n  {\n    \"name\": \"string\",\n    \"extension\": \"string\",\n    \"size\": 3467,\n    \"attachment_urn\": \"urn:harmonic:user_uploaded_content:id\",\n    \"upload_uri\": \"string\",\n    \"created_at\": \"1980-09-21T13:58:02.046Z\",\n    \"updated_at\": \"1996-06-27T18:42:33.790Z\",\n    \"uploaded_by\": \"urn:harmonic:user:id\",\n    \"link\": \"string\",\n    \"uploaded_at\": \"1969-05-15T05:28:40.555Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6da8b6cf-9327-41c3-b286-aec3d81ba033",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attachment_urns\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4594d118-b317-4bb5-a9c9-bf852b681b25",
+          "name": "Get Attachment Content",
+          "request": {
+            "name": "Get Attachment Content",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn",
+                "attachments",
+                ":urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "preview",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b2f21b3-b91c-40b7-b601-dea0ab2f8dab",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments",
+                    ":urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preview",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58dd9f68-0a77-445a-8e53-dc9c50ad368a",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments",
+                    ":urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preview",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff4126d0-5e09-45a5-82f4-dd7c06282c19",
+          "name": "Delete Attachment",
+          "request": {
+            "name": "Delete Attachment",
+            "description": {},
+            "url": {
+              "path": [
+                "persons",
+                ":id_or_urn",
+                "attachments",
+                ":urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ec010f8-519b-490d-8179-e1fe89f68077",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments",
+                    ":urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1037a03-4490-416e-a03c-4bf3319705f8",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons",
+                    ":id_or_urn",
+                    "attachments",
+                    ":urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f4d06f01-1d58-41fb-bdf1-243d251fb087",
+    "name": "Harmonic.ai Public persons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API documentation for Harmonic.ai.",
+      "type": "text/plain"
+    }
+  }
+}

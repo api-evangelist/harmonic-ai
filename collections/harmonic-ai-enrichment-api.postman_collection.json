@@ -1,0 +1,608 @@
+{
+  "item": [
+    {
+      "id": "086e53e3-21df-4529-8c9b-1f37e2573eb8",
+      "name": "enrichment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b2c6ece-17d4-42ad-870d-aca59e9abf85",
+          "name": "Get Company By Identifiers",
+          "request": {
+            "name": "Get Company By Identifiers",
+            "description": {},
+            "url": {
+              "path": [
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "linkedin_url",
+                  "value": "<string>",
+                  "description": "Company LinkedIn profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "website_url",
+                  "value": "<string>",
+                  "description": "Company website URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "twitter_url",
+                  "value": "<string>",
+                  "description": "Company twitter URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "crunchbase_url",
+                  "value": "<string>",
+                  "description": "Company Crunchbase profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "pitchbook_url",
+                  "value": "<string>",
+                  "description": "Company, Investor, or Advisor Pitchbook profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "instagram_url",
+                  "value": "<string>",
+                  "description": "Company Instagram profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "facebook_url",
+                  "value": "<string>",
+                  "description": "Company Facebook profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "angellist_url",
+                  "value": "<string>",
+                  "description": "Company Angellist profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "monster_url",
+                  "value": "<string>",
+                  "description": "Company Monster profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "indeed_url",
+                  "value": "<string>",
+                  "description": "Company Indeed profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "stackoverflow_url",
+                  "value": "<string>",
+                  "description": "Company StackOverflow profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "glassdoor_url",
+                  "value": "<string>",
+                  "description": "Company Glassdoor profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "website_domain",
+                  "value": "<string>",
+                  "description": "Company website domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_fields",
+                  "value": "<string>",
+                  "description": "Company fields to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_fields",
+                  "value": "<string>",
+                  "description": "Company fields to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "enrich_missing_company",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_non_surfaceable_company",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be39d1b2-8dba-4d92-a7ab-fd29f26cfc3d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/company/facebook"
+                    },
+                    {
+                      "key": "website_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "twitter_url",
+                      "value": "twitter.com/facebook"
+                    },
+                    {
+                      "key": "crunchbase_url",
+                      "value": "https://www.crunchbase.com/organization/amazon"
+                    },
+                    {
+                      "key": "pitchbook_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "instagram_url",
+                      "value": "https://www.instagram.com/allbirds"
+                    },
+                    {
+                      "key": "facebook_url",
+                      "value": "https://www.facebook.com/weareallbirds/"
+                    },
+                    {
+                      "key": "angellist_url",
+                      "value": "https://angel.co/company/amazon"
+                    },
+                    {
+                      "key": "monster_url",
+                      "value": "https://www.monster.com/company/profiles/ikea/"
+                    },
+                    {
+                      "key": "indeed_url",
+                      "value": "indeed.com/cmp/Ikea"
+                    },
+                    {
+                      "key": "stackoverflow_url",
+                      "value": "https://www.stackoverflow.com/jobs/companies/3db-labs"
+                    },
+                    {
+                      "key": "glassdoor_url",
+                      "value": "https://www.glassdoor.com/Overview/Working-at-3rd-Digital-EI_IE3045173.11,22.htm"
+                    },
+                    {
+                      "key": "website_domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "enrich_missing_company",
+                      "value": "true"
+                    },
+                    {
+                      "key": "hide_non_surfaceable_company",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_urn\": \"urn:harmonic:company:id\",\n  \"id\": 7331,\n  \"website\": {\n    \"url\": \"string\",\n    \"domain\": \"string\",\n    \"is_broken\": false\n  },\n  \"logo_url\": \"string\",\n  \"name\": \"string\",\n  \"legal_name\": \"string\",\n  \"description\": \"string\",\n  \"customer_type\": \"string\",\n  \"founding_date\": {\n    \"date\": \"string\",\n    \"granularity\": \"YEAR\"\n  },\n  \"headcount\": 3499,\n  \"ownership_status\": \"PUBLIC\",\n  \"company_type\": \"UNKNOWN\",\n  \"location\": {\n    \"address_formatted\": \"string\",\n    \"location\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"metro_areas\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"contact\": {\n    \"primary_email\": \"string\",\n    \"primary_email_person_id\": 1980\n  },\n  \"socials\": {\n    \"key_0\": {\n      \"url\": \"string\",\n      \"follower_count\": 5681,\n      \"username\": \"string\",\n      \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"key_1\": {\n      \"url\": \"string\",\n      \"follower_count\": 485,\n      \"username\": \"string\",\n      \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"key_2\": {\n      \"url\": \"string\",\n      \"follower_count\": 9597,\n      \"username\": \"string\",\n      \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"funding\": {\n    \"funding_total\": 2493.480484539716,\n    \"num_funding_rounds\": 4349,\n    \"last_funding_at\": {},\n    \"last_funding_type\": \"POST_IPO_DEBT\",\n    \"last_funding_total\": \"string\",\n    \"funding_stage\": \"SERIES_I\",\n    \"valuation\": 2127,\n    \"valuation_info\": {\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"source\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"source_details\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"is_potentially_stale\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"is_potentially_stale_details\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"corrected_headcount\": 1279,\n  \"external_headcount\": 7184,\n  \"web_traffic\": 4780,\n  \"stage\": \"VENTURE_UNKNOWN\",\n  \"redirect_urn\": \"string\",\n  \"requested_entity_urn\": \"urn:harmonic:company:id\",\n  \"funding_attribute_null_status\": \"NONE_ANNOUNCED\",\n  \"headquarters\": \"string\",\n  \"tags\": [\n    {\n      \"display_value\": \"string\",\n      \"type\": \"PRODUCT_HUNT\",\n      \"entity_urn\": \"urn:harmonic:tag:id\",\n      \"date_added\": \"string\",\n      \"company_urn\": \"urn:harmonic:company:id\",\n      \"is_primary_tag\": false\n    },\n    {\n      \"display_value\": \"string\",\n      \"type\": \"TECHNOLOGY\",\n      \"entity_urn\": \"urn:harmonic:tag:id\",\n      \"date_added\": \"string\",\n      \"company_urn\": \"urn:harmonic:company:id\",\n      \"is_primary_tag\": false\n    }\n  ],\n  \"tags_v2\": [\n    {\n      \"display_value\": \"string\",\n      \"type\": \"INDUSTRY\",\n      \"entity_urn\": \"urn:harmonic:tag:id\",\n      \"date_added\": \"string\",\n      \"company_urn\": \"urn:harmonic:company:id\",\n      \"is_primary_tag\": true\n    },\n    {\n      \"display_value\": \"string\",\n      \"type\": \"YC_BATCH\",\n      \"entity_urn\": \"urn:harmonic:tag:id\",\n      \"date_added\": \"string\",\n      \"company_urn\": \"urn:harmonic:company:id\",\n      \"is_primary_tag\": true\n    }\n  ],\n  \"snapshots\": [\n    {\n      \"initialized_date\": \"string\",\n      \"website\": {\n        \"url\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"domain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"is_broken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"logo_url\": \"string\",\n      \"name\": \"string\",\n      \"legal_name\": \"string\",\n      \"description\": \"string\",\n      \"customer_type\": \"string\",\n      \"founding_date\": {\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"granularity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"headcount\": 7215,\n      \"ownership_status\": \"INACTIVE\",\n      \"company_type\": \"UNKNOWN\",\n      \"location\": {\n        \"address_formatted\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"street\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zip\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"country\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"metro_areas\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"contact\": {\n        \"emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"phone_numbers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"exec_emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email_person_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"socials\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"funding\": {\n        \"funding_total\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"num_funding_rounds\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"investors\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_at\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_total\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"funding_stage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"valuation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"valuation_info\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"corrected_headcount\": 6898,\n      \"external_headcount\": 4926,\n      \"web_traffic\": 4648,\n      \"stage\": \"SERIES_H\",\n      \"redirect_urn\": \"string\",\n      \"entity_urn\": \"urn:harmonic:company_snapshot:id\",\n      \"funding_attribute_null_status\": \"EXISTS_BUT_UNDISCLOSED\"\n    },\n    {\n      \"initialized_date\": \"string\",\n      \"website\": {\n        \"url\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"domain\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"is_broken\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"logo_url\": \"string\",\n      \"name\": \"string\",\n      \"legal_name\": \"string\",\n      \"description\": \"string\",\n      \"customer_type\": \"string\",\n      \"founding_date\": {\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"granularity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"headcount\": 3395,\n      \"ownership_status\": \"INACTIVE\",\n      \"company_type\": \"UNKNOWN\",\n      \"location\": {\n        \"address_formatted\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"street\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"city\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"state\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"zip\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"country\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"metro_areas\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"contact\": {\n        \"emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"phone_numbers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"exec_emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email_person_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"socials\": {\n        \"key_0\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_1\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key_2\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"funding\": {\n        \"funding_total\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"num_funding_rounds\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"investors\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_at\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"last_funding_total\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"funding_stage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"valuation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"valuation_info\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"corrected_headcount\": 7457,\n      \"external_headcount\": 8152,\n      \"web_traffic\": 9583,\n      \"stage\": \"STEALTH\",\n      \"redirect_urn\": \"string\",\n      \"entity_urn\": \"urn:harmonic:company_snapshot:id\",\n      \"funding_attribute_null_status\": \"NONE_ANNOUNCED\"\n    }\n  ],\n  \"initialized_date\": \"string\",\n  \"traction_metrics\": {\n    \"facebook_like_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 156.4100370175303\n    },\n    \"facebook_follower_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 999.4087273815333\n    },\n    \"facebook_following_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 101.732315625368\n    },\n    \"linkedin_follower_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 3683.4799782194973\n    },\n    \"instagram_follower_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 8407.338013324219\n    },\n    \"twitter_follower_count\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 7427.195815285523\n    },\n    \"headcount\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 9657.432172253331\n    },\n    \"funding_total\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 9120.806514096916\n    },\n    \"web_traffic\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 4909.775247099462\n    },\n    \"headcount_advisor\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 7724.021953742123\n    },\n    \"headcount_customer_success\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 6869.815122369874\n    },\n    \"headcount_data\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 5488.360933734446\n    },\n    \"headcount_design\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 1541.7503512535247\n    },\n    \"headcount_engineering\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 1827.2192643504393\n    },\n    \"headcount_finance\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 3009.275580326686\n    },\n    \"headcount_legal\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 8606.500166804732\n    },\n    \"headcount_marketing\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 2039.356723066218\n    },\n    \"headcount_operations\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 5786.450185086673\n    },\n    \"headcount_other\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 125.63850858576143\n    },\n    \"headcount_people\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 2374.307451372436\n    },\n    \"headcount_product\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 357.1208525840741\n    },\n    \"headcount_sales\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 7145.110400400085\n    },\n    \"headcount_support\": {\n      \"14d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"30d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"90d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"180d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"365d_ago\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"percent_change\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"latest_metric_value\": 1222.4142254151693\n    },\n    \"external_facebook_like_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_facebook_follower_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_facebook_following_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_linkedin_follower_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_instagram_follower_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_twitter_follower_count\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"corrected_headcount\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"external_headcount\": {\n      \"14d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"30d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"90d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"180d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"365d_ago\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"latest_metric_value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"updated_at\": \"string\",\n  \"people\": [\n    {\n      \"person\": \"urn:harmonic:person:id\",\n      \"contact\": {\n        \"emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"phone_numbers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"exec_emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email_person_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"title\": \"string\",\n      \"department\": \"People\",\n      \"description\": \"string\",\n      \"start_date\": \"string\",\n      \"end_date\": \"string\",\n      \"is_current_position\": true,\n      \"location\": \"string\",\n      \"role_type\": \"ADVISER\",\n      \"person_company_urn\": \"urn:harmonic:urn:harmonic:person:A, urn:harmonic:company:B:id\"\n    },\n    {\n      \"person\": \"urn:harmonic:person:id\",\n      \"contact\": {\n        \"emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"phone_numbers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"exec_emails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"primary_email_person_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"title\": \"string\",\n      \"department\": \"Marketing\",\n      \"description\": \"string\",\n      \"start_date\": \"string\",\n      \"end_date\": \"string\",\n      \"is_current_position\": false,\n      \"location\": \"string\",\n      \"role_type\": \"EXECUTIVE\",\n      \"person_company_urn\": \"urn:harmonic:urn:harmonic:person:A, urn:harmonic:company:B:id\"\n    }\n  ],\n  \"num_notable_followers\": 6095,\n  \"funding_per_employee\": 4570.615807939809,\n  \"external_description\": \"string\",\n  \"short_description\": \"string\",\n  \"investor_urn\": \"urn:harmonic:investor:id\",\n  \"related_companies\": {\n    \"beta_notice\": \"string\",\n    \"acquired_by\": {\n      \"company_urn\": \"urn:harmonic:company:id\"\n    },\n    \"subsidiary_of\": {\n      \"company_urn\": \"urn:harmonic:company:id\"\n    },\n    \"prior_stealth_association\": {\n      \"emergence_date\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"leadership_prior_companies\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"stealth_emergence_date\": \"string\",\n  \"currently_raising\": {\n    \"value\": \"UNKNOWN\",\n    \"source\": \"string\",\n    \"submitted_at\": \"2007-01-20T10:43:52.443Z\"\n  },\n  \"founder_story\": {\n    \"value\": \"string\",\n    \"source\": \"string\",\n    \"submitted_at\": \"1999-07-29T10:51:08.829Z\"\n  },\n  \"founder_attachments\": {\n    \"value\": [\n      {\n        \"url\": \"string\",\n        \"filename\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"content_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"url\": \"string\",\n        \"filename\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"content_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"source\": \"string\",\n    \"submitted_at\": \"2002-10-22T06:27:26.836Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56d3e8f1-5e48-4f30-a052-e807e7775a7a",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/company/facebook"
+                    },
+                    {
+                      "key": "website_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "twitter_url",
+                      "value": "twitter.com/facebook"
+                    },
+                    {
+                      "key": "crunchbase_url",
+                      "value": "https://www.crunchbase.com/organization/amazon"
+                    },
+                    {
+                      "key": "pitchbook_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "instagram_url",
+                      "value": "https://www.instagram.com/allbirds"
+                    },
+                    {
+                      "key": "facebook_url",
+                      "value": "https://www.facebook.com/weareallbirds/"
+                    },
+                    {
+                      "key": "angellist_url",
+                      "value": "https://angel.co/company/amazon"
+                    },
+                    {
+                      "key": "monster_url",
+                      "value": "https://www.monster.com/company/profiles/ikea/"
+                    },
+                    {
+                      "key": "indeed_url",
+                      "value": "indeed.com/cmp/Ikea"
+                    },
+                    {
+                      "key": "stackoverflow_url",
+                      "value": "https://www.stackoverflow.com/jobs/companies/3db-labs"
+                    },
+                    {
+                      "key": "glassdoor_url",
+                      "value": "https://www.glassdoor.com/Overview/Working-at-3rd-Digital-EI_IE3045173.11,22.htm"
+                    },
+                    {
+                      "key": "website_domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "enrich_missing_company",
+                      "value": "true"
+                    },
+                    {
+                      "key": "hide_non_surfaceable_company",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96feb7c3-4a8c-42a1-8ec8-b945f5fc721a",
+          "name": "Get Person By Canonical",
+          "request": {
+            "name": "Get Person By Canonical",
+            "description": {},
+            "url": {
+              "path": [
+                "persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "linkedin_url",
+                  "value": "<string>",
+                  "description": "Linkedin profile URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Email address for person lookup. Used as fallback when linkedin_url is not provided or yields no result."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9aa284db-8083-4738-8c96-c621fdb0ec16",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/in/elonmusk"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_urn\": \"urn:harmonic:person:id\",\n  \"id\": \"a3429a2a-08f4-a530-7c39-b399137fc30f\",\n  \"full_name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"profile_picture_url\": \"string\",\n  \"contact\": {\n    \"primary_email\": \"string\",\n    \"primary_email_person_id\": 3190\n  },\n  \"location\": {\n    \"address_formatted\": \"string\",\n    \"location\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"metro_areas\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"socials\": {\n    \"key_0\": {\n      \"url\": \"string\",\n      \"follower_count\": 7823,\n      \"username\": \"string\",\n      \"status\": 1\n    },\n    \"key_1\": {\n      \"url\": \"string\",\n      \"follower_count\": 5756,\n      \"username\": \"string\",\n      \"status\": 2\n    }\n  },\n  \"linkedin_connections\": 9985,\n  \"usurping_person_id\": 4219,\n  \"linkedin_headline\": \"string\",\n  \"linkedin_profile_visibility_type\": \"EXPERIENCE_AND_EDUCATION_BLURRED\",\n  \"last_checked_at\": \"string\",\n  \"requested_entity_urn\": \"urn:harmonic:person:id\",\n  \"num_notable_followers\": 7981,\n  \"updated_at\": \"string\",\n  \"last_refreshed_at\": \"string\",\n  \"investor_urn\": \"urn:harmonic:investor:id\",\n  \"is_redacted\": false,\n  \"enrichment_urn\": \"urn:harmonic:enrichment:id\",\n  \"merged_person_urn\": \"urn:harmonic:person:id\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92b92c29-bd95-4f9d-8d1e-1009ddf432f9",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "linkedin_url",
+                      "value": "https://www.linkedin.com/in/elonmusk"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3184df87-8272-4539-bbb6-2625e1c84117",
+          "name": "Get Enrichment Request Status",
+          "request": {
+            "name": "Get Enrichment Request Status",
+            "description": {},
+            "url": {
+              "path": [
+                "enrichment_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bea3933f-950b-4a17-821a-d6109c065f72",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrichment_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"entity_urn\": \"urn:harmonic:enrichment:id\",\n    \"status\": \"COMPLETE\",\n    \"message\": \"string\",\n    \"enriched_entity_urn\": \"urn:harmonic:company:id\"\n  },\n  {\n    \"entity_urn\": \"urn:harmonic:enrichment:id\",\n    \"status\": \"EXPERIENCES_HIDDEN\",\n    \"message\": \"string\",\n    \"enriched_entity_urn\": \"urn:harmonic:company:id\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3943546-d04b-44bc-8ddd-fc1ad475b52f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrichment_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "003005d5-0ad5-4c9e-93b3-e84d4ca2e842",
+    "name": "Harmonic.ai Public enrichment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API documentation for Harmonic.ai.",
+      "type": "text/plain"
+    }
+  }
+}

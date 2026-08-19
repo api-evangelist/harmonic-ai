@@ -26,3 +26,71 @@ standards:
   - id: rfc9116-security-txt
     conforms: false
     evidence: No /.well-known/security.txt found (404/403 across hosts).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      The API is FastAPI-generated and returns application/json with a `detail` array, not
+      application/problem+json. Zero problem+json media types in the 93-operation OpenAPI.
+      See errors/harmonic-ai-problem-types.yml.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Deprecation/Sunset headers or deprecation policy documented; no operation in the spec is marked deprecated.
+  - id: openapi-3.1
+    conforms: true
+    evidence: >-
+      Provider serves a valid OpenAPI 3.1.0 document at https://api.harmonic.ai/openapi.json
+      (200, 276,588 bytes, 61 paths / 93 operations / 228 schemas) — captured 2026-08-14 to
+      openapi/_original/harmonic-ai-openapi.json.
+  - id: oauth2-dynamic-client-registration
+    conforms: true
+    evidence: >-
+      MCP authorization server metadata advertises a registration_endpoint
+      (https://mcp.api.harmonic.ai/register), i.e. RFC 7591 dynamic client registration — which is
+      what lets an arbitrary MCP client self-onboard without a manual app request.
+  - id: iso-27001
+    conforms: true
+    evidence: >-
+      "ISO 27001 Certified" published in the site-wide footer on harmonic.ai (observed 2026-08-14).
+      Claim only — no certificate, scope statement, certification body, or expiry is published, and
+      there is no trust center from which to request the report.
+    verification: claim-only
+  - id: soc2-type-ii
+    conforms: true
+    evidence: >-
+      "SOC 2 Type II Compliant" published in the site-wide footer on harmonic.ai (observed
+      2026-08-14). Claim only — no report, audit period, auditor or NDA request flow is published.
+    verification: claim-only
+
+# NOTE — certifications below are Harmonic.ai's OWN published claims, read from its own footer.
+# They must NOT be conflated with Harmonic Security (harmonic.security), an unrelated company whose
+# trust center at trust.harmonic.security dominates web-search results for "Harmonic SOC 2".
+certifications:
+  - name: ISO/IEC 27001
+    status: claimed
+    source: https://harmonic.ai/legal/terms-of-service
+    location: site-wide footer
+    evidence_text: ISO 27001 Certified
+    report_available: false
+    checked: '2026-08-14'
+  - name: SOC 2 Type II
+    status: claimed
+    source: https://harmonic.ai/legal/terms-of-service
+    location: site-wide footer
+    evidence_text: SOC 2 Type II Compliant
+    report_available: false
+    checked: '2026-08-14'
+compliance_gap:
+  what: Evidence behind the certification claims.
+  who_fixes_it: the provider
+  how: >-
+    Publish a trust center (or a /security page) carrying the ISO 27001 certificate number and
+    scope, the SOC 2 audit period and auditor, a sub-processor list, and a report-request flow.
+    Today both claims are unverifiable footer text.
+gateway:
+  observed: kong/3.0.2
+  method: probed
+  source: 'HTTP response headers on https://api.harmonic.ai/ (403), 2026-08-14'
+  note: >-
+    api.harmonic.ai is fronted by Kong 3.0.2, which returns `www-authenticate: Key realm="kong"`
+    on unauthenticated requests and exposes x-request-id / x-trace-id / x-client-state-version
+    via access-control-expose-headers.

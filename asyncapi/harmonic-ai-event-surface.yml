@@ -1,0 +1,75 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://harmonic.ai/llms.txt + https://api.harmonic.ai/openapi.json +
+  https://slack.com/marketplace/A017N2XAZ88-harmonicai
+checked: '2026-08-14'
+summary: >-
+  Harmonic.ai has a real change-notification surface but NO developer-facing event contract.
+  There is no AsyncAPI document, no customer-registerable webhook, no callbacks/webhooks block in
+  the OpenAPI, and no streaming endpoint. What exists is human-directed alerting — saved searches
+  notify by email or into a Slack channel — plus a REST polling primitive for net-new results.
+  An integrator cannot subscribe programmatically; they must poll.
+asyncapi:
+  present: false
+  probed:
+    - url: https://api.harmonic.ai/asyncapi.yaml
+      status: 403
+    - url: https://api.harmonic.ai/asyncapi.json
+      status: 403
+  note: >-
+    api.harmonic.ai 403s all unauthenticated paths behind Kong; no AsyncAPI is referenced anywhere
+    in the docs, llms.txt or the OpenAPI.
+webhooks:
+  customer_registerable: false
+  openapi_webhooks_block: false
+  openapi_callbacks: false
+  note: >-
+    The live OpenAPI 3.1.0 (93 operations) contains no top-level `webhooks` object and no operation
+    `callbacks`. A full-text scan of the spec for "webhook" and "callback" returns zero matches.
+    No pointer of type Webhooks is emitted for this provider: doing so would advertise an event
+    surface an integrator cannot register for.
+notification_channels:
+  - channel: slack
+    kind: first-party app, human-directed
+    trigger: new entities matching a saved search
+    app: https://slack.com/marketplace/A017N2XAZ88-harmonicai
+    configurable_frequency: [hourly, daily, weekly]
+    caps: Notification volume caps are configurable.
+    programmatic: false
+    note: >-
+      Harmonic publishes a Slack app that posts into a chosen channel when new companies or people
+      qualify for a saved search. This is an alerting integration, not a webhook: the payload
+      destination is a Slack channel Harmonic owns the delivery to, not an endpoint the customer
+      supplies.
+  - channel: email
+    kind: human-directed
+    trigger: new entities matching a saved search
+    programmatic: false
+polling_primitives:
+  - parameter: new_results_since
+    surface: saved search / search operations
+    purpose: >-
+      The net-new primitive. Retrieve only entities that entered a saved search since a given point,
+      which is how an integrator emulates an event feed against this API.
+    source: openapi/_original/harmonic-ai-openapi.json
+  - parameter: exclude_snapshots
+    surface: search operations
+    purpose: Suppress historical snapshot rows when polling for current state.
+    source: openapi/_original/harmonic-ai-openapi.json
+  - pattern: cursor pagination
+    parameters: [cursor, page, size]
+    source: openapi/_original/harmonic-ai-openapi.json
+scoring_note: >-
+  The asyncapi/webhooks scoring family is genuinely N/A for this provider and must not be
+  penalized as a missing artifact — but it must also not be credited. This file records a measured
+  absence, so NO `AsyncAPI` and NO `Webhooks` pointer is wired into apis.yml, on the same rule the
+  well-known probe follows: a pointer asserts the provider serves the surface.
+gap:
+  what: A subscribable event contract.
+  who_fixes_it: the provider
+  how: >-
+    Expose saved-search match events as customer-registerable webhooks (or an SSE/stream endpoint),
+    describe them in the existing OpenAPI 3.1 `webhooks` block or a companion AsyncAPI 3.0 document.
+    The trigger, the payload entity and the delivery cadence already exist for Slack and email — only
+    the customer-supplied endpoint is missing.

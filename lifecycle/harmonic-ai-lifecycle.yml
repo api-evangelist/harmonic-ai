@@ -1,6 +1,7 @@
-generated: '2026-07-22'
+generated: '2026-08-14'
 method: searched
-source: https://status.harmonic.ai + https://console.harmonic.ai/docs/changelog
+source: https://status.harmonic.ai + https://console.harmonic.ai/docs/changelog + https://harmonic.ai/legal/terms-of-service
+revised: '2026-08-14'
 versioning:
   scheme: unversioned-path
   notes: >-
@@ -8,13 +9,55 @@ versioning:
     GraphQL at api.harmonic.ai/graphql. No public API version identifier is documented.
 changelog:
   url: https://console.harmonic.ai/docs/changelog
-  notes: Product/API changelog published in the docs console (JS-rendered; entries not machine-captured).
+  artifact: changelog/harmonic-ai-changelog.yml
+  notes: >-
+    Product/API changelog published in the docs console. Re-probed 2026-08-14: the URL returns 200
+    but serves the same 6,759-byte SPA shell as every other /docs/* path, so no dated entries are
+    machine-capturable. See changelog/harmonic-ai-changelog.yml for the spec-diff observation used
+    in place of provider-published entries.
 status_page:
   url: https://status.harmonic.ai
-  provider: Atlassian Statuspage
-  observed_state: All Systems Operational
+  provider: Better Stack
+  provider_note: >-
+    CORRECTED 2026-08-14. The 2026-07-22 round recorded this as Atlassian Statuspage; the live page
+    is Better Stack (page <title> is "Better Stack"). It exposes no /api/v2/summary.json, so
+    component-level state is not machine-readable the way an Atlassian Statuspage would be.
+  machine_readable_api: false
+  probed:
+    - url: https://status.harmonic.ai
+      status: 200
+      checked: '2026-08-14'
+    - url: https://status.harmonic.ai/api/v2/summary.json
+      status: not-json
+      checked: '2026-08-14'
 deprecation:
   policy_documented: false
-  notes: No public deprecation / sunset (RFC 8594) policy located.
+  deprecated_operations: []
+  notes: >-
+    No public deprecation / sunset (RFC 8594) policy located, and no operation in the live
+    93-operation OpenAPI carries `deprecated: true`. No Deprecation pointer is emitted.
+observed_change_cadence:
+  window: '2026-07-22 to 2026-08-14'
+  operations_added: 7
+  operations_removed: 0
+  breaking_changes: 0
+  note: >-
+    Additive-only over 23 days (a new `investors` attachments surface). Evidence of an actively
+    maintained API despite an unreadable changelog. Detail in changelog/harmonic-ai-changelog.yml.
+terms:
+  url: https://harmonic.ai/legal/terms-of-service
+  last_updated: '2025-12-09'
+  archived_versions_published: true
+  archived_versions_note: >-
+    Harmonic keeps dated archived copies of its terms and privacy policy in the sitemap (e.g.
+    archived-terms-of-service-mar-25-2026, archived-privacy-policy---feb-10-2026), which is a
+    stronger legal-change trail than most providers publish — and a better change record than the
+    API changelog.
 sla:
   documented: false
+roadmap:
+  published: false
+  probed:
+    - url: https://harmonic.ai/roadmap
+      status: 404
+      checked: '2026-08-14'

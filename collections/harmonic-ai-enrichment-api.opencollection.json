@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public enrichment API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "enrichment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Company By Identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies",
+            "params": [
+              {
+                "name": "linkedin_url",
+                "value": "https://www.linkedin.com/company/facebook",
+                "type": "query",
+                "description": "Company LinkedIn profile URL."
+              },
+              {
+                "name": "website_url",
+                "value": "https://www.harmonic.ai",
+                "type": "query",
+                "description": "Company website URL."
+              },
+              {
+                "name": "twitter_url",
+                "value": "twitter.com/facebook",
+                "type": "query",
+                "description": "Company twitter URL."
+              },
+              {
+                "name": "crunchbase_url",
+                "value": "https://www.crunchbase.com/organization/amazon",
+                "type": "query",
+                "description": "Company Crunchbase profile URL."
+              },
+              {
+                "name": "pitchbook_url",
+                "value": "https://pitchbook.com/profiles/company/11919-79",
+                "type": "query",
+                "description": "Company, Investor, or Advisor Pitchbook profile URL."
+              },
+              {
+                "name": "instagram_url",
+                "value": "https://www.instagram.com/allbirds",
+                "type": "query",
+                "description": "Company Instagram profile URL."
+              },
+              {
+                "name": "facebook_url",
+                "value": "https://www.facebook.com/weareallbirds/",
+                "type": "query",
+                "description": "Company Facebook profile URL."
+              },
+              {
+                "name": "angellist_url",
+                "value": "https://angel.co/company/amazon",
+                "type": "query",
+                "description": "Company Angellist profile URL."
+              },
+              {
+                "name": "monster_url",
+                "value": "https://www.monster.com/company/profiles/ikea/",
+                "type": "query",
+                "description": "Company Monster profile URL."
+              },
+              {
+                "name": "indeed_url",
+                "value": "indeed.com/cmp/Ikea",
+                "type": "query",
+                "description": "Company Indeed profile URL."
+              },
+              {
+                "name": "stackoverflow_url",
+                "value": "https://www.stackoverflow.com/jobs/companies/3db-labs",
+                "type": "query",
+                "description": "Company StackOverflow profile URL."
+              },
+              {
+                "name": "glassdoor_url",
+                "value": "https://www.glassdoor.com/Overview/Working-at-3rd-Digital-EI_IE3045173.11,22.htm",
+                "type": "query",
+                "description": "Company Glassdoor profile URL."
+              },
+              {
+                "name": "website_domain",
+                "value": "harmonic.ai",
+                "type": "query",
+                "description": "Company website domain."
+              },
+              {
+                "name": "include_fields",
+                "value": "",
+                "type": "query",
+                "description": "Company fields to fetch."
+              },
+              {
+                "name": "enrich_missing_company",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hide_non_surfaceable_company",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Company By Identifiers"
+        },
+        {
+          "info": {
+            "name": "Get Person By Canonical",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons",
+            "params": [
+              {
+                "name": "linkedin_url",
+                "value": "https://www.linkedin.com/in/elonmusk",
+                "type": "query",
+                "description": "Linkedin profile URL."
+              },
+              {
+                "name": "email",
+                "value": "john.doe@example.com",
+                "type": "query",
+                "description": "Email address for person lookup. Used as fallback when linkedin_url is not provided or yields no result."
+              }
+            ]
+          },
+          "docs": "Get Person By Canonical"
+        },
+        {
+          "info": {
+            "name": "Get Enrichment Request Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/enrichment_status",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urns",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Enrichment Request Status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

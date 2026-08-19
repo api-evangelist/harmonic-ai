@@ -1,0 +1,68 @@
+generated: '2026-08-14'
+method: probed
+source: https://console.harmonic.ai/docs/changelog
+checked: '2026-08-14'
+summary: >-
+  Harmonic.ai publishes a changelog inside its docs console, but the page is not machine-readable:
+  console.harmonic.ai is a client-rendered SPA that returns the same 6,759-byte application shell
+  for every /docs/* path, including /docs/changelog. No dated entries, no feed, and no version
+  identifiers can be captured without executing JavaScript. The ChangeLog link in apis.yml is
+  therefore a real page that no agent, crawler or scorer can actually read.
+scheme:
+  api_versioning: unversioned-path
+  note: >-
+    The REST base https://api.harmonic.ai/ carries no version segment, and the published OpenAPI
+    declares info.version "0.0.1" — a placeholder that has not moved across observations. There is
+    no version identifier a consumer can pin, so the changelog is the only change signal available.
+current_version:
+  spec_declared: 0.0.1
+  source: openapi/_original/harmonic-ai-openapi.json
+  note: >-
+    info.version has read "0.0.1" on every capture of this spec (2026-07-22 and 2026-08-14) while
+    the operation count changed, so it does not track releases.
+feeds:
+  rss: null
+  atom: null
+  json: null
+  probed:
+    - url: https://console.harmonic.ai/docs/changelog
+      status: 200
+      body: SPA shell (HTML), not the changelog content
+    - url: https://console.harmonic.ai/sitemap.xml
+      status: 200
+      body: SPA shell (HTML), not a sitemap
+entries: []
+entries_note: >-
+  Deliberately empty. Recording a zero here is the honest result: the provider ships a changelog
+  the pipeline cannot read, which is different from shipping no changelog at all.
+observed_change:
+  - detected: '2026-08-14'
+    method: spec-diff
+    change: additive
+    breaking: false
+    summary: >-
+      Diffing the live https://api.harmonic.ai/openapi.json against this repo's 2026-07-22 capture
+      shows 7 new operations across 3 new paths, all under a new `investors` tag: investor
+      attachments (batch get/create/delete, batch complete upload, link, get content, delete).
+      No operations were removed and no existing operation changed. Path/operation counts moved
+      58 -> 61 and 86 -> 93.
+    added_operations:
+      - batch_get_attachments_investors_attachments_post
+      - batch_delete_attachments_investors_attachments_delete
+      - batch_create_attachments_investors__id_or_urn__attachments_post
+      - batch_complete_upload_investors__id_or_urn__attachments_put
+      - link_attachments_investors__id_or_urn__attachments_patch
+      - get_attachment_content_investors__id_or_urn__attachments__urn__get
+      - delete_attachment_investors__id_or_urn__attachments__urn__delete
+    removed_operations: []
+    source: https://api.harmonic.ai/openapi.json
+    note: >-
+      This entry is a pipeline OBSERVATION derived by diffing two captures of the provider's own
+      spec, not a provider-published changelog entry. It is recorded because the provider's own
+      changelog is unreadable and this is the only dated, verifiable change evidence available.
+gap:
+  what: A machine-readable changelog.
+  who_fixes_it: the provider
+  how: >-
+    Serve the changelog as static HTML, Markdown or an RSS/Atom feed at a stable URL outside the
+    dashboard SPA, and move info.version off the "0.0.1" placeholder so consumers can pin a release.

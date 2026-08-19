@@ -1,0 +1,1484 @@
+{
+  "item": [
+    {
+      "id": "108eebdd-2d6a-4bda-b665-37fbba303913",
+      "name": "saved_searches",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f5bbe50-d8bd-4e73-b35c-6d2f18732125",
+          "name": "Get Saved Search By Owner",
+          "request": {
+            "name": "Get Saved Search By Owner",
+            "description": {},
+            "url": {
+              "path": [
+                "saved_searches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3983384a-3e91-4b4a-8ad1-42c2233ee3ca",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"query\": {\n      \"filter_group\": {\n        \"join_operator\": \"and\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"pagination\": {\n        \"page_size\": 8631,\n        \"start\": 6767\n      },\n      \"controlled_filter_group\": {\n        \"join_operator\": \"or\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"merge_query_for_nested_fields\": false\n    },\n    \"id\": 1286,\n    \"entity_urn\": \"urn:harmonic:saved_search:id\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"user_saved_search_type\": \"USER_CREATED\",\n    \"updated_at\": \"1980-10-18T22:43:44.421Z\",\n    \"created_at\": \"1996-10-30T09:08:41.705Z\",\n    \"is_private\": false,\n    \"type\": \"COMPANIES_LIST\",\n    \"column_view_settings\": [\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 5071\n      },\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 4897\n      }\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"query\": {\n      \"filter_group\": {\n        \"join_operator\": \"and\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"pagination\": {\n        \"page_size\": 1215,\n        \"start\": 5350\n      },\n      \"controlled_filter_group\": {\n        \"join_operator\": \"or\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"merge_query_for_nested_fields\": false\n    },\n    \"id\": 2234,\n    \"entity_urn\": \"urn:harmonic:saved_search:id\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"user_saved_search_type\": \"TEMPLATE_FROM_PREFERENCES\",\n    \"updated_at\": \"1973-10-17T19:44:02.274Z\",\n    \"created_at\": \"1970-04-13T23:28:01.453Z\",\n    \"is_private\": false,\n    \"type\": \"COMPANIES_LIST\",\n    \"column_view_settings\": [\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 6142\n      },\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 9908\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "115930c8-2d09-4f4b-9da4-806330e709c6",
+          "name": "Create Saved Search",
+          "request": {
+            "name": "Create Saved Search",
+            "description": {},
+            "url": {
+              "path": [
+                "saved_searches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"field\": \"<string>\",\n          \"comparator\": \"<string>\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"<string>\",\n          \"comparator\": \"<string>\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": \"<object>\"\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": \"<object>\"\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": \"<integer>\",\n      \"start\": \"<integer>\"\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    },\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8f9cc7c-cd4f-45b0-84ad-ace21ee147f1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"or\",\n      \"filters\": [\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 3766,\n      \"start\": 1321\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 1564\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 6016\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:saved_search:id\",\n  \"metadata\": {\n    \"count_total\": 7092,\n    \"count_changed\": 2610,\n    \"count_skipped\": 841,\n    \"count_not_found\": 7808\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a3f1175-4b78-4749-b12f-8fa6f4099dcc",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"or\",\n      \"filters\": [\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 3766,\n      \"start\": 1321\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 1564\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 6016\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14012d22-e107-4fe5-b56b-86ddaee5ed45",
+          "name": "Get Saved Search Results",
+          "request": {
+            "name": "Get Saved Search Results",
+            "description": {},
+            "url": {
+              "path": [
+                "saved_searches:results",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude_snapshots",
+                  "value": "false",
+                  "description": "Deprecated. Snapshot data is no longer materialized; this flag is retained only for backwards compatibility and has no effect on the fetch path."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09bdb5b7-de59-408f-b534-2b59c9b447b0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches:results",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude_snapshots",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"count\": 3575,\n  \"page_info\": {\n    \"has_next\": true,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91e28e77-0d31-4ebe-8810-0c6188331a23",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches:results",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude_snapshots",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46e9b1cc-a8b2-4287-b8ab-e0e431154e5e",
+          "name": "Get Saved Search Net New Results",
+          "request": {
+            "name": "Get Saved Search Net New Results",
+            "description": {},
+            "url": {
+              "path": [
+                "saved_searches",
+                ":id_or_urn",
+                "net_new_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor0 for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "new_results_since",
+                  "value": "<dateTime>",
+                  "description": "Filter results that are matches after this date(in UTC). Accepts date (YYYY-MM-DD) or datetime (YYYY-MM-DDTHH:00:00Z) formats. Examples: '2024-03-20' or '2024-03-20T14:00:00Z'. When specified, returns all matching results regardless of their cleared status."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e35923d-0e29-4927-94af-6b9b34e067f3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches",
+                    ":id_or_urn",
+                    "net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_results_since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urns\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"cursor\": \"string\",\n  \"page_info\": {\n    \"has_next\": false,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4574877-585f-40bc-bbcc-428b03daacbe",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches",
+                    ":id_or_urn",
+                    "net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_results_since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67600996-a406-43c3-94b3-fa732e98d34f",
+          "name": "Clear Net New Results",
+          "request": {
+            "name": "Clear Net New Results",
+            "description": {},
+            "url": {
+              "path": [
+                "saved_searches",
+                ":id_or_urn",
+                "clear_net_new_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entity_urns",
+                  "value": "<string>",
+                  "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_urns",
+                  "value": "<string>",
+                  "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad801e99-8947-461f-98fa-9afd7e3022cc",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches",
+                    ":id_or_urn",
+                    "clear_net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7efc032d-c304-494b-9ec3-e9741a60efb4",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "saved_searches",
+                    ":id_or_urn",
+                    "clear_net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e71f43f8-5523-4134-9668-b5ac4b19b058",
+          "name": "Get Saved Search By Owner",
+          "request": {
+            "name": "Get Saved Search By Owner",
+            "description": {},
+            "url": {
+              "path": [
+                "savedSearches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50a7bc99-d16f-4439-b28c-7ddbeb0119b0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"query\": {\n      \"filter_group\": {\n        \"join_operator\": \"and\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"pagination\": {\n        \"page_size\": 469,\n        \"start\": 1804\n      },\n      \"controlled_filter_group\": {\n        \"join_operator\": \"and\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"merge_query_for_nested_fields\": false\n    },\n    \"id\": 5959,\n    \"entity_urn\": \"urn:harmonic:saved_search:id\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"user_saved_search_type\": \"TEMPLATE_FROM_PREFERENCES\",\n    \"updated_at\": \"1973-11-26T20:55:08.363Z\",\n    \"created_at\": \"1982-04-06T05:38:19.619Z\",\n    \"is_private\": false,\n    \"type\": \"COMPANIES_LIST\",\n    \"column_view_settings\": [\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 2441\n      },\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 9321\n      }\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"query\": {\n      \"filter_group\": {\n        \"join_operator\": \"or\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"pagination\": {\n        \"page_size\": 7870,\n        \"start\": 1178\n      },\n      \"controlled_filter_group\": {\n        \"join_operator\": \"or\",\n        \"filters\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_groups\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"filter_group_generators\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"merge_query_for_nested_fields\": false\n    },\n    \"id\": 4918,\n    \"entity_urn\": \"urn:harmonic:saved_search:id\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"user_saved_search_type\": \"USER_CREATED\",\n    \"updated_at\": \"1980-05-26T11:08:37.975Z\",\n    \"created_at\": \"1993-06-25T07:02:55.696Z\",\n    \"is_private\": false,\n    \"type\": \"COMPANIES_LIST\",\n    \"column_view_settings\": [\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 381\n      },\n      {\n        \"entity_urn\": \"urn:harmonic:company_field:id\",\n        \"column_width\": 2229\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e73a1371-8cea-4fa6-9d01-eab0fa529386",
+          "name": "Create Saved Search",
+          "request": {
+            "name": "Create Saved Search",
+            "description": {},
+            "url": {
+              "path": [
+                "savedSearches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"field\": \"<string>\",\n          \"comparator\": \"<string>\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"<string>\",\n          \"comparator\": \"<string>\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": \"<object>\"\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": \"<object>\"\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": \"<integer>\",\n      \"start\": \"<integer>\"\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    },\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f277efba-8ecd-4c2b-97a6-ad059e70b2c5",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"or\",\n      \"filters\": [\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 3766,\n      \"start\": 1321\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 1564\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 6016\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:saved_search:id\",\n  \"metadata\": {\n    \"count_total\": 7092,\n    \"count_changed\": 2610,\n    \"count_skipped\": 841,\n    \"count_not_found\": 7808\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf356b81-2a72-426e-a0f1-86211d96c6bf",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"query\": {\n    \"filter_group\": {\n      \"join_operator\": \"or\",\n      \"filters\": [\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        },\n        {\n          \"field\": \"string\",\n          \"comparator\": \"string\",\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {}\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {}\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 3766,\n      \"start\": 1321\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"keywords\": \"<string>\",\n  \"is_private\": false,\n  \"type\": \"COMPANIES_LIST\",\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 1564\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:company_field:id\",\n      \"column_width\": 6016\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edc1b26f-3be4-4699-a823-a1330f6d387f",
+          "name": "Get Saved Search Results",
+          "request": {
+            "name": "Get Saved Search Results",
+            "description": {},
+            "url": {
+              "path": [
+                "savedSearches:results",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude_snapshots",
+                  "value": "false",
+                  "description": "Deprecated. Snapshot data is no longer materialized; this flag is retained only for backwards compatibility and has no effect on the fetch path."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f0857af-9e47-4c3a-9820-26e69ab4288d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches:results",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude_snapshots",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"count\": 3575,\n  \"page_info\": {\n    \"has_next\": true,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55dd4153-607b-4e1c-8947-77e0c5e7daea",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches:results",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude_snapshots",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2132d61b-2766-4b16-b47e-649f9445919d",
+          "name": "Get Saved Search Net New Results",
+          "request": {
+            "name": "Get Saved Search Net New Results",
+            "description": {},
+            "url": {
+              "path": [
+                "savedSearches",
+                ":id_or_urn",
+                "net_new_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor0 for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "new_results_since",
+                  "value": "<dateTime>",
+                  "description": "Filter results that are matches after this date(in UTC). Accepts date (YYYY-MM-DD) or datetime (YYYY-MM-DDTHH:00:00Z) formats. Examples: '2024-03-20' or '2024-03-20T14:00:00Z'. When specified, returns all matching results regardless of their cleared status."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f706c55b-eb76-44a9-bf03-a7adc6e9552c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches",
+                    ":id_or_urn",
+                    "net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_results_since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urns\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"cursor\": \"string\",\n  \"page_info\": {\n    \"has_next\": false,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc926aaf-ce70-4377-adad-191479e79283",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches",
+                    ":id_or_urn",
+                    "net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "new_results_since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fa79911-0f7f-4908-a4f9-2501a3463d39",
+          "name": "Clear Net New Results",
+          "request": {
+            "name": "Clear Net New Results",
+            "description": {},
+            "url": {
+              "path": [
+                "savedSearches",
+                ":id_or_urn",
+                "clear_net_new_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entity_urns",
+                  "value": "<string>",
+                  "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_urns",
+                  "value": "<string>",
+                  "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "267d3ec3-7290-48b1-ba7b-4de0076efda8",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches",
+                    ":id_or_urn",
+                    "clear_net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99aad963-12ee-4126-a3ca-3987014d09bf",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savedSearches",
+                    ":id_or_urn",
+                    "clear_net_new_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_urns",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b513200a-f389-498c-b4f6-46b87e74f1bb",
+    "name": "Harmonic.ai Public saved_searches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API documentation for Harmonic.ai.",
+      "type": "text/plain"
+    }
+  }
+}

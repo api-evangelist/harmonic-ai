@@ -1,0 +1,63 @@
+generated: '2026-08-14'
+method: searched
+source: https://harmonic.ai/pricing
+checked: '2026-08-14'
+summary: >-
+  Harmonic.ai publishes three named product tiers but NO prices. Every tier is gated behind a
+  "Get pricing" / "Contact sales" call to action with a demo-booking form. There is no self-serve
+  price, no published currency, no billing period, no included quota and no overage rate anywhere
+  on the pricing page. The API is sold as its own tier ("API Access"), separate from the console
+  seats and from bulk data delivery.
+plan_count: 3
+prices_published: false
+currency: null
+billing_period: null
+public_signup_pricing: false
+plans:
+  - name: Enterprise Console
+    price: null
+    currency: null
+    billing_period: null
+    cta: Get pricing
+    positioning: Find startups and people with all our web products.
+    surface: web application, Chrome extension
+    included_quota: null
+    overage: null
+    limits: null
+  - name: API Access
+    price: null
+    currency: null
+    billing_period: null
+    cta: Get pricing
+    positioning: Automatically pull our data into your CRM and tools.
+    surface: REST + GraphQL API (api.harmonic.ai), hosted MCP server (mcp.api.harmonic.ai)
+    included_quota: null
+    overage: null
+    limits: null
+    note: >-
+      The tier that gates api.harmonic.ai. The only quantitative consumption signal Harmonic
+      publishes anywhere is indirect: the OpenAPI declares a 429 on POST /email_enrichment/jobs
+      described as "The request requires more enrichment credits than remain in your monthly
+      quota" — evidence of a monthly enrichment-credit allowance whose size is not published.
+      See rate-limits/harmonic-ai-rate-limits.yml.
+  - name: Bulk Data
+    price: null
+    currency: null
+    billing_period: null
+    cta: Get pricing
+    positioning: Every record, in the warehouse of your choosing.
+    surface: BigQuery / Snowflake / S3 delivery
+    included_quota: null
+    overage: null
+    limits: null
+quota_signals:
+  - signal: monthly enrichment credit quota
+    evidence: >-
+      429 response on submit_job_email_enrichment_jobs_post — "The request requires more enrichment
+      credits than remain in your monthly quota. Submit fewer people or wait until your quota resets."
+    source: openapi/_original/harmonic-ai-openapi.json
+    value_published: false
+notes: >-
+  Recorded as plan_count: 3 rather than 0 because the provider does name and differentiate three
+  purchasable tiers; what is absent is price, not plan structure. A buyer cannot cost an integration
+  from public information, and an agent cannot budget against this API.

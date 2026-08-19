@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public saved_searches API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "saved_searches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Saved Search By Owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/saved_searches"
+          },
+          "docs": "Get Saved Search By Owner"
+        },
+        {
+          "info": {
+            "name": "Create Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/saved_searches",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Saved Search"
+        },
+        {
+          "info": {
+            "name": "Get Saved Search Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/saved_searches:results/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              },
+              {
+                "name": "exclude_snapshots",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated. Snapshot data is no longer materialized; this flag is retained only for backwards compatibility and has no effect on the fetch path."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Get Saved Search Results"
+        },
+        {
+          "info": {
+            "name": "Get Saved Search Net New Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/saved_searches/:id_or_urn/net_new_results",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor0 for pagination"
+              },
+              {
+                "name": "new_results_since",
+                "value": "",
+                "type": "query",
+                "description": "Filter results that are matches after this date(in UTC). Accepts date (YYYY-MM-DD) or datetime (YYYY-MM-DDTHH:00:00Z) formats. Examples: '2024-03-20' or '2024-03-20T14:00:00Z'. When specified, returns all matching results regardless of their cleared status."
+              }
+            ]
+          },
+          "docs": "Get Saved Search Net New Results"
+        },
+        {
+          "info": {
+            "name": "Clear Net New Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/saved_searches/:id_or_urn/clear_net_new_results",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entity_urns",
+                "value": "",
+                "type": "query",
+                "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+              }
+            ]
+          },
+          "docs": "Clear Net New Results"
+        },
+        {
+          "info": {
+            "name": "Get Saved Search By Owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/savedSearches"
+          },
+          "docs": "Get Saved Search By Owner"
+        },
+        {
+          "info": {
+            "name": "Create Saved Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/savedSearches",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Saved Search"
+        },
+        {
+          "info": {
+            "name": "Get Saved Search Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/savedSearches:results/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              },
+              {
+                "name": "exclude_snapshots",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated. Snapshot data is no longer materialized; this flag is retained only for backwards compatibility and has no effect on the fetch path."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Get Saved Search Results"
+        },
+        {
+          "info": {
+            "name": "Get Saved Search Net New Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/savedSearches/:id_or_urn/net_new_results",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor0 for pagination"
+              },
+              {
+                "name": "new_results_since",
+                "value": "",
+                "type": "query",
+                "description": "Filter results that are matches after this date(in UTC). Accepts date (YYYY-MM-DD) or datetime (YYYY-MM-DDTHH:00:00Z) formats. Examples: '2024-03-20' or '2024-03-20T14:00:00Z'. When specified, returns all matching results regardless of their cleared status."
+              }
+            ]
+          },
+          "docs": "Get Saved Search Net New Results"
+        },
+        {
+          "info": {
+            "name": "Clear Net New Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/savedSearches/:id_or_urn/clear_net_new_results",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entity_urns",
+                "value": "",
+                "type": "query",
+                "description": "Entity URNs to clear net new results for. If not provided, all net new results will be cleared."
+              }
+            ]
+          },
+          "docs": "Clear Net New Results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

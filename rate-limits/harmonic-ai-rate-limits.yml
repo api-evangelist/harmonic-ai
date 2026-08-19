@@ -1,0 +1,101 @@
+generated: '2026-08-14'
+method: searched
+source: https://console.harmonic.ai/docs/api-reference/introduction
+corroboration: >-
+  Live unauthenticated probe of https://api.harmonic.ai/ and
+  https://api.harmonic.ai/companies?website_domain=stripe.com on 2026-08-14 returned
+  HTTP 403 with `server: kong/3.0.2` and `www-authenticate: Key realm="kong"`. Harmonic fronts
+  its API with Kong 3.0.2, and the header family named in the docs
+  (X-RateLimit-Limit-Second / X-RateLimit-Remaining-Second) is exactly what the Kong
+  rate-limiting plugin emits in `second` window mode. The two agree.
+confidence: medium-high
+confidence_note: >-
+  The numeric limit and header names come from Harmonic's API reference, whose host
+  (console.harmonic.ai) is a client-rendered SPA — the page returns a 6,759-byte loading shell to
+  any non-browser fetch, so the text could not be captured verbatim by this pipeline and was read
+  from the indexed docs content. The values are corroborated by the observed Kong gateway (above)
+  but have NOT been observed on a live 429 from this repo. Treat the header names as authoritative
+  for client design and re-verify the number against an authenticated response before relying on it
+  for capacity planning.
+limit_count: 2
+scopes:
+  - scope: per-key
+    surface: REST (api.harmonic.ai)
+    window: 1 second
+    limit: 10
+    unit: requests
+    burst: null
+    status_on_exhaustion: 429
+    counted: >-
+      Only successful 200 responses count against the allowance; error responses are not billed
+      against the per-second limit.
+    headers:
+      - name: X-RateLimit-Limit-Second
+        meaning: Maximum requests permitted in the current one-second window.
+        observed_value: 10
+      - name: X-RateLimit-Remaining-Second
+        meaning: Requests still available in the current one-second window.
+    retry_after: null
+    retry_after_note: >-
+      No Retry-After header is documented. With a one-second window the correct client behavior is
+      to back off for the remainder of the second and retry; exponential backoff on repeated 429s.
+    source: https://console.harmonic.ai/docs/api-reference/introduction
+  - scope: per-account
+    surface: REST (api.harmonic.ai) — email enrichment jobs
+    window: monthly
+    limit: null
+    unit: enrichment credits
+    burst: null
+    status_on_exhaustion: 429
+    headers: []
+    description: >-
+      A separate, quota-shaped 429 distinct from the per-second rate limit. Declared in the
+      provider's own OpenAPI on POST /email_enrichment/jobs
+      (operationId submit_job_email_enrichment_jobs_post): "The request requires more enrichment
+      credits than remain in your monthly quota. Submit fewer people or wait until your quota
+      resets." The credit allowance itself is not published — see
+      plans/harmonic-ai-plans-pricing.yml.
+    method: derived
+    source: openapi/_original/harmonic-ai-openapi.json
+mcp_surface:
+  endpoint: https://mcp.api.harmonic.ai
+  limits_published: false
+  note: >-
+    No rate limits are published for the hosted MCP server. Unauthenticated POST to the endpoint
+    returns 401 invalid_token, so no limit headers are observable anonymously.
+graphql_surface:
+  endpoint: https://api.harmonic.ai/graphql
+  limits_published: false
+  note: >-
+    No separate GraphQL cost/complexity limit is documented. Unauthenticated introspection returns
+    403 "Authentication required. Include either an api key or a JWT."
+batch_ceilings:
+  - operation_family: batch lookup
+    ceiling: 50
+    unit: IDs or URNs per request
+    source: https://harmonic.ai/llms.txt
+  - operation_family: natural-language company search
+    ceiling: 1000
+    unit: results per search (paginated)
+    source: https://harmonic.ai/llms.txt
+evidence:
+  - url: https://api.harmonic.ai/
+    status: 403
+    observed: 'server: kong/3.0.2; www-authenticate: Key realm="kong"'
+    checked: '2026-08-14'
+  - url: https://api.harmonic.ai/companies?website_domain=stripe.com
+    status: 403
+    observed: 'server: kong/3.0.2; access-control-expose-headers: x-request-id,x-trace-id,x-client-state-version'
+    checked: '2026-08-14'
+  - url: https://mcp.api.harmonic.ai/
+    status: 401
+    observed: '{"error": "invalid_token", ...}'
+    checked: '2026-08-14'
+  - url: https://api.harmonic.ai/graphql
+    status: 403
+    observed: '{"message":"Authentication required. Include either an api key or a JWT."}'
+    checked: '2026-08-14'
+cross_links:
+  conventions: conventions/harmonic-ai-conventions.yml
+  errors: errors/harmonic-ai-problem-types.yml
+  plans: plans/harmonic-ai-plans-pricing.yml

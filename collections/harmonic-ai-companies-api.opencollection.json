@@ -1,0 +1,1103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public companies API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "companies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch Get Company By Id Or Urn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urns",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_fields",
+                "value": "",
+                "type": "query",
+                "description": "Company fields to fetch."
+              }
+            ]
+          },
+          "docs": "Batch Get Company By Id Or Urn"
+        },
+        {
+          "info": {
+            "name": "Get Company By Identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies",
+            "params": [
+              {
+                "name": "linkedin_url",
+                "value": "https://www.linkedin.com/company/facebook",
+                "type": "query",
+                "description": "Company LinkedIn profile URL."
+              },
+              {
+                "name": "website_url",
+                "value": "https://www.harmonic.ai",
+                "type": "query",
+                "description": "Company website URL."
+              },
+              {
+                "name": "twitter_url",
+                "value": "twitter.com/facebook",
+                "type": "query",
+                "description": "Company twitter URL."
+              },
+              {
+                "name": "crunchbase_url",
+                "value": "https://www.crunchbase.com/organization/amazon",
+                "type": "query",
+                "description": "Company Crunchbase profile URL."
+              },
+              {
+                "name": "pitchbook_url",
+                "value": "https://pitchbook.com/profiles/company/11919-79",
+                "type": "query",
+                "description": "Company, Investor, or Advisor Pitchbook profile URL."
+              },
+              {
+                "name": "instagram_url",
+                "value": "https://www.instagram.com/allbirds",
+                "type": "query",
+                "description": "Company Instagram profile URL."
+              },
+              {
+                "name": "facebook_url",
+                "value": "https://www.facebook.com/weareallbirds/",
+                "type": "query",
+                "description": "Company Facebook profile URL."
+              },
+              {
+                "name": "angellist_url",
+                "value": "https://angel.co/company/amazon",
+                "type": "query",
+                "description": "Company Angellist profile URL."
+              },
+              {
+                "name": "monster_url",
+                "value": "https://www.monster.com/company/profiles/ikea/",
+                "type": "query",
+                "description": "Company Monster profile URL."
+              },
+              {
+                "name": "indeed_url",
+                "value": "indeed.com/cmp/Ikea",
+                "type": "query",
+                "description": "Company Indeed profile URL."
+              },
+              {
+                "name": "stackoverflow_url",
+                "value": "https://www.stackoverflow.com/jobs/companies/3db-labs",
+                "type": "query",
+                "description": "Company StackOverflow profile URL."
+              },
+              {
+                "name": "glassdoor_url",
+                "value": "https://www.glassdoor.com/Overview/Working-at-3rd-Digital-EI_IE3045173.11,22.htm",
+                "type": "query",
+                "description": "Company Glassdoor profile URL."
+              },
+              {
+                "name": "website_domain",
+                "value": "harmonic.ai",
+                "type": "query",
+                "description": "Company website domain."
+              },
+              {
+                "name": "include_fields",
+                "value": "",
+                "type": "query",
+                "description": "Company fields to fetch."
+              },
+              {
+                "name": "enrich_missing_company",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hide_non_surfaceable_company",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Company By Identifiers"
+        },
+        {
+          "info": {
+            "name": "Global Import Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/entries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import companies with global custom field values"
+        },
+        {
+          "info": {
+            "name": "Get Global Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/custom_fields"
+          },
+          "docs": "Get Global Custom Fields"
+        },
+        {
+          "info": {
+            "name": "Create Global Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/custom_field",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Global Custom Field"
+        },
+        {
+          "info": {
+            "name": "Update Global Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/companies/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Global Custom Field"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/companies/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ]
+          },
+          "docs": "Delete Custom Field"
+        },
+        {
+          "info": {
+            "name": "Batch Get Companies By Id Or Urn Using Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/batchGet",
+            "params": [
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Get Companies By Id Or Urn Using Post"
+        },
+        {
+          "info": {
+            "name": "Get Company By Id Or Urn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "extended",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_fields",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Company By Id Or Urn"
+        },
+        {
+          "info": {
+            "name": "Get Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/:id_or_urn/employees",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "employee_group_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_connection_status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Employees"
+        },
+        {
+          "info": {
+            "name": "Get User Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/:id_or_urn/userConnections",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get User Connections"
+        },
+        {
+          "info": {
+            "name": "Batch Get Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Get Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Delete Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/companies/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Delete Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Create Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Complete Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Complete Upload"
+        },
+        {
+          "info": {
+            "name": "Link Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link Attachments"
+        },
+        {
+          "info": {
+            "name": "Get Attachment Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Attachment Content"
+        },
+        {
+          "info": {
+            "name": "Delete Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Attachment"
+        },
+        {
+          "info": {
+            "name": "Get Company Watchlists By Owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies",
+            "params": [
+              {
+                "name": "company_urns",
+                "value": "",
+                "type": "query",
+                "description": "Only show those watchlists that contains company urns"
+              },
+              {
+                "name": "watchlist_type",
+                "value": "",
+                "type": "query",
+                "description": "Fetch watchlists with specific type. If None is provided, it fetches all"
+              },
+              {
+                "name": "return_company_urns",
+                "value": "",
+                "type": "query",
+                "description": "Whether the endpoint should return the company ids associated with the watchlist or not."
+              },
+              {
+                "name": "return_company_count",
+                "value": "",
+                "type": "query",
+                "description": "Whether the endpoint should return the number of companies associated with the watchlist or not."
+              },
+              {
+                "name": "get_team_shared_list",
+                "value": "",
+                "type": "query",
+                "description": "Fetch public watchlists shared by other users in the team"
+              }
+            ]
+          },
+          "docs": "Get Company Watchlists By Owner"
+        },
+        {
+          "info": {
+            "name": "Create Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Create Company Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Company Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Update Company Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Company Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Delete Company Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ]
+          },
+          "docs": "Delete Company Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Get Company Watchlist Imports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/imports",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Get Company Watchlist Imports"
+        },
+        {
+          "info": {
+            "name": "Upsert Company Watchlist Named Views",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/named_views",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "named_view_urn",
+                "value": "",
+                "type": "query",
+                "description": "Named view urn"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert Company Watchlist Named Views"
+        },
+        {
+          "info": {
+            "name": "Get Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Sort field"
+              },
+              {
+                "name": "sort_descending",
+                "value": "",
+                "type": "query",
+                "description": "Is sort order descending"
+              },
+              {
+                "name": "include_ids_only",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Update Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Delete Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Get Company Watchlist Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Sort field"
+              },
+              {
+                "name": "sort_descending",
+                "value": "",
+                "type": "query",
+                "description": "Is sort order descending"
+              },
+              {
+                "name": "search_query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "After cursor"
+              },
+              {
+                "name": "sort_custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Sort by a built-in field URN, custom-field URN, or record/list attribute URN (e.g. urn:harmonic:company_field:company_name or urn:harmonic:record_attribute:company:name)."
+              }
+            ]
+          },
+          "docs": "Get Company Watchlist Entries"
+        },
+        {
+          "info": {
+            "name": "Company Watchlist Add Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Company Watchlist Add Entries"
+        },
+        {
+          "info": {
+            "name": "Add Companies To Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn:addCompanies",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Companies To Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Remove Companies From Company Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn:removeCompanies",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Companies From Company Watchlist"
+        },
+        {
+          "info": {
+            "name": "Company Watchlist Batch Delete Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/companies/:id_or_urn/entries:batchDelete",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Company Watchlist Batch Delete Entries"
+        },
+        {
+          "info": {
+            "name": "Get User Company Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies/imports/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get User Company Import"
+        },
+        {
+          "info": {
+            "name": "Get User Company Import Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/companies/imports/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status: pending, success, failed"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Get User Company Import Entries"
+        },
+        {
+          "info": {
+            "name": "Search Companies By Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/search/companies_by_keywords",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search Companies By Keywords"
+        },
+        {
+          "info": {
+            "name": "Search Similar Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/similar_companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of similar companies to fetch"
+              }
+            ]
+          },
+          "docs": "Search Similar Companies"
+        },
+        {
+          "info": {
+            "name": "Typeahead Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/typeahead",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Typeahead Search"
+        },
+        {
+          "info": {
+            "name": "Search Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/search_agent",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "similarity_threshold",
+                "value": "",
+                "type": "query",
+                "description": "Similarity threshold"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              }
+            ]
+          },
+          "docs": "Search Agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

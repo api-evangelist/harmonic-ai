@@ -1,0 +1,3356 @@
+{
+  "item": [
+    {
+      "id": "902fa187-dfeb-4edb-883b-f623798a1e8b",
+      "name": "people",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55cc0126-fb85-4e9b-a6cb-641eb7c9f7c8",
+          "name": "Search Companies By Keywords",
+          "request": {
+            "name": "Search Companies By Keywords",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "companies_by_keywords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keywords\": \"<string>\",\n  \"contains_any_of_keywords\": \"<string>\",\n  \"contains_all_of_keywords\": \"<string>\",\n  \"does_not_contain_keywords\": \"<string>\",\n  \"include_ids_only\": true,\n  \"type\": \"COMPANIES_LIST\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dba1d358-3c2e-40d6-91b9-99b6dc548716",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "companies_by_keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"contains_any_of_keywords\": \"<string>\",\n  \"contains_all_of_keywords\": \"<string>\",\n  \"does_not_contain_keywords\": \"<string>\",\n  \"include_ids_only\": true,\n  \"type\": \"COMPANIES_LIST\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"count\": 8332,\n  \"page_info\": {\n    \"has_next\": true,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69542832-8a49-4d18-9782-bd76b2c0b944",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "companies_by_keywords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"contains_any_of_keywords\": \"<string>\",\n  \"contains_all_of_keywords\": \"<string>\",\n  \"does_not_contain_keywords\": \"<string>\",\n  \"include_ids_only\": true,\n  \"type\": \"COMPANIES_LIST\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b500d4c2-6ff5-4b61-b705-686e1bb98d8c",
+          "name": "Search Similar Companies",
+          "request": {
+            "name": "Search Similar Companies",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "similar_companies",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "10",
+                  "description": "Number of similar companies to fetch"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7899da54-ecf8-430d-990c-c1882b25a282",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "similar_companies",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    \"urn:harmonic:company:id\",\n    \"urn:harmonic:company:id\"\n  ],\n  \"count\": 3248,\n  \"page_info\": {\n    \"has_next\": false,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4031a272-f60f-4c5d-8f19-364b2edd5570",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "similar_companies",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1fec9721-a735-4822-94b7-136d397ef4be",
+          "name": "Typeahead Search",
+          "request": {
+            "name": "Typeahead Search",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "typeahead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "search_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "25",
+                  "description": "Page size"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fe4c6b7-29f1-4eee-977f-c5ed5cbabf55",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "typeahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "EMAIL_INTEGRATED_USER"
+                    },
+                    {
+                      "key": "source",
+                      "value": "ENTERPRISE_APP"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"entity_urn\": \"urn:harmonic:person:id\",\n      \"type\": \"COMPANY\",\n      \"source\": \"ENTERPRISE_APP\",\n      \"text\": \"string\",\n      \"alt_text\": \"string\",\n      \"index_field\": \"string\",\n      \"index_id\": \"string\",\n      \"ranking_score\": 6025.496986278913,\n      \"index_method\": 2,\n      \"subtype\": \"COMPANY\"\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:person:id\",\n      \"type\": \"EMAIL_INTEGRATED_USER\",\n      \"source\": \"ENTERPRISE_APP\",\n      \"text\": \"string\",\n      \"alt_text\": \"string\",\n      \"index_field\": \"string\",\n      \"index_id\": \"string\",\n      \"ranking_score\": 853.4115763016092,\n      \"index_method\": 2,\n      \"subtype\": \"COMPANY\"\n    }\n  ],\n  \"count\": 2994,\n  \"total_count\": 8605\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d829458-5944-4304-b060-4d460a16fb09",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "typeahead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_type",
+                      "value": "EMAIL_INTEGRATED_USER"
+                    },
+                    {
+                      "key": "source",
+                      "value": "ENTERPRISE_APP"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e79e2e9c-90f7-4868-9329-642fdb63b76a",
+          "name": "Search Agent",
+          "request": {
+            "name": "Search Agent",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "search_agent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "similarity_threshold",
+                  "value": "<number>",
+                  "description": "Similarity threshold"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "25",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17dbe6d7-8e55-4555-8d88-faf234a2ecb4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "search_agent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "similarity_threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"urn\": \"urn:harmonic:company:id\",\n      \"cursor\": \"string\"\n    },\n    {\n      \"urn\": \"urn:harmonic:company:id\",\n      \"cursor\": \"string\"\n    }\n  ],\n  \"query_interpretation\": {\n    \"semantic\": \"string\",\n    \"faceted\": [\n      {\n        \"field_name\": \"string\",\n        \"operator\": \"string\",\n        \"filter_value\": {},\n        \"parsed_text\": \"string\"\n      },\n      {\n        \"field_name\": \"string\",\n        \"operator\": \"string\",\n        \"filter_value\": {},\n        \"parsed_text\": \"string\"\n      }\n    ],\n    \"preserved_semantic_input\": \"string\",\n    \"companies\": [\n      {\n        \"company_name\": \"string\",\n        \"company_urn\": \"string\",\n        \"inclusion\": \"include\",\n        \"parsed_text\": \"string\"\n      },\n      {\n        \"company_name\": \"string\",\n        \"company_urn\": \"string\",\n        \"inclusion\": \"include\",\n        \"parsed_text\": \"string\"\n      }\n    ],\n    \"unprocessable_query_part\": \"string\",\n    \"similarity\": 1192.863523876534,\n    \"filter_str_repr\": \"string\",\n    \"api_request\": {\n      \"filter_group\": {\n        \"join_operator\": \"and\",\n        \"filters\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filter_groups\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filter_group_generators\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"controlled_filter_group\": {\n        \"join_operator\": \"or\",\n        \"filters\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filter_groups\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filter_group_generators\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"query_translations\": [\n      \"string\",\n      \"string\"\n    ],\n    \"parser_version\": \"v4\",\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  },\n  \"count\": 5484,\n  \"page_info\": {\n    \"has_next\": false,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15884625-1880-470a-b461-1d730b53637c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "search_agent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "similarity_threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eef58b0f-d18c-4768-8f5d-6afb5aa2f822",
+          "name": "Get People Watchlists By Owner",
+          "request": {
+            "name": "Get People Watchlists By Owner",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "return_people_urns",
+                  "value": "true",
+                  "description": "Return person urns in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "return_people_count",
+                  "value": "true",
+                  "description": "Return person count in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ce02792-7f87-47f1-8f69-46914c934ea3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "return_people_urns",
+                      "value": "true"
+                    },
+                    {
+                      "key": "return_people_count",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"shared_with_team\": true,\n    \"entity_urn\": \"string\",\n    \"owner\": \"urn:harmonic:user:id\",\n    \"id\": \"6aef9d1e-69ec-6925-fef3-717db88b5f6d\",\n    \"user_watchlist_type\": \"TEAM_CONNECTIONS\",\n    \"updated_at\": \"2017-03-25T14:31:07.529Z\",\n    \"created_at\": \"1950-02-08T13:50:36.726Z\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"people\": [\n      \"urn:harmonic:person:id\",\n      \"urn:harmonic:person:id\"\n    ],\n    \"people_count\": 2146,\n    \"page_info\": {\n      \"has_next\": false,\n      \"next\": \"string\",\n      \"current\": \"string\"\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"shared_with_team\": true,\n    \"entity_urn\": \"string\",\n    \"owner\": \"urn:harmonic:user:id\",\n    \"id\": \"1858bdaa-2ccb-164e-dfa9-1453cd3fe0ef\",\n    \"user_watchlist_type\": \"TEAM_CONNECTIONS\",\n    \"updated_at\": \"1971-12-01T00:51:41.332Z\",\n    \"created_at\": \"1995-08-03T04:42:20.319Z\",\n    \"creator\": \"urn:harmonic:user:id\",\n    \"people\": [\n      \"urn:harmonic:person:id\",\n      \"urn:harmonic:person:id\"\n    ],\n    \"people_count\": 3119,\n    \"page_info\": {\n      \"has_next\": true,\n      \"next\": \"string\",\n      \"current\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc38b906-84de-42d3-8942-318c15f0cb67",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "return_people_urns",
+                      "value": "true"
+                    },
+                    {
+                      "key": "return_people_count",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "726855e9-5e1a-49ef-8175-499722fdd2eb",
+          "name": "Create People Watchlist",
+          "request": {
+            "name": "Create People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5f0542b-eed6-430b-96dc-8c5928af99a4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:people_watchlist:id\",\n  \"metadata\": {\n    \"count_total\": 6809,\n    \"count_changed\": 3755,\n    \"count_skipped\": 9819,\n    \"count_not_found\": 1502\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "028b90ac-6d9e-4c1a-aac9-bb38b6665c8c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b6bdaaa-a9e1-4302-b8ce-a7dad7d54999",
+          "name": "Get People Watchlist",
+          "request": {
+            "name": "Get People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "return_people_urns",
+                  "value": "true",
+                  "description": "Return person urns in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47b54da8-e87d-402a-a0a2-abd9d31fd4e7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "return_people_urns",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"shared_with_team\": true,\n  \"entity_urn\": \"string\",\n  \"owner\": \"urn:harmonic:user:id\",\n  \"id\": \"d4445a32-f7e4-80b8-eb39-ecbb5f500dc9\",\n  \"user_watchlist_type\": \"GLOBAL_FIELD_LIST\",\n  \"updated_at\": \"1980-02-09T23:00:51.436Z\",\n  \"created_at\": \"1956-11-20T15:53:16.122Z\",\n  \"creator\": \"urn:harmonic:user:id\",\n  \"people\": [\n    \"urn:harmonic:person:id\",\n    \"urn:harmonic:person:id\"\n  ],\n  \"people_count\": 5187,\n  \"page_info\": {\n    \"has_next\": false,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3990d969-16a2-4a17-ab57-8477d228cf19",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "return_people_urns",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9419b882-66c5-4ee6-a9d1-9966adc3af47",
+          "name": "Update People Watchlist",
+          "request": {
+            "name": "Update People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\",\n  \"named_views_order\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d845be34-956a-4784-99f7-d84d4e49a939",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\",\n  \"named_views_order\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:people_watchlist:id\",\n  \"metadata\": {\n    \"count_total\": 6809,\n    \"count_changed\": 3755,\n    \"count_skipped\": 9819,\n    \"count_not_found\": 1502\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf057b1d-ec3f-45f3-aaee-f72d89311238",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"shared_with_team\": \"<boolean>\",\n  \"named_views_order\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b39e633-89af-4418-9050-d6059c4d654f",
+          "name": "Delete People Watchlist",
+          "request": {
+            "name": "Delete People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e21ddaed-7919-4f30-8d30-61bcd78025b2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:people_watchlist:id\",\n  \"metadata\": {\n    \"count_total\": 6809,\n    \"count_changed\": 3755,\n    \"count_skipped\": 9819,\n    \"count_not_found\": 1502\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e46c15b-60ed-4c52-8327-862e92f19c26",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74296b8d-3b2d-4d6e-862f-70de1ea71743",
+          "name": "Get People Watchlist Entries",
+          "request": {
+            "name": "Get People Watchlist Entries",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_field",
+                  "value": "person_last_update_event_date",
+                  "description": "Sort field"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_descending",
+                  "value": "false",
+                  "description": "Is sort order descending"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_query",
+                  "value": "<string>",
+                  "description": "Search query"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "After cursor"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_custom_field_urn",
+                  "value": "<string>",
+                  "description": "Sort by a built-in field URN, custom-field URN, or record/list attribute URN (e.g. urn:harmonic:person_field:person_name or urn:harmonic:record_attribute:person:full_name)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "accfda0e-5aee-43a5-9d97-0e898008fb7d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "person_last_update_event_date"
+                    },
+                    {
+                      "key": "sort_descending",
+                      "value": "false"
+                    },
+                    {
+                      "key": "search_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"page_info\": {\n    \"has_next\": true,\n    \"next\": \"string\",\n    \"current\": \"string\"\n  },\n  \"total_count\": 9317\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "917bb400-aa92-46d6-9169-476f9626e470",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort_field",
+                      "value": "person_last_update_event_date"
+                    },
+                    {
+                      "key": "sort_descending",
+                      "value": "false"
+                    },
+                    {
+                      "key": "search_query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8422ff9-4826-4708-8352-54702a3e79d6",
+          "name": "People Watchlist Add Entries",
+          "request": {
+            "name": "People Watchlist Add Entries",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b53dfd2-0d53-4688-81fa-52603ed2bd9b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1998-04-14T20:07:41.782Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1972-02-14T15:31:16.816Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n  \"total_people_count\": 3331,\n  \"people_found_count\": 6392,\n  \"people_not_found_count\": 2614,\n  \"people_invalid_count\": 9066\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba4d5197-a36a-45a4-857d-9fe0288db06a",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1998-04-14T20:07:41.782Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"1972-02-14T15:31:16.816Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4596834e-b419-4f13-8fbf-2c2bc2047d2b",
+          "name": "Create People Watchlist Custom Field",
+          "request": {
+            "name": "Create People Watchlist Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2d185b3-4085-46cb-91e8-78e45bcece86",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"NUMBER\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"urn\": \"urn:harmonic:person_list_custom_field:id\",\n  \"list_urn\": \"urn:harmonic:people_watchlist:id\",\n  \"name\": \"string\",\n  \"type\": \"SINGLE_SELECT\",\n  \"metadata\": {\n    \"default\": \"urn:harmonic:select_list_custom_field_value_option:id\"\n  },\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f9d09a0-984c-42cc-bee2-414167552b3a",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"NUMBER\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31e3120b-11be-473c-a302-bd0802c3e6a8",
+          "name": "Update People Watchlist Custom Field",
+          "request": {
+            "name": "Update People Watchlist Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "custom_field_urn",
+                  "value": "<string>",
+                  "description": "Custom field URN"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cde94a8b-bea6-44c1-ba74-996207ea7076",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"urn\": \"urn:harmonic:person_list_custom_field:id\",\n  \"list_urn\": \"urn:harmonic:people_watchlist:id\",\n  \"name\": \"string\",\n  \"type\": \"SINGLE_SELECT\",\n  \"metadata\": {\n    \"default\": \"urn:harmonic:select_list_custom_field_value_option:id\"\n  },\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe7f569f-9aa4-4f49-9b03-b326c47bff11",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"default_value\": {\n    \"value\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23563ed7-c4f9-473f-a413-067b93c028e2",
+          "name": "Delete People Watchlist Custom Field",
+          "request": {
+            "name": "Delete People Watchlist Custom Field",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "custom_field"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "custom_field_urn",
+                  "value": "<string>",
+                  "description": "Custom field URN"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53aff606-b4e0-4b43-962e-1dfee47d826d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:person_list_custom_field:id\",\n  \"metadata\": {\n    \"count_total\": 3469,\n    \"count_changed\": 7829,\n    \"count_skipped\": 9971,\n    \"count_not_found\": 3629\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afeaff13-33af-45c1-87ce-2aa40a3bae09",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "custom_field"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "custom_field_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3930813-b8f4-4efc-bb36-0d99c7f62e1d",
+          "name": "Upsert People Watchlist Named Views",
+          "request": {
+            "name": "Upsert People Watchlist Named Views",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "named_views"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "named_view_urn",
+                  "value": "<string>",
+                  "description": "Named view urn"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"search_query\": {\n    \"filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": \"<integer>\",\n      \"start\": \"<integer>\"\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"<string>\",\n      \"filters\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"display_type\": \"<string>\",\n  \"group_by_field\": \"<string>\",\n  \"hide_empty_columns\": \"<boolean>\",\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    },\n    {\n      \"entity_urn\": \"<string>\",\n      \"column_width\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "221289b9-a3d8-45d0-88fb-1a06b7818fa0",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "named_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "named_view_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"search_query\": {\n    \"filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 8150,\n      \"start\": 2720\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"display_type\": \"BOARD\",\n  \"group_by_field\": \"<string>\",\n  \"hide_empty_columns\": \"<boolean>\",\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 6733\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 6322\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6718,\n  \"entity_urn\": \"urn:harmonic:person_list_named_view:id\",\n  \"name\": \"string\",\n  \"list_urn\": \"urn:harmonic:people_watchlist:id\",\n  \"visible_columns\": [\n    \"urn:harmonic:person_field:id\",\n    \"urn:harmonic:person_field:id\"\n  ],\n  \"display_type\": \"BOARD\",\n  \"hide_empty_columns\": false,\n  \"search_query\": {\n    \"filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 4392,\n      \"start\": 3805\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Output detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"group_by_field\": \"urn:harmonic:person_list_custom_field:id\",\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 2818\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 3125\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e27d129-52d9-4298-b782-b90a3fffbbef",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "named_views"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "named_view_urn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"visible_columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"search_query\": {\n    \"filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"field\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"comparator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"field_urn\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"filter_value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"generator_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"arguments\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"pagination\": {\n      \"page_size\": 8150,\n      \"start\": 2720\n    },\n    \"controlled_filter_group\": {\n      \"join_operator\": \"and\",\n      \"filters\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"filter_groups\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/FilterGroup-Input detected>\"\n        }\n      ],\n      \"filter_group_generators\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"merge_query_for_nested_fields\": false\n  },\n  \"display_type\": \"BOARD\",\n  \"group_by_field\": \"<string>\",\n  \"hide_empty_columns\": \"<boolean>\",\n  \"column_view_settings\": [\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 6733\n    },\n    {\n      \"entity_urn\": \"urn:harmonic:person_field:id\",\n      \"column_width\": 6322\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0133a37-bd77-425a-a190-b0e4c5c7f9c6",
+          "name": "Add People To People Watchlist",
+          "request": {
+            "name": "Add People To People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                "{{id_or_urn}}:addPeople"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61fee2f2-e2e3-4015-bb0e-af2f13a44319",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "{{id_or_urn}}:addPeople"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:people_watchlist:id\",\n  \"metadata\": {\n    \"count_total\": 6809,\n    \"count_changed\": 3755,\n    \"count_skipped\": 9819,\n    \"count_not_found\": 1502\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "328432e6-5193-467a-b7d2-5f5739f9b38d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "{{id_or_urn}}:addPeople"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3b9c2ad-7ba5-4021-a8bc-60de44f771f2",
+          "name": "Remove Person From People Watchlist",
+          "request": {
+            "name": "Remove Person From People Watchlist",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                "{{id_or_urn}}:removePeople"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28cdf1ad-d895-4680-9cab-664e821df9c1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "{{id_or_urn}}:removePeople"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"urn\": \"urn:harmonic:people_watchlist:id\",\n  \"metadata\": {\n    \"count_total\": 6809,\n    \"count_changed\": 3755,\n    \"count_skipped\": 9819,\n    \"count_not_found\": 1502\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ad312b3-f690-4e32-a13e-0803b59c52c5",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "{{id_or_urn}}:removePeople"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "751c55d9-a618-4f45-8b24-73a283e4cd57",
+          "name": "People Watchlist Batch Delete Entries",
+          "request": {
+            "name": "People Watchlist Batch Delete Entries",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "entries:batchDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"person_urn\": \"<string>\",\n      \"canonical\": {\n        \"linkedin_url\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d172c00-2829-4108-9b96-8c68d9f34478",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries:batchDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2016-06-25T12:16:36.723Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2008-10-01T23:28:51.739Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68faaa0d-198f-4fb1-9722-ffba976f20b1",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "entries:batchDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entries\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2016-06-25T12:16:36.723Z\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"canonical\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2008-10-01T23:28:51.739Z\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0ea4b34-cfe7-44a1-9542-01d621afe265",
+          "name": "Get User People Import",
+          "request": {
+            "name": "Get User People Import",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                "imports",
+                ":id_or_urn",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bcd8a62-d902-405f-8895-faa032001926",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "imports",
+                    ":id_or_urn",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"people_list_urn\": \"urn:harmonic:people_watchlist:id\",\n  \"created_at\": \"1958-06-12T14:07:57.637Z\",\n  \"updated_at\": \"2024-08-11T12:22:48.304Z\",\n  \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n  \"id\": \"b109eaf3-846a-e40e-557c-7fdde5cb8abb\",\n  \"failed_imports_count\": 4814,\n  \"pending_imports_count\": 6208,\n  \"found_imports_count\": 5683,\n  \"total_imports_count\": 3599,\n  \"unresolved_imports_count\": 7565,\n  \"file_name\": \"string\",\n  \"flatfile_batch_id\": \"string\",\n  \"list_import_type\": \"API_IMPORT\",\n  \"user_urn\": \"urn:harmonic:user:id\",\n  \"customer_urn\": \"urn:harmonic:customer:id\",\n  \"entity_urn\": \"urn:harmonic:user_people_import:id\",\n  \"user_id\": 7512,\n  \"customer_id\": 4991\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "302562de-c7e2-4c9a-ba5b-e9b6120f5e08",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "imports",
+                    ":id_or_urn",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84523390-b5af-4058-9abe-fdaadb6f20b4",
+          "name": "Get User People Import Entries",
+          "request": {
+            "name": "Get User People Import Entries",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                "imports",
+                ":id_or_urn",
+                "entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Status: pending, success, failed"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "100",
+                  "description": "Page size"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fefb0214-99cb-4cad-9629-89231b03cc28",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "imports",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imported_people\": [\n    {\n      \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n      \"id\": \"812f6cc6-7425-a023-aa9b-375ff2bde105\",\n      \"created_at\": \"1995-10-12T00:30:37.104Z\",\n      \"updated_at\": \"1975-08-11T17:30:34.280Z\",\n      \"user_imported_person_urn\": \"urn:harmonic:user_imported_people:id\",\n      \"matched_person_urn\": \"urn:harmonic:person:id\",\n      \"canonicals\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"enrichment_request_id\": \"0be405cb-9b6e-a86d-97aa-a5e36221bc9c\",\n      \"person_email_resolution_request_id\": \"ecd44317-0cf0-773d-133a-2cc1a9a6f573\",\n      \"custom_field_values\": [\n        {\n          \"custom_field_urn\": \"urn:harmonic:person_list_custom_field:id\",\n          \"data\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"custom_field_urn\": \"urn:harmonic:person_list_custom_field:id\",\n          \"data\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"invalid_urn\": \"string\",\n      \"error_message\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n      \"id\": \"9ce0a50a-d2ea-91a7-af12-9f5f78f026de\",\n      \"created_at\": \"1987-11-24T19:07:43.006Z\",\n      \"updated_at\": \"1970-03-31T22:14:07.008Z\",\n      \"user_imported_person_urn\": \"urn:harmonic:user_imported_people:id\",\n      \"matched_person_urn\": \"urn:harmonic:person:id\",\n      \"canonicals\": {\n        \"linkedin_url\": \"string\",\n        \"email\": \"string\"\n      },\n      \"enrichment_request_id\": \"81de0f41-aeab-fcc9-132f-ca4d18aef7e6\",\n      \"person_email_resolution_request_id\": \"5ee2485f-b628-6ba9-6048-848635798e0d\",\n      \"custom_field_values\": [\n        {\n          \"custom_field_urn\": \"urn:harmonic:person_list_custom_field:id\",\n          \"data\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"custom_field_urn\": \"urn:harmonic:person_list_custom_field:id\",\n          \"data\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"invalid_urn\": \"string\",\n      \"error_message\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc2bb9c0-2ffb-434e-a0eb-1607c7b6e4dc",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    "imports",
+                    ":id_or_urn",
+                    "entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "444828c7-74dd-48c0-ac7c-04a2ec3f9258",
+          "name": "Get People Watchlist Imports",
+          "request": {
+            "name": "Get People Watchlist Imports",
+            "description": {},
+            "url": {
+              "path": [
+                "watchlists",
+                "people",
+                ":id_or_urn",
+                "imports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id_or_urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5356be7-c480-459c-89d0-d06ebe287375",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_people_imports\": [\n    {\n      \"people_list_urn\": \"urn:harmonic:people_watchlist:id\",\n      \"created_at\": \"1952-09-17T01:40:00.312Z\",\n      \"updated_at\": \"1951-06-29T14:09:47.468Z\",\n      \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n      \"id\": \"b2b5d82a-3d01-dad6-5813-6727f0619003\",\n      \"failed_imports_count\": 7487,\n      \"pending_imports_count\": 1057,\n      \"found_imports_count\": 3970,\n      \"total_imports_count\": 2912,\n      \"unresolved_imports_count\": 7716,\n      \"file_name\": \"string\",\n      \"flatfile_batch_id\": \"string\",\n      \"list_import_type\": \"UPSERT_CUSTOM_FIELD_VALUE\",\n      \"user_urn\": \"urn:harmonic:user:id\",\n      \"customer_urn\": \"urn:harmonic:customer:id\",\n      \"entity_urn\": \"urn:harmonic:user_people_import:id\",\n      \"user_id\": 2941,\n      \"customer_id\": 3852\n    },\n    {\n      \"people_list_urn\": \"urn:harmonic:people_watchlist:id\",\n      \"created_at\": \"2025-07-27T19:24:28.897Z\",\n      \"updated_at\": \"2003-12-03T02:51:29.570Z\",\n      \"user_people_import_urn\": \"urn:harmonic:user_people_import:id\",\n      \"id\": \"197aa948-8037-5879-3d22-1555b15c4c28\",\n      \"failed_imports_count\": 3318,\n      \"pending_imports_count\": 7191,\n      \"found_imports_count\": 539,\n      \"total_imports_count\": 2138,\n      \"unresolved_imports_count\": 735,\n      \"file_name\": \"string\",\n      \"flatfile_batch_id\": \"string\",\n      \"list_import_type\": \"ADD_TO_WATCHLIST\",\n      \"user_urn\": \"urn:harmonic:user:id\",\n      \"customer_urn\": \"urn:harmonic:customer:id\",\n      \"entity_urn\": \"urn:harmonic:user_people_import:id\",\n      \"user_id\": 556,\n      \"customer_id\": 1710\n    }\n  ],\n  \"total_count\": 4425\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b5223af-ea57-4491-b438-b15cc1b74cea",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "people",
+                    ":id_or_urn",
+                    "imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id_or_urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "id_or_urn"
+    }
+  ],
+  "info": {
+    "_postman_id": "4bb99e0b-765d-4a94-9591-687a7ddf0607",
+    "name": "Harmonic.ai Public people API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API documentation for Harmonic.ai.",
+      "type": "text/plain"
+    }
+  }
+}

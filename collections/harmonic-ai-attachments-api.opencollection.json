@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public attachments API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "attachments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch Create Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Complete Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Complete Upload"
+        },
+        {
+          "info": {
+            "name": "Link Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link Attachments"
+        },
+        {
+          "info": {
+            "name": "Get Attachment Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Attachment Content"
+        },
+        {
+          "info": {
+            "name": "Delete Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/companies/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Attachment"
+        },
+        {
+          "info": {
+            "name": "Batch Create Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Complete Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Complete Upload"
+        },
+        {
+          "info": {
+            "name": "Link Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link Attachments"
+        },
+        {
+          "info": {
+            "name": "Get Attachment Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Attachment Content"
+        },
+        {
+          "info": {
+            "name": "Delete Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Attachment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

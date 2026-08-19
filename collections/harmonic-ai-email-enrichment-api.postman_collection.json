@@ -1,0 +1,420 @@
+{
+  "item": [
+    {
+      "id": "55c42fff-232b-44fb-bda2-604a5bcc5263",
+      "name": "email_enrichment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0b93e94-9c41-4817-b2f1-fbde4eb7cd67",
+          "name": "Submit Job",
+          "request": {
+            "name": "Submit Job",
+            "description": {
+              "content": "Submit a bulk email enrichment job.\n\nAccepts exactly one of `person_linkedin_urls` or `person_urns`.\nReturns 202 with the created job_id and a list of any people that\nwere dropped at submit time (with reasons). Returns 422 when no\nsubmitted people are eligible for enrichment, and 429 when the\nrequest requires more enrichment credits than remain in your monthly\nquota.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "email_enrichment",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"person_linkedin_urls\": [\n    \"<uri>\"\n  ],\n  \"person_urns\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85d85c7c-b5fb-49f0-97ad-93c496b04b3b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"person_linkedin_urls\": [\n    \"<uri>\"\n  ],\n  \"person_urns\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"afd9601f-8910-58f2-c25f-7ee00a0c3fd3\",\n  \"status\": \"FAILED\",\n  \"accepted_count\": 6613,\n  \"monthly_remaining\": 8199,\n  \"created_at\": \"string\",\n  \"dropped\": [\n    {\n      \"submitted_identifier\": \"string\",\n      \"reason\": \"NOT_FOUND\"\n    },\n    {\n      \"submitted_identifier\": \"string\",\n      \"reason\": \"RECENTLY_ATTEMPTED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6688aaac-8c5b-4060-95bc-c8f5092dabd4",
+              "name": "None of the submitted people are eligible for enrichment. See `dropped` for the reason each was excluded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"person_linkedin_urls\": [\n    \"<uri>\"\n  ],\n  \"person_urns\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"submitted\": 440,\n  \"error\": \"NO_ELIGIBLE_PEOPLE\",\n  \"dropped\": [\n    {\n      \"submitted_identifier\": \"string\",\n      \"reason\": \"RECENTLY_ATTEMPTED\"\n    },\n    {\n      \"submitted_identifier\": \"string\",\n      \"reason\": \"ALREADY_HAS_EMAIL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76c0d156-2442-42ac-b6b1-4f1436cb0857",
+              "name": "The request requires more enrichment credits than remain in your monthly quota. Submit fewer people or wait until your quota resets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"person_linkedin_urls\": [\n    \"<uri>\"\n  ],\n  \"person_urns\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"needed\": 7171,\n  \"available\": 2264,\n  \"submitted\": 2502,\n  \"error\": \"MONTHLY_QUOTA_INSUFFICIENT\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55135d13-1831-4bc5-a96f-ec91353bbc93",
+          "name": "Get Job",
+          "request": {
+            "name": "Get Job",
+            "description": {
+              "content": "Poll job status. `results` is `null` until status is terminal\n(COMPLETED / FAILED); once terminal, all per-person outcomes are\nreturned in a single response. Emails themselves are fetched via\nexisting public people endpoints (`GET /persons/{urn}/emails`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "email_enrichment",
+                "jobs",
+                ":job_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "job_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "467414b8-fb81-47e8-9868-f3daaf5c6c0c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "job_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"f4f71413-d3ce-f2d6-3e72-b3498ffe4d46\",\n  \"status\": \"COMPLETED\",\n  \"counts\": {\n    \"total_processed\": 1799,\n    \"total_succeeded\": 9134,\n    \"total_failed\": 4149,\n    \"total_skipped\": 60,\n    \"total_not_found\": 6431\n  },\n  \"created_at\": \"string\",\n  \"results\": [\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"status\": \"PENDING\"\n    },\n    {\n      \"person_urn\": \"urn:harmonic:person:id\",\n      \"status\": \"FAILED\"\n    }\n  ],\n  \"completed_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cda852a9-c295-4823-9159-4305e55d2962",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "job_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5cae75f-3a91-45f5-9155-6025916156c4",
+          "name": "Get Public Usage",
+          "request": {
+            "name": "Get Public Usage",
+            "description": {
+              "content": "Customer's current monthly quota state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "email_enrichment",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d214f3b6-9880-4be2-a9f8-109a98e611a9",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "email_enrichment",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"monthly_usage\": 2832,\n  \"monthly_limit\": 5245,\n  \"monthly_remaining\": 2244\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4d754271-89f6-4452-9d22-ad6fb686ed1e",
+    "name": "Harmonic.ai Public email_enrichment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API documentation for Harmonic.ai.",
+      "type": "text/plain"
+    }
+  }
+}

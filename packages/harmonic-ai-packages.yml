@@ -1,0 +1,81 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  Registry sweeps of npm (registry.npmjs.org search + package metadata), PyPI, RubyGems, crates.io,
+  NuGet, pkg.go.dev and Maven Central for a first-party Harmonic.ai client library, plus the provider's
+  own llms.txt, pricing page and API reference. No first-party SDK is published in any registry.
+summary:
+  first_party_sdk_count: 0
+  third_party_package_count: 2
+  note: >-
+    Harmonic.ai publishes NO first-party client library in any public package registry as of
+    2026-08-14. The provider's own integration story is: raw REST/GraphQL over api.harmonic.ai,
+    the hosted MCP server at mcp.api.harmonic.ai, a public Postman workspace, and native
+    Salesforce/HubSpot/Affinity connectors. Because no official SDK exists, this repo emits NO
+    `SDKs` pointer in apis.yml — the ergonomics sdk_count check must read a genuine zero here.
+
+# IMPORTANT OWNERSHIP NOTE — do not "repair" this by pointing at github.com/harmonic-ai.
+# That GitHub organization ("Harmonic", blog https://harmonic.fun/, description "Mathematical
+# Superintelligence", twitter @harmonicmath, 4 repos: IMO2025 in Lean, pbcc, python-memtools,
+# datasets) is a DIFFERENT company that happens to hold the harmonic-ai org slug. It has no
+# relationship to Harmonic.ai the startup-intelligence platform. A prior round of this pipeline
+# wired it as this provider's GitHubOrganization; that pointer has been removed.
+github_organization:
+  found: false
+  checked: '2026-08-14'
+  note: >-
+    No GitHub organization owned by Harmonic.ai (harmonic.ai) was located. github.com/harmonic-ai
+    belongs to Harmonic / harmonic.fun (Mathematical Superintelligence) — see ownership note above.
+
+packages: []
+
+third_party_packages:
+  - language: javascript
+    registry: npm
+    name: '@alludium/harmonic-mcp-server'
+    url: https://www.npmjs.com/package/@alludium/harmonic-mcp-server
+    install: npm install @alludium/harmonic-mcp-server
+    official: false
+    version: 1.0.0
+    published: '2025-12-08'
+    repository: https://github.com/alludium/harmonic-mcp-server
+    description: >-
+      Community MCP server wrapping the Harmonic API for company and person enrichment in VC deal
+      flow. Not published by Harmonic.ai; superseded in practice by the provider's own hosted MCP
+      server at mcp.api.harmonic.ai.
+    source: https://registry.npmjs.org/@alludium/harmonic-mcp-server
+  - language: javascript
+    registry: npm
+    name: '@ibis-coordination/harmonic-bridge'
+    url: https://www.npmjs.com/package/@ibis-coordination/harmonic-bridge
+    install: npm install @ibis-coordination/harmonic-bridge
+    official: false
+    version: 0.5.0
+    published: '2026-07-28'
+    repository: https://github.com/ibis-coordination/Harmonic
+    description: >-
+      Webhook bridge daemon for a third-party project also named "Harmonic". Surfaced by the npm
+      name search and recorded here only so a future round does not mistake it for a Harmonic.ai
+      client library — it is unrelated to harmonic.ai.
+    source: https://registry.npmjs.org/@ibis-coordination/harmonic-bridge
+
+negative_probes:
+  - registry: pypi
+    names: [harmonic-ai, harmonicai, harmonic-api, harmonicai-python, harmonic-client, pyharmonic, harmonic-sdk, harmonic-python]
+    result: 404 on every name
+    note: >-
+      `harmonic` on PyPI (200) is astro-informatics/harmonic, "Python package for efficient Bayesian
+      evidence computation" — a different project, not a Harmonic.ai client.
+  - registry: npm
+    names: [harmonic-ai, harmonicai, '@harmonic-ai/sdk', '@harmonic/sdk']
+    result: 404 on every name
+
+alternative_distribution:
+  - kind: postman
+    url: https://www.postman.com/harmonic-ai/harmonic/overview
+    official: true
+    note: Public Postman workspace — the provider's closest published equivalent to an SDK.
+  - kind: mcp
+    url: https://mcp.api.harmonic.ai
+    official: true
+    note: Hosted remote MCP server; see mcp/harmonic-ai-mcp.yml.

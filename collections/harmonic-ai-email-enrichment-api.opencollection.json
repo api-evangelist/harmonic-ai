@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public email_enrichment API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "email_enrichment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/email_enrichment/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a bulk email enrichment job.\n\nAccepts exactly one of `person_linkedin_urls` or `person_urns`.\nReturns 202 with the created job_id and a list of any people that\nwere dropped at submit time (with reasons). Returns 422 when no\nsubmitted people are eligible for enrichment, and 429 when the\nrequest requires more enrichment credits than remain in your monthly\nquota."
+        },
+        {
+          "info": {
+            "name": "Get Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/email_enrichment/jobs/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Poll job status. `results` is `null` until status is terminal\n(COMPLETED / FAILED); once terminal, all per-person outcomes are\nreturned in a single response. Emails themselves are fetched via\nexisting public people endpoints (`GET /persons/{urn}/emails`)."
+        },
+        {
+          "info": {
+            "name": "Get Public Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/email_enrichment/usage"
+          },
+          "docs": "Customer's current monthly quota state."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

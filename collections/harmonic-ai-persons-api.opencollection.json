@@ -1,0 +1,339 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public persons API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch Get Persons By Id Or Urn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/persons",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urns",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "company_context_urns",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Batch Get Persons By Id Or Urn"
+        },
+        {
+          "info": {
+            "name": "Get Person By Canonical",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons",
+            "params": [
+              {
+                "name": "linkedin_url",
+                "value": "https://www.linkedin.com/in/elonmusk",
+                "type": "query",
+                "description": "Linkedin profile URL."
+              },
+              {
+                "name": "email",
+                "value": "john.doe@example.com",
+                "type": "query",
+                "description": "Email address for person lookup. Used as fallback when linkedin_url is not provided or yields no result."
+              }
+            ]
+          },
+          "docs": "Get Person By Canonical"
+        },
+        {
+          "info": {
+            "name": "Global Import People",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/entries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import people with global custom field values"
+        },
+        {
+          "info": {
+            "name": "Get Global Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/persons/custom_fields"
+          },
+          "docs": "Get Global Custom Fields"
+        },
+        {
+          "info": {
+            "name": "Create Global Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/custom_field",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Global Custom Field"
+        },
+        {
+          "info": {
+            "name": "Update Global Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/persons/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Global Custom Field"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/persons/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ]
+          },
+          "docs": "Delete Custom Field"
+        },
+        {
+          "info": {
+            "name": "Get Person By Id Or Urn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/persons/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "company_context_urns",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Person By Id Or Urn"
+        },
+        {
+          "info": {
+            "name": "Batch Get Person By Id Or Urn Post Method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/batchGet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Get Person By Id Or Urn Post Method"
+        },
+        {
+          "info": {
+            "name": "Batch Get Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Get Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Delete Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/persons/attachments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Delete Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Create Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Create Attachments"
+        },
+        {
+          "info": {
+            "name": "Batch Complete Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch Complete Upload"
+        },
+        {
+          "info": {
+            "name": "Link Attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link Attachments"
+        },
+        {
+          "info": {
+            "name": "Get Attachment Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Attachment Content"
+        },
+        {
+          "info": {
+            "name": "Delete Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/persons/:id_or_urn/attachments/:urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Attachment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,580 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Harmonic.ai Public people API",
+    "version": "0.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "people",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Companies By Keywords",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/search/companies_by_keywords",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search Companies By Keywords"
+        },
+        {
+          "info": {
+            "name": "Search Similar Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/similar_companies/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of similar companies to fetch"
+              }
+            ]
+          },
+          "docs": "Search Similar Companies"
+        },
+        {
+          "info": {
+            "name": "Typeahead Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/typeahead",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Typeahead Search"
+        },
+        {
+          "info": {
+            "name": "Search Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/search_agent",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "similarity_threshold",
+                "value": "",
+                "type": "query",
+                "description": "Similarity threshold"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              }
+            ]
+          },
+          "docs": "Search Agent"
+        },
+        {
+          "info": {
+            "name": "Get People Watchlists By Owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people",
+            "params": [
+              {
+                "name": "person_urns",
+                "value": "",
+                "type": "query",
+                "description": "Only show those watchlists that contains person urns"
+              },
+              {
+                "name": "return_people_urns",
+                "value": "",
+                "type": "query",
+                "description": "Return person urns in the response"
+              },
+              {
+                "name": "return_people_count",
+                "value": "",
+                "type": "query",
+                "description": "Return person count in the response"
+              },
+              {
+                "name": "watchlist_types",
+                "value": "",
+                "type": "query",
+                "description": "Filter watchlists by specific types. If empty, fetches all owner-accessible watchlists."
+              }
+            ]
+          },
+          "docs": "Get People Watchlists By Owner"
+        },
+        {
+          "info": {
+            "name": "Create People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create People Watchlist"
+        },
+        {
+          "info": {
+            "name": "Get People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "return_people_urns",
+                "value": "",
+                "type": "query",
+                "description": "Return person urns in the response"
+              }
+            ]
+          },
+          "docs": "Get People Watchlist"
+        },
+        {
+          "info": {
+            "name": "Update People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update People Watchlist"
+        },
+        {
+          "info": {
+            "name": "Delete People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete People Watchlist"
+        },
+        {
+          "info": {
+            "name": "Get People Watchlist Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Sort field"
+              },
+              {
+                "name": "sort_descending",
+                "value": "",
+                "type": "query",
+                "description": "Is sort order descending"
+              },
+              {
+                "name": "search_query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "After cursor"
+              },
+              {
+                "name": "sort_custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Sort by a built-in field URN, custom-field URN, or record/list attribute URN (e.g. urn:harmonic:person_field:person_name or urn:harmonic:record_attribute:person:full_name)."
+              }
+            ]
+          },
+          "docs": "Get People Watchlist Entries"
+        },
+        {
+          "info": {
+            "name": "People Watchlist Add Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "People Watchlist Add Entries"
+        },
+        {
+          "info": {
+            "name": "Create People Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create People Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Update People Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update People Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Delete People Watchlist Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/custom_field",
+            "params": [
+              {
+                "name": "custom_field_urn",
+                "value": "",
+                "type": "query",
+                "description": "Custom field URN"
+              }
+            ]
+          },
+          "docs": "Delete People Watchlist Custom Field"
+        },
+        {
+          "info": {
+            "name": "Upsert People Watchlist Named Views",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/named_views",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "named_view_urn",
+                "value": "",
+                "type": "query",
+                "description": "Named view urn"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert People Watchlist Named Views"
+        },
+        {
+          "info": {
+            "name": "Add People To People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn:addPeople",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add People To People Watchlist"
+        },
+        {
+          "info": {
+            "name": "Remove Person From People Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn:removePeople",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Person From People Watchlist"
+        },
+        {
+          "info": {
+            "name": "People Watchlist Batch Delete Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/entries:batchDelete",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "People Watchlist Batch Delete Entries"
+        },
+        {
+          "info": {
+            "name": "Get User People Import",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people/imports/:id_or_urn/",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get User People Import"
+        },
+        {
+          "info": {
+            "name": "Get User People Import Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people/imports/:id_or_urn/entries",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status: pending, success, failed"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ]
+          },
+          "docs": "Get User People Import Entries"
+        },
+        {
+          "info": {
+            "name": "Get People Watchlist Imports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/watchlists/people/:id_or_urn/imports",
+            "params": [
+              {
+                "name": "id_or_urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get People Watchlist Imports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
