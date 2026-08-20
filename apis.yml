@@ -23,6 +23,19 @@ created: '2026-07-22'
 modified: '2026-08-14'
 specificationVersion: '0.23'
 tags:
+  - Startup Intelligence
+  - Venture Capital
+  - Company Data
+  - People Data
+  - investor-data
+  - funding-data
+  - Data Enrichment
+  - Sales Intelligence
+  - Market Intelligence
+  - GraphQL
+  - MCP
+  - agent-native
+tags_raw:
   - startup-intelligence
   - venture-capital
   - company-data
@@ -44,6 +57,19 @@ apis:
     humanURL: https://console.harmonic.ai/docs/api-reference/introduction
     baseURL: https://api.harmonic.ai/
     tags:
+      - Startup Intelligence
+      - Venture Capital
+      - Company Data
+      - People Data
+      - investor-data
+      - funding-data
+      - Data Enrichment
+      - Sales Intelligence
+      - Market Intelligence
+      - GraphQL
+      - MCP
+      - agent-native
+    tags_raw:
       - startup-intelligence
       - venture-capital
       - company-data
@@ -101,6 +127,14 @@ apis:
     humanURL: https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
     baseURL: https://mcp.api.harmonic.ai/
     tags:
+      - Startup Intelligence
+      - MCP
+      - agent-native
+      - Data Enrichment
+      - Company Data
+      - People Data
+      - investor-data
+    tags_raw:
       - startup-intelligence
       - mcp
       - agent-native
