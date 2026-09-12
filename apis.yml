@@ -168,6 +168,8 @@ apis:
       - type: LLMsTxt
         url: https://harmonic.ai/llms.txt
 common:
+  - type: Website
+    url: https://www.harmonic.ai/
   - type: AgenticAccess
     url: agentic-access/harmonic-ai-agentic-access.yml
   - type: DeveloperPortal
