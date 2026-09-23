@@ -108,49 +108,7 @@ notes: Tool names and categories captured verbatim from Harmonic's published llm
 deployment:
   mode: remote
   endpoint: https://mcp.api.harmonic.ai
-  install: null
-  package: null
-  auth: oauth
-  auth_alternatives: [api-key]
   verified: probed
   probe: gated
-  checked: '2026-08-14'
-  source: >-
-    https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide
-    (endpoint + transports + auth, provider-published) and a live POST of
-    {"jsonrpc":"2.0","id":1,"method":"tools/list"} to https://mcp.api.harmonic.ai/ on 2026-08-14.
-  mode_note: >-
-    Remote ONLY. Harmonic ships a hosted HTTPS endpoint an MCP client POSTs to directly; there is
-    NO first-party npx/uvx/pip stdio package to install (registry sweep in
-    packages/harmonic-ai-packages.yml found no first-party package in any registry — the npm hit
-    @alludium/harmonic-mcp-server is third-party). install/package are therefore null, not omitted.
-  transports:
-    - type: http
-      url: https://mcp.api.harmonic.ai
-      recommended: true
-    - type: sse
-      url: https://mcp.api.harmonic.ai/sse
-  client_config_published:
-    claude_code: claude mcp add --transport http harmonic https://mcp.api.harmonic.ai/
-    api_key_header: apikey
-    note: Commands and header name quoted from the provider's own getting-started guide.
-  x-evidence:
-    - url: https://mcp.api.harmonic.ai/
-      method: POST tools/list
-      http_status: 401
-      body: >-
-        {"error": "invalid_token", "error_description": "Authentication failed. The provided bearer
-        token is invalid, expired, or no longer recognized by the server..."}
-      meaning: >-
-        Endpoint is live and speaks MCP, but tools/list is OAuth-gated. Real inputSchemas require
-        authenticated introspection; the tool list above is the provider-published one from
-        llms.txt (names + descriptions only, no schemas).
-      checked: '2026-08-14'
-    - url: https://mcp.api.harmonic.ai/mcp
-      http_status: 404
-      note: Not the endpoint path — the server answers at the host root, not /mcp.
-      checked: '2026-08-14'
-    - url: https://mcp.api.harmonic.ai/sse
-      http_status: 405
-      note: Method Not Allowed on POST — SSE transport expects GET.
-      checked: '2026-08-14'
+  checked: '2026-08-12'
+  source: catalog MCP census

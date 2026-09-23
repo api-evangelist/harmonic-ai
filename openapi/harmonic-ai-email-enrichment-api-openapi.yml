@@ -1,15 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Harmonic.ai Public email_enrichment API
+  title: Harmonic.ai Public Email Enrichment API
   version: 0.0.1
   description: Public API documentation for Harmonic.ai.
 tags:
-- name: email_enrichment
+- name: Email Enrichment
 paths:
   /email_enrichment/jobs:
     post:
       tags:
-      - email_enrichment
+      - Email Enrichment
       summary: Submit Job
       description: 'Submit a bulk email enrichment job.
 
@@ -54,7 +54,7 @@ paths:
   /email_enrichment/jobs/{job_id}:
     get:
       tags:
-      - email_enrichment
+      - Email Enrichment
       summary: Get Job
       description: 'Poll job status. `results` is `null` until status is terminal
 
@@ -88,7 +88,7 @@ paths:
   /email_enrichment/usage:
     get:
       tags:
-      - email_enrichment
+      - Email Enrichment
       summary: Get Public Usage
       description: Customer's current monthly quota state.
       operationId: get_public_usage_email_enrichment_usage_get
@@ -101,92 +101,6 @@ paths:
                 $ref: '#/components/schemas/BulkEmailEnrichmentUsageResponse'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    DroppedPerson:
-      properties:
-        submitted_identifier:
-          type: string
-          title: Submitted Identifier
-        reason:
-          type: string
-          enum:
-          - NOT_FOUND
-          - INVALID_URL
-          - ALREADY_HAS_EMAIL
-          - RECENTLY_ATTEMPTED
-          title: Reason
-      type: object
-      required:
-      - submitted_identifier
-      - reason
-      title: DroppedPerson
-      description: A person filtered out at submit time, with the reason.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    JobStatusResponse:
-      properties:
-        job_id:
-          type: string
-          format: uuid
-          title: Job Id
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
-        counts:
-          $ref: '#/components/schemas/PersonJobCounts'
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/PersonJobResult'
-            type: array
-          - type: 'null'
-          title: Results
-        created_at:
-          type: string
-          title: Created At
-        completed_at:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Completed At
-      type: object
-      required:
-      - job_id
-      - status
-      - counts
-      - created_at
-      title: JobStatusResponse
     NoEligiblePeopleErrorDetail:
       properties:
         error:
@@ -211,74 +125,6 @@ components:
       description: 'Returned when none of the submitted people are eligible for
 
         enrichment. The `dropped` array explains why each was excluded.'
-    PersonJobResult:
-      properties:
-        person_urn:
-          type: string
-          pattern: urn:harmonic:person:id
-          title: PersonUrn
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobItemStatus'
-      type: object
-      required:
-      - person_urn
-      - status
-      title: PersonJobResult
-    PersonJobCounts:
-      properties:
-        total_processed:
-          type: integer
-          title: Total Processed
-        total_succeeded:
-          type: integer
-          title: Total Succeeded
-        total_failed:
-          type: integer
-          title: Total Failed
-        total_skipped:
-          type: integer
-          title: Total Skipped
-        total_not_found:
-          type: integer
-          title: Total Not Found
-      type: object
-      required:
-      - total_processed
-      - total_succeeded
-      - total_failed
-      - total_skipped
-      - total_not_found
-      title: PersonJobCounts
-    JobSubmitResponse:
-      properties:
-        job_id:
-          type: string
-          format: uuid
-          title: Job Id
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
-        accepted_count:
-          type: integer
-          title: Accepted Count
-        dropped:
-          items:
-            $ref: '#/components/schemas/DroppedPerson'
-          type: array
-          title: Dropped
-        monthly_remaining:
-          type: integer
-          title: Monthly Remaining
-        created_at:
-          type: string
-          title: Created At
-      type: object
-      required:
-      - job_id
-      - status
-      - accepted_count
-      - monthly_remaining
-      - created_at
-      title: JobSubmitResponse
     QuotaInsufficientErrorDetail:
       properties:
         error:
@@ -310,6 +156,25 @@ components:
         retry with fewer inputs or wait for the next monthly reset — drops
 
         aren''t surfaced here since they don''t change that action.'
+    DroppedPerson:
+      properties:
+        submitted_identifier:
+          type: string
+          title: Submitted Identifier
+        reason:
+          type: string
+          enum:
+          - NOT_FOUND
+          - INVALID_URL
+          - ALREADY_HAS_EMAIL
+          - RECENTLY_ATTEMPTED
+          title: Reason
+      type: object
+      required:
+      - submitted_identifier
+      - reason
+      title: DroppedPerson
+      description: A person filtered out at submit time, with the reason.
     JobRequest:
       properties:
         person_linkedin_urls:
@@ -344,6 +209,158 @@ components:
         LinkedIn URLs and URNs are peer alternatives — both resolve to the
 
         same internal person_id.'
+    JobStatusResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        counts:
+          $ref: '#/components/schemas/PersonJobCounts'
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonJobResult'
+            type: array
+          - type: 'null'
+          title: Results
+        created_at:
+          type: string
+          title: Created At
+        completed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Completed At
+      type: object
+      required:
+      - job_id
+      - status
+      - counts
+      - created_at
+      title: JobStatusResponse
+    BulkEmailEnrichmentJobItemStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - NOT_FOUND
+      - FAILED
+      - SKIPPED
+      title: BulkEmailEnrichmentJobItemStatus
+    PersonJobCounts:
+      properties:
+        total_processed:
+          type: integer
+          title: Total Processed
+        total_succeeded:
+          type: integer
+          title: Total Succeeded
+        total_failed:
+          type: integer
+          title: Total Failed
+        total_skipped:
+          type: integer
+          title: Total Skipped
+        total_not_found:
+          type: integer
+          title: Total Not Found
+      type: object
+      required:
+      - total_processed
+      - total_succeeded
+      - total_failed
+      - total_skipped
+      - total_not_found
+      title: PersonJobCounts
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    PersonJobResult:
+      properties:
+        person_urn:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobItemStatus'
+      type: object
+      required:
+      - person_urn
+      - status
+      title: PersonJobResult
+    JobSubmitResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        accepted_count:
+          type: integer
+          title: Accepted Count
+        dropped:
+          items:
+            $ref: '#/components/schemas/DroppedPerson'
+          type: array
+          title: Dropped
+        monthly_remaining:
+          type: integer
+          title: Monthly Remaining
+        created_at:
+          type: string
+          title: Created At
+      type: object
+      required:
+      - job_id
+      - status
+      - accepted_count
+      - monthly_remaining
+      - created_at
+      title: JobSubmitResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BulkEmailEnrichmentJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
+      title: BulkEmailEnrichmentJobStatus
     BulkEmailEnrichmentUsageResponse:
       properties:
         monthly_usage:
@@ -361,20 +378,3 @@ components:
       - monthly_limit
       - monthly_remaining
       title: BulkEmailEnrichmentUsageResponse
-    BulkEmailEnrichmentJobStatus:
-      type: string
-      enum:
-      - PENDING
-      - IN_PROGRESS
-      - COMPLETED
-      - FAILED
-      title: BulkEmailEnrichmentJobStatus
-    BulkEmailEnrichmentJobItemStatus:
-      type: string
-      enum:
-      - PENDING
-      - SUCCESS
-      - NOT_FOUND
-      - FAILED
-      - SKIPPED
-      title: BulkEmailEnrichmentJobItemStatus

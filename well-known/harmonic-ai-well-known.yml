@@ -1,104 +1,126 @@
-generated: '2026-08-14'
+generated: '2026-09-19'
 method: probed
 source: live probes of /.well-known/ on Harmonic hosts
 revised: '2026-08-14'
-summary: >-
-  Two real documents are served, both on the MCP host: RFC 8414 authorization-server metadata and
-  RFC 9728 protected-resource metadata. That is a genuine WellKnown hit and the pointer is earned.
-  Nothing else is served anywhere: no security.txt (so NO SecurityTxt pointer), no api-catalog, no
-  ai-plugin.json, no OIDC discovery, and no A2A agent card.
-pointer_basis: >-
-  WellKnown pointer emitted on the strength of the two 200s on mcp.api.harmonic.ai. SecurityTxt
+summary: 'Two real documents are served, both on the MCP host: RFC 8414 authorization-server metadata
+  and RFC 9728 protected-resource metadata. That is a genuine WellKnown hit and the pointer is earned.
+  Nothing else is served anywhere: no security.txt (so NO SecurityTxt pointer), no api-catalog, no ai-plugin.json,
+  no OIDC discovery, and no A2A agent card.'
+pointer_basis: WellKnown pointer emitted on the strength of the two 200s on mcp.api.harmonic.ai. SecurityTxt
   pointer NOT emitted — RFC 9116 is unimplemented on every host.
-false_positive_watch: >-
-  console.harmonic.ai answers HTTP 200 with the dashboard SPA shell for EVERY /.well-known/* path,
-  including paths that do not exist. Those 200s are recorded below as misses, not hits. Any future
+false_positive_watch: console.harmonic.ai answers HTTP 200 with the dashboard SPA shell for EVERY /.well-known/*
+  path, including paths that do not exist. Those 200s are recorded below as misses, not hits. Any future
   round that treats a console.harmonic.ai /.well-known/ 200 as a served document is wrong.
 hosts:
-  - host: https://mcp.api.harmonic.ai
-    documents:
-      - path: /.well-known/oauth-authorization-server   # RFC 8414
-        status: 200
-        file: harmonic-ai-mcp-oauth-authorization-server.json
-      - path: /.well-known/oauth-protected-resource      # RFC 9728
-        status: 200
-        file: harmonic-ai-mcp-oauth-protected-resource.json
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/agent-card.json
-        status: 404
-        body: Not Found
-        checked: '2026-08-14'
-      - path: /.well-known/agent.json
-        status: 404
-        body: Not Found
-        checked: '2026-08-14'
-  - host: https://api.harmonic.ai
-    documents:
-      - path: /.well-known/security.txt
-        status: 403
-      - path: /.well-known/openid-configuration
-        status: 403
-      - path: /.well-known/oauth-authorization-server
-        status: 403
-      - path: /.well-known/api-catalog
-        status: 403
-      - path: /.well-known/ai-plugin.json
-        status: 403
-      - path: /.well-known/agent-card.json
-        status: 403
-        body: '{"message":"Authentication required. Include either an api key or a JWT."}'
-        checked: '2026-08-14'
-      - path: /.well-known/agent.json
-        status: 403
-        body: '{"message":"Authentication required. Include either an api key or a JWT."}'
-        checked: '2026-08-14'
-    note: >-
-      api.harmonic.ai is fronted by Kong 3.0.2 and 403s every unauthenticated path before any
-      /.well-known/ handler is reached, so these are "unreachable", not "confirmed absent".
-  - host: https://harmonic.ai
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/agent-card.json
-        status: 404
-        body: '<!DOCTYPE html>...<p>Invalid .well-known request</p>'
-        checked: '2026-08-14'
-      - path: /.well-known/agent.json
-        status: 404
-        body: '<!DOCTYPE html>...<p>Invalid .well-known request</p>'
-        checked: '2026-08-14'
-    note: >-
-      Webflow-hosted marketing site; it returns a generic "Invalid .well-known request" 404 for
-      every /.well-known/* path. Same result on www.harmonic.ai.
-  - host: https://console.harmonic.ai
-    documents:
-      - path: /.well-known/agent-card.json
-        status: 200
-        served_document: false
-        body: SPA shell (HTML, <title>Harmonic.ai | Dashboard</title>)
-        verdict: MISS — soft-200 catch-all, not a document
-        checked: '2026-08-14'
-      - path: /.well-known/agent.json
-        status: 200
-        served_document: false
-        body: SPA shell (HTML, <title>Harmonic.ai | Dashboard</title>)
-        verdict: MISS — soft-200 catch-all, not a document
-        checked: '2026-08-14'
-  - host: https://support.harmonic.ai
-    documents:
-      - path: /.well-known/agent-card.json
-        status: 404
-        checked: '2026-08-14'
-      - path: /.well-known/agent.json
-        status: 404
-        checked: '2026-08-14'
+- host: https://mcp.api.harmonic.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: harmonic-ai-mcp-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: harmonic-ai-mcp-oauth-protected-resource.json
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+    body: Not Found
+    checked: '2026-08-14'
+  - path: /.well-known/agent.json
+    status: 404
+    body: Not Found
+    checked: '2026-08-14'
+- host: https://api.harmonic.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+    body: '{"message":"Authentication required. Include either an api key or a JWT."}'
+    checked: '2026-08-14'
+  - path: /.well-known/agent.json
+    status: 403
+    body: '{"message":"Authentication required. Include either an api key or a JWT."}'
+    checked: '2026-08-14'
+  note: api.harmonic.ai is fronted by Kong 3.0.2 and 403s every unauthenticated path before any /.well-known/
+    handler is reached, so these are "unreachable", not "confirmed absent".
+- host: https://harmonic.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+    body: <!DOCTYPE html>...<p>Invalid .well-known request</p>
+    checked: '2026-08-14'
+  - path: /.well-known/agent.json
+    status: 404
+    body: <!DOCTYPE html>...<p>Invalid .well-known request</p>
+    checked: '2026-08-14'
+  note: Webflow-hosted marketing site; it returns a generic "Invalid .well-known request" 404 for every
+    /.well-known/* path. Same result on www.harmonic.ai.
+- host: https://console.harmonic.ai
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    served_document: false
+    body: SPA shell (HTML, <title>Harmonic.ai | Dashboard</title>)
+    verdict: MISS — soft-200 catch-all, not a document
+    checked: '2026-08-14'
+  - path: /.well-known/agent.json
+    status: 200
+    served_document: false
+    body: SPA shell (HTML, <title>Harmonic.ai | Dashboard</title>)
+    verdict: MISS — soft-200 catch-all, not a document
+    checked: '2026-08-14'
+- host: https://support.harmonic.ai
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    checked: '2026-08-14'
+  - path: /.well-known/agent.json
+    status: 404
+    checked: '2026-08-14'
+- host: https://login.harmonic.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: harmonic-ai-login-oauth-authorization-server.json
+    bytes: 876
+  path_echo_control: passed
 a2a:
   agent_card_found: false
-  hosts_probed: [harmonic.ai, www.harmonic.ai, api.harmonic.ai, console.harmonic.ai, mcp.api.harmonic.ai, support.harmonic.ai]
-  paths_probed: [/.well-known/agent-card.json, /.well-known/agent.json]
+  hosts_probed:
+  - harmonic.ai
+  - www.harmonic.ai
+  - api.harmonic.ai
+  - console.harmonic.ai
+  - mcp.api.harmonic.ai
+  - support.harmonic.ai
+  paths_probed:
+  - /.well-known/agent-card.json
+  - /.well-known/agent.json
   checked: '2026-08-14'
-  result: >-
-    No A2A agent card on any host at either the canonical or the legacy path. No a2a/ artifact and
-    no AgentCard pointer are written — an agent card may only ever be recorded from a real 200
-    carrying AgentCard shape, never authored on the provider's behalf.
+  result: No A2A agent card on any host at either the canonical or the legacy path. No a2a/ artifact and
+    no AgentCard pointer are written — an agent card may only ever be recorded from a real 200 carrying
+    AgentCard shape, never authored on the provider's behalf.
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://login.harmonic.ai
+    path: /.well-known/oauth-authorization-server
+    file: harmonic-ai-login-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

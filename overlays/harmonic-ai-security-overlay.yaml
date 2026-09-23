@@ -3,10 +3,10 @@ info:
   title: API Evangelist security overlay for Harmonic.ai Public API
   version: 1.0.0
 extends: openapi/_original/harmonic-ai-openapi.json
-generated: '2026-07-22'
-method: generated
-source: openapi/_original/harmonic-ai-openapi.json
-rationale: >-
+x-generated: '2026-07-22'
+x-method: generated
+x-source: openapi/_original/harmonic-ai-openapi.json
+x-rationale: >-
   The captured OpenAPI (openapi/_original/harmonic-ai-openapi.json) ships an EMPTY
   components.securitySchemes and no root security requirement, yet Harmonic
   documents two auth mechanisms: an `apikey` request header and OAuth 2.0
