@@ -945,318 +945,81 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    FounderProvidedAttachment:
-      properties:
-        url:
-          type: string
-          title: Url
-        filename:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Filename
-        content_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Content Type
-      additionalProperties: false
-      type: object
-      required:
-      - url
-      title: FounderProvidedAttachment
-    ListNamedViewDisplayType:
+    FundingStage:
       type: string
       enum:
-      - GRID
-      - BOARD
-      title: ListNamedViewDisplayType
-    TagType:
+      - STEALTH
+      - PRE_SEED
+      - SEED
+      - SERIES_A
+      - SERIES_B
+      - SERIES_C
+      - SERIES_D
+      - SERIES_E
+      - SERIES_F
+      - SERIES_G
+      - SERIES_H
+      - SERIES_I
+      - SERIES_J
+      - SERIES_K_PLUS
+      - VENTURE_UNKNOWN
+      - EXITED
+      - OUT_OF_BUSINESS
+      title: FundingStage
+    CompanyHighlightCategory:
       type: string
       enum:
-      - UNKNOWN
-      - PRODUCT_HUNT
-      - YC_BATCH
-      - INDUSTRY
-      - EXTERNAL_INDUSTRY
-      - TECHNOLOGY
-      - PRODUCT_TYPE
-      - CUSTOMER_TYPE
-      - TECHNOLOGY_TYPE
-      - MARKET_VERTICAL
-      - MARKET_SUB_VERTICAL
-      - ACCELERATOR
-      title: TagType
-    TextListCustomFieldValue:
+      - Strong Team Growth
+      - Angel Backed
+      - Venture Backed
+      - Major Hire
+      - Soonicorn
+      title: CompanyHighlightCategory
+    RecordReferenceListCustomFieldValue:
       properties:
         value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: TextListCustomFieldValue
-    ListImportType:
-      type: string
-      enum:
-      - CONSOLE_IMPORT
-      - API_IMPORT
-      - INTEGRATED_LIST_SYNC
-      - ADD_TO_WATCHLIST
-      - REMOVE_FROM_WATCHLIST
-      - UPSERT_CUSTOM_FIELD_VALUE
-      title: ListImportType
-    PaginationMetadata:
-      properties:
-        next:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next
-        current:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Current
-        has_next:
-          type: boolean
-          title: Has Next
-      additionalProperties: false
-      type: object
-      required:
-      - has_next
-      title: PaginationMetadata
-    Sort-Output:
-      properties:
-        sort_field:
-          type: string
-          title: Sort Field
-        descending:
-          type: boolean
-          title: Descending
-        sort_context_values:
-          anyOf:
-          - $ref: '#/components/schemas/SortContextArguments'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - sort_field
-      - descending
-      title: Sort
-    PersonCanonicalParameter:
-      properties:
-        linkedin_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Linkedin Url
-        email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Email
-      additionalProperties: false
-      type: object
-      title: PersonCanonicalParameter
-    ApiSearchQuery-Input:
-      properties:
-        filter_group:
-          $ref: '#/components/schemas/FilterGroup-Input'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        sort:
           items:
-            $ref: '#/components/schemas/services__midtier__schemas__saved_search__Sort'
+            type: string
           type: array
-          title: Sort
+          title: Value
           default: []
-        controlled_filter_group:
-          anyOf:
-          - $ref: '#/components/schemas/FilterGroup-Input'
-          - type: 'null'
-        merge_query_for_nested_fields:
-          type: boolean
-          title: Merge Query For Nested Fields
-          default: false
       additionalProperties: false
       type: object
-      required:
-      - filter_group
-      - pagination
-      title: ApiSearchQuery
-    PersonHighlightCategory:
-      type: string
-      enum:
-      - Seasoned Executive
-      - Seasoned Operator
-      - Seasoned Founder
-      - Seasoned Adviser
-      - Unicorn Executive
-      - Unicorn Operator
-      - Unicorn Founder
-      - Unicorn Adviser
-      - High Growth Startup Executive
-      - High Growth Startup Operator
-      - High Growth Startup Founder
-      - High Growth Startup Adviser
-      - Prior VC Backed Executive
-      - Prior VC Backed Operator
-      - Prior VC Backed Founder
-      - Prior VC Backed Adviser
-      - Current Student
-      - Top University
-      - HBCU Alum
-      - HBCU University
-      - Deep Technical Background
-      - Prior Exit
-      - Top Company Alum
-      - Unicorn Alum
-      - Major Tech Company Experience
-      - Legacy Tech Company Experience
-      - Elite Industry Experience
-      - Major Research Institution Experience
-      - Major Government Experience
-      - Major Financial Institution Experience
-      - Venture Background
-      - $5M Club
-      - $10M Club
-      - $15M Club
-      - $20M Club
-      - $25M Club
-      - $30M Club
-      - $30M Raised
-      - $35M Club
-      - $40M Club
-      - $45M Club
-      - $50M Club
-      - $50M+ Club
-      - $55M Club
-      - $60M Club
-      - $65M Club
-      - $70M Club
-      - $75M Club
-      - $80M Club
-      - $85M Club
-      - $90M Club
-      - $95M Club
-      - $100M Club
-      - $105M Club
-      - $110M Club
-      - $115M Club
-      - $120M Club
-      - $125M Club
-      - $130M Club
-      - $135M Club
-      - $140M Club
-      - $145M Club
-      - $150M Club
-      - $155M Club
-      - $160M Club
-      - $165M Club
-      - $170M Club
-      - $175M Club
-      - $180M Club
-      - $185M Club
-      - $190M Club
-      - $195M Club
-      - $200M Club
-      - $205M Club
-      - $210M Club
-      - $215M Club
-      - $220M Club
-      - $225M Club
-      - $230M Club
-      - $235M Club
-      - $240M Club
-      - $245M Club
-      - $250M Club
-      - $255M Club
-      - $260M Club
-      - $265M Club
-      - $270M Club
-      - $275M Club
-      - $280M Club
-      - $285M Club
-      - $290M Club
-      - $295M Club
-      - $300M Club
-      - Free Agent
-      - Founder Turned Operator
-      - Stealth Founder
-      - Vested Former Founder
-      - Jack of All Trades
-      - YC Backed Founder
-      - Top Web3 Experience
-      - Top AI Experience
-      - Notable Followers
-      - New Notable Followers
-      title: PersonHighlightCategory
-    services__midtier__schemas__saved_search__Sort:
+      title: RecordReferenceListCustomFieldValue
+    TractionMetricsInfo:
       properties:
-        sort_field:
-          type: string
-          title: Sort Field
-        descending:
-          type: boolean
-          title: Descending
-        sort_context_values:
+        14d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        30d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        90d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        180d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        365d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        metrics:
+          items:
+            $ref: '#/components/schemas/TractionMetricsTimeSeriesMetric'
+          type: array
+          title: Metrics
+          default: []
+        latest_metric_value:
           anyOf:
-          - $ref: '#/components/schemas/SortContextArguments'
+          - type: number
+          - type: integer
           - type: 'null'
-      additionalProperties: false
+          title: Latest Metric Value
+      additionalProperties: true
       type: object
       required:
-      - sort_field
-      - descending
-      title: Sort
-    FilterGroup-Input:
-      properties:
-        join_operator:
-          type: string
-          enum:
-          - and
-          - or
-          title: Join Operator
-        filters:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/Filter'
-            type: array
-          - type: 'null'
-          title: Filters
-        filter_groups:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/FilterGroup-Input'
-            type: array
-          - type: 'null'
-          title: Filter Groups
-        merge_nested_fields:
-          type: boolean
-          title: Merge Nested Fields
-          default: false
-        filter_group_generators:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/FilterGroupGenerator'
-            type: array
-          - type: 'null'
-          title: Filter Group Generators
-      additionalProperties: false
-      type: object
-      required:
-      - join_operator
-      title: FilterGroup
-    NumberListCustomFieldValueFormat:
-      type: string
-      enum:
-      - NUMBER
-      - PERCENT
-      - US_DOLLAR
-      title: NumberListCustomFieldValueFormat
-    SelectListCustomFieldValueOption:
+      - 14d_ago
+      - 30d_ago
+      - 90d_ago
+      - 180d_ago
+      - 365d_ago
+      title: TractionMetricsInfo
+    SelectListCustomFieldValueOptionInputSchema:
       properties:
         urn:
           type: string
@@ -1268,682 +1031,18 @@ components:
         color:
           type: string
           title: Color
+        default:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Default
+          default: false
       additionalProperties: false
       type: object
       required:
       - name
       - color
-      title: SelectListCustomFieldValueOption
-    Body_add_people_to_people_watchlist_watchlists_people__id_or_urn__addPeople_post:
-      properties:
-        ids:
-          items:
-            type: integer
-          type: array
-          title: Ids
-          default: []
-        urns:
-          items:
-            type: string
-          type: array
-          title: Urns
-          default: []
-      type: object
-      title: Body_add_people_to_people_watchlist_watchlists_people__id_or_urn__addPeople_post
-    ResourceUrnResponse_Union_PeopleWatchlistUrn__SynapseListUrn__:
-      properties:
-        urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:people_watchlist:id
-            title: PeopleWatchlistUrn
-          - type: string
-            pattern: urn:harmonic:list:id
-            title: SynapseListUrn
-          title: Urn
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/DBOperationMetadata'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - urn
-      title: ResourceUrnResponse[Union[PeopleWatchlistUrn, SynapseListUrn]]
-    DateListCustomFieldDefaultValueMode:
-      type: string
-      enum:
-      - FIXED_DATE
-      - CREATED_AT
-      title: DateListCustomFieldDefaultValueMode
-    CompaniesModel:
-      properties:
-        company_name:
-          type: string
-          title: Company Name
-        company_urn:
-          type: string
-          title: Company Urn
-        inclusion:
-          type: string
-          enum:
-          - include
-          - exclude
-          - filter
-          title: Inclusion
-        parsed_text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Parsed Text
-      additionalProperties: false
-      type: object
-      required:
-      - company_name
-      - company_urn
-      - inclusion
-      title: CompaniesModel
-      description: 'Model representing company data for search and filtering.
-
-        Extracted to avoid circular imports between saved_search.py and facet_parsing_schemas.py'
-    FilterGroupGenerator:
-      properties:
-        generator_id:
-          $ref: '#/components/schemas/FilterGroupGeneratorId'
-        arguments:
-          type: object
-          title: Arguments
-      additionalProperties: false
-      type: object
-      required:
-      - generator_id
-      - arguments
-      title: FilterGroupGenerator
-    FundingType:
-      type: string
-      enum:
-      - ACCELERATOR_INCUBATOR
-      - ANGEL
-      - BANK_ADMIN
-      - BRIDGE
-      - BUYOUT_LBO
-      - CAPITALIZATION
-      - CONVERTIBLE_NOTE
-      - CROWDFUNDING
-      - DEBT
-      - DEBT_REPAY
-      - EARLY_STAGE
-      - GRANT
-      - INITIAL_COIN_OFFERING
-      - IPO
-      - JOINT_VENTURE
-      - LATER_STAGE
-      - M_AND_A
-      - MEZZANINE
-      - PRE_SEED
-      - PRIVATE_EQUITY
-      - PUBLIC_EQUITY_OFFERING
-      - REVERSE_MERGER
-      - SECONDARY_TRANSACTION
-      - SEED
-      - SEED_EXTENSION
-      - SERIES_1
-      - SERIES_2
-      - SERIES_3
-      - SERIES_A
-      - SERIES_A_EXTENSION
-      - SERIES_A1
-      - SERIES_A2
-      - SERIES_A3
-      - SERIES_AA
-      - SERIES_AAA
-      - SERIES_B
-      - SERIES_B_EXTENSION
-      - SERIES_B1
-      - SERIES_B2
-      - SERIES_B3
-      - SERIES_BB
-      - SERIES_C
-      - SERIES_C_EXTENSION
-      - SERIES_C1
-      - SERIES_C2
-      - SERIES_C3
-      - SERIES_CC
-      - SERIES_D
-      - SERIES_D_EXTENSION
-      - SERIES_D1
-      - SERIES_D2
-      - SERIES_D3
-      - SERIES_E
-      - SERIES_E_EXTENSION
-      - SERIES_E1
-      - SERIES_E2
-      - SERIES_F
-      - SERIES_F_EXTENSION
-      - SERIES_G
-      - SERIES_G_EXTENSION
-      - SERIES_H
-      - SERIES_I
-      - SERIES_J
-      - SPAC
-      - SPIN_OFF
-      - STRATEGIC
-      - UNKNOWN
-      - VENTURE_LEASING
-      - PRODUCT_CROWDFUNDING
-      - MERGER_OF_EQ
-      - PE_GROWTH
-      - CORPORATE
-      - DEBT_REFIN
-      - EQUITY_CROWDFUNDING
-      - NON_EQUITY_ASSISTANCE
-      - SECONDARY_OPEN
-      - RESTART_ANGEL
-      - SECONDARY_DISTRIB
-      - RESTART_LATER
-      - RESTART_EARLY
-      - ANGEL_INDIVIDUAL
-      - CORPORATE_ROUND
-      - DEBT_FINANCING
-      - CONV_DEBT
-      - DEBT_CONV
-      - SECONDARY_TRANSACTION_PRIVATE
-      - SECONDARY_TRANSACTION_PUBLIC
-      - LATER_[STAGE_SERIES_G
-      - DEBT_GENERAL
-      - LATER_STAGE_SERIES_F
-      - LATER_STAGE_SERIES_A
-      - VENTURE_DEBT
-      - EARLY_STAGE_VENTURE
-      - LATER_STAGE_VENTURE
-      - PRE__SEED
-      - FUNDING_ROUND
-      - SEED_ROUND
-      - EARLY_STAGE_SERIES_A
-      - EARLY_STAGE_SERIES_A1
-      - EARLY_STAGE_SERIES_B
-      - EARLY_STAGE_SERIES_B1
-      - LATER_STAGE_SERIES_C
-      - LATER_STAGE_SERIES_C1
-      - CORPORATE_SERIES_A
-      - LATER_STAGE_SERIES_E
-      - LATER_STAGE_SERIES_B
-      - LATER_STAGE_SERIES_D
-      - EARLY_STAGE_VC
-      - ACCELERATOR_INC
-      - DEBT_PP
-      - LATER_STAGE_VC
-      - UNDISCLOSED
-      - POST_IPO_DEBT
-      - POST_IPO_EQUITY
-      - POST_IPO_SECONDARY
-      - SECONDARY_MARKET
-      - SECONDARY_PRIVATE
-      - SERIES_UNKNOWN
-      - OUT_OF_BUSINESS
-      - IBO
-      - PIPE
-      - LIQUIDATION
-      - UNDERTERMINED
-      - ASSET_PURCH
-      - PLATFORM
-      - DIV_RECAP
-      - LEV_RECAP
-      - REPURCHASE
-      - TWO_PO
-      - EQUITY_FOR_SVC
-      - DIVIDEND
-      - SALE_LEASE_BACK
-      - GP_STAKES
-      title: FundingType
-    TagOutput:
-      properties:
-        display_value:
-          type: string
-          title: Display Value
-        type:
-          $ref: '#/components/schemas/TagType'
-        date_added:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date Added
-        entity_urn:
-          type: string
-          pattern: urn:harmonic:tag:id
-          title: TagUrn
-        company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: 'null'
-          title: Company Urn
-        is_primary_tag:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Primary Tag
-      additionalProperties: false
-      type: object
-      required:
-      - display_value
-      - type
-      - entity_urn
-      title: TagOutput
-    WebsiteMetadata:
-      properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        domain:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Domain
-        is_broken:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Broken
-      additionalProperties: false
-      type: object
-      title: WebsiteMetadata
-    PersonListNamedViewUpsertInput:
-      properties:
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-        visible_columns:
-          anyOf:
-          - items:
-              anyOf:
-              - type: string
-                pattern: urn:harmonic:person_field:id
-                title: PersonFieldUrn
-              - type: string
-                pattern: urn:harmonic:person_list_custom_field:id
-                title: PersonListCustomFieldUrn
-              - type: string
-                pattern: urn:harmonic:list_attribute:id
-                title: ListAttributeUrn
-              - type: string
-                pattern: urn:harmonic:record_attribute:id
-                title: RecordAttributeUrn
-            type: array
-          - type: 'null'
-          title: Visible Columns
-        search_query:
-          anyOf:
-          - $ref: '#/components/schemas/ApiSearchQuery-Input'
-          - type: 'null'
-        display_type:
-          anyOf:
-          - $ref: '#/components/schemas/ListNamedViewDisplayType'
-          - type: 'null'
-        group_by_field:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: 'null'
-          title: Group By Field
-        hide_empty_columns:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Hide Empty Columns
-        column_view_settings:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/PersonListNamedViewColumnViewSettings'
-            type: array
-          - type: 'null'
-          title: Column View Settings
-      additionalProperties: false
-      type: object
-      title: PersonListNamedViewUpsertInput
-    Investor:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Entity Urn
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      additionalProperties: false
-      type: object
-      title: Investor
-    ApiSearchQuery-Output:
-      properties:
-        filter_group:
-          $ref: '#/components/schemas/FilterGroup-Output'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        sort:
-          items:
-            $ref: '#/components/schemas/Sort-Output'
-          type: array
-          title: Sort
-          default: []
-        controlled_filter_group:
-          anyOf:
-          - $ref: '#/components/schemas/FilterGroup-Output'
-          - type: 'null'
-        merge_query_for_nested_fields:
-          type: boolean
-          title: Merge Query For Nested Fields
-          default: false
-      additionalProperties: false
-      type: object
-      required:
-      - filter_group
-      - pagination
-      title: ApiSearchQuery
-    DateListCustomFieldValueFormat:
-      type: string
-      enum:
-      - MM_DD_YYYY
-      - DD_MM_YYYY
-      - YYYY_MM_DD
-      title: DateListCustomFieldValueFormat
-    InvestorVisbility:
-      type: string
-      enum:
-      - VISIBLE
-      - HIDDEN
-      title: InvestorVisbility
-    SortContextArguments:
-      properties:
-        saved_search_id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Saved Search Id
-        date_added_after:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date Added After
-        list_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company_watchlist:id
-            title: CompanyWatchlistUrn
-          - type: string
-            pattern: urn:harmonic:people_watchlist:id
-            title: PeopleWatchlistUrn
-          - type: 'null'
-          title: List Urn
-        custom_field_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company_list_custom_field:id
-            title: CompanyListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: 'null'
-          title: Custom Field Urn
-        company_id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Company Id
-          description: When sorting by `person_position_start_date`, scopes the sort to a single company so a person's unrelated active roles (board seats, prior jobs) don't skew their position in per-company employee lists.
-      additionalProperties: false
-      type: object
-      title: SortContextArguments
-    SelectListCustomFieldMetadataInputSchema:
-      properties:
-        options:
-          items:
-            $ref: '#/components/schemas/SelectListCustomFieldValueOptionInputSchema'
-          type: array
-          title: Options
-          default: []
-      additionalProperties: false
-      type: object
-      title: SelectListCustomFieldMetadataInputSchema
-    SelectListCustomFieldMetadata:
-      properties:
-        options:
-          items:
-            $ref: '#/components/schemas/SelectListCustomFieldValueOption'
-          type: array
-          title: Options
-          default: []
-        default:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          - type: 'null'
-          title: Default
-      additionalProperties: false
-      type: object
-      title: SelectListCustomFieldMetadata
-    PersonListCustomFieldMetadata:
-      properties:
-        mode:
-          $ref: '#/components/schemas/PersonListCustomFieldValueMode'
-      additionalProperties: false
-      type: object
-      required:
-      - mode
-      title: PersonListCustomFieldMetadata
-    PersonListEntriesBatchDeleteInput:
-      properties:
-        entries:
-          items:
-            $ref: '#/components/schemas/PersonListEntryInput'
-          type: array
-          title: Entries
-      additionalProperties: false
-      type: object
-      required:
-      - entries
-      title: PersonListEntriesBatchDeleteInput
-    TypeaheadEntity:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: string
-            pattern: urn:harmonic:school:id
-            title: SchoolUrn
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: string
-            pattern: urn:harmonic:location:id
-            title: LocationUrn
-          - type: string
-            pattern: urn:harmonic:location_metro_area:id
-            title: LocationMetroAreaUrn
-          title: Entity Urn
-        type:
-          $ref: '#/components/schemas/TypeaheadSearchType'
-        source:
-          $ref: '#/components/schemas/TypeaheadSource'
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-        alt_text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Alt Text
-        index_field:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Index Field
-        index_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Index Id
-        ranking_score:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Ranking Score
-          default: 0
-        index_method:
-          anyOf:
-          - $ref: '#/components/schemas/IndexMethod'
-          - type: 'null'
-          default: 1
-        subtype:
-          anyOf:
-          - $ref: '#/components/schemas/TypeaheadSubtype'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      - type
-      - source
-      title: TypeaheadEntity
-    PeopleWatchlistUpdateInput:
-      properties:
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-        shared_with_team:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Shared With Team
-        named_views_order:
-          anyOf:
-          - items:
-              type: string
-              pattern: urn:harmonic:person_list_named_view:id
-              title: PersonListNamedViewUrn
-            type: array
-          - type: 'null'
-          title: Named Views Order
-      additionalProperties: false
-      type: object
-      title: PeopleWatchlistUpdateInput
-    PeopleWatchlistType:
-      type: string
-      enum:
-      - USER_MANAGED_WATCHLIST
-      - CUSTOMER_MANAGED_WATCHLIST
-      - USER_CONNECTIONS
-      - TEAM_CONNECTIONS
-      - GLOBAL_FIELD_LIST
-      title: PeopleWatchlistType
-    PersonListCustomFieldValueOutput:
-      properties:
-        created_at:
-          type: string
-          title: Created At
-        updated_at:
-          type: string
-          title: Updated At
-        urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field_value:id
-            title: PersonListCustomFieldValueUrn
-          - type: string
-            pattern: urn:harmonic:list_entry_value:id
-            title: SynapseListEntryValueUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_value:id
-            title: RecordValueUrn
-          title: Urn
-        custom_field_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:list_attribute:id
-            title: ListAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          title: Custom Field Urn
-        data:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
-          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
-          - $ref: '#/components/schemas/DateListCustomFieldValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - $ref: '#/components/schemas/StatusListCustomFieldValue'
-          title: Data
-        type:
-          $ref: '#/components/schemas/ListCustomFieldType'
-      additionalProperties: false
-      type: object
-      required:
-      - created_at
-      - updated_at
-      - urn
-      - custom_field_urn
-      - data
-      - type
-      title: PersonListCustomFieldValueOutput
-    TypeaheadSearchOutput:
-      properties:
-        count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count
-        total_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Total Count
-        results:
-          items:
-            $ref: '#/components/schemas/TypeaheadEntity'
-          type: array
-          title: Results
-      additionalProperties: false
-      type: object
-      required:
-      - results
-      title: TypeaheadSearchOutput
+      title: SelectListCustomFieldValueOptionInputSchema
     NumberListCustomFieldMetadata:
       properties:
         format:
@@ -1952,145 +1051,21 @@ components:
       additionalProperties: false
       type: object
       title: NumberListCustomFieldMetadata
-    FundingRoundOutput:
+    Pagination:
       properties:
-        announcement_date:
+        start:
           anyOf:
-          - type: string
+          - type: integer
           - type: 'null'
-          title: Announcement Date
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        funding_round_type:
-          type: string
-          title: Funding Round Type
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        funding_amount:
-          type: number
-          title: Funding Amount
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: number
-        funding_currency:
-          type: string
-          title: Funding Currency
-          default: USD
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        investors:
-          items:
-            $ref: '#/components/schemas/FundingRoundInvestor'
-          type: array
-          title: Investors
-          default: []
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: array
-        post_money_valuation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Post Money Valuation
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: number
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:funding_round:id
-            title: FundingRoundUrn
-          - type: string
-            pattern: urn:harmonic:test_funding_round:id
-            title: TestFundingRoundUrn
-          title: Entity Urn
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        company_urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        source_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source Url
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-        contributes_to_funding_total:
-          type: boolean
-          title: Contributes To Funding Total
-          default: true
-        additional_sources:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Additional Sources
-        completion_status:
-          anyOf:
-          - $ref: '#/components/schemas/FundingCompletionStatus'
-          - type: 'null'
-        valuation_info:
-          anyOf:
-          - $ref: '#/components/schemas/ValuationInfo'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
+          title: Start
+        page_size:
+          type: integer
+          title: Page Size
       additionalProperties: false
       type: object
       required:
-      - funding_round_type
-      - funding_amount
-      - entity_urn
-      - company_urn
-      title: FundingRoundOutput
-    NumberListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: NumberListCustomFieldValue
-    MultiSelectListCustomFieldValue:
-      properties:
-        value:
-          items:
-            type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          type: array
-          title: Value
-          default: []
-      additionalProperties: false
-      type: object
-      title: MultiSelectListCustomFieldValue
-    PersonListEntriesBatchDeleteOutput:
-      properties:
-        urns:
-          items:
-            type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          type: array
-          title: Urns
-          default: []
-      additionalProperties: false
-      type: object
-      title: PersonListEntriesBatchDeleteOutput
+      - page_size
+      title: Pagination
     PersonFieldInputValue:
       properties:
         custom_field_urn:
@@ -2125,93 +1100,463 @@ components:
       - custom_field_urn
       - data
       title: PersonFieldInputValue
-    FilterGroup-Output:
+    ResourceUrnResponse_PersonListCustomFieldUrn_:
       properties:
-        join_operator:
+        urn:
           type: string
-          enum:
-          - and
-          - or
-          title: Join Operator
-        filters:
+          pattern: urn:harmonic:person_list_custom_field:id
+          title: PersonListCustomFieldUrn
+        metadata:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/Filter'
-            type: array
+          - $ref: '#/components/schemas/DBOperationMetadata'
           - type: 'null'
-          title: Filters
-        filter_groups:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/FilterGroup-Output'
-            type: array
-          - type: 'null'
-          title: Filter Groups
-        filter_group_generators:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/FilterGroupGenerator'
-            type: array
-          - type: 'null'
-          title: Filter Group Generators
       additionalProperties: false
       type: object
       required:
-      - join_operator
-      title: FilterGroup
-    SocialStatus:
-      type: integer
+      - urn
+      title: ResourceUrnResponse[PersonListCustomFieldUrn]
+    TagType:
+      type: string
       enum:
-      - 1
-      - 2
-      title: SocialStatus
-    FacebookSocialMetadata:
+      - UNKNOWN
+      - PRODUCT_HUNT
+      - YC_BATCH
+      - INDUSTRY
+      - EXTERNAL_INDUSTRY
+      - TECHNOLOGY
+      - PRODUCT_TYPE
+      - CUSTOMER_TYPE
+      - TECHNOLOGY_TYPE
+      - MARKET_VERTICAL
+      - MARKET_SUB_VERTICAL
+      - ACCELERATOR
+      title: TagType
+    PeopleWatchlistEntry:
+      properties:
+        person_urn:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        watchlist_urn:
+          type: string
+          title: Watchlist Urn
+        entry_urn:
+          type: string
+          title: Entry Urn
+        custom_field_values:
+          items:
+            $ref: '#/components/schemas/PersonListCustomFieldValueOutput'
+          type: array
+          title: Custom Field Values
+          default: []
+        cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cursor
+        entry_created_at:
+          type: string
+          format: date-time
+          title: Entry Created At
+        entry_updated_at:
+          type: string
+          format: date-time
+          title: Entry Updated At
+        added_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: Added By
+      additionalProperties: false
+      type: object
+      required:
+      - person_urn
+      - watchlist_urn
+      - entry_urn
+      - entry_created_at
+      - entry_updated_at
+      title: PeopleWatchlistEntry
+    CurrentlyRaisingEnum:
+      type: string
+      enum:
+      - 'YES'
+      - MAYBE
+      - 'NO'
+      - UNKNOWN
+      title: CurrentlyRaisingEnum
+    ResourceUrnResponse_Union_PeopleWatchlistUrn__SynapseListUrn__:
+      properties:
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:people_watchlist:id
+            title: PeopleWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:list:id
+            title: SynapseListUrn
+          title: Urn
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/DBOperationMetadata'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: ResourceUrnResponse[Union[PeopleWatchlistUrn, SynapseListUrn]]
+    NumberListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: NumberListCustomFieldValue
+    NotableFollowerOutput:
+      properties:
+        follower_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          title: Follower Urn
+        follower_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follower Name
+        firm_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Firm Urn
+        firm_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Firm Name
+        followed_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Followed Urn
+        followed_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Followed Name
+        follow_observed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follow Observed At
+      additionalProperties: false
+      type: object
+      required:
+      - follower_urn
+      - followed_urn
+      title: NotableFollowerOutput
+      description: 'A tracked notable account (firm or individual investor) following a
+
+        person at the company, or the company''s own X handle.'
+    PersonListEntryInput:
+      properties:
+        person_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Person Urn
+        canonical:
+          anyOf:
+          - $ref: '#/components/schemas/PersonCanonicalParameter'
+          - type: 'null'
+        values:
+          items:
+            $ref: '#/components/schemas/PersonFieldInputValue'
+          type: array
+          title: Values
+          default: []
+        created_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Created At
+      additionalProperties: false
+      type: object
+      title: PersonListEntryInput
+    Acquisition:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Acquisition
+    Investor:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Entity Urn
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      additionalProperties: false
+      type: object
+      title: Investor
+    CreatePersonListCustomFieldInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - type
+      title: CreatePersonListCustomFieldInput
+    services__midtier__schemas__common__Highlight-Output:
+      properties:
+        category:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyHighlightCategory'
+          - $ref: '#/components/schemas/PersonHighlightCategory'
+          title: Category
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - category
+      title: Highlight
+    WebsiteMetadata:
       properties:
         url:
           anyOf:
           - type: string
           - type: 'null'
           title: Url
-        follower_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Follower Count
-        username:
+        domain:
           anyOf:
           - type: string
           - type: 'null'
-          title: Username
-        status:
+          title: Domain
+        is_broken:
           anyOf:
-          - $ref: '#/components/schemas/SocialStatus'
+          - type: boolean
           - type: 'null'
-        following_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Following Count
-        like_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Like Count
+          title: Is Broken
       additionalProperties: false
       type: object
-      title: FacebookSocialMetadata
-    LimitedApiRequestModel-Output:
+      title: WebsiteMetadata
+    ValuationInfo:
       properties:
-        filter_group:
+        value:
           anyOf:
-          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: integer
           - type: 'null'
-        controlled_filter_group:
+          title: Value
+        source:
           anyOf:
-          - $ref: '#/components/schemas/FilterGroup-Output'
+          - $ref: '#/components/schemas/ValuationSource'
           - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
       additionalProperties: false
       type: object
-      title: LimitedApiRequestModel
+      title: ValuationInfo
+      description: Base valuation info - used for per-funding-round valuation.
+    TractionMetricsTimeSeriesMetric:
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          title: Timestamp
+        metric_value:
+          anyOf:
+          - type: integer
+          - type: number
+          title: Metric Value
+      additionalProperties: false
+      type: object
+      required:
+      - timestamp
+      - metric_value
+      title: TractionMetricsTimeSeriesMetric
+    Attachments:
+      properties:
+        value:
+          items:
+            $ref: '#/components/schemas/FounderProvidedAttachment'
+          type: array
+          title: Value
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: Attachments
+    TypeaheadSubtype:
+      type: string
+      enum:
+      - COMPANY
+      - PERSON
+      - CITY
+      - STATE
+      - COUNTRY
+      - METRO_AREA
+      title: TypeaheadSubtype
+    CurrentlyRaising:
+      properties:
+        value:
+          $ref: '#/components/schemas/CurrentlyRaisingEnum'
+          default: UNKNOWN
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: CurrentlyRaising
+    PeopleWatchlistType:
+      type: string
+      enum:
+      - USER_MANAGED_WATCHLIST
+      - CUSTOMER_MANAGED_WATCHLIST
+      - USER_CONNECTIONS
+      - TEAM_CONNECTIONS
+      - GLOBAL_FIELD_LIST
+      title: PeopleWatchlistType
+    GetPeopleWatchlistEntriesOutput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/PeopleWatchlistEntry'
+          type: array
+          title: Entries
+          default: []
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        total_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Total Count
+      additionalProperties: false
+      type: object
+      title: GetPeopleWatchlistEntriesOutput
+    UpdatePersonListCustomFieldInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      title: UpdatePersonListCustomFieldInput
     PersonMetadata-Output:
       properties:
         contact:
@@ -2272,894 +1617,22 @@ components:
       required:
       - person
       title: PersonMetadata
-    PeopleWatchlistInput:
+    Body_remove_person_from_people_watchlist_watchlists_people__id_or_urn__removePeople_post:
       properties:
-        name:
-          type: string
-          title: Name
-        shared_with_team:
-          type: boolean
-          title: Shared With Team
-        people:
+        ids:
           items:
-            type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
+            type: integer
           type: array
-          title: People
+          title: Ids
           default: []
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - shared_with_team
-      title: PeopleWatchlistInput
-    RecordReferenceListCustomFieldMetadata:
-      properties:
-        record_type_urn:
-          type: string
-          title: Record Type Urn
-        allow_multiple:
-          type: boolean
-          title: Allow Multiple
-        mode:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Mode
-      additionalProperties: false
-      type: object
-      required:
-      - record_type_urn
-      - allow_multiple
-      title: RecordReferenceListCustomFieldMetadata
-    TypeaheadSource:
-      type: string
-      enum:
-      - ENTERPRISE_APP
-      const: ENTERPRISE_APP
-      title: TypeaheadSource
-    CurrentlyRaising:
-      properties:
-        value:
-          $ref: '#/components/schemas/CurrentlyRaisingEnum'
-          default: UNKNOWN
-        source:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source
-        submitted_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Submitted At
-      additionalProperties: false
-      type: object
-      title: CurrentlyRaising
-    FacetModel:
-      properties:
-        field_name:
-          type: string
-          title: Field Name
-        operator:
-          type: string
-          title: Operator
-        filter_value:
-          title: Filter Value
-        parsed_text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Parsed Text
-      additionalProperties: false
-      type: object
-      required:
-      - field_name
-      - operator
-      - filter_value
-      title: FacetModel
-    UpdatePersonListCustomFieldInput:
-      properties:
-        name:
-          type: string
-          title: Name
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
-          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
-          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
-          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
-          - type: 'null'
-          title: Metadata
-        default_value:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - type: 'null'
-          title: Default Value
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      title: UpdatePersonListCustomFieldInput
-    FundingMetadata-Output:
-      properties:
-        funding_total:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Funding Total
-        num_funding_rounds:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Num Funding Rounds
-        investors:
-          items:
-            $ref: '#/components/schemas/Investor'
-          type: array
-          title: Investors
-          default: []
-        last_funding_at:
-          anyOf:
-          - {}
-          - type: 'null'
-          title: Last Funding At
-        last_funding_type:
-          anyOf:
-          - $ref: '#/components/schemas/FundingType'
-          - type: 'null'
-        last_funding_total:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Last Funding Total
-        funding_stage:
-          anyOf:
-          - $ref: '#/components/schemas/FundingStage'
-          - $ref: '#/components/schemas/FundingType'
-          - type: 'null'
-          title: Funding Stage
-        valuation:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Valuation
-        valuation_info:
-          anyOf:
-          - $ref: '#/components/schemas/CompanyValuationInfo-Output'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: FundingMetadata
-    SearchResult_CompanyUrn_:
-      properties:
-        urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-        cursor:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Cursor
-      additionalProperties: false
-      type: object
-      required:
-      - urn
-      title: SearchResult[CompanyUrn]
-    CompanyHighlightCategory:
-      type: string
-      enum:
-      - Strong Team Growth
-      - Angel Backed
-      - Venture Backed
-      - Major Hire
-      - Soonicorn
-      title: CompanyHighlightCategory
-    RecordReferenceListCustomFieldValue:
-      properties:
-        value:
+        urns:
           items:
             type: string
           type: array
-          title: Value
+          title: Urns
           default: []
-      additionalProperties: false
       type: object
-      title: RecordReferenceListCustomFieldValue
-    Filter:
-      properties:
-        field:
-          type: string
-          title: Field
-        field_urn:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Field Urn
-        comparator:
-          type: string
-          title: Comparator
-        filter_value:
-          title: Filter Value
-      additionalProperties: false
-      type: object
-      required:
-      - field
-      - comparator
-      title: Filter
-    TypeaheadSearchType:
-      type: string
-      enum:
-      - PERSON
-      - COMPANY
-      - SCHOOL
-      - EMAIL_INTEGRATED_USER
-      - INVESTOR
-      - INVESTOR_COMPANY
-      - INVESTOR_PERSON
-      - LOCATION
-      - LOCATION_CITY
-      - LOCATION_STATE
-      - LOCATION_COUNTRY
-      - LOCATION_METRO_AREA
-      title: TypeaheadSearchType
-    CreatePersonListCustomFieldInput:
-      properties:
-        name:
-          type: string
-          title: Name
-        type:
-          $ref: '#/components/schemas/ListCustomFieldType'
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
-          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
-          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
-          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
-          - type: 'null'
-          title: Metadata
-        default_value:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - type: 'null'
-          title: Default Value
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - type
-      title: CreatePersonListCustomFieldInput
-    CurrentlyRaisingEnum:
-      type: string
-      enum:
-      - 'YES'
-      - MAYBE
-      - 'NO'
-      - UNKNOWN
-      title: CurrentlyRaisingEnum
-    OwnershipStatus:
-      type: string
-      enum:
-      - PRIVATE
-      - OUT_OF_BUSINESS
-      - ACQUIRED_OR_MERGED
-      - ACTIVE
-      - INACTIVE
-      - MANAGING
-      - IPO_REGISTRATION
-      - PUBLIC
-      title: OwnershipStatus
-    TypeaheadSubtype:
-      type: string
-      enum:
-      - COMPANY
-      - PERSON
-      - CITY
-      - STATE
-      - COUNTRY
-      - METRO_AREA
-      title: TypeaheadSubtype
-    UserPeopleImportOutputWithStats:
-      properties:
-        people_list_urn:
-          type: string
-          pattern: urn:harmonic:people_watchlist:id
-          title: PeopleWatchlistUrn
-        file_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: File Name
-        flatfile_batch_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Flatfile Batch Id
-        list_import_type:
-          anyOf:
-          - $ref: '#/components/schemas/ListImportType'
-          - type: 'null'
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-        user_people_import_urn:
-          type: string
-          pattern: urn:harmonic:user_people_import:id
-          title: UserPeopleImportUrn
-        user_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: 'null'
-          title: User Urn
-        customer_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:customer:id
-            title: CustomerUrn
-          - type: 'null'
-          title: Customer Urn
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user_people_import:id
-            title: UserPeopleImportUrn
-          - type: 'null'
-          title: Entity Urn
-        id:
-          type: string
-          format: uuid
-          title: Id
-        user_id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: User Id
-        customer_id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Customer Id
-        failed_imports_count:
-          type: integer
-          title: Failed Imports Count
-        pending_imports_count:
-          type: integer
-          title: Pending Imports Count
-        found_imports_count:
-          type: integer
-          title: Found Imports Count
-        total_imports_count:
-          type: integer
-          title: Total Imports Count
-        unresolved_imports_count:
-          type: integer
-          title: Unresolved Imports Count
-      additionalProperties: false
-      type: object
-      required:
-      - people_list_urn
-      - created_at
-      - updated_at
-      - user_people_import_urn
-      - id
-      - failed_imports_count
-      - pending_imports_count
-      - found_imports_count
-      - total_imports_count
-      - unresolved_imports_count
-      title: UserPeopleImportOutputWithStats
-    GetPeopleWatchlistEntriesOutput:
-      properties:
-        entries:
-          items:
-            $ref: '#/components/schemas/PeopleWatchlistEntry'
-          type: array
-          title: Entries
-          default: []
-        page_info:
-          anyOf:
-          - $ref: '#/components/schemas/PaginationMetadata'
-          - type: 'null'
-        total_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Total Count
-      additionalProperties: false
-      type: object
-      title: GetPeopleWatchlistEntriesOutput
-    ResourceUrnResponse_PersonListCustomFieldUrn_:
-      properties:
-        urn:
-          type: string
-          pattern: urn:harmonic:person_list_custom_field:id
-          title: PersonListCustomFieldUrn
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/DBOperationMetadata'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - urn
-      title: ResourceUrnResponse[PersonListCustomFieldUrn]
-    FundingStage:
-      type: string
-      enum:
-      - STEALTH
-      - PRE_SEED
-      - SEED
-      - SERIES_A
-      - SERIES_B
-      - SERIES_C
-      - SERIES_D
-      - SERIES_E
-      - SERIES_F
-      - SERIES_G
-      - SERIES_H
-      - SERIES_I
-      - SERIES_J
-      - SERIES_K_PLUS
-      - VENTURE_UNKNOWN
-      - EXITED
-      - OUT_OF_BUSINESS
-      title: FundingStage
-    DateListCustomFieldDefaultValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-        mode:
-          $ref: '#/components/schemas/DateListCustomFieldDefaultValueMode'
-      additionalProperties: false
-      type: object
-      required:
-      - mode
-      title: DateListCustomFieldDefaultValue
-    FundingRoundInvestor:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          title: Entity Urn
-        is_lead:
-          type: boolean
-          title: Is Lead
-          default: false
-        investor_name:
-          type: string
-          title: Investor Name
-        association_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:funding_round_association:id
-            title: FundingRoundAssociationUrn
-          - type: string
-            pattern: urn:harmonic:funding_round_investor_association:id
-            title: FundingRoundInvestorAssociationUrn
-          - type: string
-            pattern: urn:harmonic:(urn:harmonic:investor:A, urn:harmonic:company:B):id
-            title: InvestorPortcoCompanyAssociationUrn
-          - type: string
-            pattern: urn:harmonic:test_funding_round_association:id
-            title: TestFundingRoundAssociationUrn
-          title: Association Urn
-        investor_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: 'null'
-          title: Investor Urn
-        visibility_status:
-          anyOf:
-          - $ref: '#/components/schemas/InvestorVisbility'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      - investor_name
-      - association_urn
-      title: FundingRoundInvestor
-    PersonSelectCustomFieldValueInput:
-      properties:
-        value:
-          items:
-            anyOf:
-            - type: string
-              pattern: urn:harmonic:user:id
-              title: UserUrn
-            - type: string
-          type: array
-          title: Value
-          default: []
-      additionalProperties: false
-      type: object
-      title: PersonSelectCustomFieldValueInput
-    PersonListNamedViewColumnViewSettings:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_field:id
-            title: PersonFieldUrn
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:list_attribute:id
-            title: ListAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          title: Entity Urn
-        column_width:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Column Width
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      title: PersonListNamedViewColumnViewSettings
-    PersonListEntryInput:
-      properties:
-        person_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Person Urn
-        canonical:
-          anyOf:
-          - $ref: '#/components/schemas/PersonCanonicalParameter'
-          - type: 'null'
-        values:
-          items:
-            $ref: '#/components/schemas/PersonFieldInputValue'
-          type: array
-          title: Values
-          default: []
-        created_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Created At
-      additionalProperties: false
-      type: object
-      title: PersonListEntryInput
-    StealthEmergence:
-      properties:
-        emergence_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Emergence Date
-          source_big_table_column_key:
-          - stealth_emergence_date
-        previously_known_as:
-          items:
-            type: string
-          type: array
-          title: Previously Known As
-          default: []
-          source_big_table_column_key:
-          - merged_stealth_company_names
-      additionalProperties: false
-      type: object
-      title: StealthEmergence
-    PeopleWatchlistEntry:
-      properties:
-        person_urn:
-          type: string
-          pattern: urn:harmonic:person:id
-          title: PersonUrn
-        watchlist_urn:
-          type: string
-          title: Watchlist Urn
-        entry_urn:
-          type: string
-          title: Entry Urn
-        custom_field_values:
-          items:
-            $ref: '#/components/schemas/PersonListCustomFieldValueOutput'
-          type: array
-          title: Custom Field Values
-          default: []
-        cursor:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Cursor
-        entry_created_at:
-          type: string
-          format: date-time
-          title: Entry Created At
-        entry_updated_at:
-          type: string
-          format: date-time
-          title: Entry Updated At
-        added_by:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: 'null'
-          title: Added By
-      additionalProperties: false
-      type: object
-      required:
-      - person_urn
-      - watchlist_urn
-      - entry_urn
-      - entry_created_at
-      - entry_updated_at
-      title: PeopleWatchlistEntry
-    SingleListSelectCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: SingleListSelectCustomFieldValue
-    PersonListCustomFieldOutput:
-      properties:
-        created_at:
-          type: string
-          title: Created At
-        updated_at:
-          type: string
-          title: Updated At
-        urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:list_attribute:id
-            title: ListAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          title: Urn
-        list_urn:
-          type: string
-          pattern: urn:harmonic:people_watchlist:id
-          title: PeopleWatchlistUrn
-        name:
-          type: string
-          title: Name
-        type:
-          $ref: '#/components/schemas/ListCustomFieldType'
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/SelectListCustomFieldMetadata'
-          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
-          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
-          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
-          - type: 'null'
-          title: Metadata
-        default_value:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
-          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - $ref: '#/components/schemas/StatusListCustomFieldValue'
-          - type: 'null'
-          title: Default Value
-      additionalProperties: false
-      type: object
-      required:
-      - created_at
-      - updated_at
-      - urn
-      - list_urn
-      - name
-      - type
-      title: PersonListCustomFieldOutput
-    PersonListCustomFieldDefaultValue:
-      properties:
-        value:
-          items:
-            type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          type: array
-          title: Value
-          default: []
-        mode:
-          $ref: '#/components/schemas/PersonListCustomFieldDefaultValueMode'
-      additionalProperties: false
-      type: object
-      required:
-      - mode
-      title: PersonListCustomFieldDefaultValue
-    PeopleWatchlistOutput:
-      properties:
-        name:
-          type: string
-          title: Name
-        shared_with_team:
-          type: boolean
-          title: Shared With Team
-        entity_urn:
-          type: string
-          title: Entity Urn
-        creator:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: 'null'
-          title: Creator
-        owner:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: string
-            pattern: urn:harmonic:customer:id
-            title: CustomerUrn
-          title: Owner
-        people:
-          anyOf:
-          - items:
-              type: string
-              pattern: urn:harmonic:person:id
-              title: PersonUrn
-            type: array
-          - type: 'null'
-          title: People
-          default: []
-        people_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: People Count
-        id:
-          type: string
-          format: uuid
-          title: Id
-        user_watchlist_type:
-          $ref: '#/components/schemas/PeopleWatchlistType'
-        custom_fields:
-          items:
-            $ref: '#/components/schemas/PersonListCustomFieldOutput'
-          type: array
-          title: Custom Fields
-          default: []
-        named_views:
-          items:
-            $ref: '#/components/schemas/PersonListNamedViewOutput'
-          type: array
-          title: Named Views
-          default: []
-        named_views_order:
-          items:
-            type: string
-            pattern: urn:harmonic:person_list_named_view:id
-            title: PersonListNamedViewUrn
-          type: array
-          title: Named Views Order
-          default: []
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        page_info:
-          anyOf:
-          - $ref: '#/components/schemas/PaginationMetadata'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - shared_with_team
-      - entity_urn
-      - owner
-      - id
-      - user_watchlist_type
-      - updated_at
-      - created_at
-      title: PeopleWatchlistOutput
-    StatusListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: StatusListCustomFieldValue
-    DateListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: DateListCustomFieldValue
-    FounderStory:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-        source:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source
-        submitted_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Submitted At
-      additionalProperties: false
-      type: object
-      title: FounderStory
-    PersonListCustomFieldDefaultValueMode:
-      type: string
-      enum:
-      - FIXED_URN
-      - ADDED_BY_USER
-      title: PersonListCustomFieldDefaultValueMode
+      title: Body_remove_person_from_people_watchlist_watchlists_people__id_or_urn__removePeople_post
     CompanyRelationship:
       properties:
         beta_notice:
@@ -3199,6 +1672,47 @@ components:
       additionalProperties: false
       type: object
       title: CompanyRelationship
+    FundingCompletionStatus:
+      type: string
+      enum:
+      - COMPLETED
+      - CONFIRMED_UNDISCLOSED
+      - IN_PROCESS
+      - RUMORED
+      title: FundingCompletionStatus
+    PersonListNamedViewColumnViewSettings:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_field:id
+            title: PersonFieldUrn
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Entity Urn
+        column_width:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Column Width
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      title: PersonListNamedViewColumnViewSettings
+    SocialStatus:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: SocialStatus
     ContactMetadata:
       properties:
         emails:
@@ -3232,173 +1746,6 @@ components:
       additionalProperties: false
       type: object
       title: ContactMetadata
-    FoundingDate-Output:
-      properties:
-        date:
-          type: string
-          title: Date
-        granularity:
-          $ref: '#/components/schemas/FoundingDatePrecision'
-      additionalProperties: false
-      type: object
-      required:
-      - date
-      - granularity
-      title: FoundingDate
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    DateListCustomFieldMetadata:
-      properties:
-        format:
-          $ref: '#/components/schemas/DateListCustomFieldValueFormat'
-          default: MM_DD_YYYY
-      additionalProperties: false
-      type: object
-      title: DateListCustomFieldMetadata
-    Department:
-      type: string
-      enum:
-      - Advisor
-      - Customer Success
-      - Data
-      - Design
-      - Engineering
-      - Finance
-      - Legal
-      - Marketing
-      - Operations
-      - Other
-      - People
-      - Product
-      - Sales
-      - Support
-      title: Department
-    SearchType:
-      type: string
-      enum:
-      - EVENT_FEED
-      - COMPANIES_LIST
-      - PERSONS
-      - TYPEAHEAD
-      - INVESTORS
-      title: SearchType
-    ImportPeopleCanonicalsOutput:
-      properties:
-        user_people_import_urn:
-          type: string
-          pattern: urn:harmonic:user_people_import:id
-          title: UserPeopleImportUrn
-        total_people_count:
-          type: integer
-          title: Total People Count
-        people_found_count:
-          type: integer
-          title: People Found Count
-        people_not_found_count:
-          type: integer
-          title: People Not Found Count
-        people_invalid_count:
-          type: integer
-          title: People Invalid Count
-      additionalProperties: false
-      type: object
-      required:
-      - user_people_import_urn
-      - total_people_count
-      - people_found_count
-      - people_not_found_count
-      - people_invalid_count
-      title: ImportPeopleCanonicalsOutput
-    ValuationInfo:
-      properties:
-        value:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Value
-        source:
-          anyOf:
-          - $ref: '#/components/schemas/ValuationSource'
-          - type: 'null'
-        source_details:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source Details
-      additionalProperties: false
-      type: object
-      title: ValuationInfo
-      description: Base valuation info - used for per-funding-round valuation.
-    UserPeopleImportEntries:
-      properties:
-        imported_people:
-          items:
-            $ref: '#/components/schemas/UserImportedPersonOutput'
-          type: array
-          title: Imported People
-      additionalProperties: false
-      type: object
-      required:
-      - imported_people
-      title: UserPeopleImportEntries
-    DBOperationMetadata:
-      properties:
-        count_total:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Total
-        count_changed:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Changed
-        count_skipped:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Skipped
-        count_not_found:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Not Found
-      additionalProperties: false
-      type: object
-      title: DBOperationMetadata
-    ValuationSource:
-      type: string
-      enum:
-      - UNKNOWN
-      - PUBLICLY_DISCLOSED
-      - PRIVATELY_SOURCED
-      - ESTIMATED
-      title: ValuationSource
-      description: Source classification for valuation data.
     PersonListEntriesBatchImportInput:
       properties:
         entries:
@@ -3411,110 +1758,41 @@ components:
       required:
       - entries
       title: PersonListEntriesBatchImportInput
-    FundingCompletionStatus:
-      type: string
-      enum:
-      - COMPLETED
-      - CONFIRMED_UNDISCLOSED
-      - IN_PROCESS
-      - RUMORED
-      title: FundingCompletionStatus
-    TractionMetricsPoint:
+    TagOutput:
       properties:
-        value:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Value
-        change:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Change
-        percent_change:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Percent Change
-      additionalProperties: false
-      type: object
-      title: TractionMetricsPoint
-    UserImportedPersonOutput:
-      properties:
-        matched_person_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Matched Person Urn
-        canonicals:
-          anyOf:
-          - $ref: '#/components/schemas/PersonCanonicalParameter'
-          - type: 'null'
-        enrichment_request_id:
-          anyOf:
-          - type: string
-            format: uuid
-          - type: 'null'
-          title: Enrichment Request Id
-        person_email_resolution_request_id:
-          anyOf:
-          - type: string
-            format: uuid
-          - type: 'null'
-          title: Person Email Resolution Request Id
-        user_people_import_urn:
+        display_value:
           type: string
-          pattern: urn:harmonic:user_people_import:id
-          title: UserPeopleImportUrn
-        custom_field_values:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/PersonFieldInputValue'
-            type: array
-          - type: 'null'
-          title: Custom Field Values
-        id:
-          type: string
-          format: uuid
-          title: Id
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-        user_imported_person_urn:
-          type: string
-          pattern: urn:harmonic:user_imported_people:id
-          title: UserImportedPersonUrn
-        invalid_urn:
+          title: Display Value
+        type:
+          $ref: '#/components/schemas/TagType'
+        date_added:
           anyOf:
           - type: string
           - type: 'null'
-          title: Invalid Urn
-        error_message:
+          title: Date Added
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:tag:id
+          title: TagUrn
+        company_urn:
           anyOf:
           - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
           - type: 'null'
-          title: Error Message
-        error_code:
+          title: Company Urn
+        is_primary_tag:
           anyOf:
-          - type: string
+          - type: boolean
           - type: 'null'
-          title: Error Code
+          title: Is Primary Tag
       additionalProperties: false
       type: object
       required:
-      - user_people_import_urn
-      - id
-      - created_at
-      - updated_at
-      - user_imported_person_urn
-      title: UserImportedPersonOutput
+      - display_value
+      - type
+      - entity_urn
+      title: TagOutput
     CompanyOutput:
       properties:
         website:
@@ -4041,21 +2319,1291 @@ components:
       - entity_urn
       - id
       title: CompanyOutput
-    Pagination:
+    PersonListNamedViewOutput:
       properties:
-        start:
+        id:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Start
-        page_size:
-          type: integer
-          title: Page Size
+          title: Id
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:person_list_named_view:id
+          title: PersonListNamedViewUrn
+        name:
+          type: string
+          title: Name
+        list_urn:
+          type: string
+          pattern: urn:harmonic:people_watchlist:id
+          title: PeopleWatchlistUrn
+        visible_columns:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:person_field:id
+              title: PersonFieldUrn
+            - type: string
+              pattern: urn:harmonic:person_list_custom_field:id
+              title: PersonListCustomFieldUrn
+            - type: string
+              pattern: urn:harmonic:list_attribute:id
+              title: ListAttributeUrn
+            - type: string
+              pattern: urn:harmonic:record_attribute:id
+              title: RecordAttributeUrn
+          type: array
+          title: Visible Columns
+        search_query:
+          anyOf:
+          - $ref: '#/components/schemas/ApiSearchQuery-Output'
+          - type: 'null'
+        display_type:
+          $ref: '#/components/schemas/ListNamedViewDisplayType'
+        group_by_field:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: 'null'
+          title: Group By Field
+        hide_empty_columns:
+          type: boolean
+          title: Hide Empty Columns
+        column_view_settings:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonListNamedViewColumnViewSettings'
+            type: array
+          - type: 'null'
+          title: Column View Settings
       additionalProperties: false
       type: object
       required:
-      - page_size
-      title: Pagination
+      - id
+      - entity_urn
+      - name
+      - list_urn
+      - visible_columns
+      - display_type
+      - hide_empty_columns
+      title: PersonListNamedViewOutput
+    FilterGroup-Input:
+      properties:
+        join_operator:
+          type: string
+          enum:
+          - and
+          - or
+          title: Join Operator
+        filters:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Filter'
+            type: array
+          - type: 'null'
+          title: Filters
+        filter_groups:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroup-Input'
+            type: array
+          - type: 'null'
+          title: Filter Groups
+        merge_nested_fields:
+          type: boolean
+          title: Merge Nested Fields
+          default: false
+        filter_group_generators:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroupGenerator'
+            type: array
+          - type: 'null'
+          title: Filter Group Generators
+      additionalProperties: false
+      type: object
+      required:
+      - join_operator
+      title: FilterGroup
+    Subsidiary:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Subsidiary
+    PersonListEntriesBatchDeleteOutput:
+      properties:
+        urns:
+          items:
+            type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          type: array
+          title: Urns
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonListEntriesBatchDeleteOutput
+    PeopleWatchlistInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        shared_with_team:
+          type: boolean
+          title: Shared With Team
+        people:
+          items:
+            type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          type: array
+          title: People
+          default: []
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - shared_with_team
+      title: PeopleWatchlistInput
+    FilterGroupGenerator:
+      properties:
+        generator_id:
+          $ref: '#/components/schemas/FilterGroupGeneratorId'
+        arguments:
+          type: object
+          title: Arguments
+      additionalProperties: false
+      type: object
+      required:
+      - generator_id
+      - arguments
+      title: FilterGroupGenerator
+    FundingType:
+      type: string
+      enum:
+      - ACCELERATOR_INCUBATOR
+      - ANGEL
+      - BANK_ADMIN
+      - BRIDGE
+      - BUYOUT_LBO
+      - CAPITALIZATION
+      - CONVERTIBLE_NOTE
+      - CROWDFUNDING
+      - DEBT
+      - DEBT_REPAY
+      - EARLY_STAGE
+      - GRANT
+      - INITIAL_COIN_OFFERING
+      - IPO
+      - JOINT_VENTURE
+      - LATER_STAGE
+      - M_AND_A
+      - MEZZANINE
+      - PRE_SEED
+      - PRIVATE_EQUITY
+      - PUBLIC_EQUITY_OFFERING
+      - REVERSE_MERGER
+      - SECONDARY_TRANSACTION
+      - SEED
+      - SEED_EXTENSION
+      - SERIES_1
+      - SERIES_2
+      - SERIES_3
+      - SERIES_A
+      - SERIES_A_EXTENSION
+      - SERIES_A1
+      - SERIES_A2
+      - SERIES_A3
+      - SERIES_AA
+      - SERIES_AAA
+      - SERIES_B
+      - SERIES_B_EXTENSION
+      - SERIES_B1
+      - SERIES_B2
+      - SERIES_B3
+      - SERIES_BB
+      - SERIES_C
+      - SERIES_C_EXTENSION
+      - SERIES_C1
+      - SERIES_C2
+      - SERIES_C3
+      - SERIES_CC
+      - SERIES_D
+      - SERIES_D_EXTENSION
+      - SERIES_D1
+      - SERIES_D2
+      - SERIES_D3
+      - SERIES_E
+      - SERIES_E_EXTENSION
+      - SERIES_E1
+      - SERIES_E2
+      - SERIES_F
+      - SERIES_F_EXTENSION
+      - SERIES_G
+      - SERIES_G_EXTENSION
+      - SERIES_H
+      - SERIES_I
+      - SERIES_J
+      - SPAC
+      - SPIN_OFF
+      - STRATEGIC
+      - UNKNOWN
+      - VENTURE_LEASING
+      - PRODUCT_CROWDFUNDING
+      - MERGER_OF_EQ
+      - PE_GROWTH
+      - CORPORATE
+      - DEBT_REFIN
+      - EQUITY_CROWDFUNDING
+      - NON_EQUITY_ASSISTANCE
+      - SECONDARY_OPEN
+      - RESTART_ANGEL
+      - SECONDARY_DISTRIB
+      - RESTART_LATER
+      - RESTART_EARLY
+      - ANGEL_INDIVIDUAL
+      - CORPORATE_ROUND
+      - DEBT_FINANCING
+      - CONV_DEBT
+      - DEBT_CONV
+      - SECONDARY_TRANSACTION_PRIVATE
+      - SECONDARY_TRANSACTION_PUBLIC
+      - LATER_[STAGE_SERIES_G
+      - DEBT_GENERAL
+      - LATER_STAGE_SERIES_F
+      - LATER_STAGE_SERIES_A
+      - VENTURE_DEBT
+      - EARLY_STAGE_VENTURE
+      - LATER_STAGE_VENTURE
+      - PRE__SEED
+      - FUNDING_ROUND
+      - SEED_ROUND
+      - EARLY_STAGE_SERIES_A
+      - EARLY_STAGE_SERIES_A1
+      - EARLY_STAGE_SERIES_B
+      - EARLY_STAGE_SERIES_B1
+      - LATER_STAGE_SERIES_C
+      - LATER_STAGE_SERIES_C1
+      - CORPORATE_SERIES_A
+      - LATER_STAGE_SERIES_E
+      - LATER_STAGE_SERIES_B
+      - LATER_STAGE_SERIES_D
+      - EARLY_STAGE_VC
+      - ACCELERATOR_INC
+      - DEBT_PP
+      - LATER_STAGE_VC
+      - UNDISCLOSED
+      - POST_IPO_DEBT
+      - POST_IPO_EQUITY
+      - POST_IPO_SECONDARY
+      - SECONDARY_MARKET
+      - SECONDARY_PRIVATE
+      - SERIES_UNKNOWN
+      - OUT_OF_BUSINESS
+      - IBO
+      - PIPE
+      - LIQUIDATION
+      - UNDERTERMINED
+      - ASSET_PURCH
+      - PLATFORM
+      - DIV_RECAP
+      - LEV_RECAP
+      - REPURCHASE
+      - TWO_PO
+      - EQUITY_FOR_SVC
+      - DIVIDEND
+      - SALE_LEASE_BACK
+      - GP_STAKES
+      title: FundingType
+    PersonCanonicalParameter:
+      properties:
+        linkedin_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linkedin Url
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Email
+      additionalProperties: false
+      type: object
+      title: PersonCanonicalParameter
+    FilterGroup-Output:
+      properties:
+        join_operator:
+          type: string
+          enum:
+          - and
+          - or
+          title: Join Operator
+        filters:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Filter'
+            type: array
+          - type: 'null'
+          title: Filters
+        filter_groups:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroup-Output'
+            type: array
+          - type: 'null'
+          title: Filter Groups
+        filter_group_generators:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/FilterGroupGenerator'
+            type: array
+          - type: 'null'
+          title: Filter Group Generators
+      additionalProperties: false
+      type: object
+      required:
+      - join_operator
+      title: FilterGroup
+    ValuationSource:
+      type: string
+      enum:
+      - UNKNOWN
+      - PUBLICLY_DISCLOSED
+      - PRIVATELY_SOURCED
+      - ESTIMATED
+      title: ValuationSource
+      description: Source classification for valuation data.
+    LocationMetadata:
+      properties:
+        address_formatted:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address Formatted
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Street
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        zip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zip
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
+        metro_areas:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Metro Areas
+      additionalProperties: false
+      type: object
+      title: LocationMetadata
+    PeopleWatchlistUpdateInput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        shared_with_team:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Shared With Team
+        named_views_order:
+          anyOf:
+          - items:
+              type: string
+              pattern: urn:harmonic:person_list_named_view:id
+              title: PersonListNamedViewUrn
+            type: array
+          - type: 'null'
+          title: Named Views Order
+      additionalProperties: false
+      type: object
+      title: PeopleWatchlistUpdateInput
+    PersonListEntriesBatchDeleteInput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/PersonListEntryInput'
+          type: array
+          title: Entries
+      additionalProperties: false
+      type: object
+      required:
+      - entries
+      title: PersonListEntriesBatchDeleteInput
+    NumberListCustomFieldValueFormat:
+      type: string
+      enum:
+      - NUMBER
+      - PERCENT
+      - US_DOLLAR
+      title: NumberListCustomFieldValueFormat
+    OwnershipStatus:
+      type: string
+      enum:
+      - PRIVATE
+      - OUT_OF_BUSINESS
+      - ACQUIRED_OR_MERGED
+      - ACTIVE
+      - INACTIVE
+      - MANAGING
+      - IPO_REGISTRATION
+      - PUBLIC
+      title: OwnershipStatus
+    services__midtier__schemas__saved_search__Sort:
+      properties:
+        sort_field:
+          type: string
+          title: Sort Field
+        descending:
+          type: boolean
+          title: Descending
+        sort_context_values:
+          anyOf:
+          - $ref: '#/components/schemas/SortContextArguments'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - sort_field
+      - descending
+      title: Sort
+    PersonListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_URN
+      - ADDED_BY_USER
+      title: PersonListCustomFieldDefaultValueMode
+    SearchType:
+      type: string
+      enum:
+      - EVENT_FEED
+      - COMPANIES_LIST
+      - PERSONS
+      - TYPEAHEAD
+      - INVESTORS
+      title: SearchType
+    UserPeopleImportOutputWithStats:
+      properties:
+        people_list_urn:
+          type: string
+          pattern: urn:harmonic:people_watchlist:id
+          title: PeopleWatchlistUrn
+        file_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: File Name
+        flatfile_batch_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Flatfile Batch Id
+        list_import_type:
+          anyOf:
+          - $ref: '#/components/schemas/ListImportType'
+          - type: 'null'
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        user_people_import_urn:
+          type: string
+          pattern: urn:harmonic:user_people_import:id
+          title: UserPeopleImportUrn
+        user_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: User Urn
+        customer_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          - type: 'null'
+          title: Customer Urn
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user_people_import:id
+            title: UserPeopleImportUrn
+          - type: 'null'
+          title: Entity Urn
+        id:
+          type: string
+          format: uuid
+          title: Id
+        user_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: User Id
+        customer_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Customer Id
+        failed_imports_count:
+          type: integer
+          title: Failed Imports Count
+        pending_imports_count:
+          type: integer
+          title: Pending Imports Count
+        found_imports_count:
+          type: integer
+          title: Found Imports Count
+        total_imports_count:
+          type: integer
+          title: Total Imports Count
+        unresolved_imports_count:
+          type: integer
+          title: Unresolved Imports Count
+      additionalProperties: false
+      type: object
+      required:
+      - people_list_urn
+      - created_at
+      - updated_at
+      - user_people_import_urn
+      - id
+      - failed_imports_count
+      - pending_imports_count
+      - found_imports_count
+      - total_imports_count
+      - unresolved_imports_count
+      title: UserPeopleImportOutputWithStats
+    DateListCustomFieldMetadata:
+      properties:
+        format:
+          $ref: '#/components/schemas/DateListCustomFieldValueFormat'
+          default: MM_DD_YYYY
+      additionalProperties: false
+      type: object
+      title: DateListCustomFieldMetadata
+    DBOperationMetadata:
+      properties:
+        count_total:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Total
+        count_changed:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Changed
+        count_skipped:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Skipped
+        count_not_found:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Not Found
+      additionalProperties: false
+      type: object
+      title: DBOperationMetadata
+    FacetModel:
+      properties:
+        field_name:
+          type: string
+          title: Field Name
+        operator:
+          type: string
+          title: Operator
+        filter_value:
+          title: Filter Value
+        parsed_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parsed Text
+      additionalProperties: false
+      type: object
+      required:
+      - field_name
+      - operator
+      - filter_value
+      title: FacetModel
+    Department:
+      type: string
+      enum:
+      - Advisor
+      - Customer Success
+      - Data
+      - Design
+      - Engineering
+      - Finance
+      - Legal
+      - Marketing
+      - Operations
+      - Other
+      - People
+      - Product
+      - Sales
+      - Support
+      title: Department
+    SortContextArguments:
+      properties:
+        saved_search_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Saved Search Id
+        date_added_after:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added After
+        list_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_watchlist:id
+            title: CompanyWatchlistUrn
+          - type: string
+            pattern: urn:harmonic:people_watchlist:id
+            title: PeopleWatchlistUrn
+          - type: 'null'
+          title: List Urn
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_list_custom_field:id
+            title: CompanyListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: 'null'
+          title: Custom Field Urn
+        company_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Company Id
+          description: When sorting by `person_position_start_date`, scopes the sort to a single company so a person's unrelated active roles (board seats, prior jobs) don't skew their position in per-company employee lists.
+      additionalProperties: false
+      type: object
+      title: SortContextArguments
+    Sort-Output:
+      properties:
+        sort_field:
+          type: string
+          title: Sort Field
+        descending:
+          type: boolean
+          title: Descending
+        sort_context_values:
+          anyOf:
+          - $ref: '#/components/schemas/SortContextArguments'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - sort_field
+      - descending
+      title: Sort
+    FounderStory:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: FounderStory
+    CompanyValuationInfo-Output:
+      properties:
+        value:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationSource'
+          - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
+        is_potentially_stale:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Potentially Stale
+        is_potentially_stale_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Is Potentially Stale Details
+      additionalProperties: false
+      type: object
+      title: CompanyValuationInfo
+      description: Company-level valuation info - extends base with staleness fields.
+    CompaniesModel:
+      properties:
+        company_name:
+          type: string
+          title: Company Name
+        company_urn:
+          type: string
+          title: Company Urn
+        inclusion:
+          type: string
+          enum:
+          - include
+          - exclude
+          - filter
+          title: Inclusion
+        parsed_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parsed Text
+      additionalProperties: false
+      type: object
+      required:
+      - company_name
+      - company_urn
+      - inclusion
+      title: CompaniesModel
+      description: 'Model representing company data for search and filtering.
+
+        Extracted to avoid circular imports between saved_search.py and facet_parsing_schemas.py'
+    ListImportType:
+      type: string
+      enum:
+      - CONSOLE_IMPORT
+      - API_IMPORT
+      - INTEGRATED_LIST_SYNC
+      - ADD_TO_WATCHLIST
+      - REMOVE_FROM_WATCHLIST
+      - UPSERT_CUSTOM_FIELD_VALUE
+      title: ListImportType
+    PersonListNamedViewUpsertInput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        visible_columns:
+          anyOf:
+          - items:
+              anyOf:
+              - type: string
+                pattern: urn:harmonic:person_field:id
+                title: PersonFieldUrn
+              - type: string
+                pattern: urn:harmonic:person_list_custom_field:id
+                title: PersonListCustomFieldUrn
+              - type: string
+                pattern: urn:harmonic:list_attribute:id
+                title: ListAttributeUrn
+              - type: string
+                pattern: urn:harmonic:record_attribute:id
+                title: RecordAttributeUrn
+            type: array
+          - type: 'null'
+          title: Visible Columns
+        search_query:
+          anyOf:
+          - $ref: '#/components/schemas/ApiSearchQuery-Input'
+          - type: 'null'
+        display_type:
+          anyOf:
+          - $ref: '#/components/schemas/ListNamedViewDisplayType'
+          - type: 'null'
+        group_by_field:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: 'null'
+          title: Group By Field
+        hide_empty_columns:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Hide Empty Columns
+        column_view_settings:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonListNamedViewColumnViewSettings'
+            type: array
+          - type: 'null'
+          title: Column View Settings
+      additionalProperties: false
+      type: object
+      title: PersonListNamedViewUpsertInput
+    WebsiteListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: WebsiteListCustomFieldValue
+    RecordReferenceListCustomFieldMetadata:
+      properties:
+        record_type_urn:
+          type: string
+          title: Record Type Urn
+        allow_multiple:
+          type: boolean
+          title: Allow Multiple
+        mode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Mode
+      additionalProperties: false
+      type: object
+      required:
+      - record_type_urn
+      - allow_multiple
+      title: RecordReferenceListCustomFieldMetadata
+    ListNamedViewDisplayType:
+      type: string
+      enum:
+      - GRID
+      - BOARD
+      title: ListNamedViewDisplayType
+    UserPeopleImportsOutput:
+      properties:
+        user_people_imports:
+          items:
+            $ref: '#/components/schemas/UserPeopleImportOutputWithStats'
+          type: array
+          title: User People Imports
+        total_count:
+          type: integer
+          title: Total Count
+      additionalProperties: false
+      type: object
+      required:
+      - user_people_imports
+      - total_count
+      title: UserPeopleImportsOutput
+    StatusListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: StatusListCustomFieldValue
+    SelectListCustomFieldMetadata:
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/SelectListCustomFieldValueOption'
+          type: array
+          title: Options
+          default: []
+        default:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Default
+      additionalProperties: false
+      type: object
+      title: SelectListCustomFieldMetadata
+    UserImportedPersonOutput:
+      properties:
+        matched_person_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Matched Person Urn
+        canonicals:
+          anyOf:
+          - $ref: '#/components/schemas/PersonCanonicalParameter'
+          - type: 'null'
+        enrichment_request_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Enrichment Request Id
+        person_email_resolution_request_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Person Email Resolution Request Id
+        user_people_import_urn:
+          type: string
+          pattern: urn:harmonic:user_people_import:id
+          title: UserPeopleImportUrn
+        custom_field_values:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonFieldInputValue'
+            type: array
+          - type: 'null'
+          title: Custom Field Values
+        id:
+          type: string
+          format: uuid
+          title: Id
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        user_imported_person_urn:
+          type: string
+          pattern: urn:harmonic:user_imported_people:id
+          title: UserImportedPersonUrn
+        invalid_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Invalid Urn
+        error_message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error Message
+        error_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error Code
+      additionalProperties: false
+      type: object
+      required:
+      - user_people_import_urn
+      - id
+      - created_at
+      - updated_at
+      - user_imported_person_urn
+      title: UserImportedPersonOutput
+    PersonListCustomFieldValueOutput:
+      properties:
+        created_at:
+          type: string
+          title: Created At
+        updated_at:
+          type: string
+          title: Updated At
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field_value:id
+            title: PersonListCustomFieldValueUrn
+          - type: string
+            pattern: urn:harmonic:list_entry_value:id
+            title: SynapseListEntryValueUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_value:id
+            title: RecordValueUrn
+          title: Urn
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Custom Field Urn
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          title: Data
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+      additionalProperties: false
+      type: object
+      required:
+      - created_at
+      - updated_at
+      - urn
+      - custom_field_urn
+      - data
+      - type
+      title: PersonListCustomFieldValueOutput
+    IndexMethod:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: IndexMethod
+    PersonSelectCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonSelectCustomFieldValue
+    FoundingDatePrecision:
+      type: string
+      enum:
+      - DAY
+      - MONTH
+      - YEAR
+      title: FoundingDatePrecision
+    SearchResult_CompanyUrn_:
+      properties:
+        urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+        cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cursor
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: SearchResult[CompanyUrn]
+    Rebranding:
+      properties:
+        formerly_known_as:
+          items:
+            type: string
+          type: array
+          title: Formerly Known As
+          description: Names this company previously operated under (rebrands), most recent first.
+          default: []
+      additionalProperties: false
+      type: object
+      title: Rebranding
+    FilterGroupGeneratorId:
+      type: string
+      enum:
+      - company_headcount
+      - search_v2_accelerator
+      - search_v2_company_funding_stage
+      - search_v2_company_funding_stage_simple
+      - search_v2_company_funding_total_range
+      - search_v2_company_funding_last_round_total_range
+      - search_v2_company_funding_undisclosed
+      - search_v2_company_currently_raising
+      - search_v2_company_funding_include_investors
+      - search_v2_company_funding_exclude_investors
+      - search_v2_company_funding_last_round_date
+      - search_v2_company_funding_foundation_date
+      - search_v2_company_funding_investors_deal_search
+      - search_v2_company_team_headcount_range
+      - search_v2_company_team_headcount_percent_growth_range
+      - search_v2_company_latest_web_traffic_range
+      - search_v2_company_web_traffic_percent_growth_range
+      - search_v2_company_headcount_department_percent_growth_range
+      - search_v2_company_socials_growth_range
+      - search_v2_company_team_highlights
+      - search_v2_company_sector_include_keywords
+      - search_v2_company_sector_exclude_keywords
+      - search_v2_company_sector_match_keywords
+      - search_v2_company_sector_include_industry_tags
+      - search_v2_company_sector_exclude_industry_tags
+      - search_v2_company_sector_include_business_tags
+      - search_v2_company_sector_exclude_business_tags
+      - search_v2_company_sector_include_technology_tags
+      - search_v2_company_sector_exclude_technology_tags
+      - search_v2_company_sector_preset
+      - search_v2_company_sector_include_tags
+      - search_v2_company_sector_exclude_tags
+      - search_v2_company_sector_product_categories
+      - search_v2_company_team_founding_experience
+      - search_v2_company_team_member_experience
+      - search_v2_company_team_notable_followers
+      - search_v2_company_team_notable_followers_count
+      - search_v2_company_list_and_more_initialized_date
+      - search_v2_company_list_and_more_updated_date
+      - search_v2_company_list_and_more_include_from_watchlist
+      - search_v2_company_list_and_more_exclude_from_watchlist
+      - search_v2_company_list_and_more_accelerators
+      - search_v2_company_list_and_more_location
+      - search_v2_company_list_and_more_continents
+      - search_v2_company_list_and_more_include_from_people_list
+      - search_v2_company_list_and_more_exclude_from_people_list
+      - search_v2_company_is_not_investor
+      - search_people_employees
+      - search_v2_people_education_experience
+      - search_v2_people_general_highlights
+      - search_v2_people_general_location
+      - search_v2_people_general_connections
+      - search_v2_people_general_linkedin_headlines
+      - search_v2_people_general_people_lists
+      - search_v2_people_current_experience
+      - search_v2_people_past_experience
+      - search_v2_people_general_correspondences
+      - search_v2_person_notable_followers
+      - search_v2_person_notable_followers_count
+      - search_v2_company_team_correspondences
+      - search_v2_semantic_search_filter
+      - search_v2_similar_company_search_filter
+      - search_v2_investor_aum_range
+      - search_v2_investor_check_size_range
+      - search_v2_investor_funded_company_location
+      - search_v2_investor_invested_stage
+      - search_v2_investor_latest_investment_date
+      - search_v2_investor_location
+      - search_v2_investor_num_deals_range
+      - search_v2_investor_team_size_range
+      - search_v2_investor_co_investors
+      - search_v2_investor_average_investment_size_range
+      - search_v2_investor_entry_stage_focus
+      - search_v2_investor_country_focus
+      - search_v2_investor_sector_focus
+      - search_v2_investor_funded_company
+      - search_v2_investor_website_keywords
+      - search_v2_investor_funded_company_sector_tags
+      - search_v2_investor_portfolio_details
+      - search_v2_investor_team_correspondences
+      - search_v2_investor_lists
+      - search_v2_investor_type
+      - search_v2_investor_primary_type
+      - search_v2_investor_secondary_types
+      title: FilterGroupGeneratorId
+    DateListCustomFieldDefaultValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        mode:
+          $ref: '#/components/schemas/DateListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: DateListCustomFieldDefaultValue
+    RoleType:
+      type: string
+      enum:
+      - FOUNDER
+      - CEO
+      - EXECUTIVE
+      - OPERATOR
+      - INTERN
+      - ALUMNI
+      - ADVISER
+      - EMPLOYEE
+      - INVESTOR
+      - FALSE_POSITION
+      title: RoleType
+    StealthEmergence:
+      properties:
+        emergence_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Emergence Date
+          source_big_table_column_key:
+          - stealth_emergence_date
+        previously_known_as:
+          items:
+            type: string
+          type: array
+          title: Previously Known As
+          default: []
+          source_big_table_column_key:
+          - merged_stealth_company_names
+      additionalProperties: false
+      type: object
+      title: StealthEmergence
+    CompanyType:
+      type: string
+      enum:
+      - UNKNOWN
+      - STARTUP
+      - SCHOOL
+      title: CompanyType
     CompanySnapshotOutput:
       properties:
         website:
@@ -4315,289 +3863,7 @@ components:
       required:
       - initialized_date
       title: CompanySnapshotOutput
-    FilterGroupGeneratorId:
-      type: string
-      enum:
-      - company_headcount
-      - search_v2_accelerator
-      - search_v2_company_funding_stage
-      - search_v2_company_funding_stage_simple
-      - search_v2_company_funding_total_range
-      - search_v2_company_funding_last_round_total_range
-      - search_v2_company_funding_undisclosed
-      - search_v2_company_currently_raising
-      - search_v2_company_funding_include_investors
-      - search_v2_company_funding_exclude_investors
-      - search_v2_company_funding_last_round_date
-      - search_v2_company_funding_foundation_date
-      - search_v2_company_funding_investors_deal_search
-      - search_v2_company_team_headcount_range
-      - search_v2_company_team_headcount_percent_growth_range
-      - search_v2_company_latest_web_traffic_range
-      - search_v2_company_web_traffic_percent_growth_range
-      - search_v2_company_headcount_department_percent_growth_range
-      - search_v2_company_socials_growth_range
-      - search_v2_company_team_highlights
-      - search_v2_company_sector_include_keywords
-      - search_v2_company_sector_exclude_keywords
-      - search_v2_company_sector_match_keywords
-      - search_v2_company_sector_include_industry_tags
-      - search_v2_company_sector_exclude_industry_tags
-      - search_v2_company_sector_include_business_tags
-      - search_v2_company_sector_exclude_business_tags
-      - search_v2_company_sector_include_technology_tags
-      - search_v2_company_sector_exclude_technology_tags
-      - search_v2_company_sector_preset
-      - search_v2_company_sector_include_tags
-      - search_v2_company_sector_exclude_tags
-      - search_v2_company_sector_product_categories
-      - search_v2_company_team_founding_experience
-      - search_v2_company_team_member_experience
-      - search_v2_company_team_notable_followers
-      - search_v2_company_team_notable_followers_count
-      - search_v2_company_list_and_more_initialized_date
-      - search_v2_company_list_and_more_updated_date
-      - search_v2_company_list_and_more_include_from_watchlist
-      - search_v2_company_list_and_more_exclude_from_watchlist
-      - search_v2_company_list_and_more_accelerators
-      - search_v2_company_list_and_more_location
-      - search_v2_company_list_and_more_continents
-      - search_v2_company_list_and_more_include_from_people_list
-      - search_v2_company_list_and_more_exclude_from_people_list
-      - search_v2_company_is_not_investor
-      - search_people_employees
-      - search_v2_people_education_experience
-      - search_v2_people_general_highlights
-      - search_v2_people_general_location
-      - search_v2_people_general_connections
-      - search_v2_people_general_linkedin_headlines
-      - search_v2_people_general_people_lists
-      - search_v2_people_current_experience
-      - search_v2_people_past_experience
-      - search_v2_people_general_correspondences
-      - search_v2_person_notable_followers
-      - search_v2_person_notable_followers_count
-      - search_v2_company_team_correspondences
-      - search_v2_semantic_search_filter
-      - search_v2_similar_company_search_filter
-      - search_v2_investor_aum_range
-      - search_v2_investor_check_size_range
-      - search_v2_investor_funded_company_location
-      - search_v2_investor_invested_stage
-      - search_v2_investor_latest_investment_date
-      - search_v2_investor_location
-      - search_v2_investor_num_deals_range
-      - search_v2_investor_team_size_range
-      - search_v2_investor_co_investors
-      - search_v2_investor_average_investment_size_range
-      - search_v2_investor_entry_stage_focus
-      - search_v2_investor_country_focus
-      - search_v2_investor_sector_focus
-      - search_v2_investor_funded_company
-      - search_v2_investor_website_keywords
-      - search_v2_investor_funded_company_sector_tags
-      - search_v2_investor_portfolio_details
-      - search_v2_investor_team_correspondences
-      - search_v2_investor_lists
-      - search_v2_investor_type
-      - search_v2_investor_primary_type
-      - search_v2_investor_secondary_types
-      title: FilterGroupGeneratorId
-    PersonListCustomFieldValueMode:
-      type: string
-      enum:
-      - SINGLE
-      - MULTIPLE
-      title: PersonListCustomFieldValueMode
-    ListCustomFieldType:
-      type: string
-      enum:
-      - TEXT
-      - NUMBER
-      - DATE
-      - SINGLE_SELECT
-      - MULTI_SELECT
-      - PERSON
-      - WEBSITE
-      - CHECKBOX
-      - STATUS
-      - RECORD_REFERENCE
-      title: ListCustomFieldType
-    services__midtier__schemas__common__Highlight-Output:
-      properties:
-        category:
-          anyOf:
-          - $ref: '#/components/schemas/CompanyHighlightCategory'
-          - $ref: '#/components/schemas/PersonHighlightCategory'
-          title: Category
-        date_added:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date Added
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-        company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: 'null'
-          title: Company Urn
-      additionalProperties: false
-      type: object
-      required:
-      - category
-      title: Highlight
-    CheckboxListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: CheckboxListCustomFieldValue
-    FoundingDatePrecision:
-      type: string
-      enum:
-      - DAY
-      - MONTH
-      - YEAR
-      title: FoundingDatePrecision
-    WebsiteListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: WebsiteListCustomFieldValue
-    RoleType:
-      type: string
-      enum:
-      - FOUNDER
-      - CEO
-      - EXECUTIVE
-      - OPERATOR
-      - INTERN
-      - ALUMNI
-      - ADVISER
-      - EMPLOYEE
-      - INVESTOR
-      - FALSE_POSITION
-      title: RoleType
-    SelectListCustomFieldValueOptionInputSchema:
-      properties:
-        urn:
-          type: string
-          pattern: urn:harmonic:select_list_custom_field_value_option:id
-          title: SelectListCustomFieldValueOptionUrn
-        name:
-          type: string
-          title: Name
-        color:
-          type: string
-          title: Color
-        default:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Default
-          default: false
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - color
-      title: SelectListCustomFieldValueOptionInputSchema
-    TractionMetricsInfo:
-      properties:
-        14d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        30d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        90d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        180d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        365d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        metrics:
-          items:
-            $ref: '#/components/schemas/TractionMetricsTimeSeriesMetric'
-          type: array
-          title: Metrics
-          default: []
-        latest_metric_value:
-          anyOf:
-          - type: number
-          - type: integer
-          - type: 'null'
-          title: Latest Metric Value
-      additionalProperties: true
-      type: object
-      required:
-      - 14d_ago
-      - 30d_ago
-      - 90d_ago
-      - 180d_ago
-      - 365d_ago
-      title: TractionMetricsInfo
-    FundingAttributeNullStatus:
-      type: string
-      enum:
-      - EXISTS_BUT_UNDISCLOSED
-      - NONE_ANNOUNCED
-      title: FundingAttributeNullStatus
-      description: 'Describes how to interpret a null value for a funding attribute on a Company object. Affects the following Company
-
-        fields:
-
-        - num_funding_rounds
-
-        - num_investors
-
-        - funding_total
-
-        - investor_names_list
-
-        - last_funding_at
-
-        - last_funding_type
-
-        - last_funding_total'
-    TractionMetricsTimeSeriesMetric:
-      properties:
-        timestamp:
-          type: string
-          format: date-time
-          title: Timestamp
-        metric_value:
-          anyOf:
-          - type: integer
-          - type: number
-          title: Metric Value
-      additionalProperties: false
-      type: object
-      required:
-      - timestamp
-      - metric_value
-      title: TractionMetricsTimeSeriesMetric
-    CompanyType:
-      type: string
-      enum:
-      - UNKNOWN
-      - STARTUP
-      - SCHOOL
-      title: CompanyType
-    PersonSelectCustomFieldValue:
+    PersonListCustomFieldDefaultValue:
       properties:
         value:
           items:
@@ -4607,9 +3873,23 @@ components:
           type: array
           title: Value
           default: []
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldDefaultValueMode'
       additionalProperties: false
       type: object
-      title: PersonSelectCustomFieldValue
+      required:
+      - mode
+      title: PersonListCustomFieldDefaultValue
+    DateListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: DateListCustomFieldValue
     ParsedQueryModel-Output:
       properties:
         semantic:
@@ -4674,45 +3954,191 @@ components:
       additionalProperties: true
       type: object
       title: ParsedQueryModel
-    SearchOutput_CompanyUrn_:
+    DateListCustomFieldValueFormat:
+      type: string
+      enum:
+      - MM_DD_YYYY
+      - DD_MM_YYYY
+      - YYYY_MM_DD
+      title: DateListCustomFieldValueFormat
+    FundingRoundInvestor:
       properties:
-        count:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Entity Urn
+        is_lead:
+          type: boolean
+          title: Is Lead
+          default: false
+        investor_name:
+          type: string
+          title: Investor Name
+        association_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:funding_round_association:id
+            title: FundingRoundAssociationUrn
+          - type: string
+            pattern: urn:harmonic:funding_round_investor_association:id
+            title: FundingRoundInvestorAssociationUrn
+          - type: string
+            pattern: urn:harmonic:(urn:harmonic:investor:A, urn:harmonic:company:B):id
+            title: InvestorPortcoCompanyAssociationUrn
+          - type: string
+            pattern: urn:harmonic:test_funding_round_association:id
+            title: TestFundingRoundAssociationUrn
+          title: Association Urn
+        investor_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Investor Urn
+        visibility_status:
+          anyOf:
+          - $ref: '#/components/schemas/InvestorVisbility'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - investor_name
+      - association_urn
+      title: FundingRoundInvestor
+    ApiSearchQuery-Input:
+      properties:
+        filter_group:
+          $ref: '#/components/schemas/FilterGroup-Input'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        sort:
+          items:
+            $ref: '#/components/schemas/services__midtier__schemas__saved_search__Sort'
+          type: array
+          title: Sort
+          default: []
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Input'
+          - type: 'null'
+        merge_query_for_nested_fields:
+          type: boolean
+          title: Merge Query For Nested Fields
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - filter_group
+      - pagination
+      title: ApiSearchQuery
+    PeopleWatchlistOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        shared_with_team:
+          type: boolean
+          title: Shared With Team
+        entity_urn:
+          type: string
+          title: Entity Urn
+        creator:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: 'null'
+          title: Creator
+        owner:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Owner
+        people:
+          anyOf:
+          - items:
+              type: string
+              pattern: urn:harmonic:person:id
+              title: PersonUrn
+            type: array
+          - type: 'null'
+          title: People
+          default: []
+        people_count:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Count
+          title: People Count
+        id:
+          type: string
+          format: uuid
+          title: Id
+        user_watchlist_type:
+          $ref: '#/components/schemas/PeopleWatchlistType'
+        custom_fields:
+          items:
+            $ref: '#/components/schemas/PersonListCustomFieldOutput'
+          type: array
+          title: Custom Fields
+          default: []
+        named_views:
+          items:
+            $ref: '#/components/schemas/PersonListNamedViewOutput'
+          type: array
+          title: Named Views
+          default: []
+        named_views_order:
+          items:
+            type: string
+            pattern: urn:harmonic:person_list_named_view:id
+            title: PersonListNamedViewUrn
+          type: array
+          title: Named Views Order
+          default: []
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
         page_info:
           anyOf:
           - $ref: '#/components/schemas/PaginationMetadata'
           - type: 'null'
-        results:
-          items:
-            type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          type: array
-          title: Results
       additionalProperties: false
       type: object
       required:
-      - results
-      title: SearchOutput[CompanyUrn]
-    UserPeopleImportsOutput:
+      - name
+      - shared_with_team
+      - entity_urn
+      - owner
+      - id
+      - user_watchlist_type
+      - updated_at
+      - created_at
+      title: PeopleWatchlistOutput
+    HTTPValidationError:
       properties:
-        user_people_imports:
+        detail:
           items:
-            $ref: '#/components/schemas/UserPeopleImportOutputWithStats'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: User People Imports
-        total_count:
-          type: integer
-          title: Total Count
-      additionalProperties: false
+          title: Detail
       type: object
-      required:
-      - user_people_imports
-      - total_count
-      title: UserPeopleImportsOutput
+      title: HTTPValidationError
     SearchAgentCursorSearchOutput:
       properties:
         count:
@@ -4737,251 +4163,83 @@ components:
       - results
       - query_interpretation
       title: SearchAgentCursorSearchOutput
-    SearchOutput_Union_CompanyUrn__CompanyOutput__:
+    SelectListCustomFieldMetadataInputSchema:
       properties:
-        count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count
-        page_info:
-          anyOf:
-          - $ref: '#/components/schemas/PaginationMetadata'
-          - type: 'null'
-        results:
+        options:
           items:
-            anyOf:
-            - type: string
-              pattern: urn:harmonic:company:id
-              title: CompanyUrn
-            - $ref: '#/components/schemas/CompanyOutput'
+            $ref: '#/components/schemas/SelectListCustomFieldValueOptionInputSchema'
           type: array
-          title: Results
-      additionalProperties: false
-      type: object
-      required:
-      - results
-      title: SearchOutput[Union[CompanyUrn, CompanyOutput]]
-    Subsidiary:
-      properties:
-        company_urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-      additionalProperties: false
-      type: object
-      required:
-      - company_urn
-      title: Subsidiary
-    Body_remove_person_from_people_watchlist_watchlists_people__id_or_urn__removePeople_post:
-      properties:
-        ids:
-          items:
-            type: integer
-          type: array
-          title: Ids
-          default: []
-        urns:
-          items:
-            type: string
-          type: array
-          title: Urns
-          default: []
-      type: object
-      title: Body_remove_person_from_people_watchlist_watchlists_people__id_or_urn__removePeople_post
-    Acquisition:
-      properties:
-        company_urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-      additionalProperties: false
-      type: object
-      required:
-      - company_urn
-      title: Acquisition
-    Rebranding:
-      properties:
-        formerly_known_as:
-          items:
-            type: string
-          type: array
-          title: Formerly Known As
-          description: Names this company previously operated under (rebrands), most recent first.
+          title: Options
           default: []
       additionalProperties: false
       type: object
-      title: Rebranding
-    SocialMetadata:
+      title: SelectListCustomFieldMetadataInputSchema
+    SelectListCustomFieldValueOption:
       properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        follower_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Follower Count
-        username:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Username
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/SocialStatus'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: SocialMetadata
-    CompanyValuationInfo-Output:
-      properties:
-        value:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Value
-        source:
-          anyOf:
-          - $ref: '#/components/schemas/ValuationSource'
-          - type: 'null'
-        source_details:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source Details
-        is_potentially_stale:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Potentially Stale
-        is_potentially_stale_details:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Is Potentially Stale Details
-      additionalProperties: false
-      type: object
-      title: CompanyValuationInfo
-      description: Company-level valuation info - extends base with staleness fields.
-    PersonListNamedViewOutput:
-      properties:
-        id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Id
-        entity_urn:
+        urn:
           type: string
-          pattern: urn:harmonic:person_list_named_view:id
-          title: PersonListNamedViewUrn
+          pattern: urn:harmonic:select_list_custom_field_value_option:id
+          title: SelectListCustomFieldValueOptionUrn
         name:
           type: string
           title: Name
-        list_urn:
+        color:
           type: string
-          pattern: urn:harmonic:people_watchlist:id
-          title: PeopleWatchlistUrn
-        visible_columns:
-          items:
-            anyOf:
-            - type: string
-              pattern: urn:harmonic:person_field:id
-              title: PersonFieldUrn
-            - type: string
-              pattern: urn:harmonic:person_list_custom_field:id
-              title: PersonListCustomFieldUrn
-            - type: string
-              pattern: urn:harmonic:list_attribute:id
-              title: ListAttributeUrn
-            - type: string
-              pattern: urn:harmonic:record_attribute:id
-              title: RecordAttributeUrn
-          type: array
-          title: Visible Columns
-        search_query:
-          anyOf:
-          - $ref: '#/components/schemas/ApiSearchQuery-Output'
-          - type: 'null'
-        display_type:
-          $ref: '#/components/schemas/ListNamedViewDisplayType'
-        group_by_field:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: 'null'
-          title: Group By Field
-        hide_empty_columns:
-          type: boolean
-          title: Hide Empty Columns
-        column_view_settings:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/PersonListNamedViewColumnViewSettings'
-            type: array
-          - type: 'null'
-          title: Column View Settings
+          title: Color
       additionalProperties: false
       type: object
       required:
-      - id
-      - entity_urn
       - name
-      - list_urn
-      - visible_columns
-      - display_type
-      - hide_empty_columns
-      title: PersonListNamedViewOutput
-    LocationMetadata:
+      - color
+      title: SelectListCustomFieldValueOption
+    Filter:
       properties:
-        address_formatted:
+        field:
+          type: string
+          title: Field
+        field_urn:
           anyOf:
           - type: string
           - type: 'null'
-          title: Address Formatted
-        location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Street
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: City
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: State
-        zip:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Zip
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Country
-        metro_areas:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Metro Areas
+          title: Field Urn
+        comparator:
+          type: string
+          title: Comparator
+        filter_value:
+          title: Filter Value
       additionalProperties: false
       type: object
-      title: LocationMetadata
+      required:
+      - field
+      - comparator
+      title: Filter
+    PersonSelectCustomFieldValueInput:
+      properties:
+        value:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:user:id
+              title: UserUrn
+            - type: string
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonSelectCustomFieldValueInput
+    InvestorVisbility:
+      type: string
+      enum:
+      - VISIBLE
+      - HIDDEN
+      title: InvestorVisbility
+    PersonListCustomFieldValueMode:
+      type: string
+      enum:
+      - SINGLE
+      - MULTIPLE
+      title: PersonListCustomFieldValueMode
     TractionMetrics:
       properties:
         facebook_like_count:
@@ -5089,6 +4347,375 @@ components:
       - headcount_sales
       - headcount_support
       title: TractionMetrics
+    ListCustomFieldType:
+      type: string
+      enum:
+      - TEXT
+      - NUMBER
+      - DATE
+      - SINGLE_SELECT
+      - MULTI_SELECT
+      - PERSON
+      - WEBSITE
+      - CHECKBOX
+      - STATUS
+      - RECORD_REFERENCE
+      title: ListCustomFieldType
+    TypeaheadEntity:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:school:id
+            title: SchoolUrn
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: string
+            pattern: urn:harmonic:location:id
+            title: LocationUrn
+          - type: string
+            pattern: urn:harmonic:location_metro_area:id
+            title: LocationMetroAreaUrn
+          title: Entity Urn
+        type:
+          $ref: '#/components/schemas/TypeaheadSearchType'
+        source:
+          $ref: '#/components/schemas/TypeaheadSource'
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        alt_text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Alt Text
+        index_field:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Field
+        index_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Id
+        ranking_score:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Ranking Score
+          default: 0
+        index_method:
+          anyOf:
+          - $ref: '#/components/schemas/IndexMethod'
+          - type: 'null'
+          default: 1
+        subtype:
+          anyOf:
+          - $ref: '#/components/schemas/TypeaheadSubtype'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - type
+      - source
+      title: TypeaheadEntity
+    FoundingDate-Output:
+      properties:
+        date:
+          type: string
+          title: Date
+        granularity:
+          $ref: '#/components/schemas/FoundingDatePrecision'
+      additionalProperties: false
+      type: object
+      required:
+      - date
+      - granularity
+      title: FoundingDate
+    SingleListSelectCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: SingleListSelectCustomFieldValue
+    PersonHighlightCategory:
+      type: string
+      enum:
+      - Seasoned Executive
+      - Seasoned Operator
+      - Seasoned Founder
+      - Seasoned Adviser
+      - Unicorn Executive
+      - Unicorn Operator
+      - Unicorn Founder
+      - Unicorn Adviser
+      - High Growth Startup Executive
+      - High Growth Startup Operator
+      - High Growth Startup Founder
+      - High Growth Startup Adviser
+      - Prior VC Backed Executive
+      - Prior VC Backed Operator
+      - Prior VC Backed Founder
+      - Prior VC Backed Adviser
+      - Current Student
+      - Top University
+      - HBCU Alum
+      - HBCU University
+      - Deep Technical Background
+      - Prior Exit
+      - Top Company Alum
+      - Unicorn Alum
+      - Major Tech Company Experience
+      - Legacy Tech Company Experience
+      - Elite Industry Experience
+      - Major Research Institution Experience
+      - Major Government Experience
+      - Major Financial Institution Experience
+      - Venture Background
+      - $5M Club
+      - $10M Club
+      - $15M Club
+      - $20M Club
+      - $25M Club
+      - $30M Club
+      - $30M Raised
+      - $35M Club
+      - $40M Club
+      - $45M Club
+      - $50M Club
+      - $50M+ Club
+      - $55M Club
+      - $60M Club
+      - $65M Club
+      - $70M Club
+      - $75M Club
+      - $80M Club
+      - $85M Club
+      - $90M Club
+      - $95M Club
+      - $100M Club
+      - $105M Club
+      - $110M Club
+      - $115M Club
+      - $120M Club
+      - $125M Club
+      - $130M Club
+      - $135M Club
+      - $140M Club
+      - $145M Club
+      - $150M Club
+      - $155M Club
+      - $160M Club
+      - $165M Club
+      - $170M Club
+      - $175M Club
+      - $180M Club
+      - $185M Club
+      - $190M Club
+      - $195M Club
+      - $200M Club
+      - $205M Club
+      - $210M Club
+      - $215M Club
+      - $220M Club
+      - $225M Club
+      - $230M Club
+      - $235M Club
+      - $240M Club
+      - $245M Club
+      - $250M Club
+      - $255M Club
+      - $260M Club
+      - $265M Club
+      - $270M Club
+      - $275M Club
+      - $280M Club
+      - $285M Club
+      - $290M Club
+      - $295M Club
+      - $300M Club
+      - Free Agent
+      - Founder Turned Operator
+      - Stealth Founder
+      - Vested Former Founder
+      - Jack of All Trades
+      - YC Backed Founder
+      - Top Web3 Experience
+      - Top AI Experience
+      - Notable Followers
+      - New Notable Followers
+      title: PersonHighlightCategory
+    FundingRoundOutput:
+      properties:
+        announcement_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Announcement Date
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        funding_round_type:
+          type: string
+          title: Funding Round Type
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        funding_amount:
+          type: number
+          title: Funding Amount
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+        funding_currency:
+          type: string
+          title: Funding Currency
+          default: USD
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        investors:
+          items:
+            $ref: '#/components/schemas/FundingRoundInvestor'
+          type: array
+          title: Investors
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: array
+        post_money_valuation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Post Money Valuation
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:funding_round:id
+            title: FundingRoundUrn
+          - type: string
+            pattern: urn:harmonic:test_funding_round:id
+            title: TestFundingRoundUrn
+          title: Entity Urn
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        source_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Url
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+        contributes_to_funding_total:
+          type: boolean
+          title: Contributes To Funding Total
+          default: true
+        additional_sources:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Additional Sources
+        completion_status:
+          anyOf:
+          - $ref: '#/components/schemas/FundingCompletionStatus'
+          - type: 'null'
+        valuation_info:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationInfo'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+      additionalProperties: false
+      type: object
+      required:
+      - funding_round_type
+      - funding_amount
+      - entity_urn
+      - company_urn
+      title: FundingRoundOutput
+    TextListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: TextListCustomFieldValue
+    FounderProvidedAttachment:
+      properties:
+        url:
+          type: string
+          title: Url
+        filename:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Filename
+        content_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Content Type
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: FounderProvidedAttachment
+    UserPeopleImportEntries:
+      properties:
+        imported_people:
+          items:
+            $ref: '#/components/schemas/UserImportedPersonOutput'
+          type: array
+          title: Imported People
+      additionalProperties: false
+      type: object
+      required:
+      - imported_people
+      title: UserPeopleImportEntries
+    DateListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_DATE
+      - CREATED_AT
+      title: DateListCustomFieldDefaultValueMode
     KeywordSearchInput:
       properties:
         keywords:
@@ -5121,95 +4748,468 @@ components:
       additionalProperties: false
       type: object
       title: KeywordSearchInput
-    Attachments:
+    TypeaheadSearchOutput:
       properties:
-        value:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        total_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Total Count
+        results:
           items:
-            $ref: '#/components/schemas/FounderProvidedAttachment'
+            $ref: '#/components/schemas/TypeaheadEntity'
           type: array
-          title: Value
-        source:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source
-        submitted_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Submitted At
-      additionalProperties: false
-      type: object
-      title: Attachments
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    NotableFollowerOutput:
-      properties:
-        follower_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          title: Follower Urn
-        follower_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Follower Name
-        firm_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: 'null'
-          title: Firm Urn
-        firm_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Firm Name
-        followed_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          title: Followed Urn
-        followed_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Followed Name
-        follow_observed_at:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Follow Observed At
+          title: Results
       additionalProperties: false
       type: object
       required:
-      - follower_urn
-      - followed_urn
-      title: NotableFollowerOutput
-      description: 'A tracked notable account (firm or individual investor) following a
-
-        person at the company, or the company''s own X handle.'
-    IndexMethod:
-      type: integer
+      - results
+      title: TypeaheadSearchOutput
+    PaginationMetadata:
+      properties:
+        next:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next
+        current:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Current
+        has_next:
+          type: boolean
+          title: Has Next
+      additionalProperties: false
+      type: object
+      required:
+      - has_next
+      title: PaginationMetadata
+    FundingAttributeNullStatus:
+      type: string
       enum:
-      - 1
-      - 2
-      title: IndexMethod
+      - EXISTS_BUT_UNDISCLOSED
+      - NONE_ANNOUNCED
+      title: FundingAttributeNullStatus
+      description: 'Describes how to interpret a null value for a funding attribute on a Company object. Affects the following Company
+
+        fields:
+
+        - num_funding_rounds
+
+        - num_investors
+
+        - funding_total
+
+        - investor_names_list
+
+        - last_funding_at
+
+        - last_funding_type
+
+        - last_funding_total'
+    LimitedApiRequestModel-Output:
+      properties:
+        filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: LimitedApiRequestModel
+    SearchOutput_Union_CompanyUrn__CompanyOutput__:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:company:id
+              title: CompanyUrn
+            - $ref: '#/components/schemas/CompanyOutput'
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: SearchOutput[Union[CompanyUrn, CompanyOutput]]
+    ImportPeopleCanonicalsOutput:
+      properties:
+        user_people_import_urn:
+          type: string
+          pattern: urn:harmonic:user_people_import:id
+          title: UserPeopleImportUrn
+        total_people_count:
+          type: integer
+          title: Total People Count
+        people_found_count:
+          type: integer
+          title: People Found Count
+        people_not_found_count:
+          type: integer
+          title: People Not Found Count
+        people_invalid_count:
+          type: integer
+          title: People Invalid Count
+      additionalProperties: false
+      type: object
+      required:
+      - user_people_import_urn
+      - total_people_count
+      - people_found_count
+      - people_not_found_count
+      - people_invalid_count
+      title: ImportPeopleCanonicalsOutput
+    PersonListCustomFieldOutput:
+      properties:
+        created_at:
+          type: string
+          title: Created At
+        updated_at:
+          type: string
+          title: Updated At
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Urn
+        list_urn:
+          type: string
+          pattern: urn:harmonic:people_watchlist:id
+          title: PeopleWatchlistUrn
+        name:
+          type: string
+          title: Name
+        type:
+          $ref: '#/components/schemas/ListCustomFieldType'
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadata'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
+      additionalProperties: false
+      type: object
+      required:
+      - created_at
+      - updated_at
+      - urn
+      - list_urn
+      - name
+      - type
+      title: PersonListCustomFieldOutput
+    SocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: SocialMetadata
+    CheckboxListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: CheckboxListCustomFieldValue
+    SearchOutput_CompanyUrn_:
+      properties:
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+        page_info:
+          anyOf:
+          - $ref: '#/components/schemas/PaginationMetadata'
+          - type: 'null'
+        results:
+          items:
+            type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+      - results
+      title: SearchOutput[CompanyUrn]
+    ApiSearchQuery-Output:
+      properties:
+        filter_group:
+          $ref: '#/components/schemas/FilterGroup-Output'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        sort:
+          items:
+            $ref: '#/components/schemas/Sort-Output'
+          type: array
+          title: Sort
+          default: []
+        controlled_filter_group:
+          anyOf:
+          - $ref: '#/components/schemas/FilterGroup-Output'
+          - type: 'null'
+        merge_query_for_nested_fields:
+          type: boolean
+          title: Merge Query For Nested Fields
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - filter_group
+      - pagination
+      title: ApiSearchQuery
+    Body_add_people_to_people_watchlist_watchlists_people__id_or_urn__addPeople_post:
+      properties:
+        ids:
+          items:
+            type: integer
+          type: array
+          title: Ids
+          default: []
+        urns:
+          items:
+            type: string
+          type: array
+          title: Urns
+          default: []
+      type: object
+      title: Body_add_people_to_people_watchlist_watchlists_people__id_or_urn__addPeople_post
+    FacebookSocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+        following_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Following Count
+        like_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Like Count
+      additionalProperties: false
+      type: object
+      title: FacebookSocialMetadata
+    PersonListCustomFieldMetadata:
+      properties:
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: PersonListCustomFieldMetadata
+    TypeaheadSearchType:
+      type: string
+      enum:
+      - PERSON
+      - COMPANY
+      - SCHOOL
+      - EMAIL_INTEGRATED_USER
+      - INVESTOR
+      - INVESTOR_COMPANY
+      - INVESTOR_PERSON
+      - LOCATION
+      - LOCATION_CITY
+      - LOCATION_STATE
+      - LOCATION_COUNTRY
+      - LOCATION_METRO_AREA
+      title: TypeaheadSearchType
+    TypeaheadSource:
+      type: string
+      enum:
+      - ENTERPRISE_APP
+      const: ENTERPRISE_APP
+      title: TypeaheadSource
+    FundingMetadata-Output:
+      properties:
+        funding_total:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Funding Total
+        num_funding_rounds:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Num Funding Rounds
+        investors:
+          items:
+            $ref: '#/components/schemas/Investor'
+          type: array
+          title: Investors
+          default: []
+        last_funding_at:
+          anyOf:
+          - {}
+          - type: 'null'
+          title: Last Funding At
+        last_funding_type:
+          anyOf:
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+        last_funding_total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Funding Total
+        funding_stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Funding Stage
+        valuation:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Valuation
+        valuation_info:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyValuationInfo-Output'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: FundingMetadata
+    TractionMetricsPoint:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+        change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Change
+        percent_change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Percent Change
+      additionalProperties: false
+      type: object
+      title: TractionMetricsPoint
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiSelectListCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: MultiSelectListCustomFieldValue

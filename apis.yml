@@ -46,7 +46,7 @@ tags:
   - Market Intelligence
   - GraphQL
   - MCP
-  - agent-native
+  - Agent-Native
 tags_raw:
   - startup-intelligence
   - venture-capital
@@ -80,7 +80,7 @@ apis:
       - Market Intelligence
       - GraphQL
       - MCP
-      - agent-native
+      - Agent-Native
     tags_raw:
       - startup-intelligence
       - venture-capital
@@ -141,7 +141,7 @@ apis:
     tags:
       - Startup Intelligence
       - MCP
-      - agent-native
+      - Agent-Native
       - Data Enrichment
       - Company Data
       - People Data

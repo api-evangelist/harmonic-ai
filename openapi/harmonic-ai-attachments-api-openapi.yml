@@ -572,6 +572,55 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    CreateAttachmentRequest:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+      additionalProperties: false
+      type: object
+      required:
+      - name
+      - extension
+      - size
+      title: CreateAttachmentRequest
+    GetAttachmentContentResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: GetAttachmentContentResponse
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     AttachmentMetadataOutput:
       properties:
         name:
@@ -630,64 +679,18 @@ components:
       - link
       - uploaded_at
       title: AttachmentMetadataOutput
-    LinkAttachmentsRequest:
-      properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
-      additionalProperties: false
-      type: object
-      required:
-      - attachment_urns
-      title: LinkAttachmentsRequest
-    BatchCreateAttachmentsRequest:
+    BatchCreateAttachmentsOutput:
       properties:
         attachments:
           items:
-            $ref: '#/components/schemas/CreateAttachmentRequest'
+            $ref: '#/components/schemas/CreateAttachmentOutput'
           type: array
           title: Attachments
       additionalProperties: false
       type: object
       required:
       - attachments
-      title: BatchCreateAttachmentsRequest
-    BatchCompleteUploadRequest:
-      properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
-      additionalProperties: false
-      type: object
-      required:
-      - attachment_urns
-      title: BatchCompleteUploadRequest
-    CreateAttachmentRequest:
-      properties:
-        name:
-          type: string
-          title: Name
-        extension:
-          type: string
-          title: Extension
-        size:
-          type: integer
-          title: Size
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - extension
-      - size
-      title: CreateAttachmentRequest
+      title: BatchCreateAttachmentsOutput
     ValidationError:
       properties:
         loc:
@@ -714,30 +717,18 @@ components:
       - msg
       - type
       title: ValidationError
-    BatchCreateAttachmentsOutput:
+    BatchCreateAttachmentsRequest:
       properties:
         attachments:
           items:
-            $ref: '#/components/schemas/CreateAttachmentOutput'
+            $ref: '#/components/schemas/CreateAttachmentRequest'
           type: array
           title: Attachments
       additionalProperties: false
       type: object
       required:
       - attachments
-      title: BatchCreateAttachmentsOutput
-    AttachmentMetadataListOutput:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: AttachmentMetadataListOutput
+      title: BatchCreateAttachmentsRequest
     CreateAttachmentOutput:
       properties:
         name:
@@ -785,22 +776,31 @@ components:
       - updated_at
       - uploaded_by
       title: CreateAttachmentOutput
-    HTTPValidationError:
+    BatchCompleteUploadRequest:
       properties:
-        detail:
+        attachment_urns:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
           type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    GetAttachmentContentResponse:
-      properties:
-        url:
-          type: string
-          title: Url
+          title: Attachment Urns
       additionalProperties: false
       type: object
       required:
-      - url
-      title: GetAttachmentContentResponse
+      - attachment_urns
+      title: BatchCompleteUploadRequest
+    LinkAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: LinkAttachmentsRequest
