@@ -101,15 +101,71 @@ paths:
                 $ref: '#/components/schemas/BulkEmailEnrichmentUsageResponse'
 components:
   schemas:
-    BulkEmailEnrichmentJobItemStatus:
+    QuotaInsufficientErrorDetail:
+      properties:
+        error:
+          type: string
+          enum:
+          - MONTHLY_QUOTA_INSUFFICIENT
+          const: MONTHLY_QUOTA_INSUFFICIENT
+          title: Error
+          default: MONTHLY_QUOTA_INSUFFICIENT
+        needed:
+          type: integer
+          title: Needed
+        available:
+          type: integer
+          title: Available
+        submitted:
+          type: integer
+          title: Submitted
+      type: object
+      required:
+      - needed
+      - available
+      - submitted
+      title: QuotaInsufficientErrorDetail
+      description: 'Returned when the request requires more enrichment credits than
+
+        remain in the customer''s monthly quota. The customer''s action is to
+
+        retry with fewer inputs or wait for the next monthly reset — drops
+
+        aren''t surfaced here since they don''t change that action.'
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    BulkEmailEnrichmentJobStatus:
       type: string
       enum:
       - PENDING
-      - SUCCESS
-      - NOT_FOUND
+      - IN_PROGRESS
+      - COMPLETED
       - FAILED
-      - SKIPPED
-      title: BulkEmailEnrichmentJobItemStatus
+      title: BulkEmailEnrichmentJobStatus
     DroppedPerson:
       properties:
         submitted_identifier:
@@ -129,6 +185,58 @@ components:
       - reason
       title: DroppedPerson
       description: A person filtered out at submit time, with the reason.
+    BulkEmailEnrichmentJobItemStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - NOT_FOUND
+      - FAILED
+      - SKIPPED
+      title: BulkEmailEnrichmentJobItemStatus
+    JobSubmitResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        accepted_count:
+          type: integer
+          title: Accepted Count
+        dropped:
+          items:
+            $ref: '#/components/schemas/DroppedPerson'
+          type: array
+          title: Dropped
+        monthly_remaining:
+          type: integer
+          title: Monthly Remaining
+        created_at:
+          type: string
+          title: Created At
+      type: object
+      required:
+      - job_id
+      - status
+      - accepted_count
+      - monthly_remaining
+      - created_at
+      title: JobSubmitResponse
+    PersonJobResult:
+      properties:
+        person_urn:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobItemStatus'
+      type: object
+      required:
+      - person_urn
+      - status
+      title: PersonJobResult
     BulkEmailEnrichmentUsageResponse:
       properties:
         monthly_usage:
@@ -146,14 +254,6 @@ components:
       - monthly_limit
       - monthly_remaining
       title: BulkEmailEnrichmentUsageResponse
-    BulkEmailEnrichmentJobStatus:
-      type: string
-      enum:
-      - PENDING
-      - IN_PROGRESS
-      - COMPLETED
-      - FAILED
-      title: BulkEmailEnrichmentJobStatus
     PersonJobCounts:
       properties:
         total_processed:
@@ -179,6 +279,71 @@ components:
       - total_skipped
       - total_not_found
       title: PersonJobCounts
+    JobStatusResponse:
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
+        counts:
+          $ref: '#/components/schemas/PersonJobCounts'
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/PersonJobResult'
+            type: array
+          - type: 'null'
+          title: Results
+        created_at:
+          type: string
+          title: Created At
+        completed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Completed At
+      type: object
+      required:
+      - job_id
+      - status
+      - counts
+      - created_at
+      title: JobStatusResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    NoEligiblePeopleErrorDetail:
+      properties:
+        error:
+          type: string
+          enum:
+          - NO_ELIGIBLE_PEOPLE
+          const: NO_ELIGIBLE_PEOPLE
+          title: Error
+          default: NO_ELIGIBLE_PEOPLE
+        submitted:
+          type: integer
+          title: Submitted
+        dropped:
+          items:
+            $ref: '#/components/schemas/DroppedPerson'
+          type: array
+          title: Dropped
+      type: object
+      required:
+      - submitted
+      title: NoEligiblePeopleErrorDetail
+      description: 'Returned when none of the submitted people are eligible for
+
+        enrichment. The `dropped` array explains why each was excluded.'
     JobRequest:
       properties:
         person_linkedin_urls:
@@ -213,168 +378,3 @@ components:
         LinkedIn URLs and URNs are peer alternatives — both resolve to the
 
         same internal person_id.'
-    JobStatusResponse:
-      properties:
-        job_id:
-          type: string
-          format: uuid
-          title: Job Id
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
-        counts:
-          $ref: '#/components/schemas/PersonJobCounts'
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/PersonJobResult'
-            type: array
-          - type: 'null'
-          title: Results
-        created_at:
-          type: string
-          title: Created At
-        completed_at:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Completed At
-      type: object
-      required:
-      - job_id
-      - status
-      - counts
-      - created_at
-      title: JobStatusResponse
-    PersonJobResult:
-      properties:
-        person_urn:
-          type: string
-          pattern: urn:harmonic:person:id
-          title: PersonUrn
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobItemStatus'
-      type: object
-      required:
-      - person_urn
-      - status
-      title: PersonJobResult
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    NoEligiblePeopleErrorDetail:
-      properties:
-        error:
-          type: string
-          enum:
-          - NO_ELIGIBLE_PEOPLE
-          const: NO_ELIGIBLE_PEOPLE
-          title: Error
-          default: NO_ELIGIBLE_PEOPLE
-        submitted:
-          type: integer
-          title: Submitted
-        dropped:
-          items:
-            $ref: '#/components/schemas/DroppedPerson'
-          type: array
-          title: Dropped
-      type: object
-      required:
-      - submitted
-      title: NoEligiblePeopleErrorDetail
-      description: 'Returned when none of the submitted people are eligible for
-
-        enrichment. The `dropped` array explains why each was excluded.'
-    JobSubmitResponse:
-      properties:
-        job_id:
-          type: string
-          format: uuid
-          title: Job Id
-        status:
-          $ref: '#/components/schemas/BulkEmailEnrichmentJobStatus'
-        accepted_count:
-          type: integer
-          title: Accepted Count
-        dropped:
-          items:
-            $ref: '#/components/schemas/DroppedPerson'
-          type: array
-          title: Dropped
-        monthly_remaining:
-          type: integer
-          title: Monthly Remaining
-        created_at:
-          type: string
-          title: Created At
-      type: object
-      required:
-      - job_id
-      - status
-      - accepted_count
-      - monthly_remaining
-      - created_at
-      title: JobSubmitResponse
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    QuotaInsufficientErrorDetail:
-      properties:
-        error:
-          type: string
-          enum:
-          - MONTHLY_QUOTA_INSUFFICIENT
-          const: MONTHLY_QUOTA_INSUFFICIENT
-          title: Error
-          default: MONTHLY_QUOTA_INSUFFICIENT
-        needed:
-          type: integer
-          title: Needed
-        available:
-          type: integer
-          title: Available
-        submitted:
-          type: integer
-          title: Submitted
-      type: object
-      required:
-      - needed
-      - available
-      - submitted
-      title: QuotaInsufficientErrorDetail
-      description: 'Returned when the request requires more enrichment credits than
-
-        remain in the customer''s monthly quota. The customer''s action is to
-
-        retry with fewer inputs or wait for the next monthly reset — drops
-
-        aren''t surfaced here since they don''t change that action.'

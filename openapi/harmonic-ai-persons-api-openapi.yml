@@ -548,251 +548,59 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    PersonListCustomFieldValueMode:
-      type: string
-      enum:
-      - SINGLE
-      - MULTIPLE
-      title: PersonListCustomFieldValueMode
-    StatusListCustomFieldValue:
+    SocialMetadata:
       properties:
-        value:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: StatusListCustomFieldValue
-    ListCustomFieldType:
-      type: string
-      enum:
-      - TEXT
-      - NUMBER
-      - DATE
-      - SINGLE_SELECT
-      - MULTI_SELECT
-      - PERSON
-      - WEBSITE
-      - CHECKBOX
-      - STATUS
-      - RECORD_REFERENCE
-      title: ListCustomFieldType
-    ContactMetadata:
-      properties:
-        emails:
-          items:
-            type: string
-          type: array
-          title: Emails
-          default: []
-        phone_numbers:
-          items:
-            type: string
-          type: array
-          title: Phone Numbers
-          default: []
-        exec_emails:
-          items:
-            type: string
-          type: array
-          title: Exec Emails
-          default: []
-        primary_email:
+        url:
           anyOf:
           - type: string
           - type: 'null'
-          title: Primary Email
-        primary_email_person_id:
+          title: Url
+        follower_count:
           anyOf:
           - type: integer
           - type: 'null'
-          title: Primary Email Person Id
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
       additionalProperties: false
       type: object
-      title: ContactMetadata
-    services__midtier__schemas__person__Highlight-Output:
+      title: SocialMetadata
+    LanguageMetadata:
       properties:
-        category:
-          $ref: '#/components/schemas/PersonHighlightCategory'
-        date_added:
+        name:
+          type: string
+          title: Name
+        proficiency:
           anyOf:
           - type: string
           - type: 'null'
-          title: Date Added
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-        company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: 'null'
-          title: Company Urn
-      additionalProperties: false
-      type: object
-      required:
-      - category
-      title: Highlight
-    BatchCreateAttachmentsOutput:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/CreateAttachmentOutput'
-          type: array
-          title: Attachments
+          title: Proficiency
       additionalProperties: false
       type: object
       required:
-      - attachments
-      title: BatchCreateAttachmentsOutput
-    RecordReferenceListCustomFieldValue:
+      - name
+      title: LanguageMetadata
+    BatchPersonAttachmentsRequest:
       properties:
-        value:
+        entity_urns:
           items:
             type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
           type: array
-          title: Value
-          default: []
-      additionalProperties: false
-      type: object
-      title: RecordReferenceListCustomFieldValue
-    BatchCreateAttachmentsRequest:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/CreateAttachmentRequest'
-          type: array
-          title: Attachments
+          title: Entity Urns
       additionalProperties: false
       type: object
       required:
-      - attachments
-      title: BatchCreateAttachmentsRequest
-    SingleListSelectCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: SingleListSelectCustomFieldValue
-    PersonHighlightCategory:
-      type: string
-      enum:
-      - Seasoned Executive
-      - Seasoned Operator
-      - Seasoned Founder
-      - Seasoned Adviser
-      - Unicorn Executive
-      - Unicorn Operator
-      - Unicorn Founder
-      - Unicorn Adviser
-      - High Growth Startup Executive
-      - High Growth Startup Operator
-      - High Growth Startup Founder
-      - High Growth Startup Adviser
-      - Prior VC Backed Executive
-      - Prior VC Backed Operator
-      - Prior VC Backed Founder
-      - Prior VC Backed Adviser
-      - Current Student
-      - Top University
-      - HBCU Alum
-      - HBCU University
-      - Deep Technical Background
-      - Prior Exit
-      - Top Company Alum
-      - Unicorn Alum
-      - Major Tech Company Experience
-      - Legacy Tech Company Experience
-      - Elite Industry Experience
-      - Major Research Institution Experience
-      - Major Government Experience
-      - Major Financial Institution Experience
-      - Venture Background
-      - $5M Club
-      - $10M Club
-      - $15M Club
-      - $20M Club
-      - $25M Club
-      - $30M Club
-      - $30M Raised
-      - $35M Club
-      - $40M Club
-      - $45M Club
-      - $50M Club
-      - $50M+ Club
-      - $55M Club
-      - $60M Club
-      - $65M Club
-      - $70M Club
-      - $75M Club
-      - $80M Club
-      - $85M Club
-      - $90M Club
-      - $95M Club
-      - $100M Club
-      - $105M Club
-      - $110M Club
-      - $115M Club
-      - $120M Club
-      - $125M Club
-      - $130M Club
-      - $135M Club
-      - $140M Club
-      - $145M Club
-      - $150M Club
-      - $155M Club
-      - $160M Club
-      - $165M Club
-      - $170M Club
-      - $175M Club
-      - $180M Club
-      - $185M Club
-      - $190M Club
-      - $195M Club
-      - $200M Club
-      - $205M Club
-      - $210M Club
-      - $215M Club
-      - $220M Club
-      - $225M Club
-      - $230M Club
-      - $235M Club
-      - $240M Club
-      - $245M Club
-      - $250M Club
-      - $255M Club
-      - $260M Club
-      - $265M Club
-      - $270M Club
-      - $275M Club
-      - $280M Club
-      - $285M Club
-      - $290M Club
-      - $295M Club
-      - $300M Club
-      - Free Agent
-      - Founder Turned Operator
-      - Stealth Founder
-      - Vested Former Founder
-      - Jack of All Trades
-      - YC Backed Founder
-      - Top Web3 Experience
-      - Top AI Experience
-      - Notable Followers
-      - New Notable Followers
-      title: PersonHighlightCategory
+      - entity_urns
+      title: BatchPersonAttachmentsRequest
     PersonSelectCustomFieldValue:
       properties:
         value:
@@ -806,288 +614,69 @@ components:
       additionalProperties: false
       type: object
       title: PersonSelectCustomFieldValue
-    PersonFieldInputValue:
+    ValidationError:
       properties:
-        custom_field_urn:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UpdatePersonListCustomFieldInput:
+      properties:
+        name:
+          type: string
+          title: Name
+        metadata:
           anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:list_attribute:id
-            title: ListAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          title: Custom Field Urn
-        data:
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
+          - type: 'null'
+          title: Metadata
+        default_value:
           anyOf:
           - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
           - $ref: '#/components/schemas/NumberListCustomFieldValue'
           - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
-          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
-          - $ref: '#/components/schemas/DateListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
           - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - $ref: '#/components/schemas/StatusListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonSelectCustomFieldValueInput'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
-          title: Data
-      additionalProperties: false
-      type: object
-      required:
-      - custom_field_urn
-      - data
-      title: PersonFieldInputValue
-    SchoolOutput:
-      properties:
-        name:
-          anyOf:
-          - type: string
           - type: 'null'
-          title: Name
-        linkedin_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Linkedin Url
-        logo_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Logo Url
-        entity_urn:
-          type: string
-          pattern: urn:harmonic:school:id
-          title: SchoolUrn
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      title: SchoolOutput
-    NumberListCustomFieldMetadata:
-      properties:
-        format:
-          $ref: '#/components/schemas/NumberListCustomFieldValueFormat'
-          default: NUMBER
-      additionalProperties: false
-      type: object
-      title: NumberListCustomFieldMetadata
-    TextListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: TextListCustomFieldValue
-    SelectListCustomFieldValueOptionInputSchema:
-      properties:
-        urn:
-          type: string
-          pattern: urn:harmonic:select_list_custom_field_value_option:id
-          title: SelectListCustomFieldValueOptionUrn
-        name:
-          type: string
-          title: Name
-        color:
-          type: string
-          title: Color
-        default:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Default
-          default: false
+          title: Default Value
       additionalProperties: false
       type: object
       required:
       - name
-      - color
-      title: SelectListCustomFieldValueOptionInputSchema
-    LinkAttachmentsRequest:
-      properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
-      additionalProperties: false
-      type: object
-      required:
-      - attachment_urns
-      title: LinkAttachmentsRequest
-    PersonCanonicalParameter:
-      properties:
-        linkedin_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Linkedin Url
-        email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Email
-      additionalProperties: false
-      type: object
-      title: PersonCanonicalParameter
-    LocationMetadata:
-      properties:
-        address_formatted:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Address Formatted
-        location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Street
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: City
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: State
-        zip:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Zip
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Country
-        metro_areas:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Metro Areas
-      additionalProperties: false
-      type: object
-      title: LocationMetadata
-    DateListCustomFieldDefaultValueMode:
+      title: UpdatePersonListCustomFieldInput
+    LinkedinProfileVisibilityType:
       type: string
       enum:
-      - FIXED_DATE
-      - CREATED_AT
-      title: DateListCustomFieldDefaultValueMode
-    GetAttachmentContentResponse:
-      properties:
-        url:
-          type: string
-          title: Url
-      additionalProperties: false
-      type: object
-      required:
-      - url
-      title: GetAttachmentContentResponse
-    ResourceUrnResponse_Union_PersonListCustomFieldUrn__ListAttributeUrn__RecordAttributeUrn__:
-      properties:
-        urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person_list_custom_field:id
-            title: PersonListCustomFieldUrn
-          - type: string
-            pattern: urn:harmonic:list_attribute:id
-            title: ListAttributeUrn
-          - type: string
-            pattern: urn:harmonic:record_attribute:id
-            title: RecordAttributeUrn
-          title: Urn
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/DBOperationMetadata'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - urn
-      title: ResourceUrnResponse[Union[PersonListCustomFieldUrn, ListAttributeUrn, RecordAttributeUrn]]
-    AttachmentMetadataOutput:
-      properties:
-        name:
-          type: string
-          title: Name
-        extension:
-          type: string
-          title: Extension
-        size:
-          type: integer
-          title: Size
-        attachment_urn:
-          type: string
-          pattern: urn:harmonic:user_uploaded_content:id
-          title: UserUploadedContentUrn
-        upload_uri:
-          type: string
-          title: Upload Uri
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        updated_at:
-          type: string
-          format: date-time
-          title: Updated At
-        uploaded_by:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          - type: string
-            pattern: urn:harmonic:customer:id
-            title: CustomerUrn
-          title: Uploaded By
-        link:
-          type: string
-          title: Link
-        uploaded_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Uploaded At
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - extension
-      - size
-      - attachment_urn
-      - upload_uri
-      - created_at
-      - updated_at
-      - uploaded_by
-      - link
-      - uploaded_at
-      title: AttachmentMetadataOutput
-    NumberListCustomFieldValueFormat:
-      type: string
-      enum:
-      - NUMBER
-      - PERCENT
-      - US_DOLLAR
-      title: NumberListCustomFieldValueFormat
+      - FULLY_PUBLIC
+      - EXPERIENCE_AND_EDUCATION_BLURRED
+      - EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN
+      - PRIVATE_OR_NONEXISTENT
+      title: LinkedinProfileVisibilityType
     PersonOutput:
       properties:
         full_name:
@@ -1393,6 +982,336 @@ components:
       - entity_urn
       - id
       title: PersonOutput
+    UnstandardizedExperienceMetadata-Output:
+      properties:
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        department:
+          anyOf:
+          - $ref: '#/components/schemas/Department'
+          - type: 'null'
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        start_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+        end_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+        is_current_position:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Current Position
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        role_type:
+          anyOf:
+          - $ref: '#/components/schemas/RoleType'
+          - type: 'null'
+        company:
+          anyOf:
+          - type: string
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Company
+      additionalProperties: false
+      type: object
+      required:
+      - company
+      title: UnstandardizedExperienceMetadata
+    BatchCreateAttachmentsOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsOutput
+    PersonFieldInputValue:
+      properties:
+        custom_field_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Custom Field Urn
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/SingleListSelectCustomFieldValue'
+          - $ref: '#/components/schemas/MultiSelectListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValue'
+          - $ref: '#/components/schemas/DateListCustomFieldValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - $ref: '#/components/schemas/StatusListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonSelectCustomFieldValueInput'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldValue'
+          title: Data
+      additionalProperties: false
+      type: object
+      required:
+      - custom_field_urn
+      - data
+      title: PersonFieldInputValue
+    PersonListCustomFieldValueMode:
+      type: string
+      enum:
+      - SINGLE
+      - MULTIPLE
+      title: PersonListCustomFieldValueMode
+    StatusListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: StatusListCustomFieldValue
+    ResourceUrnResponse_Union_PersonListCustomFieldUrn__ListAttributeUrn__RecordAttributeUrn__:
+      properties:
+        urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person_list_custom_field:id
+            title: PersonListCustomFieldUrn
+          - type: string
+            pattern: urn:harmonic:list_attribute:id
+            title: ListAttributeUrn
+          - type: string
+            pattern: urn:harmonic:record_attribute:id
+            title: RecordAttributeUrn
+          title: Urn
+        metadata:
+          anyOf:
+          - $ref: '#/components/schemas/DBOperationMetadata'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - urn
+      title: ResourceUrnResponse[Union[PersonListCustomFieldUrn, ListAttributeUrn, RecordAttributeUrn]]
+    PersonListCustomFieldDefaultValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          type: array
+          title: Value
+          default: []
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: PersonListCustomFieldDefaultValue
+    ContactMetadata:
+      properties:
+        emails:
+          items:
+            type: string
+          type: array
+          title: Emails
+          default: []
+        phone_numbers:
+          items:
+            type: string
+          type: array
+          title: Phone Numbers
+          default: []
+        exec_emails:
+          items:
+            type: string
+          type: array
+          title: Exec Emails
+          default: []
+        primary_email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Primary Email
+        primary_email_person_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Primary Email Person Id
+      additionalProperties: false
+      type: object
+      title: ContactMetadata
+    PersonHighlightCategory:
+      type: string
+      enum:
+      - Seasoned Executive
+      - Seasoned Operator
+      - Seasoned Founder
+      - Seasoned Adviser
+      - Unicorn Executive
+      - Unicorn Operator
+      - Unicorn Founder
+      - Unicorn Adviser
+      - High Growth Startup Executive
+      - High Growth Startup Operator
+      - High Growth Startup Founder
+      - High Growth Startup Adviser
+      - Prior VC Backed Executive
+      - Prior VC Backed Operator
+      - Prior VC Backed Founder
+      - Prior VC Backed Adviser
+      - Current Student
+      - Top University
+      - HBCU Alum
+      - HBCU University
+      - Deep Technical Background
+      - Prior Exit
+      - Top Company Alum
+      - Unicorn Alum
+      - Major Tech Company Experience
+      - Legacy Tech Company Experience
+      - Elite Industry Experience
+      - Major Research Institution Experience
+      - Major Government Experience
+      - Major Financial Institution Experience
+      - Venture Background
+      - $5M Club
+      - $10M Club
+      - $15M Club
+      - $20M Club
+      - $25M Club
+      - $30M Club
+      - $30M Raised
+      - $35M Club
+      - $40M Club
+      - $45M Club
+      - $50M Club
+      - $50M+ Club
+      - $55M Club
+      - $60M Club
+      - $65M Club
+      - $70M Club
+      - $75M Club
+      - $80M Club
+      - $85M Club
+      - $90M Club
+      - $95M Club
+      - $100M Club
+      - $105M Club
+      - $110M Club
+      - $115M Club
+      - $120M Club
+      - $125M Club
+      - $130M Club
+      - $135M Club
+      - $140M Club
+      - $145M Club
+      - $150M Club
+      - $155M Club
+      - $160M Club
+      - $165M Club
+      - $170M Club
+      - $175M Club
+      - $180M Club
+      - $185M Club
+      - $190M Club
+      - $195M Club
+      - $200M Club
+      - $205M Club
+      - $210M Club
+      - $215M Club
+      - $220M Club
+      - $225M Club
+      - $230M Club
+      - $235M Club
+      - $240M Club
+      - $245M Club
+      - $250M Club
+      - $255M Club
+      - $260M Club
+      - $265M Club
+      - $270M Club
+      - $275M Club
+      - $280M Club
+      - $285M Club
+      - $290M Club
+      - $295M Club
+      - $300M Club
+      - Free Agent
+      - Founder Turned Operator
+      - Stealth Founder
+      - Vested Former Founder
+      - Jack of All Trades
+      - YC Backed Founder
+      - Top Web3 Experience
+      - Top AI Experience
+      - Notable Followers
+      - New Notable Followers
+      title: PersonHighlightCategory
+    MultiSelectListCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: MultiSelectListCustomFieldValue
+    DateListCustomFieldValueFormat:
+      type: string
+      enum:
+      - MM_DD_YYYY
+      - DD_MM_YYYY
+      - YYYY_MM_DD
+      title: DateListCustomFieldValueFormat
+    WebsiteListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: WebsiteListCustomFieldValue
     SchoolInput:
       properties:
         name:
@@ -1413,50 +1332,142 @@ components:
       additionalProperties: false
       type: object
       title: SchoolInput
-    NumberListCustomFieldValue:
+    CreateAttachmentRequest:
       properties:
-        value:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Value
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
       additionalProperties: false
       type: object
-      title: NumberListCustomFieldValue
-    DateListCustomFieldDefaultValue:
+      required:
+      - name
+      - extension
+      - size
+      title: CreateAttachmentRequest
+    SingleListSelectCustomFieldValue:
       properties:
         value:
           anyOf:
           - type: string
+            pattern: urn:harmonic:select_list_custom_field_value_option:id
+            title: SelectListCustomFieldValueOptionUrn
           - type: 'null'
           title: Value
-        mode:
-          $ref: '#/components/schemas/DateListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      title: SingleListSelectCustomFieldValue
+    ListCustomFieldType:
+      type: string
+      enum:
+      - TEXT
+      - NUMBER
+      - DATE
+      - SINGLE_SELECT
+      - MULTI_SELECT
+      - PERSON
+      - WEBSITE
+      - CHECKBOX
+      - STATUS
+      - RECORD_REFERENCE
+      title: ListCustomFieldType
+    PersonBatchGetInput:
+      properties:
+        ids:
+          items:
+            type: integer
+          type: array
+          title: Ids
+          default: []
+        urns:
+          items:
+            type: string
+          type: array
+          title: Urns
+          default: []
+        company_context_urns:
+          items:
+            type: string
+          type: array
+          title: Company Context Urns
+          default: []
+        include_fields:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Include Fields
+      additionalProperties: false
+      type: object
+      title: PersonBatchGetInput
+    CreateAttachmentOutput:
+      properties:
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
+        attachment_urn:
+          type: string
+          pattern: urn:harmonic:user_uploaded_content:id
+          title: UserUploadedContentUrn
+        upload_uri:
+          type: string
+          title: Upload Uri
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated At
+        uploaded_by:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:user:id
+            title: UserUrn
+          - type: string
+            pattern: urn:harmonic:customer:id
+            title: CustomerUrn
+          title: Uploaded By
       additionalProperties: false
       type: object
       required:
-      - mode
-      title: DateListCustomFieldDefaultValue
-    PersonListCustomFieldDefaultValueMode:
-      type: string
-      enum:
-      - FIXED_URN
-      - ADDED_BY_USER
-      title: PersonListCustomFieldDefaultValueMode
-    RoleType:
-      type: string
-      enum:
-      - FOUNDER
-      - CEO
-      - EXECUTIVE
-      - OPERATOR
-      - INTERN
-      - ALUMNI
-      - ADVISER
-      - EMPLOYEE
-      - INVESTOR
-      - FALSE_POSITION
-      title: RoleType
+      - name
+      - extension
+      - size
+      - attachment_urn
+      - upload_uri
+      - created_at
+      - updated_at
+      - uploaded_by
+      title: CreateAttachmentOutput
+    PersonCanonicalParameter:
+      properties:
+        linkedin_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linkedin Url
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Email
+      additionalProperties: false
+      type: object
+      title: PersonCanonicalParameter
     NotableFollowerOutput:
       properties:
         follower_urn:
@@ -1513,15 +1524,7 @@ components:
       description: 'A tracked notable account (firm or individual investor) following a
 
         person at the company, or the company''s own X handle.'
-    LinkedinProfileVisibilityType:
-      type: string
-      enum:
-      - FULLY_PUBLIC
-      - EXPERIENCE_AND_EDUCATION_BLURRED
-      - EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN
-      - PRIVATE_OR_NONEXISTENT
-      title: LinkedinProfileVisibilityType
-    BatchCompleteUploadRequest:
+    LinkAttachmentsRequest:
       properties:
         attachment_urns:
           items:
@@ -1534,106 +1537,7 @@ components:
       type: object
       required:
       - attachment_urns
-      title: BatchCompleteUploadRequest
-    DateListCustomFieldMetadata:
-      properties:
-        format:
-          $ref: '#/components/schemas/DateListCustomFieldValueFormat'
-          default: MM_DD_YYYY
-      additionalProperties: false
-      type: object
-      title: DateListCustomFieldMetadata
-    PersonListCustomFieldDefaultValue:
-      properties:
-        value:
-          items:
-            type: string
-            pattern: urn:harmonic:user:id
-            title: UserUrn
-          type: array
-          title: Value
-          default: []
-        mode:
-          $ref: '#/components/schemas/PersonListCustomFieldDefaultValueMode'
-      additionalProperties: false
-      type: object
-      required:
-      - mode
-      title: PersonListCustomFieldDefaultValue
-    BatchPersonAttachmentsOutput:
-      properties:
-        entity_urn:
-          type: string
-          pattern: urn:harmonic:person:id
-          title: PersonUrn
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      - attachments
-      title: BatchPersonAttachmentsOutput
-    BatchPersonAttachmentsRequest:
-      properties:
-        entity_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          type: array
-          title: Entity Urns
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urns
-      title: BatchPersonAttachmentsRequest
-    LanguageMetadata:
-      properties:
-        name:
-          type: string
-          title: Name
-        proficiency:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Proficiency
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      title: LanguageMetadata
-    PersonListEntryInput:
-      properties:
-        person_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Person Urn
-        canonical:
-          anyOf:
-          - $ref: '#/components/schemas/PersonCanonicalParameter'
-          - type: 'null'
-        values:
-          items:
-            $ref: '#/components/schemas/PersonFieldInputValue'
-          type: array
-          title: Values
-          default: []
-        created_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Created At
-      additionalProperties: false
-      type: object
-      title: PersonListEntryInput
+      title: LinkAttachmentsRequest
     ExperienceMetadata-Output:
       properties:
         contact:
@@ -1692,32 +1596,15 @@ components:
       required:
       - company
       title: ExperienceMetadata
-    DBOperationMetadata:
+    DateListCustomFieldMetadata:
       properties:
-        count_total:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Total
-        count_changed:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Changed
-        count_skipped:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Skipped
-        count_not_found:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Count Not Found
+        format:
+          $ref: '#/components/schemas/DateListCustomFieldValueFormat'
+          default: MM_DD_YYYY
       additionalProperties: false
       type: object
-      title: DBOperationMetadata
-    DateListCustomFieldValue:
+      title: DateListCustomFieldMetadata
+    TextListCustomFieldValue:
       properties:
         value:
           anyOf:
@@ -1726,170 +1613,8 @@ components:
           title: Value
       additionalProperties: false
       type: object
-      title: DateListCustomFieldValue
-    Department:
-      type: string
-      enum:
-      - Advisor
-      - Customer Success
-      - Data
-      - Design
-      - Engineering
-      - Finance
-      - Legal
-      - Marketing
-      - Operations
-      - Other
-      - People
-      - Product
-      - Sales
-      - Support
-      title: Department
-    AttachmentMetadataListOutput:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: AttachmentMetadataListOutput
-    CreateAttachmentRequest:
-      properties:
-        name:
-          type: string
-          title: Name
-        extension:
-          type: string
-          title: Extension
-        size:
-          type: integer
-          title: Size
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - extension
-      - size
-      title: CreateAttachmentRequest
-    ImportPeopleCanonicalsOutput:
-      properties:
-        user_people_import_urn:
-          type: string
-          pattern: urn:harmonic:user_people_import:id
-          title: UserPeopleImportUrn
-        total_people_count:
-          type: integer
-          title: Total People Count
-        people_found_count:
-          type: integer
-          title: People Found Count
-        people_not_found_count:
-          type: integer
-          title: People Not Found Count
-        people_invalid_count:
-          type: integer
-          title: People Invalid Count
-      additionalProperties: false
-      type: object
-      required:
-      - user_people_import_urn
-      - total_people_count
-      - people_found_count
-      - people_not_found_count
-      - people_invalid_count
-      title: ImportPeopleCanonicalsOutput
-    SocialMetadata:
-      properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        follower_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Follower Count
-        username:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Username
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/SocialStatus'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: SocialMetadata
-    CheckboxListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: CheckboxListCustomFieldValue
-    DateListCustomFieldValueFormat:
-      type: string
-      enum:
-      - MM_DD_YYYY
-      - DD_MM_YYYY
-      - YYYY_MM_DD
-      title: DateListCustomFieldValueFormat
-    BatchDeleteAttachmentsRequest:
-      properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
-      additionalProperties: false
-      type: object
-      required:
-      - attachment_urns
-      title: BatchDeleteAttachmentsRequest
-    CreatePersonListCustomFieldInput:
-      properties:
-        name:
-          type: string
-          title: Name
-        type:
-          $ref: '#/components/schemas/ListCustomFieldType'
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
-          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
-          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
-          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
-          - type: 'null'
-          title: Metadata
-        default_value:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - type: 'null'
-          title: Default Value
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - type
-      title: CreatePersonListCustomFieldInput
-    CreateAttachmentOutput:
+      title: TextListCustomFieldValue
+    AttachmentMetadataOutput:
       properties:
         name:
           type: string
@@ -1924,6 +1649,15 @@ components:
             pattern: urn:harmonic:customer:id
             title: CustomerUrn
           title: Uploaded By
+        link:
+          type: string
+          title: Link
+        uploaded_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Uploaded At
       additionalProperties: false
       type: object
       required:
@@ -1935,121 +1669,68 @@ components:
       - created_at
       - updated_at
       - uploaded_by
-      title: CreateAttachmentOutput
-    WebsiteMetadata:
+      - link
+      - uploaded_at
+      title: AttachmentMetadataOutput
+    GetAttachmentContentResponse:
       properties:
         url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        domain:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Domain
-        is_broken:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Broken
-      additionalProperties: false
-      type: object
-      title: WebsiteMetadata
-    UnstandardizedExperienceMetadata-Output:
-      properties:
-        contact:
-          anyOf:
-          - $ref: '#/components/schemas/ContactMetadata'
-          - type: 'null'
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        department:
-          anyOf:
-          - $ref: '#/components/schemas/Department'
-          - type: 'null'
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        start_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Start Date
-        end_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: End Date
-        is_current_position:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Current Position
-        location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location
-        role_type:
-          anyOf:
-          - $ref: '#/components/schemas/RoleType'
-          - type: 'null'
-        company:
-          anyOf:
-          - type: string
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          title: Company
-      additionalProperties: false
-      type: object
-      required:
-      - company
-      title: UnstandardizedExperienceMetadata
-    UpdatePersonListCustomFieldInput:
-      properties:
-        name:
           type: string
-          title: Name
-        metadata:
-          anyOf:
-          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
-          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
-          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
-          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
-          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
-          - type: 'null'
-          title: Metadata
-        default_value:
-          anyOf:
-          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
-          - $ref: '#/components/schemas/NumberListCustomFieldValue'
-          - $ref: '#/components/schemas/TextListCustomFieldValue'
-          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
-          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
-          - type: 'null'
-          title: Default Value
+          title: Url
       additionalProperties: false
       type: object
       required:
-      - name
-      title: UpdatePersonListCustomFieldInput
-    PersonListCustomFieldMetadata:
+      - url
+      title: GetAttachmentContentResponse
+    DBOperationMetadata:
       properties:
-        mode:
-          $ref: '#/components/schemas/PersonListCustomFieldValueMode'
+        count_total:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Total
+        count_changed:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Changed
+        count_skipped:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Skipped
+        count_not_found:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count Not Found
       additionalProperties: false
       type: object
-      required:
-      - mode
-      title: PersonListCustomFieldMetadata
+      title: DBOperationMetadata
+    Department:
+      type: string
+      enum:
+      - Advisor
+      - Customer Success
+      - Data
+      - Design
+      - Engineering
+      - Finance
+      - Legal
+      - Marketing
+      - Operations
+      - Other
+      - People
+      - Product
+      - Sales
+      - Support
+      title: Department
+    PersonListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_URN
+      - ADDED_BY_USER
+      title: PersonListCustomFieldDefaultValueMode
     EducationMetadata-Output:
       properties:
         school:
@@ -2094,6 +1775,436 @@ components:
       required:
       - school
       title: EducationMetadata
+    services__midtier__schemas__person__Highlight-Output:
+      properties:
+        category:
+          $ref: '#/components/schemas/PersonHighlightCategory'
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - category
+      title: Highlight
+    CheckboxListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: CheckboxListCustomFieldValue
+    PersonListEntryInput:
+      properties:
+        person_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Person Urn
+        canonical:
+          anyOf:
+          - $ref: '#/components/schemas/PersonCanonicalParameter'
+          - type: 'null'
+        values:
+          items:
+            $ref: '#/components/schemas/PersonFieldInputValue'
+          type: array
+          title: Values
+          default: []
+        created_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Created At
+      additionalProperties: false
+      type: object
+      title: PersonListEntryInput
+    BatchCompleteUploadRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: BatchCompleteUploadRequest
+    NumberListCustomFieldValueFormat:
+      type: string
+      enum:
+      - NUMBER
+      - PERCENT
+      - US_DOLLAR
+      title: NumberListCustomFieldValueFormat
+    RecordReferenceListCustomFieldValue:
+      properties:
+        value:
+          items:
+            type: string
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: RecordReferenceListCustomFieldValue
+    BatchDeleteAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: BatchDeleteAttachmentsRequest
+    ImportPeopleCanonicalsOutput:
+      properties:
+        user_people_import_urn:
+          type: string
+          pattern: urn:harmonic:user_people_import:id
+          title: UserPeopleImportUrn
+        total_people_count:
+          type: integer
+          title: Total People Count
+        people_found_count:
+          type: integer
+          title: People Found Count
+        people_not_found_count:
+          type: integer
+          title: People Not Found Count
+        people_invalid_count:
+          type: integer
+          title: People Invalid Count
+      additionalProperties: false
+      type: object
+      required:
+      - user_people_import_urn
+      - total_people_count
+      - people_found_count
+      - people_not_found_count
+      - people_invalid_count
+      title: ImportPeopleCanonicalsOutput
+    BatchPersonAttachmentsOutput:
+      properties:
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - attachments
+      title: BatchPersonAttachmentsOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    SelectListCustomFieldMetadataInputSchema:
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/SelectListCustomFieldValueOptionInputSchema'
+          type: array
+          title: Options
+          default: []
+      additionalProperties: false
+      type: object
+      title: SelectListCustomFieldMetadataInputSchema
+    PersonListEntriesBatchImportInput:
+      properties:
+        entries:
+          items:
+            $ref: '#/components/schemas/PersonListEntryInput'
+          type: array
+          title: Entries
+      additionalProperties: false
+      type: object
+      required:
+      - entries
+      title: PersonListEntriesBatchImportInput
+    RecordReferenceListCustomFieldMetadata:
+      properties:
+        record_type_urn:
+          type: string
+          title: Record Type Urn
+        allow_multiple:
+          type: boolean
+          title: Allow Multiple
+        mode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Mode
+      additionalProperties: false
+      type: object
+      required:
+      - record_type_urn
+      - allow_multiple
+      title: RecordReferenceListCustomFieldMetadata
+    NumberListCustomFieldMetadata:
+      properties:
+        format:
+          $ref: '#/components/schemas/NumberListCustomFieldValueFormat'
+          default: NUMBER
+      additionalProperties: false
+      type: object
+      title: NumberListCustomFieldMetadata
+    SocialStatus:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: SocialStatus
+    BatchCreateAttachmentsRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentRequest'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsRequest
+    PersonSelectCustomFieldValueInput:
+      properties:
+        value:
+          items:
+            anyOf:
+            - type: string
+              pattern: urn:harmonic:user:id
+              title: UserUrn
+            - type: string
+          type: array
+          title: Value
+          default: []
+      additionalProperties: false
+      type: object
+      title: PersonSelectCustomFieldValueInput
+    SchoolOutput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        linkedin_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linkedin Url
+        logo_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logo Url
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:school:id
+          title: SchoolUrn
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      title: SchoolOutput
+    DateListCustomFieldDefaultValueMode:
+      type: string
+      enum:
+      - FIXED_DATE
+      - CREATED_AT
+      title: DateListCustomFieldDefaultValueMode
+    StandardizedDegree:
+      type: string
+      enum:
+      - PHD
+      - DOCTOR_OF_MEDICINE
+      - JURIS_DOCTOR
+      - OTHER_DOCTORATE
+      - MASTER_OF_BUSINESS_ADMINISTRATION
+      - MASTERS_DEGREE
+      - BACHELORS_DEGREE
+      - ASSOCIATES_DEGREE
+      - CERTIFICATE
+      - HIGH_SCHOOL
+      - OTHER
+      - UNKNOWN
+      title: StandardizedDegree
+    LocationMetadata:
+      properties:
+        address_formatted:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address Formatted
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Street
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        zip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zip
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
+        metro_areas:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Metro Areas
+      additionalProperties: false
+      type: object
+      title: LocationMetadata
+    PersonListCustomFieldMetadata:
+      properties:
+        mode:
+          $ref: '#/components/schemas/PersonListCustomFieldValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: PersonListCustomFieldMetadata
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    DateListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: DateListCustomFieldValue
+    RoleType:
+      type: string
+      enum:
+      - FOUNDER
+      - CEO
+      - EXECUTIVE
+      - OPERATOR
+      - INTERN
+      - ALUMNI
+      - ADVISER
+      - EMPLOYEE
+      - INVESTOR
+      - FALSE_POSITION
+      title: RoleType
+    DateListCustomFieldDefaultValue:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        mode:
+          $ref: '#/components/schemas/DateListCustomFieldDefaultValueMode'
+      additionalProperties: false
+      type: object
+      required:
+      - mode
+      title: DateListCustomFieldDefaultValue
+    NumberListCustomFieldValue:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+      additionalProperties: false
+      type: object
+      title: NumberListCustomFieldValue
+    WebsiteMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        domain:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Domain
+        is_broken:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Broken
+      additionalProperties: false
+      type: object
+      title: WebsiteMetadata
     PersonEnrichmentOutput:
       properties:
         full_name:
@@ -2413,170 +2524,59 @@ components:
       - entity_urn
       - id
       title: PersonEnrichmentOutput
-    HTTPValidationError:
+    CreatePersonListCustomFieldInput:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    SelectListCustomFieldMetadataInputSchema:
-      properties:
-        options:
-          items:
-            $ref: '#/components/schemas/SelectListCustomFieldValueOptionInputSchema'
-          type: array
-          title: Options
-          default: []
-      additionalProperties: false
-      type: object
-      title: SelectListCustomFieldMetadataInputSchema
-    SocialStatus:
-      type: integer
-      enum:
-      - 1
-      - 2
-      title: SocialStatus
-    PersonSelectCustomFieldValueInput:
-      properties:
-        value:
-          items:
-            anyOf:
-            - type: string
-              pattern: urn:harmonic:user:id
-              title: UserUrn
-            - type: string
-          type: array
-          title: Value
-          default: []
-      additionalProperties: false
-      type: object
-      title: PersonSelectCustomFieldValueInput
-    WebsiteListCustomFieldValue:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-      additionalProperties: false
-      type: object
-      title: WebsiteListCustomFieldValue
-    PersonBatchGetInput:
-      properties:
-        ids:
-          items:
-            type: integer
-          type: array
-          title: Ids
-          default: []
-        urns:
-          items:
-            type: string
-          type: array
-          title: Urns
-          default: []
-        company_context_urns:
-          items:
-            type: string
-          type: array
-          title: Company Context Urns
-          default: []
-        include_fields:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Include Fields
-      additionalProperties: false
-      type: object
-      title: PersonBatchGetInput
-    PersonListEntriesBatchImportInput:
-      properties:
-        entries:
-          items:
-            $ref: '#/components/schemas/PersonListEntryInput'
-          type: array
-          title: Entries
-      additionalProperties: false
-      type: object
-      required:
-      - entries
-      title: PersonListEntriesBatchImportInput
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        name:
           type: string
-          title: Message
+          title: Name
         type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    StandardizedDegree:
-      type: string
-      enum:
-      - PHD
-      - DOCTOR_OF_MEDICINE
-      - JURIS_DOCTOR
-      - OTHER_DOCTORATE
-      - MASTER_OF_BUSINESS_ADMINISTRATION
-      - MASTERS_DEGREE
-      - BACHELORS_DEGREE
-      - ASSOCIATES_DEGREE
-      - CERTIFICATE
-      - HIGH_SCHOOL
-      - OTHER
-      - UNKNOWN
-      title: StandardizedDegree
-    RecordReferenceListCustomFieldMetadata:
-      properties:
-        record_type_urn:
-          type: string
-          title: Record Type Urn
-        allow_multiple:
-          type: boolean
-          title: Allow Multiple
-        mode:
+          $ref: '#/components/schemas/ListCustomFieldType'
+        metadata:
           anyOf:
-          - type: string
+          - $ref: '#/components/schemas/SelectListCustomFieldMetadataInputSchema'
+          - $ref: '#/components/schemas/NumberListCustomFieldMetadata'
+          - $ref: '#/components/schemas/DateListCustomFieldMetadata'
+          - $ref: '#/components/schemas/PersonListCustomFieldMetadata'
+          - $ref: '#/components/schemas/RecordReferenceListCustomFieldMetadata'
           - type: 'null'
-          title: Mode
+          title: Metadata
+        default_value:
+          anyOf:
+          - $ref: '#/components/schemas/CheckboxListCustomFieldValue'
+          - $ref: '#/components/schemas/NumberListCustomFieldValue'
+          - $ref: '#/components/schemas/TextListCustomFieldValue'
+          - $ref: '#/components/schemas/PersonListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/DateListCustomFieldDefaultValue'
+          - $ref: '#/components/schemas/WebsiteListCustomFieldValue'
+          - type: 'null'
+          title: Default Value
       additionalProperties: false
       type: object
       required:
-      - record_type_urn
-      - allow_multiple
-      title: RecordReferenceListCustomFieldMetadata
-    MultiSelectListCustomFieldValue:
+      - name
+      - type
+      title: CreatePersonListCustomFieldInput
+    SelectListCustomFieldValueOptionInputSchema:
       properties:
-        value:
-          items:
-            type: string
-            pattern: urn:harmonic:select_list_custom_field_value_option:id
-            title: SelectListCustomFieldValueOptionUrn
-          type: array
-          title: Value
-          default: []
+        urn:
+          type: string
+          pattern: urn:harmonic:select_list_custom_field_value_option:id
+          title: SelectListCustomFieldValueOptionUrn
+        name:
+          type: string
+          title: Name
+        color:
+          type: string
+          title: Color
+        default:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Default
+          default: false
       additionalProperties: false
       type: object
-      title: MultiSelectListCustomFieldValue
+      required:
+      - name
+      - color
+      title: SelectListCustomFieldValueOptionInputSchema
