@@ -274,365 +274,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    SocialMetadata:
-      properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        follower_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Follower Count
-        username:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Username
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/SocialStatus'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: SocialMetadata
-    LanguageMetadata:
-      properties:
-        name:
-          type: string
-          title: Name
-        proficiency:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Proficiency
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      title: LanguageMetadata
-    CompanySnapshotOutput:
-      properties:
-        website:
-          anyOf:
-          - $ref: '#/components/schemas/WebsiteMetadata'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - website_url
-          - website_domain
-          - website_url_is_broken
-        logo_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Logo Url
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - logo_url
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - name
-        legal_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Legal Name
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - legal_name
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - description
-        customer_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Customer Type
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - customer_type
-        founding_date:
-          anyOf:
-          - $ref: '#/components/schemas/FoundingDate-Output'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - founding_date
-          - founding_date_precision
-        headcount:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Headcount
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: number
-          source_big_table_column_key:
-          - headcount
-        ownership_status:
-          anyOf:
-          - $ref: '#/components/schemas/OwnershipStatus'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - ownership_status
-        company_type:
-          $ref: '#/components/schemas/CompanyType'
-          default: UNKNOWN
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: varchar
-          source_big_table_column_key:
-          - company_type
-        location:
-          anyOf:
-          - $ref: '#/components/schemas/LocationMetadata'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - address_formatted
-          - street
-          - location
-          - state
-          - city
-          - country
-          - zip_code
-          - metro_areas
-        contact:
-          anyOf:
-          - $ref: '#/components/schemas/ContactMetadata'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - id
-          - contact_exec_emails
-          - contact_numbers
-          - contact_emails
-          - primary_email
-          - primary_email_person_id
-        socials:
-          anyOf:
-          - additionalProperties:
-              anyOf:
-              - $ref: '#/components/schemas/SocialMetadata'
-              - $ref: '#/components/schemas/FacebookSocialMetadata'
-            type: object
-          - type: 'null'
-          title: Socials
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - linkedin_url
-          - linkedin_follower_count
-          - twitter_url
-          - twitter_handle
-          - twitter_follower_count
-          - crunchbase_url
-          - pitchbook_url
-          - instagram_url
-          - instagram_follower_count
-          - facebook_url
-          - facebook_page_like_count
-          - facebook_follower_count
-          - facebook_following_count
-          - angellist_url
-          - indeed_url
-          - monster_url
-          - stackoverflow_url
-          - glassdoor_url
-        funding:
-          anyOf:
-          - $ref: '#/components/schemas/FundingMetadata-Output'
-          - type: 'null'
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: object
-          source_big_table_column_key:
-          - company_investors
-          - investor_company_id
-          - investor_company_name
-          - person_investors
-          - investor_person_id
-          - investor_person_name
-          - funding_total
-          - num_funding_rounds
-          - last_funding_at
-          - last_funding_type
-          - last_funding_total
-          - funding_stage
-          - latest_post_money_valuation
-          - valuation_info
-          - funding_rounds
-        name_aliases:
-          items:
-            type: string
-          type: array
-          title: Name Aliases
-          default: []
-          source_big_table_column_key:
-          - name_aliases
-        website_domain_aliases:
-          items:
-            type: string
-          type: array
-          title: Website Domain Aliases
-          default: []
-          bq_to_snowflake_dsl:
-            snowflake:
-              field_type: variant
-          source_big_table_column_key:
-          - website_domain_aliases
-        corrected_headcount:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Corrected Headcount
-          source_big_table_column_key:
-          - corrected_headcount
-        external_headcount:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: External Headcount
-          source_big_table_column_key:
-          - external_headcount
-        web_traffic:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Web Traffic
-          source_big_table_column_key:
-          - web_traffic
-          - traction_metrics
-        stage:
-          anyOf:
-          - $ref: '#/components/schemas/FundingStage'
-          - $ref: '#/components/schemas/FundingType'
-          - type: 'null'
-          title: Stage
-          source_big_table_column_key:
-          - funding_stage
-        redirect_urn:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Redirect Urn
-          source_big_table_column_key:
-          - redirect_urn
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company_snapshot:id
-            title: CompanySnapshotUrn
-          - type: 'null'
-          title: Entity Urn
-        initialized_date:
-          type: string
-          title: Initialized Date
-        funding_attribute_null_status:
-          anyOf:
-          - $ref: '#/components/schemas/FundingAttributeNullStatus'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - initialized_date
-      title: CompanySnapshotOutput
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    FounderStory:
-      properties:
-        value:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Value
-        source:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source
-        submitted_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Submitted At
-      additionalProperties: false
-      type: object
-      title: FounderStory
-    InvestorVisbility:
-      type: string
-      enum:
-      - VISIBLE
-      - HIDDEN
-      title: InvestorVisbility
-    LinkedinProfileVisibilityType:
-      type: string
-      enum:
-      - FULLY_PUBLIC
-      - EXPERIENCE_AND_EDUCATION_BLURRED
-      - EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN
-      - PRIVATE_OR_NONEXISTENT
-      title: LinkedinProfileVisibilityType
     UnstandardizedExperienceMetadata-Output:
       properties:
         contact:
@@ -689,11 +330,114 @@ components:
       required:
       - company
       title: UnstandardizedExperienceMetadata
-    CurrentlyRaising:
+    TractionMetricsInfo:
+      properties:
+        14d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        30d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        90d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        180d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        365d_ago:
+          $ref: '#/components/schemas/TractionMetricsPoint'
+        metrics:
+          items:
+            $ref: '#/components/schemas/TractionMetricsTimeSeriesMetric'
+          type: array
+          title: Metrics
+          default: []
+        latest_metric_value:
+          anyOf:
+          - type: number
+          - type: integer
+          - type: 'null'
+          title: Latest Metric Value
+      additionalProperties: true
+      type: object
+      required:
+      - 14d_ago
+      - 30d_ago
+      - 90d_ago
+      - 180d_ago
+      - 365d_ago
+      title: TractionMetricsInfo
+    ContactMetadata:
+      properties:
+        emails:
+          items:
+            type: string
+          type: array
+          title: Emails
+          default: []
+        phone_numbers:
+          items:
+            type: string
+          type: array
+          title: Phone Numbers
+          default: []
+        exec_emails:
+          items:
+            type: string
+          type: array
+          title: Exec Emails
+          default: []
+        primary_email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Primary Email
+        primary_email_person_id:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Primary Email Person Id
+      additionalProperties: false
+      type: object
+      title: ContactMetadata
+    TagOutput:
+      properties:
+        display_value:
+          type: string
+          title: Display Value
+        type:
+          $ref: '#/components/schemas/TagType'
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:tag:id
+          title: TagUrn
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+        is_primary_tag:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Primary Tag
+      additionalProperties: false
+      type: object
+      required:
+      - display_value
+      - type
+      - entity_urn
+      title: TagOutput
+    Attachments:
       properties:
         value:
-          $ref: '#/components/schemas/CurrentlyRaisingEnum'
-          default: UNKNOWN
+          items:
+            $ref: '#/components/schemas/FounderProvidedAttachment'
+          type: array
+          title: Value
         source:
           anyOf:
           - type: string
@@ -707,16 +451,38 @@ components:
           title: Submitted At
       additionalProperties: false
       type: object
-      title: CurrentlyRaising
-    CompanyHighlightCategory:
+      title: Attachments
+    Department:
       type: string
       enum:
-      - Strong Team Growth
-      - Angel Backed
-      - Venture Backed
-      - Major Hire
-      - Soonicorn
-      title: CompanyHighlightCategory
+      - Advisor
+      - Customer Success
+      - Data
+      - Design
+      - Engineering
+      - Finance
+      - Legal
+      - Marketing
+      - Operations
+      - Other
+      - People
+      - Product
+      - Sales
+      - Support
+      title: Department
+    FoundingDate-Output:
+      properties:
+        date:
+          type: string
+          title: Date
+        granularity:
+          $ref: '#/components/schemas/FoundingDatePrecision'
+      additionalProperties: false
+      type: object
+      required:
+      - date
+      - granularity
+      title: FoundingDate
     CompanyEnrichmentOutput:
       properties:
         website:
@@ -1250,22 +1016,23 @@ components:
       - entity_urn
       - id
       title: CompanyEnrichmentOutput
-    TagOutput:
+    services__midtier__schemas__common__Highlight-Output:
       properties:
-        display_value:
-          type: string
-          title: Display Value
-        type:
-          $ref: '#/components/schemas/TagType'
+        category:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyHighlightCategory'
+          - $ref: '#/components/schemas/PersonHighlightCategory'
+          title: Category
         date_added:
           anyOf:
           - type: string
           - type: 'null'
           title: Date Added
-        entity_urn:
-          type: string
-          pattern: urn:harmonic:tag:id
-          title: TagUrn
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
         company_urn:
           anyOf:
           - type: string
@@ -1273,494 +1040,156 @@ components:
             title: CompanyUrn
           - type: 'null'
           title: Company Urn
-        is_primary_tag:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Primary Tag
       additionalProperties: false
       type: object
       required:
-      - display_value
-      - type
-      - entity_urn
-      title: TagOutput
-    PersonHighlightCategory:
+      - category
+      title: Highlight
+    PersonMetadata-Output:
+      properties:
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        department:
+          anyOf:
+          - $ref: '#/components/schemas/Department'
+          - type: 'null'
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        start_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+        end_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+        is_current_position:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Current Position
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        role_type:
+          anyOf:
+          - $ref: '#/components/schemas/RoleType'
+          - type: 'null'
+        person:
+          type: string
+          pattern: urn:harmonic:person:id
+          title: PersonUrn
+        person_company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:(urn:harmonic:person:A, urn:harmonic:company:B):id
+            title: PersonCompanyComplexUrn
+          - type: 'null'
+          title: Person Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - person
+      title: PersonMetadata
+    EducationMetadata-Output:
+      properties:
+        school:
+          anyOf:
+          - $ref: '#/components/schemas/SchoolOutput'
+          - $ref: '#/components/schemas/SchoolInput'
+          - type: string
+            pattern: urn:harmonic:school:id
+            title: SchoolUrn
+          title: School
+        degree:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Degree
+        standardized_degree:
+          anyOf:
+          - $ref: '#/components/schemas/StandardizedDegree'
+          - type: 'null'
+        field:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Field
+        grade:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Grade
+        start_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Date
+        end_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Date
+      additionalProperties: false
+      type: object
+      required:
+      - school
+      title: EducationMetadata
+    DataflowJobStatus:
       type: string
       enum:
-      - Seasoned Executive
-      - Seasoned Operator
-      - Seasoned Founder
-      - Seasoned Adviser
-      - Unicorn Executive
-      - Unicorn Operator
-      - Unicorn Founder
-      - Unicorn Adviser
-      - High Growth Startup Executive
-      - High Growth Startup Operator
-      - High Growth Startup Founder
-      - High Growth Startup Adviser
-      - Prior VC Backed Executive
-      - Prior VC Backed Operator
-      - Prior VC Backed Founder
-      - Prior VC Backed Adviser
-      - Current Student
-      - Top University
-      - HBCU Alum
-      - HBCU University
-      - Deep Technical Background
-      - Prior Exit
-      - Top Company Alum
-      - Unicorn Alum
-      - Major Tech Company Experience
-      - Legacy Tech Company Experience
-      - Elite Industry Experience
-      - Major Research Institution Experience
-      - Major Government Experience
-      - Major Financial Institution Experience
-      - Venture Background
-      - $5M Club
-      - $10M Club
-      - $15M Club
-      - $20M Club
-      - $25M Club
-      - $30M Club
-      - $30M Raised
-      - $35M Club
-      - $40M Club
-      - $45M Club
-      - $50M Club
-      - $50M+ Club
-      - $55M Club
-      - $60M Club
-      - $65M Club
-      - $70M Club
-      - $75M Club
-      - $80M Club
-      - $85M Club
-      - $90M Club
-      - $95M Club
-      - $100M Club
-      - $105M Club
-      - $110M Club
-      - $115M Club
-      - $120M Club
-      - $125M Club
-      - $130M Club
-      - $135M Club
-      - $140M Club
-      - $145M Club
-      - $150M Club
-      - $155M Club
-      - $160M Club
-      - $165M Club
-      - $170M Club
-      - $175M Club
-      - $180M Club
-      - $185M Club
-      - $190M Club
-      - $195M Club
-      - $200M Club
-      - $205M Club
-      - $210M Club
-      - $215M Club
-      - $220M Club
-      - $225M Club
-      - $230M Club
-      - $235M Club
-      - $240M Club
-      - $245M Club
-      - $250M Club
-      - $255M Club
-      - $260M Club
-      - $265M Club
-      - $270M Club
-      - $275M Club
-      - $280M Club
-      - $285M Club
-      - $290M Club
-      - $295M Club
-      - $300M Club
-      - Free Agent
-      - Founder Turned Operator
-      - Stealth Founder
-      - Vested Former Founder
-      - Jack of All Trades
-      - YC Backed Founder
-      - Top Web3 Experience
-      - Top AI Experience
-      - Notable Followers
-      - New Notable Followers
-      title: PersonHighlightCategory
-    ContactMetadata:
-      properties:
-        emails:
-          items:
-            type: string
-          type: array
-          title: Emails
-          default: []
-        phone_numbers:
-          items:
-            type: string
-          type: array
-          title: Phone Numbers
-          default: []
-        exec_emails:
-          items:
-            type: string
-          type: array
-          title: Exec Emails
-          default: []
-        primary_email:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Primary Email
-        primary_email_person_id:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Primary Email Person Id
-      additionalProperties: false
-      type: object
-      title: ContactMetadata
-    SchoolInput:
-      properties:
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-        linkedin_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Linkedin Url
-        logo_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Logo Url
-      additionalProperties: false
-      type: object
-      title: SchoolInput
-    Rebranding:
-      properties:
-        formerly_known_as:
-          items:
-            type: string
-          type: array
-          title: Formerly Known As
-          description: Names this company previously operated under (rebrands), most recent first.
-          default: []
-      additionalProperties: false
-      type: object
-      title: Rebranding
-    FundingStage:
+      - QUEUED
+      - IN_PROGRESS
+      - COMPLETE
+      - FAILED
+      - NOT_FOUND
+      - EXPERIENCES_HIDDEN
+      title: DataflowJobStatus
+    OwnershipStatus:
       type: string
       enum:
-      - STEALTH
-      - PRE_SEED
-      - SEED
-      - SERIES_A
-      - SERIES_B
-      - SERIES_C
-      - SERIES_D
-      - SERIES_E
-      - SERIES_F
-      - SERIES_G
-      - SERIES_H
-      - SERIES_I
-      - SERIES_J
-      - SERIES_K_PLUS
-      - VENTURE_UNKNOWN
-      - EXITED
+      - PRIVATE
       - OUT_OF_BUSINESS
-      title: FundingStage
-    CompanyValuationInfo-Output:
+      - ACQUIRED_OR_MERGED
+      - ACTIVE
+      - INACTIVE
+      - MANAGING
+      - IPO_REGISTRATION
+      - PUBLIC
+      title: OwnershipStatus
+    CurrentlyRaising:
       properties:
         value:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Value
+          $ref: '#/components/schemas/CurrentlyRaisingEnum'
+          default: UNKNOWN
         source:
           anyOf:
-          - $ref: '#/components/schemas/ValuationSource'
-          - type: 'null'
-        source_details:
-          anyOf:
           - type: string
           - type: 'null'
-          title: Source Details
-        is_potentially_stale:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Potentially Stale
-        is_potentially_stale_details:
+          title: Source
+        submitted_at:
           anyOf:
           - type: string
+            format: date-time
           - type: 'null'
-          title: Is Potentially Stale Details
+          title: Submitted At
       additionalProperties: false
       type: object
-      title: CompanyValuationInfo
-      description: Company-level valuation info - extends base with staleness fields.
-    TractionMetrics:
-      properties:
-        facebook_like_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_facebook_like_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        facebook_follower_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_facebook_follower_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        facebook_following_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_facebook_following_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        linkedin_follower_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_linkedin_follower_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        instagram_follower_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_instagram_follower_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        twitter_follower_count:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        external_twitter_follower_count:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        headcount:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        corrected_headcount:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        external_headcount:
-          anyOf:
-          - $ref: '#/components/schemas/TractionMetricsInfo'
-          - type: 'null'
-        funding_total:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        web_traffic:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_advisor:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_customer_success:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_data:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_design:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_engineering:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_finance:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_legal:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_marketing:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_operations:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_other:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_people:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_product:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_sales:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-        headcount_support:
-          $ref: '#/components/schemas/TractionMetricsInfo'
-      additionalProperties: false
-      type: object
-      required:
-      - facebook_like_count
-      - facebook_follower_count
-      - facebook_following_count
-      - linkedin_follower_count
-      - instagram_follower_count
-      - twitter_follower_count
-      - headcount
-      - funding_total
-      - web_traffic
-      - headcount_advisor
-      - headcount_customer_success
-      - headcount_data
-      - headcount_design
-      - headcount_engineering
-      - headcount_finance
-      - headcount_legal
-      - headcount_marketing
-      - headcount_operations
-      - headcount_other
-      - headcount_people
-      - headcount_product
-      - headcount_sales
-      - headcount_support
-      title: TractionMetrics
-    Subsidiary:
-      properties:
-        company_urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-      additionalProperties: false
-      type: object
-      required:
-      - company_urn
-      title: Subsidiary
-    FundingCompletionStatus:
-      type: string
-      enum:
-      - COMPLETED
-      - CONFIRMED_UNDISCLOSED
-      - IN_PROCESS
-      - RUMORED
-      title: FundingCompletionStatus
-    FundingRoundInvestor:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          title: Entity Urn
-        is_lead:
-          type: boolean
-          title: Is Lead
-          default: false
-        investor_name:
-          type: string
-          title: Investor Name
-        association_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:funding_round_association:id
-            title: FundingRoundAssociationUrn
-          - type: string
-            pattern: urn:harmonic:funding_round_investor_association:id
-            title: FundingRoundInvestorAssociationUrn
-          - type: string
-            pattern: urn:harmonic:(urn:harmonic:investor:A, urn:harmonic:company:B):id
-            title: InvestorPortcoCompanyAssociationUrn
-          - type: string
-            pattern: urn:harmonic:test_funding_round_association:id
-            title: TestFundingRoundAssociationUrn
-          title: Association Urn
-        investor_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: 'null'
-          title: Investor Urn
-        visibility_status:
-          anyOf:
-          - $ref: '#/components/schemas/InvestorVisbility'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      - investor_name
-      - association_urn
-      title: FundingRoundInvestor
-    StealthEmergence:
-      properties:
-        emergence_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Emergence Date
-          source_big_table_column_key:
-          - stealth_emergence_date
-        previously_known_as:
-          items:
-            type: string
-          type: array
-          title: Previously Known As
-          default: []
-          source_big_table_column_key:
-          - merged_stealth_company_names
-      additionalProperties: false
-      type: object
-      title: StealthEmergence
-    NotableFollowerOutput:
-      properties:
-        follower_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          title: Follower Urn
-        follower_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Follower Name
-        firm_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          - type: 'null'
-          title: Firm Urn
-        firm_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Firm Name
-        followed_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          title: Followed Urn
-        followed_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Followed Name
-        follow_observed_at:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Follow Observed At
-      additionalProperties: false
-      type: object
-      required:
-      - follower_urn
-      - followed_urn
-      title: NotableFollowerOutput
-      description: 'A tracked notable account (firm or individual investor) following a
-
-        person at the company, or the company''s own X handle.'
+      title: CurrentlyRaising
     ExperienceMetadata-Output:
       properties:
         contact:
@@ -1819,74 +1248,108 @@ components:
       required:
       - company
       title: ExperienceMetadata
-    CompanyRelationship:
-      properties:
-        beta_notice:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Beta Notice
-          default: Relationship data is in beta and may not be accurate, please reach out with any feedback.
-        acquisitions:
-          items:
-            $ref: '#/components/schemas/Acquisition'
-          type: array
-          title: Acquisitions
-          default: []
-        acquired_by:
-          anyOf:
-          - $ref: '#/components/schemas/Acquisition'
-          - type: 'null'
-        subsidiaries:
-          items:
-            $ref: '#/components/schemas/Subsidiary'
-          type: array
-          title: Subsidiaries
-          default: []
-        subsidiary_of:
-          anyOf:
-          - $ref: '#/components/schemas/Subsidiary'
-          - type: 'null'
-        prior_stealth_association:
-          anyOf:
-          - $ref: '#/components/schemas/StealthEmergence'
-          - type: 'null'
-        rebrands:
-          anyOf:
-          - $ref: '#/components/schemas/Rebranding'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: CompanyRelationship
-    FoundingDate-Output:
-      properties:
-        date:
-          type: string
-          title: Date
-        granularity:
-          $ref: '#/components/schemas/FoundingDatePrecision'
-      additionalProperties: false
-      type: object
-      required:
-      - date
-      - granularity
-      title: FoundingDate
-    TagType:
+    CompanyType:
       type: string
       enum:
       - UNKNOWN
-      - PRODUCT_HUNT
-      - YC_BATCH
-      - INDUSTRY
-      - EXTERNAL_INDUSTRY
-      - TECHNOLOGY
-      - PRODUCT_TYPE
-      - CUSTOMER_TYPE
-      - TECHNOLOGY_TYPE
-      - MARKET_VERTICAL
-      - MARKET_SUB_VERTICAL
-      - ACCELERATOR
-      title: TagType
+      - STARTUP
+      - SCHOOL
+      title: CompanyType
+    services__midtier__schemas__person__Highlight-Output:
+      properties:
+        category:
+          $ref: '#/components/schemas/PersonHighlightCategory'
+        date_added:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date Added
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+        company_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: 'null'
+          title: Company Urn
+      additionalProperties: false
+      type: object
+      required:
+      - category
+      title: Highlight
+    EnrichmentOutput:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:enrichment:id
+            title: EnrichmentUrn
+          - type: 'null'
+          title: Entity Urn
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/DataflowJobStatus'
+          - type: 'null'
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Message
+        enriched_entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Enriched Entity Urn
+      additionalProperties: false
+      type: object
+      title: EnrichmentOutput
+    ValuationSource:
+      type: string
+      enum:
+      - UNKNOWN
+      - PUBLICLY_DISCLOSED
+      - PRIVATELY_SOURCED
+      - ESTIMATED
+      title: ValuationSource
+      description: Source classification for valuation data.
+    CompanyHighlightCategory:
+      type: string
+      enum:
+      - Strong Team Growth
+      - Angel Backed
+      - Venture Backed
+      - Major Hire
+      - Soonicorn
+      title: CompanyHighlightCategory
+    FounderProvidedAttachment:
+      properties:
+        url:
+          type: string
+          title: Url
+        filename:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Filename
+        content_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Content Type
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: FounderProvidedAttachment
     FundingRoundOutput:
       properties:
         announcement_date:
@@ -1990,174 +1453,6 @@ components:
       - entity_urn
       - company_urn
       title: FundingRoundOutput
-    Department:
-      type: string
-      enum:
-      - Advisor
-      - Customer Success
-      - Data
-      - Design
-      - Engineering
-      - Finance
-      - Legal
-      - Marketing
-      - Operations
-      - Other
-      - People
-      - Product
-      - Sales
-      - Support
-      title: Department
-    FacebookSocialMetadata:
-      properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        follower_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Follower Count
-        username:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Username
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/SocialStatus'
-          - type: 'null'
-        following_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Following Count
-        like_count:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Like Count
-      additionalProperties: false
-      type: object
-      title: FacebookSocialMetadata
-    TractionMetricsInfo:
-      properties:
-        14d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        30d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        90d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        180d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        365d_ago:
-          $ref: '#/components/schemas/TractionMetricsPoint'
-        metrics:
-          items:
-            $ref: '#/components/schemas/TractionMetricsTimeSeriesMetric'
-          type: array
-          title: Metrics
-          default: []
-        latest_metric_value:
-          anyOf:
-          - type: number
-          - type: integer
-          - type: 'null'
-          title: Latest Metric Value
-      additionalProperties: true
-      type: object
-      required:
-      - 14d_ago
-      - 30d_ago
-      - 90d_ago
-      - 180d_ago
-      - 365d_ago
-      title: TractionMetricsInfo
-    EducationMetadata-Output:
-      properties:
-        school:
-          anyOf:
-          - $ref: '#/components/schemas/SchoolOutput'
-          - $ref: '#/components/schemas/SchoolInput'
-          - type: string
-            pattern: urn:harmonic:school:id
-            title: SchoolUrn
-          title: School
-        degree:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Degree
-        standardized_degree:
-          anyOf:
-          - $ref: '#/components/schemas/StandardizedDegree'
-          - type: 'null'
-        field:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Field
-        grade:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Grade
-        start_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Start Date
-        end_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: End Date
-      additionalProperties: false
-      type: object
-      required:
-      - school
-      title: EducationMetadata
-    EnrichmentOutput:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:enrichment:id
-            title: EnrichmentUrn
-          - type: 'null'
-          title: Entity Urn
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/DataflowJobStatus'
-          - type: 'null'
-        message:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Message
-        enriched_entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Enriched Entity Urn
-      additionalProperties: false
-      type: object
-      title: EnrichmentOutput
-    CurrentlyRaisingEnum:
-      type: string
-      enum:
-      - 'YES'
-      - MAYBE
-      - 'NO'
-      - UNKNOWN
-      title: CurrentlyRaisingEnum
     FundingAttributeNullStatus:
       type: string
       enum:
@@ -2181,205 +1476,30 @@ components:
         - last_funding_type
 
         - last_funding_total'
-    Attachments:
-      properties:
-        value:
-          items:
-            $ref: '#/components/schemas/FounderProvidedAttachment'
-          type: array
-          title: Value
-        source:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source
-        submitted_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Submitted At
-      additionalProperties: false
-      type: object
-      title: Attachments
-    services__midtier__schemas__person__Highlight-Output:
-      properties:
-        category:
-          $ref: '#/components/schemas/PersonHighlightCategory'
-        date_added:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date Added
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-        company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: 'null'
-          title: Company Urn
-      additionalProperties: false
-      type: object
-      required:
-      - category
-      title: Highlight
-    OwnershipStatus:
+    LinkedinProfileVisibilityType:
       type: string
       enum:
-      - PRIVATE
-      - OUT_OF_BUSINESS
-      - ACQUIRED_OR_MERGED
-      - ACTIVE
-      - INACTIVE
-      - MANAGING
-      - IPO_REGISTRATION
-      - PUBLIC
-      title: OwnershipStatus
-    Investor:
-      properties:
-        entity_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: string
-            pattern: urn:harmonic:person:id
-            title: PersonUrn
-          - type: 'null'
-          title: Entity Urn
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      additionalProperties: false
-      type: object
-      title: Investor
-    FoundingDatePrecision:
+      - FULLY_PUBLIC
+      - EXPERIENCE_AND_EDUCATION_BLURRED
+      - EXPERIENCES_AND_EDUCATION_SECTIONS_HIDDEN
+      - PRIVATE_OR_NONEXISTENT
+      title: LinkedinProfileVisibilityType
+    TagType:
       type: string
       enum:
-      - DAY
-      - MONTH
-      - YEAR
-      title: FoundingDatePrecision
-    TractionMetricsTimeSeriesMetric:
-      properties:
-        timestamp:
-          type: string
-          format: date-time
-          title: Timestamp
-        metric_value:
-          anyOf:
-          - type: integer
-          - type: number
-          title: Metric Value
-      additionalProperties: false
-      type: object
-      required:
-      - timestamp
-      - metric_value
-      title: TractionMetricsTimeSeriesMetric
-    Acquisition:
-      properties:
-        company_urn:
-          type: string
-          pattern: urn:harmonic:company:id
-          title: CompanyUrn
-      additionalProperties: false
-      type: object
-      required:
-      - company_urn
-      title: Acquisition
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    SocialStatus:
-      type: integer
-      enum:
-      - 1
-      - 2
-      title: SocialStatus
-    ValuationInfo:
-      properties:
-        value:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Value
-        source:
-          anyOf:
-          - $ref: '#/components/schemas/ValuationSource'
-          - type: 'null'
-        source_details:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Source Details
-      additionalProperties: false
-      type: object
-      title: ValuationInfo
-      description: Base valuation info - used for per-funding-round valuation.
-    FundingMetadata-Output:
-      properties:
-        funding_total:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Funding Total
-        num_funding_rounds:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Num Funding Rounds
-        investors:
-          items:
-            $ref: '#/components/schemas/Investor'
-          type: array
-          title: Investors
-          default: []
-        last_funding_at:
-          anyOf:
-          - {}
-          - type: 'null'
-          title: Last Funding At
-        last_funding_type:
-          anyOf:
-          - $ref: '#/components/schemas/FundingType'
-          - type: 'null'
-        last_funding_total:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Last Funding Total
-        funding_stage:
-          anyOf:
-          - $ref: '#/components/schemas/FundingStage'
-          - $ref: '#/components/schemas/FundingType'
-          - type: 'null'
-          title: Funding Stage
-        valuation:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Valuation
-        valuation_info:
-          anyOf:
-          - $ref: '#/components/schemas/CompanyValuationInfo-Output'
-          - type: 'null'
-      additionalProperties: false
-      type: object
-      title: FundingMetadata
+      - UNKNOWN
+      - PRODUCT_HUNT
+      - YC_BATCH
+      - INDUSTRY
+      - EXTERNAL_INDUSTRY
+      - TECHNOLOGY
+      - PRODUCT_TYPE
+      - CUSTOMER_TYPE
+      - TECHNOLOGY_TYPE
+      - MARKET_VERTICAL
+      - MARKET_SUB_VERTICAL
+      - ACCELERATOR
+      title: TagType
     PersonEnrichmentOutput:
       properties:
         full_name:
@@ -2699,44 +1819,22 @@ components:
       - entity_urn
       - id
       title: PersonEnrichmentOutput
-    DataflowJobStatus:
-      type: string
-      enum:
-      - QUEUED
-      - IN_PROGRESS
-      - COMPLETE
-      - FAILED
-      - NOT_FOUND
-      - EXPERIENCES_HIDDEN
-      title: DataflowJobStatus
-    FounderProvidedAttachment:
+    LanguageMetadata:
       properties:
-        url:
+        name:
           type: string
-          title: Url
-        filename:
+          title: Name
+        proficiency:
           anyOf:
           - type: string
           - type: 'null'
-          title: Filename
-        content_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Content Type
+          title: Proficiency
       additionalProperties: false
       type: object
       required:
-      - url
-      title: FounderProvidedAttachment
-    CompanyType:
-      type: string
-      enum:
-      - UNKNOWN
-      - STARTUP
-      - SCHOOL
-      title: CompanyType
-    SchoolOutput:
+      - name
+      title: LanguageMetadata
+    SchoolInput:
       properties:
         name:
           anyOf:
@@ -2753,230 +1851,175 @@ components:
           - type: string
           - type: 'null'
           title: Logo Url
+      additionalProperties: false
+      type: object
+      title: SchoolInput
+    TractionMetrics:
+      properties:
+        facebook_like_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_like_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        facebook_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        facebook_following_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_facebook_following_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        linkedin_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_linkedin_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        instagram_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_instagram_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        twitter_follower_count:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        external_twitter_follower_count:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        headcount:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        corrected_headcount:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        external_headcount:
+          anyOf:
+          - $ref: '#/components/schemas/TractionMetricsInfo'
+          - type: 'null'
+        funding_total:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        web_traffic:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_advisor:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_customer_success:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_data:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_design:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_engineering:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_finance:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_legal:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_marketing:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_operations:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_other:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_people:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_product:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_sales:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+        headcount_support:
+          $ref: '#/components/schemas/TractionMetricsInfo'
+      additionalProperties: false
+      type: object
+      required:
+      - facebook_like_count
+      - facebook_follower_count
+      - facebook_following_count
+      - linkedin_follower_count
+      - instagram_follower_count
+      - twitter_follower_count
+      - headcount
+      - funding_total
+      - web_traffic
+      - headcount_advisor
+      - headcount_customer_success
+      - headcount_data
+      - headcount_design
+      - headcount_engineering
+      - headcount_finance
+      - headcount_legal
+      - headcount_marketing
+      - headcount_operations
+      - headcount_other
+      - headcount_people
+      - headcount_product
+      - headcount_sales
+      - headcount_support
+      title: TractionMetrics
+    FundingRoundInvestor:
+      properties:
         entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Entity Urn
+        is_lead:
+          type: boolean
+          title: Is Lead
+          default: false
+        investor_name:
           type: string
-          pattern: urn:harmonic:school:id
-          title: SchoolUrn
+          title: Investor Name
+        association_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:funding_round_association:id
+            title: FundingRoundAssociationUrn
+          - type: string
+            pattern: urn:harmonic:funding_round_investor_association:id
+            title: FundingRoundInvestorAssociationUrn
+          - type: string
+            pattern: urn:harmonic:(urn:harmonic:investor:A, urn:harmonic:company:B):id
+            title: InvestorPortcoCompanyAssociationUrn
+          - type: string
+            pattern: urn:harmonic:test_funding_round_association:id
+            title: TestFundingRoundAssociationUrn
+          title: Association Urn
+        investor_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Investor Urn
+        visibility_status:
+          anyOf:
+          - $ref: '#/components/schemas/InvestorVisbility'
+          - type: 'null'
       additionalProperties: false
       type: object
       required:
       - entity_urn
-      title: SchoolOutput
-    TractionMetricsPoint:
-      properties:
-        value:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Value
-        change:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Change
-        percent_change:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Percent Change
-      additionalProperties: false
-      type: object
-      title: TractionMetricsPoint
-    LocationMetadata:
-      properties:
-        address_formatted:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Address Formatted
-        location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Street
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: City
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: State
-        zip:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Zip
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Country
-        metro_areas:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Metro Areas
-      additionalProperties: false
-      type: object
-      title: LocationMetadata
-    StandardizedDegree:
+      - investor_name
+      - association_urn
+      title: FundingRoundInvestor
+    CurrentlyRaisingEnum:
       type: string
       enum:
-      - PHD
-      - DOCTOR_OF_MEDICINE
-      - JURIS_DOCTOR
-      - OTHER_DOCTORATE
-      - MASTER_OF_BUSINESS_ADMINISTRATION
-      - MASTERS_DEGREE
-      - BACHELORS_DEGREE
-      - ASSOCIATES_DEGREE
-      - CERTIFICATE
-      - HIGH_SCHOOL
-      - OTHER
+      - 'YES'
+      - MAYBE
+      - 'NO'
       - UNKNOWN
-      title: StandardizedDegree
-    services__midtier__schemas__common__Highlight-Output:
-      properties:
-        category:
-          anyOf:
-          - $ref: '#/components/schemas/CompanyHighlightCategory'
-          - $ref: '#/components/schemas/PersonHighlightCategory'
-          title: Category
-        date_added:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date Added
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-        company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:company:id
-            title: CompanyUrn
-          - type: 'null'
-          title: Company Urn
-      additionalProperties: false
-      type: object
-      required:
-      - category
-      title: Highlight
-    WebsiteMetadata:
-      properties:
-        url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Url
-        domain:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Domain
-        is_broken:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Broken
-      additionalProperties: false
-      type: object
-      title: WebsiteMetadata
-    RoleType:
-      type: string
-      enum:
-      - FOUNDER
-      - CEO
-      - EXECUTIVE
-      - OPERATOR
-      - INTERN
-      - ALUMNI
-      - ADVISER
-      - EMPLOYEE
-      - INVESTOR
-      - FALSE_POSITION
-      title: RoleType
-    PersonMetadata-Output:
-      properties:
-        contact:
-          anyOf:
-          - $ref: '#/components/schemas/ContactMetadata'
-          - type: 'null'
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        department:
-          anyOf:
-          - $ref: '#/components/schemas/Department'
-          - type: 'null'
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        start_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Start Date
-        end_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: End Date
-        is_current_position:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Current Position
-        location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Location
-        role_type:
-          anyOf:
-          - $ref: '#/components/schemas/RoleType'
-          - type: 'null'
-        person:
-          type: string
-          pattern: urn:harmonic:person:id
-          title: PersonUrn
-        person_company_urn:
-          anyOf:
-          - type: string
-            pattern: urn:harmonic:(urn:harmonic:person:A, urn:harmonic:company:B):id
-            title: PersonCompanyComplexUrn
-          - type: 'null'
-          title: Person Company Urn
-      additionalProperties: false
-      type: object
-      required:
-      - person
-      title: PersonMetadata
-    ValuationSource:
-      type: string
-      enum:
-      - UNKNOWN
-      - PUBLICLY_DISCLOSED
-      - PRIVATELY_SOURCED
-      - ESTIMATED
-      title: ValuationSource
-      description: Source classification for valuation data.
+      title: CurrentlyRaisingEnum
     FundingType:
       type: string
       enum:
@@ -3114,3 +2157,960 @@ components:
       - SALE_LEASE_BACK
       - GP_STAKES
       title: FundingType
+    TractionMetricsTimeSeriesMetric:
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          title: Timestamp
+        metric_value:
+          anyOf:
+          - type: integer
+          - type: number
+          title: Metric Value
+      additionalProperties: false
+      type: object
+      required:
+      - timestamp
+      - metric_value
+      title: TractionMetricsTimeSeriesMetric
+    FacebookSocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+        following_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Following Count
+        like_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Like Count
+      additionalProperties: false
+      type: object
+      title: FacebookSocialMetadata
+    StandardizedDegree:
+      type: string
+      enum:
+      - PHD
+      - DOCTOR_OF_MEDICINE
+      - JURIS_DOCTOR
+      - OTHER_DOCTORATE
+      - MASTER_OF_BUSINESS_ADMINISTRATION
+      - MASTERS_DEGREE
+      - BACHELORS_DEGREE
+      - ASSOCIATES_DEGREE
+      - CERTIFICATE
+      - HIGH_SCHOOL
+      - OTHER
+      - UNKNOWN
+      title: StandardizedDegree
+    FundingMetadata-Output:
+      properties:
+        funding_total:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Funding Total
+        num_funding_rounds:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Num Funding Rounds
+        investors:
+          items:
+            $ref: '#/components/schemas/Investor'
+          type: array
+          title: Investors
+          default: []
+        last_funding_at:
+          anyOf:
+          - {}
+          - type: 'null'
+          title: Last Funding At
+        last_funding_type:
+          anyOf:
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+        last_funding_total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Funding Total
+        funding_stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Funding Stage
+        valuation:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Valuation
+        valuation_info:
+          anyOf:
+          - $ref: '#/components/schemas/CompanyValuationInfo-Output'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: FundingMetadata
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    FounderStory:
+      properties:
+        value:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        submitted_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Submitted At
+      additionalProperties: false
+      type: object
+      title: FounderStory
+    NotableFollowerOutput:
+      properties:
+        follower_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          title: Follower Urn
+        follower_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follower Name
+        firm_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          - type: 'null'
+          title: Firm Urn
+        firm_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Firm Name
+        followed_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          title: Followed Urn
+        followed_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Followed Name
+        follow_observed_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Follow Observed At
+      additionalProperties: false
+      type: object
+      required:
+      - follower_urn
+      - followed_urn
+      title: NotableFollowerOutput
+      description: 'A tracked notable account (firm or individual investor) following a
+
+        person at the company, or the company''s own X handle.'
+    WebsiteMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        domain:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Domain
+        is_broken:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Broken
+      additionalProperties: false
+      type: object
+      title: WebsiteMetadata
+    SocialStatus:
+      type: integer
+      enum:
+      - 1
+      - 2
+      title: SocialStatus
+    RoleType:
+      type: string
+      enum:
+      - FOUNDER
+      - CEO
+      - EXECUTIVE
+      - OPERATOR
+      - INTERN
+      - ALUMNI
+      - ADVISER
+      - EMPLOYEE
+      - INVESTOR
+      - FALSE_POSITION
+      title: RoleType
+    CompanyValuationInfo-Output:
+      properties:
+        value:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationSource'
+          - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
+        is_potentially_stale:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Potentially Stale
+        is_potentially_stale_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Is Potentially Stale Details
+      additionalProperties: false
+      type: object
+      title: CompanyValuationInfo
+      description: Company-level valuation info - extends base with staleness fields.
+    FundingCompletionStatus:
+      type: string
+      enum:
+      - COMPLETED
+      - CONFIRMED_UNDISCLOSED
+      - IN_PROCESS
+      - RUMORED
+      title: FundingCompletionStatus
+    TractionMetricsPoint:
+      properties:
+        value:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Value
+        change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Change
+        percent_change:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Percent Change
+      additionalProperties: false
+      type: object
+      title: TractionMetricsPoint
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    FoundingDatePrecision:
+      type: string
+      enum:
+      - DAY
+      - MONTH
+      - YEAR
+      title: FoundingDatePrecision
+    Rebranding:
+      properties:
+        formerly_known_as:
+          items:
+            type: string
+          type: array
+          title: Formerly Known As
+          description: Names this company previously operated under (rebrands), most recent first.
+          default: []
+      additionalProperties: false
+      type: object
+      title: Rebranding
+    FundingStage:
+      type: string
+      enum:
+      - STEALTH
+      - PRE_SEED
+      - SEED
+      - SERIES_A
+      - SERIES_B
+      - SERIES_C
+      - SERIES_D
+      - SERIES_E
+      - SERIES_F
+      - SERIES_G
+      - SERIES_H
+      - SERIES_I
+      - SERIES_J
+      - SERIES_K_PLUS
+      - VENTURE_UNKNOWN
+      - EXITED
+      - OUT_OF_BUSINESS
+      title: FundingStage
+    ValuationInfo:
+      properties:
+        value:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Value
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/ValuationSource'
+          - type: 'null'
+        source_details:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Details
+      additionalProperties: false
+      type: object
+      title: ValuationInfo
+      description: Base valuation info - used for per-funding-round valuation.
+    InvestorVisbility:
+      type: string
+      enum:
+      - VISIBLE
+      - HIDDEN
+      title: InvestorVisbility
+    PersonHighlightCategory:
+      type: string
+      enum:
+      - Seasoned Executive
+      - Seasoned Operator
+      - Seasoned Founder
+      - Seasoned Adviser
+      - Unicorn Executive
+      - Unicorn Operator
+      - Unicorn Founder
+      - Unicorn Adviser
+      - High Growth Startup Executive
+      - High Growth Startup Operator
+      - High Growth Startup Founder
+      - High Growth Startup Adviser
+      - Prior VC Backed Executive
+      - Prior VC Backed Operator
+      - Prior VC Backed Founder
+      - Prior VC Backed Adviser
+      - Current Student
+      - Top University
+      - HBCU Alum
+      - HBCU University
+      - Deep Technical Background
+      - Prior Exit
+      - Top Company Alum
+      - Unicorn Alum
+      - Major Tech Company Experience
+      - Legacy Tech Company Experience
+      - Elite Industry Experience
+      - Major Research Institution Experience
+      - Major Government Experience
+      - Major Financial Institution Experience
+      - Venture Background
+      - $5M Club
+      - $10M Club
+      - $15M Club
+      - $20M Club
+      - $25M Club
+      - $30M Club
+      - $30M Raised
+      - $35M Club
+      - $40M Club
+      - $45M Club
+      - $50M Club
+      - $50M+ Club
+      - $55M Club
+      - $60M Club
+      - $65M Club
+      - $70M Club
+      - $75M Club
+      - $80M Club
+      - $85M Club
+      - $90M Club
+      - $95M Club
+      - $100M Club
+      - $105M Club
+      - $110M Club
+      - $115M Club
+      - $120M Club
+      - $125M Club
+      - $130M Club
+      - $135M Club
+      - $140M Club
+      - $145M Club
+      - $150M Club
+      - $155M Club
+      - $160M Club
+      - $165M Club
+      - $170M Club
+      - $175M Club
+      - $180M Club
+      - $185M Club
+      - $190M Club
+      - $195M Club
+      - $200M Club
+      - $205M Club
+      - $210M Club
+      - $215M Club
+      - $220M Club
+      - $225M Club
+      - $230M Club
+      - $235M Club
+      - $240M Club
+      - $245M Club
+      - $250M Club
+      - $255M Club
+      - $260M Club
+      - $265M Club
+      - $270M Club
+      - $275M Club
+      - $280M Club
+      - $285M Club
+      - $290M Club
+      - $295M Club
+      - $300M Club
+      - Free Agent
+      - Founder Turned Operator
+      - Stealth Founder
+      - Vested Former Founder
+      - Jack of All Trades
+      - YC Backed Founder
+      - Top Web3 Experience
+      - Top AI Experience
+      - Notable Followers
+      - New Notable Followers
+      title: PersonHighlightCategory
+    SchoolOutput:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        linkedin_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linkedin Url
+        logo_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logo Url
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:school:id
+          title: SchoolUrn
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      title: SchoolOutput
+    Subsidiary:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Subsidiary
+    Acquisition:
+      properties:
+        company_urn:
+          type: string
+          pattern: urn:harmonic:company:id
+          title: CompanyUrn
+      additionalProperties: false
+      type: object
+      required:
+      - company_urn
+      title: Acquisition
+    CompanySnapshotOutput:
+      properties:
+        website:
+          anyOf:
+          - $ref: '#/components/schemas/WebsiteMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - website_url
+          - website_domain
+          - website_url_is_broken
+        logo_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logo Url
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - logo_url
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - name
+        legal_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Legal Name
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - legal_name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - description
+        customer_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Customer Type
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - customer_type
+        founding_date:
+          anyOf:
+          - $ref: '#/components/schemas/FoundingDate-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - founding_date
+          - founding_date_precision
+        headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Headcount
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: number
+          source_big_table_column_key:
+          - headcount
+        ownership_status:
+          anyOf:
+          - $ref: '#/components/schemas/OwnershipStatus'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - ownership_status
+        company_type:
+          $ref: '#/components/schemas/CompanyType'
+          default: UNKNOWN
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: varchar
+          source_big_table_column_key:
+          - company_type
+        location:
+          anyOf:
+          - $ref: '#/components/schemas/LocationMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - address_formatted
+          - street
+          - location
+          - state
+          - city
+          - country
+          - zip_code
+          - metro_areas
+        contact:
+          anyOf:
+          - $ref: '#/components/schemas/ContactMetadata'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - id
+          - contact_exec_emails
+          - contact_numbers
+          - contact_emails
+          - primary_email
+          - primary_email_person_id
+        socials:
+          anyOf:
+          - additionalProperties:
+              anyOf:
+              - $ref: '#/components/schemas/SocialMetadata'
+              - $ref: '#/components/schemas/FacebookSocialMetadata'
+            type: object
+          - type: 'null'
+          title: Socials
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - linkedin_url
+          - linkedin_follower_count
+          - twitter_url
+          - twitter_handle
+          - twitter_follower_count
+          - crunchbase_url
+          - pitchbook_url
+          - instagram_url
+          - instagram_follower_count
+          - facebook_url
+          - facebook_page_like_count
+          - facebook_follower_count
+          - facebook_following_count
+          - angellist_url
+          - indeed_url
+          - monster_url
+          - stackoverflow_url
+          - glassdoor_url
+        funding:
+          anyOf:
+          - $ref: '#/components/schemas/FundingMetadata-Output'
+          - type: 'null'
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: object
+          source_big_table_column_key:
+          - company_investors
+          - investor_company_id
+          - investor_company_name
+          - person_investors
+          - investor_person_id
+          - investor_person_name
+          - funding_total
+          - num_funding_rounds
+          - last_funding_at
+          - last_funding_type
+          - last_funding_total
+          - funding_stage
+          - latest_post_money_valuation
+          - valuation_info
+          - funding_rounds
+        name_aliases:
+          items:
+            type: string
+          type: array
+          title: Name Aliases
+          default: []
+          source_big_table_column_key:
+          - name_aliases
+        website_domain_aliases:
+          items:
+            type: string
+          type: array
+          title: Website Domain Aliases
+          default: []
+          bq_to_snowflake_dsl:
+            snowflake:
+              field_type: variant
+          source_big_table_column_key:
+          - website_domain_aliases
+        corrected_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Corrected Headcount
+          source_big_table_column_key:
+          - corrected_headcount
+        external_headcount:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: External Headcount
+          source_big_table_column_key:
+          - external_headcount
+        web_traffic:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Web Traffic
+          source_big_table_column_key:
+          - web_traffic
+          - traction_metrics
+        stage:
+          anyOf:
+          - $ref: '#/components/schemas/FundingStage'
+          - $ref: '#/components/schemas/FundingType'
+          - type: 'null'
+          title: Stage
+          source_big_table_column_key:
+          - funding_stage
+        redirect_urn:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Redirect Urn
+          source_big_table_column_key:
+          - redirect_urn
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company_snapshot:id
+            title: CompanySnapshotUrn
+          - type: 'null'
+          title: Entity Urn
+        initialized_date:
+          type: string
+          title: Initialized Date
+        funding_attribute_null_status:
+          anyOf:
+          - $ref: '#/components/schemas/FundingAttributeNullStatus'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      required:
+      - initialized_date
+      title: CompanySnapshotOutput
+    CompanyRelationship:
+      properties:
+        beta_notice:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Beta Notice
+          default: Relationship data is in beta and may not be accurate, please reach out with any feedback.
+        acquisitions:
+          items:
+            $ref: '#/components/schemas/Acquisition'
+          type: array
+          title: Acquisitions
+          default: []
+        acquired_by:
+          anyOf:
+          - $ref: '#/components/schemas/Acquisition'
+          - type: 'null'
+        subsidiaries:
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          type: array
+          title: Subsidiaries
+          default: []
+        subsidiary_of:
+          anyOf:
+          - $ref: '#/components/schemas/Subsidiary'
+          - type: 'null'
+        prior_stealth_association:
+          anyOf:
+          - $ref: '#/components/schemas/StealthEmergence'
+          - type: 'null'
+        rebrands:
+          anyOf:
+          - $ref: '#/components/schemas/Rebranding'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: CompanyRelationship
+    Investor:
+      properties:
+        entity_urn:
+          anyOf:
+          - type: string
+            pattern: urn:harmonic:company:id
+            title: CompanyUrn
+          - type: string
+            pattern: urn:harmonic:person:id
+            title: PersonUrn
+          - type: 'null'
+          title: Entity Urn
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      additionalProperties: false
+      type: object
+      title: Investor
+    LocationMetadata:
+      properties:
+        address_formatted:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Address Formatted
+        location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Location
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Street
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: City
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        zip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zip
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Country
+        metro_areas:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Metro Areas
+      additionalProperties: false
+      type: object
+      title: LocationMetadata
+    StealthEmergence:
+      properties:
+        emergence_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Emergence Date
+          source_big_table_column_key:
+          - stealth_emergence_date
+        previously_known_as:
+          items:
+            type: string
+          type: array
+          title: Previously Known As
+          default: []
+          source_big_table_column_key:
+          - merged_stealth_company_names
+      additionalProperties: false
+      type: object
+      title: StealthEmergence
+    SocialMetadata:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        follower_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Follower Count
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/SocialStatus'
+          - type: 'null'
+      additionalProperties: false
+      type: object
+      title: SocialMetadata

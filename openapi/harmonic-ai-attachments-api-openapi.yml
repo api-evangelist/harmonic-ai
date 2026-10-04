@@ -612,6 +612,28 @@ components:
       - msg
       - type
       title: ValidationError
+    BatchCreateAttachmentsOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsOutput
+    GetAttachmentContentResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: GetAttachmentContentResponse
     CreateAttachmentOutput:
       properties:
         name:
@@ -659,20 +681,57 @@ components:
       - updated_at
       - uploaded_by
       title: CreateAttachmentOutput
-    BatchCompleteUploadRequest:
+    CreateAttachmentRequest:
       properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
+        name:
+          type: string
+          title: Name
+        extension:
+          type: string
+          title: Extension
+        size:
+          type: integer
+          title: Size
       additionalProperties: false
       type: object
       required:
-      - attachment_urns
-      title: BatchCompleteUploadRequest
+      - name
+      - extension
+      - size
+      title: CreateAttachmentRequest
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    BatchCreateAttachmentsRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentRequest'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsRequest
     AttachmentMetadataOutput:
       properties:
         name:
@@ -731,76 +790,17 @@ components:
       - link
       - uploaded_at
       title: AttachmentMetadataOutput
-    AttachmentMetadataListOutput:
+    BatchCompleteUploadRequest:
       properties:
-        attachments:
+        attachment_urns:
           items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
           type: array
-          title: Attachments
+          title: Attachment Urns
       additionalProperties: false
       type: object
       required:
-      - attachments
-      title: AttachmentMetadataListOutput
-    GetAttachmentContentResponse:
-      properties:
-        url:
-          type: string
-          title: Url
-      additionalProperties: false
-      type: object
-      required:
-      - url
-      title: GetAttachmentContentResponse
-    BatchCreateAttachmentsOutput:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/CreateAttachmentOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: BatchCreateAttachmentsOutput
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    CreateAttachmentRequest:
-      properties:
-        name:
-          type: string
-          title: Name
-        extension:
-          type: string
-          title: Extension
-        size:
-          type: integer
-          title: Size
-      additionalProperties: false
-      type: object
-      required:
-      - name
-      - extension
-      - size
-      title: CreateAttachmentRequest
-    BatchCreateAttachmentsRequest:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/CreateAttachmentRequest'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: BatchCreateAttachmentsRequest
+      - attachment_urns
+      title: BatchCompleteUploadRequest
