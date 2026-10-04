@@ -1,21 +1,19 @@
-# Kin Score artifact — harmonic-ai — 2026-08-29T213958
+# Kin Score artifact — harmonic-ai — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: harmonic-ai
-  schema_version: 0.16.0
-  scored_at: '2026-08-29'
-  run_ts: 2026-08-29T213958
-  composite: 47.5
-  band: developing
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 55.0
+  band: strong
   facets:
-    discoverability: 75.9
-    contract_quality: 58.9
-    governance: 18.2
-    operational_transparency: 10.5
-    developer_ergonomics: 30.4
-    commercial_clarity: 77.6
+    discoverability: 75.0
+    contract_quality: 48.6
     contract_governance: 18.2
+    operational_transparency: 18.4
+    developer_ergonomics: 32.7
     access_clarity: 77.6
   agent_readiness:
     score: 58.1
@@ -41,6 +39,12 @@ kin_score:
       protected_resource_metadata: verified
       dynamic_client_registration: true
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 45.1
+    matched_via: fallback
   provenance:
     mcp: first-party
     skills: derived
@@ -50,4 +54,4 @@ kin_score:
       total: 9
       derived: 0
       coverage: 0.0
-      callable: 100.0
+      callable: 0.0
