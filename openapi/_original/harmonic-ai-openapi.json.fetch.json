@@ -1,0 +1,12 @@
+{
+ "url": "https://api.harmonic.ai/openapi.json",
+ "requested_url": "https://api.harmonic.ai/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 286133,
+ "sha256": "468351e9205f5ba7c05ebff0b74c9c20f64301b8741fd4854c7e93ff0a571e44",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.989), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
