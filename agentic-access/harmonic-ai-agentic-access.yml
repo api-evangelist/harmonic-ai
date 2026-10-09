@@ -1,4 +1,4 @@
-generated: '2026-08-14'
+generated: '2026-09-23'
 method: generated
 source: openapi/harmonic-ai-attachments-api-openapi.yml, openapi/harmonic-ai-companies-api-openapi.yml,
   openapi/harmonic-ai-email-enrichment-api-openapi.yml, openapi/harmonic-ai-enrichment-api-openapi.yml,
@@ -9,13 +9,13 @@ description: Recommended x-agentic-access execution contracts, classified heuris
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 113
+  operations: 118
   by_action_class:
-    acting: 70
-    connected: 43
+    acting: 67
+    connected: 51
   by_consequence:
-    write: 70
-    read: 43
+    write: 67
+    read: 51
   human_in_the_loop_required: 0
 operations:
 - path: /companies/{id_or_urn}/attachments
@@ -166,6 +166,80 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /investors/{id_or_urn}/attachments
+  method: post
+  operationId: batch_create_attachments_investors__id_or_urn__attachments_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /investors/{id_or_urn}/attachments
+  method: put
+  operationId: batch_complete_upload_investors__id_or_urn__attachments_put
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /investors/{id_or_urn}/attachments
+  method: patch
+  operationId: link_attachments_investors__id_or_urn__attachments_patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /investors/{id_or_urn}/attachments/{urn}
+  method: get
+  operationId: get_attachment_content_investors__id_or_urn__attachments__urn__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /investors/{id_or_urn}/attachments/{urn}
+  method: delete
+  operationId: delete_attachment_investors__id_or_urn__attachments__urn__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /companies
   method: get
   operationId: batch_get_company_by_id_or_urn_companies_get
@@ -180,18 +254,12 @@ operations:
   method: post
   operationId: get_company_by_identifiers_companies_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /companies/entries
   method: post
   operationId: global_import_companies_companies_entries_post
@@ -658,18 +726,12 @@ operations:
   method: post
   operationId: search_companies_by_keywords_search_companies_by_keywords_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/similar_companies/{id_or_urn}
   method: get
   operationId: search_similar_companies_search_similar_companies__id_or_urn__get
@@ -740,34 +802,22 @@ operations:
   method: post
   operationId: get_company_by_identifiers_companies_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /persons
   method: post
   operationId: get_person_by_canonical_persons_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /enrichment_status
   method: get
   operationId: get_enrichment_request_status_enrichment_status_get
@@ -888,18 +938,12 @@ operations:
   method: post
   operationId: search_companies_by_keywords_search_companies_by_keywords_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/similar_companies/{id_or_urn}
   method: get
   operationId: search_similar_companies_search_similar_companies__id_or_urn__get
@@ -1180,18 +1224,12 @@ operations:
   method: post
   operationId: get_person_by_canonical_persons_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /persons/entries
   method: post
   operationId: global_import_people_persons_entries_post
@@ -1526,18 +1564,12 @@ operations:
   method: post
   operationId: search_companies_by_keywords_search_companies_by_keywords_post
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /search/similar_companies/{id_or_urn}
   method: get
   operationId: search_similar_companies_search_similar_companies__id_or_urn__get

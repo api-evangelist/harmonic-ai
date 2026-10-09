@@ -61,3 +61,27 @@ notes: >-
   Recorded as plan_count: 3 rather than 0 because the provider does name and differentiate three
   purchasable tiers; what is absent is price, not plan structure. A buyer cannot cost an integration
   from public information, and an agent cannot budget against this API.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Enterprise Console
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: API Access
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Bulk Data
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
