@@ -249,7 +249,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    LinkAttachmentsRequest:
+    BatchCompleteUploadRequest:
       properties:
         attachment_urns:
           items:
@@ -262,45 +262,7 @@ components:
       type: object
       required:
       - attachment_urns
-      title: LinkAttachmentsRequest
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    BatchCreateAttachmentsRequest:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/CreateAttachmentRequest'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: BatchCreateAttachmentsRequest
+      title: BatchCompleteUploadRequest
     BatchCreateAttachmentsOutput:
       properties:
         attachments:
@@ -313,33 +275,6 @@ components:
       required:
       - attachments
       title: BatchCreateAttachmentsOutput
-    GetAttachmentContentResponse:
-      properties:
-        url:
-          type: string
-          title: Url
-      additionalProperties: false
-      type: object
-      required:
-      - url
-      title: GetAttachmentContentResponse
-    BatchInvestorAttachmentsOutput:
-      properties:
-        entity_urn:
-          type: string
-          pattern: urn:harmonic:investor:id
-          title: InvestorUrn
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urn
-      - attachments
-      title: BatchInvestorAttachmentsOutput
     CreateAttachmentOutput:
       properties:
         name:
@@ -387,6 +322,93 @@ components:
       - updated_at
       - uploaded_by
       title: CreateAttachmentOutput
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    LinkAttachmentsRequest:
+      properties:
+        attachment_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:user_uploaded_content:id
+            title: UserUploadedContentUrn
+          type: array
+          title: Attachment Urns
+      additionalProperties: false
+      type: object
+      required:
+      - attachment_urns
+      title: LinkAttachmentsRequest
+    BatchCreateAttachmentsRequest:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/CreateAttachmentRequest'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: BatchCreateAttachmentsRequest
+    AttachmentMetadataListOutput:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - attachments
+      title: AttachmentMetadataListOutput
+    BatchInvestorAttachmentsRequest:
+      properties:
+        entity_urns:
+          items:
+            type: string
+            pattern: urn:harmonic:investor:id
+            title: InvestorUrn
+          type: array
+          title: Entity Urns
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urns
+      title: BatchInvestorAttachmentsRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     CreateAttachmentRequest:
       properties:
         name:
@@ -405,55 +427,6 @@ components:
       - extension
       - size
       title: CreateAttachmentRequest
-    AttachmentMetadataListOutput:
-      properties:
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentMetadataOutput'
-          type: array
-          title: Attachments
-      additionalProperties: false
-      type: object
-      required:
-      - attachments
-      title: AttachmentMetadataListOutput
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    BatchInvestorAttachmentsRequest:
-      properties:
-        entity_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:investor:id
-            title: InvestorUrn
-          type: array
-          title: Entity Urns
-      additionalProperties: false
-      type: object
-      required:
-      - entity_urns
-      title: BatchInvestorAttachmentsRequest
-    BatchDeleteAttachmentsRequest:
-      properties:
-        attachment_urns:
-          items:
-            type: string
-            pattern: urn:harmonic:user_uploaded_content:id
-            title: UserUploadedContentUrn
-          type: array
-          title: Attachment Urns
-      additionalProperties: false
-      type: object
-      required:
-      - attachment_urns
-      title: BatchDeleteAttachmentsRequest
     AttachmentMetadataOutput:
       properties:
         name:
@@ -512,7 +485,34 @@ components:
       - link
       - uploaded_at
       title: AttachmentMetadataOutput
-    BatchCompleteUploadRequest:
+    BatchInvestorAttachmentsOutput:
+      properties:
+        entity_urn:
+          type: string
+          pattern: urn:harmonic:investor:id
+          title: InvestorUrn
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentMetadataOutput'
+          type: array
+          title: Attachments
+      additionalProperties: false
+      type: object
+      required:
+      - entity_urn
+      - attachments
+      title: BatchInvestorAttachmentsOutput
+    GetAttachmentContentResponse:
+      properties:
+        url:
+          type: string
+          title: Url
+      additionalProperties: false
+      type: object
+      required:
+      - url
+      title: GetAttachmentContentResponse
+    BatchDeleteAttachmentsRequest:
       properties:
         attachment_urns:
           items:
@@ -525,4 +525,4 @@ components:
       type: object
       required:
       - attachment_urns
-      title: BatchCompleteUploadRequest
+      title: BatchDeleteAttachmentsRequest
