@@ -1,4 +1,4 @@
-# harmonic-ai
+# Harmonic.ai
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,4 +64,155 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Startup discovery and intelligence platform built on a proprietary database of 30M+ companies and 200M+ people, offering real-time funding data, headcount/traction metrics, team composition, and investor relationships via REST, GraphQL, and a hosted MCP server.
+Startup discovery and intelligence platform built on a proprietary database of 30M+ companies and 200M+ people, offering real-time funding data, headcount/traction metrics, team composition, and investor relationships via REST, GraphQL, and a hosted MCP server. Used by venture capital, growth equity, corporate development, and go-to-market teams to find, research, and qualify startups programmatically or through the console web app, Chrome extension, bulk data exports (BigQuery/Snowflake/S3), and CRM integrations (Salesforce/HubSpot/Affinity).
+
+**Areas:** Startup Intelligence · Venture Capital · Company Data · People Data · investor-data · Funding Data · Data Enrichment · Sales Intelligence · Market Intelligence · GraphQL · MCP · Agent-Native
+
+## Harmonic.ai on APIs.io
+
+Everything profiled for Harmonic.ai is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/harmonic-ai/](https://apis.io/providers/harmonic-ai/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Harmonic REST & GraphQL API](https://apis.io/apis/harmonic-ai/harmonic-rest-graphql-api/) — REST API for company search, enrichment, saved searches, list management, and bulk operations, plus a full GraphQL endpoint for flexible queries across…
+- [Harmonic MCP Server](https://apis.io/apis/harmonic-ai/harmonic-mcp-server/) — Hosted, agent-native MCP server exposing 40+ tools for enrichment, search, saved searches, lists, investors, network mapping, batch lookup, custom fields,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Harmonic Ai Event Surface](https://apis.io/asyncapis/harmonic-ai/harmonic-ai-event-surface/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [harmonic](https://apis.io/servers/harmonic-ai/harmonic/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Harmonic Ai Agentic Access](https://apis.io/agentic-access/harmonic-ai/harmonic-ai-agentic-access/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Harmonic.ai Public attachments API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-attachments-api/)
+- [Harmonic.ai Public companies API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-companies-api/)
+- [Harmonic.ai Public email_enrichment API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-email-enrichment-api/)
+- [Harmonic.ai Public enrichment API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-enrichment-api/)
+- [Harmonic.ai Public investors API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-investors-api/)
+- [Harmonic.ai Public people API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-people-api/)
+- [Harmonic.ai Public persons API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-persons-api/)
+- [Harmonic.ai Public saved_searches API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-saved-searches-api/)
+- [Harmonic.ai Public search API](https://apis.io/collections/harmonic-ai/open-harmonic-ai-search-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Harmonic Ai Security Overlay](https://apis.io/overlays/harmonic-ai/harmonic-ai-security-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Harmonic Ai Authentication](https://apis.io/security/harmonic-ai/harmonic-ai-authentication/)
+- [Harmonic Ai Domain Security](https://apis.io/security/harmonic-ai/harmonic-ai-domain-security/)
+- [Harmonic Ai Vulnerability Disclosure](https://apis.io/security/harmonic-ai/harmonic-ai-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Harmonic Ai Scopes](https://apis.io/scopes/harmonic-ai/harmonic-ai-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Harmonic Ai Plans Pricing](https://apis.io/plans/harmonic-ai/harmonic-ai-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Harmonic Ai Rate Limits](https://apis.io/rate-limits/harmonic-ai/harmonic-ai-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.harmonic.ai/)
+- [Documentation](https://console.harmonic.ai/docs/api-reference/introduction)
+- [Getting started](https://console.harmonic.ai/docs/getting-started)
+- [API reference](https://console.harmonic.ai/docs/api-reference/introduction)
+- [Pricing](https://harmonic.ai/pricing)
+- [Sign up](https://console.harmonic.ai/signup)
+- [Support](https://support.harmonic.ai/)
+- [Changelog](https://console.harmonic.ai/docs/changelog)
+- [Blog](https://harmonic.ai/blog)
+- [Terms of service](https://harmonic.ai/legal/terms-of-service)
+- [Privacy policy](https://harmonic.ai/legal/privacy-policy)
+- [Status](https://status.harmonic.ai)
+
+## API Evangelist rating
+
+**Kin Score 55.1** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 48.6 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 32.7 |
+| Access clarity | 77.6 |
+
+**Agent readiness 58.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/harmonic-ai/](https://apis.io/providers/harmonic-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Harmonic.ai: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/harmonic-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
